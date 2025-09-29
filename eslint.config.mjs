@@ -42,7 +42,6 @@ export default antfu(
       '**/*.ts',
       '**/*.vue',
       '**/*.yaml',
-      '**/*.yaml',
       '**/*.yml',
     ],
 
@@ -58,12 +57,13 @@ export default antfu(
       ],
       'import/extensions': [ // ensure consistent file extensions in import declarations
         'error',
-        'always',
+        'ignorePackages',
         {
           gltf: 'always',
-          js: 'always',
+          js: 'never',
+          mjs: 'never',
           ts: 'never',
-          vue: 'always',
+          vue: 'never',
         },
       ],
       'jsonc/sort-keys': [
