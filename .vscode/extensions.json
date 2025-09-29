@@ -1,6 +1,5 @@
 {
   "recommendations": [
-    "antfu.goto-alias",
     "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
     "Vue.volar"
