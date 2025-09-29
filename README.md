@@ -92,15 +92,16 @@ _(including images & 3D models; mostly only those requiring attribution)_
 
 ## License
 
-The source code in this repository is licensed under the [MIT License](./LICENSE.md).
+Copyright (c) 2025-present, [Thorsten Seyschab](https://todde.tv)
 
-⚠️ **Important Notice Regarding Content**<br>
-The contents of the `/content`, `/public`, and `/assets` directories (such as media files, 3D models,
-JSON/YAML/Markdown data, etc.) are **not** licensed under MIT.<br>
-These materials remain the intellectual property of their respective creators and are included here
-only for use within this project.
+The source code in this repository is licensed under the **Creative Commons Attribution 4.0 International License ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))**. Under this license, others are allowed to remix, adapt, and build upon this work, provided they credit the project founder.
 
-You **may not** reuse, redistribute, or repurpose these materials without obtaining explicit permission
-from their authors.
+Please note that this license applies only to the original content authored by the project’s creators. Third-party libraries, assets, images, 3D models, and other materials utilized in this project are listed under "Attribution/ Contribution" above and remain the property of their original creators, licensed under their respective terms.
 
-Please refer to the [LICENSE.md](./LICENSE.md) file for full details.
+The project founder reserves the right to modify the terms of this license or to offer different licensing arrangements for specific use cases.
+
+Please see the [LICENSE.md](./LICENSE.md) file for full details, including important exceptions for specific content directories.
+
+### Need a Different License?
+
+If you are interested in discussing a different licensing arrangement for individual use cases, please feel free to reach out. Custom licensing may be available, but it is not guaranteed.
