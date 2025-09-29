@@ -21,7 +21,7 @@ TODO
 ### Project Contributors
 
 <a href="https://github.com/toddeTV/quick-conf/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=toddeTV/quick-conf" />
+<img src="https://contrib.rocks/image?repo=toddeTV/quick-conf" alt="Contributors to toddeTV/quick-conf" />
 </a>
 
 ### Current Core Team Members
