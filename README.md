@@ -1,63 +1,27 @@
-# printed-europe.com
+# quick-conf
 
-This is the project for the [printed-europe.com](https://printed-europe.com) conference website build with ❤️ &
-[NuxtJS](https://github.com/nuxt/nuxt).
+This is a template for quickly setting up a new Conference website with various functionalities.
 
 ## Sponsoring
 
-If you like this project and want to support us, we would be very happy to see you as a sponsor on GitHub ❤️<br>
-You can find the `Sponsor` button on the top right of the
-[GitHub project page](https://github.com/toddeTV/printed-europe.com).<br>
+If you like this project and want to support me, I would be very happy to see you as a sponsor on GitHub ❤️<br>
+You can find the `Sponsor` button on the top right of the [GitHub project page](https://github.com/toddeTV/quick-conf).<br>
 Thanks a lot for the support <3
 
-## Production
+## Want to use the template for setting up a conference website?
 
-Currenly no deployment.
+TODO
 
-<!-- TODO -->
+## Want to contribute to the template itself?
 
-## Development
-
-### Info
-
-This project uses `node` with `pnpm` as default package manager.
-
-### Getting Started
-
-1. Clone the repository.
-2. Install dependencies:
-   ```sh
-   pnpm install --frozen-lockfile
-   ```
-3. No `.env` file is required for this project at the moment.
-4. Happy coding! ❤️
-
-### lint and prettier
-
-This project uses lint also for formatting. Read
-[why Prettier is not used for every file type](https://antfu.me/posts/why-not-prettier) by antfu.
-
-This project uses [antfu/eslint-config](https://github.com/antfu/eslint-config) for eslint most of the files.
-
-Keep in mind that the plugin names are renamed, see
-[Plugins Rename](https://github.com/antfu/eslint-config?tab=readme-ov-file#plugins-renaming), e.g.:
-
-```diff
--// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
-+// eslint-disable-next-line ts/consistent-type-definitions
-type foo = { bar: 2 }
-```
-
-### Design Guidelines
-
-<!-- TODO -->
+TODO
 
 ## Contribution & Attribution
 
 ### Project Contributors
 
-<a href="https://github.com/toddeTV/printed-europe.com/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=toddeTV/printed-europe.com" />
+<a href="https://github.com/toddeTV/quick-conf/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=toddeTV/quick-conf" alt="Contributors to toddeTV/quick-conf" />
 </a>
 
 ### Current Core Team Members
@@ -83,7 +47,7 @@ _(Projects that provided valuable inspiration or resources.)_
 _(excluding those listed in `./package.json`)_
 
 - [Twitch @toddeTV](https://twitch.tv/toddeTV) was used for live streaming the development of this project.
-- [GitHub Copilot](https://github.com/features/copilot) was used in private mode for programming questions.
+- [CodeRabbit](https://www.coderabbit.ai/) was used as an AI code review assistant to help improve code quality and maintain best practices.
 
 **Assets & Materials Used:**<br>
 _(including images & 3D models; mostly only those requiring attribution)_
@@ -92,15 +56,16 @@ _(including images & 3D models; mostly only those requiring attribution)_
 
 ## License
 
-The source code in this repository is licensed under the [MIT License](./LICENSE.md).
+Copyright (c) 2025-present, [Thorsten Seyschab](https://todde.tv)
 
-⚠️ **Important Notice Regarding Content**<br>
-The contents of the `/content`, `/public`, and `/assets` directories (such as media files, 3D models,
-JSON/YAML/Markdown data, etc.) are **not** licensed under MIT.<br>
-These materials remain the intellectual property of their respective creators and are included here
-only for use within this project.
+The source code in this repository is licensed under the **Creative Commons Attribution 4.0 International License ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))**. Under this license, others are allowed to remix, adapt, and build upon this work, provided they credit the project founder.
 
-You **may not** reuse, redistribute, or repurpose these materials without obtaining explicit permission
-from their authors.
+Please note that this license applies only to the original content authored by the project’s creators. Third-party libraries, assets, images, 3D models, and other materials utilized in this project are listed under "Attribution/ Contribution" above and remain the property of their original creators, licensed under their respective terms.
 
-Please refer to the [LICENSE.md](./LICENSE.md) file for full details.
+The project founder reserves the right to modify the terms of this license or to offer different licensing arrangements for specific use cases.
+
+Please see the [LICENSE.md](./LICENSE.md) file for full details, including important exceptions for specific content directories.
+
+### Need a Different License?
+
+If you are interested in discussing a different licensing arrangement for individual use cases, please feel free to reach out. Custom licensing may be available, but it is not guaranteed.

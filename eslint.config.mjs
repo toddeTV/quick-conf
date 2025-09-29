@@ -32,6 +32,8 @@ export default antfu(
     vue: true,
 
     yaml: true,
+
+    markdown: true,
   },
   {
     files: [
@@ -41,7 +43,6 @@ export default antfu(
       '**/*.md',
       '**/*.ts',
       '**/*.vue',
-      '**/*.yaml',
       '**/*.yaml',
       '**/*.yml',
     ],
@@ -58,12 +59,13 @@ export default antfu(
       ],
       'import/extensions': [ // ensure consistent file extensions in import declarations
         'error',
-        'always',
+        'ignorePackages',
         {
           gltf: 'always',
-          js: 'always',
+          js: 'never',
+          mjs: 'never',
           ts: 'never',
-          vue: 'always',
+          vue: 'never',
         },
       ],
       'jsonc/sort-keys': [
@@ -82,6 +84,13 @@ export default antfu(
           singleline: 3,
         },
       ],
+    },
+  },
+  {
+    // Disable max-len rule specifically for Markdown files
+    files: ['**/*.md'],
+    rules: {
+      'style/max-len': 'off',
     },
   },
 )
