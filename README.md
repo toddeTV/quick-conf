@@ -8,13 +8,17 @@ If you like this project and want to support me, I would be very happy to see yo
 You can find the `Sponsor` button on the top right of the [GitHub project page](https://github.com/toddeTV/quick-conf).<br>
 Thanks a lot for the support <3
 
+## Documentation
+
+All Documentation can be found in the (/docs)[/docs] folder.
+
 ## Want to use the template for setting up a conference website?
 
 TODO
 
 ## Want to contribute to the template itself?
 
-TODO
+Start with the documentation file (developer-setup.md)[/docs/developer-setup.md] for local setup and usage of the project.
 
 ## Contribution & Attribution
 
