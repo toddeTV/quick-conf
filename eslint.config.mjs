@@ -84,4 +84,11 @@ export default antfu(
       ],
     },
   },
+  {
+    // Disable max-len rule specifically for Markdown files
+    files: ['**/*.md'],
+    rules: {
+      'style/max-len': 'off',
+    },
+  },
 )
