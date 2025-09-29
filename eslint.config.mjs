@@ -32,6 +32,8 @@ export default antfu(
     vue: true,
 
     yaml: true,
+
+    markdown: true,
   },
   {
     files: [
