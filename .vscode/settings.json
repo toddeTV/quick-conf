@@ -76,5 +76,4 @@
   "typescript.preferences.importModuleSpecifierEnding": "js",
   "typescript.preferences.renameMatchingJsxTags": true,
   "typescript.tsdk": "node_modules/typescript/lib"
-
 }

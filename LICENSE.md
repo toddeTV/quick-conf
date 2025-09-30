@@ -1,6 +1,15 @@
-MIT License (for Source Code only)
+# License
 
-Copyright (c) 2025-present [Thorsten Seyschab](https://todde.tv)
+**Copyright (c) 2025-present, [Thorsten Seyschab](https://todde.tv)**
+
+This project is provided under a dual-license structure. The source code is licensed under the **MIT License**, while specific directories containing creative assets and content are subject to separate, more restrictive terms.
+
+## MIT License (Source Code)
+
+This license applies to all files within this repository **except** for the contents of the `/content`, `/public`, and `/assets` directories.
+
+```
+Copyright (c) 2025-present, Thorsten Seyschab
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of the source code of this software and associated documentation files (the "Software"), to deal
@@ -19,22 +28,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
 
----
+## Content and Asset License (Restricted)
 
-🔒 **Content License Notice**
+This license applies to all files located within the following directories (including e.g., Markdown, JSON, YAML data, images, 3D models, videos, media and asset files in general):
 
-All content files located in the following directories are **not** covered by the MIT License:
+- `/content`
+- `/public`
+- `/assets`
 
-- `/content` (e.g., YAML, Markdown, JSON)
-- `/public` (e.g., media, images, 3D models, visuals)
-- `/assets` (e.g., media, images, 3D models, visuals)
+**All Rights Reserved.**
 
-These materials remain the property of their respective creators and are included in this
-repository **with permission** for use in this project only.
+The materials in these directories are the intellectual property of their respective creators. They are included in this template for demonstration and illustrative purposes only.
 
-No rights are granted to use, copy, modify, distribute, or publish these materials outside of this
-repository without obtaining a separate license or explicit permission from the original authors.
+You are **not** granted any rights to:
 
-Cloning or forking this repository does **not** include permission to reuse the content in these
-directories. Please contact the content creators directly to obtain the necessary usage rights.
+- Reuse or redistribute these materials in any form.
+- Create derivative works from these materials.
+- Use these materials outside of this specific project template.
+
+Cloning or forking this repository does not grant you a license to use the content and assets in these directories for your own projects. You must obtain explicit permission or a separate license from the original authors to use these materials.
