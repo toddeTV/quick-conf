@@ -43,21 +43,11 @@ const columns: FooterColumn[] = [
   {
     label: 'Social Media',
     children: [
-      {
-        label: 'Twitter',
-        icon: 'i-simple-icons-x',
-        to: 'https://x.com/PrintedEurope',
-      },
-      {
-        label: 'Linkedin',
-        icon: 'i-simple-icons-linkedin',
-        to: 'https://www.instagram.com/printedeurope',
-      },
-      {
-        label: 'Instagram',
-        icon: 'i-simple-icons-instagram',
-        to: 'https://www.linkedin.com/company/printed-worldconference',
-      },
+      // {
+      //   label: '',
+      //   icon: '',
+      //   to: 'https://...',
+      // },
     ],
   },
 ]
