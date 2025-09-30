@@ -1,3 +1,8 @@
+<script setup lang="ts">
+// Generate a random UUID-like ID using Math.random()
+const randomId = `pattern-${Math.random().toString(36).substring(2, 15)}-${Math.random().toString(36).substring(2, 15)}`
+</script>
+
 <template>
   <div
     class="relative overflow-hidden rounded-sm border border-dashed
@@ -11,6 +16,7 @@
     >
       <defs>
         <pattern
+          :id="randomId"
           height="10"
           patternUnits="userSpaceOnUse"
           width="10"
@@ -21,7 +27,7 @@
         </pattern>
       </defs>
       <rect
-        fill="url(#pattern-cb49ce14-2657-4b6a-ad69-bcaed71606f4)"
+        :fill="`url(#${randomId})`"
         height="100%"
         stroke="none"
         width="100%"
