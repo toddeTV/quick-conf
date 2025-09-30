@@ -34,23 +34,25 @@ useSeoMeta({
 
 <template>
   <template v-if="talk">
-    <UPageHeader :description="talk.description" :title="talk.title" />
+    <UContainer>
+      <UPageHeader :description="talk.description" :title="talk.title" />
 
-    <div>
-      Stage: {{ stage?.name }}
-    </div>
-
-    <div>
-      Speakers:<br>
-      <div v-for="speaker in speakers" :key="speaker.slug">
-        <NuxtLink :to="`/speakers/${speaker.slug}`">
-          {{ speaker.name }}<br>
-          {{ speaker.image }}
-          <NuxtImg class="w-16 h-16 object-cover" :src="speaker.image" />
-        </NuxtLink>
+      <div>
+        Stage: {{ stage?.name }}
       </div>
-    </div>
 
-    <ContentRenderer v-if="talk.body" :value="talk" />
+      <div>
+        Speakers:<br>
+        <div v-for="speaker in speakers" :key="speaker.slug">
+          <NuxtLink :to="`/speakers/${speaker.slug}`">
+            {{ speaker.name }}<br>
+            {{ speaker.image }}
+            <NuxtImg class="w-16 h-16 object-cover" :src="speaker.image" />
+          </NuxtLink>
+        </div>
+      </div>
+
+      <ContentRenderer v-if="talk.body" :value="talk" />
+    </UContainer>
   </template>
 </template>

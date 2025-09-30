@@ -2,5 +2,7 @@
 </script>
 
 <template>
-  Tickets
+  <UContainer>
+    Tickets
+  </UContainer>
 </template>

@@ -22,6 +22,8 @@ useSeoMeta({
 
 <template>
   <template v-if="page">
-    <ContentRenderer v-if="page.body" :value="page" />
+    <UContainer>
+      <ContentRenderer v-if="page.body" :value="page" />
+    </UContainer>
   </template>
 </template>

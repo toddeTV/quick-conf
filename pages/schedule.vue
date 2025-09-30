@@ -47,12 +47,14 @@ useSeoMeta({
 
 <template>
   <template v-if="talks">
-    <UPageHeader :description="description" :title="title" />
+    <UContainer>
+      <UPageHeader :description="description" :title="title" />
 
-    <div v-for="talk in processedData" :key="talk.slug">
-      <NuxtLink :to="`/talks/${talk.slug}`">
-        {{ talk.title }} at {{ talk.dateTime }}
-      </NuxtLink>
-    </div>
+      <div v-for="talk in processedData" :key="talk.slug">
+        <NuxtLink :to="`/talks/${talk.slug}`">
+          {{ talk.title }} at {{ talk.dateTime }}
+        </NuxtLink>
+      </div>
+    </UContainer>
   </template>
 </template>

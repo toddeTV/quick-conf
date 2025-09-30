@@ -26,17 +26,19 @@ useSeoMeta({
 
 <template>
   <template v-if="speaker">
-    <UPageHeader :description="speaker.description" :title="speaker.title" />
+    <UContainer>
+      <UPageHeader :description="speaker.description" :title="speaker.title" />
 
-    <ContentRenderer v-if="speaker.body" :value="speaker" />
+      <ContentRenderer v-if="speaker.body" :value="speaker" />
 
-    <div>
-      Given Talks/Workshops:<br>
-      <div v-for="talk in talks" :key="talk.slug">
-        <NuxtLink :to="`/talks/${talk.slug}`">
-          {{ talk.title }}
-        </NuxtLink>
+      <div>
+        Given Talks/Workshops:<br>
+        <div v-for="talk in talks" :key="talk.slug">
+          <NuxtLink :to="`/talks/${talk.slug}`">
+            {{ talk.title }}
+          </NuxtLink>
+        </div>
       </div>
-    </div>
+    </UContainer>
   </template>
 </template>

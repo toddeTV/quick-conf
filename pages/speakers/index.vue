@@ -13,12 +13,14 @@ useSeoMeta({
 
 <template>
   <template v-if="speakers">
-    <UPageHeader :description="description" :title="title" />
+    <UContainer>
+      <UPageHeader :description="description" :title="title" />
 
-    <div v-for="speaker in speakers" :key="speaker.slug">
-      <NuxtLink :to="`/speakers/${speaker.slug}`">
-        {{ speaker.name }}
-      </NuxtLink>
-    </div>
+      <div v-for="speaker in speakers" :key="speaker.slug">
+        <NuxtLink :to="`/speakers/${speaker.slug}`">
+          {{ speaker.name }}
+        </NuxtLink>
+      </div>
+    </UContainer>
   </template>
 </template>
