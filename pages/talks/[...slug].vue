@@ -1,7 +1,18 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const slug_talk = String(route.params.slug)
+let slug_talk: string
+try {
+  slug_talk = normalizeSlug(route.params.slug)
+}
+catch (error) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: error instanceof Error ? error.message : 'No Talk Provided',
+    fatal: true,
+  })
+}
+
 const { data: talk } = await useAsyncData(route.path, () =>
   queryCollection('talks').where('slug', '=', slug_talk).first())
 
@@ -24,37 +35,42 @@ const [
   useAsyncData(`${route.path}-speakers`, () => queryCollection('speakers').where('slug', 'IN', slug_speakers).all()),
 ])
 
-const title = talk.value.seo.title || talk.value.title
-const description = talk.value.seo.description || talk.value.description
+const seoMetadata = extractSeoMetadata(talk.value)
+// const { title, description } = seoMetadata
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-
-  description,
-  ogDescription: description,
+  ...getSeoMetaBase(seoMetadata),
 })
 </script>
 
 <template>
   <template v-if="talk">
-    <AppHeader :description="talk.description" :title="talk.title" />
+    <UContainer>
+      <UPageHeader :description="talk.description" :title="talk.title" />
 
-    <div>
-      Stage: {{ stage?.name }}
-    </div>
-
-    <div>
-      Speakers:<br>
-      <div v-for="speaker in speakers" :key="speaker.slug">
-        <NuxtLink :to="`/speakers/${speaker.slug}`">
-          {{ speaker.name }}<br>
-          {{ speaker.image }}
-          <NuxtImg class="w-16 h-16 object-cover" :src="speaker.image" />
-        </NuxtLink>
+      <div>
+        Stage: {{ stage?.name }}
       </div>
-    </div>
 
-    <ContentRenderer v-if="talk.body" :value="talk" />
+      <div>
+        Speakers:<br>
+        <div v-for="speaker in speakers" :key="speaker.slug">
+          <NuxtLink
+            :aria-label="`View details for Speaker ${speaker.name}`"
+            :to="`/speakers/${speaker.slug}`"
+          >
+            {{ speaker.name }}<br>
+            {{ speaker.image }}
+            <NuxtImg
+              :alt="`image of ${speaker.name}`"
+              class="w-16 h-16 object-cover"
+              :src="speaker.image"
+            />
+          </NuxtLink>
+        </div>
+      </div>
+
+      <ContentRenderer v-if="talk.body" :value="talk" />
+    </UContainer>
   </template>
 </template>

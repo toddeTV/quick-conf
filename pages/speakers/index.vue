@@ -3,26 +3,30 @@ const route = useRoute()
 
 const { data: speakers } = await useAsyncData(route.path, () => queryCollection('speakers').all())
 
-const title = 'Speakers List'
-const description = 'List of speakers for the event'
+const seoMetadata = extractSeoMetadata({
+  title: 'Speakers List',
+  description: 'List of speakers for the event',
+})
+const { title, description } = seoMetadata
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-
-  description,
-  ogDescription: description,
+  ...getSeoMetaBase(seoMetadata),
 })
 </script>
 
 <template>
   <template v-if="speakers">
-    <AppHeader :description="description" :title="title" />
+    <UContainer>
+      <UPageHeader :description="description" :title="title" />
 
-    <div v-for="speaker in speakers" :key="speaker.slug">
-      <NuxtLink :to="`/speakers/${speaker.slug}`">
-        {{ speaker.name }}
-      </NuxtLink>
-    </div>
+      <div v-for="speaker in speakers" :key="speaker.slug">
+        <NuxtLink
+          :aria-label="`View details for Speaker '${speaker.name}'`"
+          :to="`/speakers/${speaker.slug}`"
+        >
+          {{ speaker.name }}
+        </NuxtLink>
+      </div>
+    </UContainer>
   </template>
 </template>

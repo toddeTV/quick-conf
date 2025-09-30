@@ -47,7 +47,7 @@ _(People who provided valuable help on specific topics or issues)_
 **Helpful Projects:**<br>
 _(Projects that provided valuable inspiration or resources.)_
 
-- \[currently none\]
+- [Nuxt SaaS Template](https://github.com/nuxt-ui-templates/saas) served as a helpful source of inspiration at the start of the project and was occasionally referenced for some code, best practices and structural ideas.
 
 **Additional Tools:**<br>
 _(excluding those listed in `./package.json`)_

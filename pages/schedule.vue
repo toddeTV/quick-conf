@@ -37,26 +37,30 @@ const processedData = computed<ProcessedDataType[]>(() => {
   })
 })
 
-const title = 'Schedule'
-const description = 'List of talks for the event with time and stage information'
+const seoMetadata = extractSeoMetadata({
+  title: 'Schedule',
+  description: 'List of talks for the event with time and stage information',
+})
+const { title, description } = seoMetadata
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-
-  description,
-  ogDescription: description,
+  ...getSeoMetaBase(seoMetadata),
 })
 </script>
 
 <template>
   <template v-if="talks">
-    <AppHeader :description="description" :title="title" />
+    <UContainer>
+      <UPageHeader :description="description" :title="title" />
 
-    <div v-for="talk in processedData" :key="talk.slug">
-      <NuxtLink :to="`/talks/${talk.slug}`">
-        {{ talk.title }} at {{ talk.dateTime }}
-      </NuxtLink>
-    </div>
+      <div v-for="talk in processedData" :key="talk.slug">
+        <NuxtLink
+          :aria-label="`View details for ${talk.title} at ${talk.dateTime}`"
+          :to="`/talks/${talk.slug}`"
+        >
+          {{ talk.title }} at {{ talk.dateTime }}
+        </NuxtLink>
+      </div>
+    </UContainer>
   </template>
 </template>

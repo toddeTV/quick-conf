@@ -1,2 +1,14 @@
 @import 'tailwindcss';
 @import '@nuxt/ui-pro';
+
+@theme static {
+  --font-sans: 'Public Sans', sans-serif;
+  --breakpoint-xs: 480px;
+}
+
+.dark {
+  --ui-bg: var(--ui-color-neutral-950);
+  --ui-bg-muted: var(--ui-color-neutral-900);
+  --ui-bg-elevated: var(--ui-color-neutral-900);
+  --ui-bg-accented: var(--ui-color-neutral-800);
+}

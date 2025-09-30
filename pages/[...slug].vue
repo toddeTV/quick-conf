@@ -12,20 +12,18 @@ if (!page.value) {
   })
 }
 
-const title = page.value.seo.title || page.value.title
-const description = page.value.seo.description || page.value.description
+const seoMetadata = extractSeoMetadata(page.value)
+// const { title, description } = seoMetadata
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-
-  description,
-  ogDescription: description,
+  ...getSeoMetaBase(seoMetadata),
 })
 </script>
 
 <template>
   <template v-if="page">
-    <ContentRenderer v-if="page.body" :value="page" />
+    <UContainer>
+      <ContentRenderer v-if="page.body" :value="page" />
+    </UContainer>
   </template>
 </template>

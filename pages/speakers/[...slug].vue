@@ -1,7 +1,18 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const slug_speaker = String(route.params.slug)
+let slug_speaker: string
+try {
+  slug_speaker = normalizeSlug(route.params.slug)
+}
+catch (error) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: error instanceof Error ? error.message : 'No Speaker Provided',
+    fatal: true,
+  })
+}
+
 const { data: speaker } = await useAsyncData(route.path, () =>
   queryCollection('speakers').where('slug', '=', slug_speaker).first())
 
@@ -16,31 +27,32 @@ if (!speaker.value) {
 const { data: talks } = await useAsyncData(`${route.path}-talks`, () =>
   queryCollection('talks').where('speakers', 'LIKE', `%"${slug_speaker}"%`).all())
 
-const title = speaker.value.seo.title || speaker.value.title
-const description = speaker.value.seo.description || speaker.value.description
+const seoMetadata = extractSeoMetadata(speaker.value)
+// const { title, description } = seoMetadata
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-
-  description,
-  ogDescription: description,
+  ...getSeoMetaBase(seoMetadata),
 })
 </script>
 
 <template>
   <template v-if="speaker">
-    <AppHeader :description="speaker.description" :title="speaker.title" />
+    <UContainer>
+      <UPageHeader :description="speaker.description" :title="speaker.name" />
 
-    <ContentRenderer v-if="speaker.body" :value="speaker" />
+      <ContentRenderer v-if="speaker.body" :value="speaker" />
 
-    <div>
-      Given Talks/Workshops:<br>
-      <div v-for="talk in talks" :key="talk.slug">
-        <NuxtLink :to="`/talks/${talk.slug}`">
-          {{ talk.title }}
-        </NuxtLink>
+      <div>
+        Given Talks/Workshops:<br>
+        <div v-for="talk in talks" :key="talk.slug">
+          <NuxtLink
+            :aria-label="`View details for Talk '${talk.title}'`"
+            :to="`/talks/${talk.slug}`"
+          >
+            {{ talk.title }}
+          </NuxtLink>
+        </div>
       </div>
-    </div>
+    </UContainer>
   </template>
 </template>
