@@ -85,7 +85,11 @@ const columns: FooterColumn[] = [
           quick-conf
         </NuxtLink>
         <!-- @ -->
-        <Icon class="inline-block w-3.5 h-3.5 mx-0.5" name="lucide:heart" />
+        <UIcon
+          aria-hidden="true"
+          class="inline-block w-3.5 h-3.5 mx-0.5"
+          name="lucide:heart"
+        />
         <NuxtLink
           class="text-primary/70"
           target="_blank"
