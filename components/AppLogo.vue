@@ -1,5 +1,4 @@
 <template>
-  <!-- TODO use correct CD colors for light-/dark-Mode -->
   <svg
     fill="none"
     height="75"
