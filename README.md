@@ -64,7 +64,7 @@ This project is a template and is licensed under a dual-license structure. The s
 
 - **Source Code:** The source code in this repository is licensed under the **MIT License**. You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
 
-- **Content & Assets:** The contents of the `/content`, `/public`, and `/assets` directories (such as images, 3D models, videos, and data files) are **not** licensed under MIT. These materials are the intellectual property of their respective creators and are provided for demonstration purposes within this template only. You may not reuse, redistribute, or create derivative works from these materials without explicit permission from the original authors.
+- **Content & Assets:** The contents of the `/content`, `/public`, and `/assets` directories (such as images, 3D models, videos, and data files) are **not** licensed under MIT. These materials are the intellectual property of their respective creators and are provided solely as placeholders for local development. Remove or replace them before distributing your site. Unless a file carries its own license, no rights are granted to reuse these materials. You may not reuse, redistribute, or create derivative works from these materials without explicit permission from the original authors.
 
 Please refer to the [LICENSE.md](/LICENSE.md) file for full details.
 
