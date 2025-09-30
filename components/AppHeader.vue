@@ -3,7 +3,7 @@ const route = useRoute()
 
 const items = computed(() => [
   {
-    label: 'Schedule', // TODO call it Program & rename the collection?
+    label: 'Schedule',
     to: '/schedule',
     active: route.path.startsWith('/schedule') || route.path.startsWith('/talks'),
   },
