@@ -89,7 +89,7 @@ const columns: FooterColumn[] = [
         <UIcon
           aria-hidden="true"
           class="inline-block w-3.5 h-3.5 mx-0.5"
-          name="lucide:heart"
+          name="i-lucide-heart"
         />
         <NuxtLink
           aria-label="Website of Thorsten Seyschab"
