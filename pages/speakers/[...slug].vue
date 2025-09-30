@@ -16,11 +16,11 @@ if (!speaker.value) {
 const { data: talks } = await useAsyncData(`${route.path}-talks`, () =>
   queryCollection('talks').where('speakers', 'LIKE', `%"${slug_speaker}"%`).all())
 
-const title = speaker.value.seo.title || speaker.value.title
-const description = speaker.value.seo.description || speaker.value.description
+const seoMetadata = extractSeoMetadata(speaker.value)
+// const { title, description } = seoMetadata
 
 useSeoMeta({
-  ...getSeoMetaBase(title, description),
+  ...getSeoMetaBase(seoMetadata),
 })
 </script>
 

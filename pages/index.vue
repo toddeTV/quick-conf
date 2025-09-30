@@ -11,11 +11,11 @@ if (!data.value) {
   })
 }
 
-const title = data.value.seo.title || data.value.title
-const description = data.value.seo.description || data.value.description
+const seoMetadata = extractSeoMetadata(data.value)
+// const { title, description } = seoMetadata
 
 useSeoMeta({
-  ...getSeoMetaBase(title, description),
+  ...getSeoMetaBase(seoMetadata),
 })
 </script>
 

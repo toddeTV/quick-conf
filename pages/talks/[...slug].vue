@@ -24,11 +24,11 @@ const [
   useAsyncData(`${route.path}-speakers`, () => queryCollection('speakers').where('slug', 'IN', slug_speakers).all()),
 ])
 
-const title = talk.value.seo.title || talk.value.title
-const description = talk.value.seo.description || talk.value.description
+const seoMetadata = extractSeoMetadata(talk.value)
+// const { title, description } = seoMetadata
 
 useSeoMeta({
-  ...getSeoMetaBase(title, description),
+  ...getSeoMetaBase(seoMetadata),
 })
 </script>
 

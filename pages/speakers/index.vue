@@ -3,11 +3,14 @@ const route = useRoute()
 
 const { data: speakers } = await useAsyncData(route.path, () => queryCollection('speakers').all())
 
-const title = 'Speakers List'
-const description = 'List of speakers for the event'
+const seoMetadata = extractSeoMetadata({
+  title: 'Speakers List',
+  description: 'List of speakers for the event',
+})
+const { title, description } = seoMetadata
 
 useSeoMeta({
-  ...getSeoMetaBase(title, description),
+  ...getSeoMetaBase(seoMetadata),
 })
 </script>
 

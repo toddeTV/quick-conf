@@ -37,11 +37,14 @@ const processedData = computed<ProcessedDataType[]>(() => {
   })
 })
 
-const title = 'Schedule'
-const description = 'List of talks for the event with time and stage information'
+const seoMetadata = extractSeoMetadata({
+  title: 'Schedule',
+  description: 'List of talks for the event with time and stage information',
+})
+const { title, description } = seoMetadata
 
 useSeoMeta({
-  ...getSeoMetaBase(title, description),
+  ...getSeoMetaBase(seoMetadata),
 })
 </script>
 
