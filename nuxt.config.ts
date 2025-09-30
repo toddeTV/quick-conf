@@ -27,11 +27,12 @@ export default defineNuxtConfig({
   content: { // for `@nuxt/content`
     preview: {
       api: 'https://api.nuxt.studio',
-      gitInfo: {
-        name: 'quick-conf',
-        owner: 'toddeTV',
-        url: 'https://github.com/toddeTV/quick-conf',
-      },
+      // Automatically detected, override only if needed:
+      // gitInfo: {
+      //   name: 'quick-conf',
+      //   owner: 'toddeTV',
+      //   url: 'https://github.com/toddeTV/quick-conf',
+      // },
     },
   },
 })
