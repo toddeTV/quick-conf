@@ -16,13 +16,13 @@ useHead({
 
 const statusCode = props.error.statusCode || undefined
 const statusCodeString = statusCode === 404 ? 'Not Found' : 'Error'
-const title = `${statusCodeString} - printed-europe`
+const title = statusCodeString
+const description = statusCode === 404
+  ? 'We are sorry but this resource could not be found.'
+  : 'We are sorry but an error occurred while processing your request.'
 
 useSeoMeta({
-  title,
-  description: statusCode === 404
-    ? 'We are sorry but this resource could not be found.'
-    : 'We are sorry but an error occurred while processing your request.',
+  ...getSeoMetaBase(title, description),
 })
 </script>
 

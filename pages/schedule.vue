@@ -41,11 +41,7 @@ const title = 'Schedule'
 const description = 'List of talks for the event with time and stage information'
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-
-  description,
-  ogDescription: description,
+  ...getSeoMetaBase(title, description),
 })
 </script>
 

@@ -28,11 +28,7 @@ const title = talk.value.seo.title || talk.value.title
 const description = talk.value.seo.description || talk.value.description
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-
-  description,
-  ogDescription: description,
+  ...getSeoMetaBase(title, description),
 })
 </script>
 

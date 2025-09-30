@@ -7,11 +7,7 @@ const title = 'Speakers List'
 const description = 'List of speakers for the event'
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-
-  description,
-  ogDescription: description,
+  ...getSeoMetaBase(title, description),
 })
 </script>
 

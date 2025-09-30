@@ -18,7 +18,7 @@ useHead({
 })
 
 useSeoMeta({
-  titleTemplate: '%s - printed-europe',
+  // titleTemplate: '%s',
   // TODO
   // ogImage: '',
   // twitterImage: '',

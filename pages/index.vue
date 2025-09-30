@@ -15,11 +15,7 @@ const title = data.value.seo.title || data.value.title
 const description = data.value.seo.description || data.value.description
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-
-  description,
-  ogDescription: description,
+  ...getSeoMetaBase(title, description),
 })
 </script>
 

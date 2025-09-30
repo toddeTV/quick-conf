@@ -20,11 +20,7 @@ const title = speaker.value.seo.title || speaker.value.title
 const description = speaker.value.seo.description || speaker.value.description
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-
-  description,
-  ogDescription: description,
+  ...getSeoMetaBase(title, description),
 })
 </script>
 
