@@ -69,17 +69,39 @@ const columns: FooterColumn[] = [
       </p>
     </template>
 
-    <template #right>
-      <UColorModeButton />
+    <template #default>
+      <p class="text-muted text-sm">
+        Created with template
+        <NuxtLink
+          to="https://github.com/toddeTV/quick-conf"
+          target="_blank"
+          class="text-primary/70"
+        >
+          quick-conf
+        </NuxtLink>
+        <!-- @ -->
+        <Icon class="inline-block w-3.5 h-3.5 mx-0.5" name="lucide:heart" />
+        <NuxtLink
+          to="https://todde.tv/"
+          target="_blank"
+          class="text-primary/70"
+        >
+          Thorsten Seyschab
+        </NuxtLink>
+      </p>
+    </template>
 
+    <template #right>
       <UButton
         aria-label="GitHub"
         color="neutral"
         icon="i-simple-icons-github"
         target="_blank"
-        to="https://github.com/toddeTV/printed-europe.com"
+        to="https://github.com/toddeTV/quick-conf"
         variant="ghost"
       />
+
+      <UColorModeButton />
     </template>
   </UFooter>
 </template>
