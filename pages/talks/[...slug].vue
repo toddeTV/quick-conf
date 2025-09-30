@@ -1,17 +1,17 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const slugParam = route.params.slug
-
-if (Array.isArray(slugParam) && slugParam.length > 1) {
+let slug_talk: string
+try {
+  slug_talk = normalizeSlug(route.params.slug)
+}
+catch (error) {
   throw createError({
     statusCode: 404,
-    statusMessage: `No Talk Provided`,
+    statusMessage: error instanceof Error ? error.message : 'No Talk Provided',
     fatal: true,
   })
 }
-
-const slug_talk = String(slugParam)
 
 const { data: talk } = await useAsyncData(route.path, () =>
   queryCollection('talks').where('slug', '=', slug_talk).first())
