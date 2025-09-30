@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 
-const props = defineProps({
-  error: {
-    type: Object as PropType<NuxtError>,
-    required: true,
-  },
-})
+const props = defineProps<{
+  error: NuxtError
+}>()
 
 useHead({
   htmlAttrs: {
@@ -15,14 +12,17 @@ useHead({
 })
 
 const statusCode = props.error.statusCode || undefined
-const statusCodeString = statusCode === 404 ? 'Not Found' : 'Error'
-const title = statusCodeString
-const description = statusCode === 404
-  ? 'We are sorry but this resource could not be found.'
-  : 'We are sorry but an error occurred while processing your request.'
+
+const seoMetadata = extractSeoMetadata({
+  title: statusCode === 404 ? 'Not Found' : 'Error',
+  description: statusCode === 404
+    ? 'We are sorry but this resource could not be found.'
+    : 'We are sorry but an error occurred while processing your request.',
+})
+// const { title, description } = seoMetadata
 
 useSeoMeta({
-  ...getSeoMetaBase(title, description),
+  ...getSeoMetaBase(seoMetadata),
 })
 </script>
 
