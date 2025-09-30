@@ -12,6 +12,8 @@ Thanks a lot for the support <3
 
 TODO
 
+<!-- maybe: Use this template on GitHub (Use this template) or `npx degit toddeTV/quick-conf my-conf` -->
+
 ## Want to contribute to the template itself?
 
 TODO
