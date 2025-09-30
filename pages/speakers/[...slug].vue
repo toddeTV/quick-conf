@@ -1,7 +1,18 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const slug_speaker = String(route.params.slug)
+const slugParam = route.params.slug
+
+if (Array.isArray(slugParam)) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: `No Speaker Provided`,
+    fatal: true,
+  })
+}
+
+const slug_speaker = String(slugParam)
+
 const { data: speaker } = await useAsyncData(route.path, () =>
   queryCollection('speakers').where('slug', '=', slug_speaker).first())
 

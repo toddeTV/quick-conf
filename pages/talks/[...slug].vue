@@ -1,7 +1,18 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const slug_talk = String(route.params.slug)
+const slugParam = route.params.slug
+
+if (Array.isArray(slugParam)) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: `No Talk Provided`,
+    fatal: true,
+  })
+}
+
+const slug_talk = String(slugParam)
+
 const { data: talk } = await useAsyncData(route.path, () =>
   queryCollection('talks').where('slug', '=', slug_talk).first())
 
