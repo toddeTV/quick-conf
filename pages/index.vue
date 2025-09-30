@@ -33,7 +33,7 @@ useSeoMeta({
       </template>
     </UPageHero>
 
-    <UContainer v-for="(index, _nbr) in [...Array(20).keys()]" :key="index" class="mb-8">
+    <UContainer v-for="(index) in [...Array(20).keys()]" :key="index" class="mb-8">
       <AppPlaceholder class="h-32" />
     </UContainer>
   </template>
