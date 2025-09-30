@@ -56,16 +56,20 @@ _(including images & 3D models; mostly only those requiring attribution)_
 
 ## License
 
-Copyright (c) 2025-present, [Thorsten Seyschab](https://todde.tv)
+**Copyright (c) 2025-present, [Thorsten Seyschab](https://todde.tv)**
 
-The source code in this repository is licensed under the **Creative Commons Attribution 4.0 International License ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))**. Under this license, others are allowed to remix, adapt, and build upon this work, provided they credit the project founder.
+This project is a template and is licensed under a dual-license structure. The source code is available under the MIT License, while the content and assets are under a more restrictive license.
 
-Please note that this license applies only to the original content authored by the project’s creators. Third-party libraries, assets, images, 3D models, and other materials utilized in this project are listed under "Attribution/ Contribution" above and remain the property of their original creators, licensed under their respective terms.
+- **Source Code:** The source code in this repository is licensed under the **MIT License**. You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
 
-The project founder reserves the right to modify the terms of this license or to offer different licensing arrangements for specific use cases.
+- **Content & Assets:** The contents of the `/content`, `/public`, and `/assets` directories (such as images, 3D models, videos, and data files) are **not** licensed under MIT. These materials are the intellectual property of their respective creators and are provided for demonstration purposes within this template only. You may not reuse, redistribute, or create derivative works from these materials without explicit permission from the original authors.
 
-Please see the [LICENSE.md](./LICENSE.md) file for full details, including important exceptions for specific content directories.
+Please refer to the [LICENSE.md](/LICENSE.md) file for full details.
+
+### Third-Party Libraries
+
+This project utilizes third-party libraries and other materials. These components are the property of their respective owners and are licensed under their own terms. A list of these can be found in the "Attribution/ Contribution" section in this document above, in the [package.json](/package.json) and in the project's documentation.
 
 ### Need a Different License?
 
-If you are interested in discussing a different licensing arrangement for individual use cases, please feel free to reach out. Custom licensing may be available, but it is not guaranteed.
+If the standard licensing does not fit your needs, feel free to reach out to discuss custom arrangements.
