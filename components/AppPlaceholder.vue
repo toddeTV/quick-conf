@@ -1,6 +1,5 @@
 <script setup lang="ts">
-// Generate a random UUID-like ID using Math.random()
-const randomId = `pattern-${Math.random().toString(36).substring(2, 15)}-${Math.random().toString(36).substring(2, 15)}`
+const patternId = `pattern-${useId()}`
 </script>
 
 <template>
@@ -16,7 +15,7 @@ const randomId = `pattern-${Math.random().toString(36).substring(2, 15)}-${Math.
     >
       <defs>
         <pattern
-          :id="randomId"
+          :id="patternId"
           height="10"
           patternUnits="userSpaceOnUse"
           width="10"
@@ -27,7 +26,7 @@ const randomId = `pattern-${Math.random().toString(36).substring(2, 15)}-${Math.
         </pattern>
       </defs>
       <rect
-        :fill="`url(#${randomId})`"
+        :fill="`url(#${patternId})`"
         height="100%"
         stroke="none"
         width="100%"
