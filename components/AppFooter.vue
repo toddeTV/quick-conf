@@ -59,7 +59,12 @@ const columns: FooterColumn[] = [
   <UFooter :ui="{ top: 'border-b border-default' }">
     <template #top>
       <UContainer>
-        <UFooterColumns :columns="columns" />
+        <UFooterColumns
+          :columns="columns"
+          :ui="{
+            center: 'md:grid',
+          }"
+        />
       </UContainer>
     </template>
 
@@ -73,18 +78,18 @@ const columns: FooterColumn[] = [
       <p class="text-muted text-sm">
         Created with template
         <NuxtLink
-          to="https://github.com/toddeTV/quick-conf"
-          target="_blank"
           class="text-primary/70"
+          target="_blank"
+          to="https://github.com/toddeTV/quick-conf"
         >
           quick-conf
         </NuxtLink>
         <!-- @ -->
         <Icon class="inline-block w-3.5 h-3.5 mx-0.5" name="lucide:heart" />
         <NuxtLink
-          to="https://todde.tv/"
-          target="_blank"
           class="text-primary/70"
+          target="_blank"
+          to="https://todde.tv/"
         >
           Thorsten Seyschab
         </NuxtLink>
