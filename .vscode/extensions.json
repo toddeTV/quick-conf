@@ -1,22 +1,7 @@
 {
   "recommendations": [
-    "antfu.goto-alias",
-    "antfu.iconify",
     "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
-    "eamodio.gitlens",
-    "GitHub.copilot",
-    "GitHub.vscode-pull-request-github",
-    "GitHub.vscode-github-actions",
-    "Gruntfuggly.todo-tree",
-    "MS-vsliveshare.vsliveshare",
-    "naumovs.color-highlight",
-    "Orta.vscode-twoslash-queries",
-    "qwtel.sqlite-viewer",
-    "richie5um2.vscode-sort-json",
-    "streetsidesoftware.code-spell-checker",
-    "Vue.volar",
-    "yoavbls.pretty-ts-errors",
-    "yzhang.markdown-all-in-one"
+    "Vue.volar"
   ]
 }

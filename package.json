@@ -1,8 +1,8 @@
 {
-  "name": "printed-europe.com",
+  "name": "quick-conf",
   "type": "module",
   "packageManager": "pnpm@10.8.1+sha512.c50088ba998c67b8ca8c99df8a5e02fd2ae2e2b29aaf238feaa9e124248d3f48f9fb6db2424949ff901cffbb5e0f0cc1ad6aedb602cd29450751d11c35023677",
-  "description": "This is the project for the https://printed-europe.com conference website build with ❤️ & NuxtJS.",
+  "description": "This is a template for quickly setting up a new Conference website with various functionalities.",
   "author": "Thorsten Seyschab <business@todde.tv> (https://todde.tv/)",
   "contributors": [
     {
@@ -12,26 +12,27 @@
     }
   ],
   "license": "SEE LICENSE IN LICENSE.md",
-  "homepage": "https://printed-europe.com/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/toddeTV/printed-europe.com.git"
+    "url": "git+https://github.com/toddeTV/quick-conf.git"
   },
   "bugs": {
-    "url": "https://github.com/toddeTV/printed-europe.com/issues"
+    "url": "https://github.com/toddeTV/quick-conf/issues"
   },
   "keywords": [
-    "website",
-    "vuejs",
-    "typescript",
-    "web",
-    "mit",
-    "vue",
+    "conference",
+    "conferences",
     "nuxt",
-    "mit-license",
+    "nuxt3",
+    "nuxt4",
     "nuxtjs",
+    "template",
+    "typescript",
     "vite",
-    "nuxt3 "
+    "vue",
+    "vuejs",
+    "web",
+    "website"
   ],
   "engines": {
     "node": "~22",
@@ -40,7 +41,6 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "dev:network": "nuxt dev --host",
     "generate": "nuxt generate",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

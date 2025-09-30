@@ -1,63 +1,33 @@
-# printed-europe.com
+# quick-conf
 
-This is the project for the [printed-europe.com](https://printed-europe.com) conference website build with ❤️ &
-[NuxtJS](https://github.com/nuxt/nuxt).
+This is a template for quickly setting up a new Conference website with various functionalities.
 
 ## Sponsoring
 
-If you like this project and want to support us, we would be very happy to see you as a sponsor on GitHub ❤️<br>
-You can find the `Sponsor` button on the top right of the
-[GitHub project page](https://github.com/toddeTV/printed-europe.com).<br>
+If you like this project and want to support me, I would be very happy to see you as a sponsor on GitHub ❤️<br>
+You can find the `Sponsor` button on the top right of the [GitHub project page](https://github.com/toddeTV/quick-conf).<br>
 Thanks a lot for the support <3
 
-## Production
+## Documentation
 
-Currenly no deployment.
+All documentation is in the [docs](/docs) folder.
 
-<!-- TODO -->
+## Want to use the template for setting up a conference website?
 
-## Development
+TODO
 
-### Info
+<!-- maybe: Use this template on GitHub (Use this template) or `npx degit toddeTV/quick-conf my-conf` -->
 
-This project uses `node` with `pnpm` as default package manager.
+## Want to contribute to the template itself?
 
-### Getting Started
-
-1. Clone the repository.
-2. Install dependencies:
-   ```sh
-   pnpm install --frozen-lockfile
-   ```
-3. No `.env` file is required for this project at the moment.
-4. Happy coding! ❤️
-
-### lint and prettier
-
-This project uses lint also for formatting. Read
-[why Prettier is not used for every file type](https://antfu.me/posts/why-not-prettier) by antfu.
-
-This project uses [antfu/eslint-config](https://github.com/antfu/eslint-config) for eslint most of the files.
-
-Keep in mind that the plugin names are renamed, see
-[Plugins Rename](https://github.com/antfu/eslint-config?tab=readme-ov-file#plugins-renaming), e.g.:
-
-```diff
--// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
-+// eslint-disable-next-line ts/consistent-type-definitions
-type foo = { bar: 2 }
-```
-
-### Design Guidelines
-
-<!-- TODO -->
+Start with the [developer setup guide](/docs/developer-setup.md) for local setup and usage.
 
 ## Contribution & Attribution
 
 ### Project Contributors
 
-<a href="https://github.com/toddeTV/printed-europe.com/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=toddeTV/printed-europe.com" />
+<a href="https://github.com/toddeTV/quick-conf/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=toddeTV/quick-conf" alt="Contributors to toddeTV/quick-conf" />
 </a>
 
 ### Current Core Team Members
@@ -83,7 +53,7 @@ _(Projects that provided valuable inspiration or resources.)_
 _(excluding those listed in `./package.json`)_
 
 - [Twitch @toddeTV](https://twitch.tv/toddeTV) was used for live streaming the development of this project.
-- [GitHub Copilot](https://github.com/features/copilot) was used in private mode for programming questions.
+- [CodeRabbit](https://www.coderabbit.ai/) was used as an AI code review assistant to help improve code quality and maintain best practices.
 
 **Assets & Materials Used:**<br>
 _(including images & 3D models; mostly only those requiring attribution)_
@@ -92,15 +62,20 @@ _(including images & 3D models; mostly only those requiring attribution)_
 
 ## License
 
-The source code in this repository is licensed under the [MIT License](./LICENSE.md).
+**Copyright (c) 2025-present, [Thorsten Seyschab](https://todde.tv)**
 
-⚠️ **Important Notice Regarding Content**<br>
-The contents of the `/content`, `/public`, and `/assets` directories (such as media files, 3D models,
-JSON/YAML/Markdown data, etc.) are **not** licensed under MIT.<br>
-These materials remain the intellectual property of their respective creators and are included here
-only for use within this project.
+This project is a template and is licensed under a dual-license structure. The source code is available under the MIT License, while the content and assets are under a more restrictive license.
 
-You **may not** reuse, redistribute, or repurpose these materials without obtaining explicit permission
-from their authors.
+- **Source Code:** The source code in this repository is licensed under the **MIT License**. You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
 
-Please refer to the [LICENSE.md](./LICENSE.md) file for full details.
+- **Content & Assets:** The contents of the `/content`, `/public`, and `/assets` directories (such as images, 3D models, videos, and data files) are **not** licensed under MIT. These materials are the intellectual property of their respective creators and are provided solely as placeholders for local development. Remove or replace them before distributing your site. Unless a file carries its own license, no rights are granted to reuse these materials. You may not reuse, redistribute, or create derivative works from these materials without explicit permission from the original authors.
+
+Please refer to the [LICENSE.md](/LICENSE.md) file for full details.
+
+### Third-Party Libraries
+
+This project utilizes third-party libraries and other materials. These components are the property of their respective owners and are licensed under their own terms. A list of these can be found in the [_Contribution & Attribution_](#contribution--attribution) section in this document above, in the [package.json](/package.json) and in the project's documentation.
+
+### Need a Different License?
+
+If the standard licensing does not fit your needs, feel free to reach out to discuss custom arrangements.

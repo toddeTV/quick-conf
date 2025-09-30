@@ -28,9 +28,9 @@ export default defineNuxtConfig({
     preview: {
       api: 'https://api.nuxt.studio',
       gitInfo: {
-        name: 'printed-europe.com',
+        name: 'quick-conf',
         owner: 'toddeTV',
-        url: 'https://github.com/toddeTV/printed-europe.com',
+        url: 'https://github.com/toddeTV/quick-conf',
       },
     },
   },
