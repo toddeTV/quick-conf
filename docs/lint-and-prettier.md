@@ -1,9 +1,9 @@
 # Lint and Prettier
 
-This project uses lint also for formatting. Read
+This project uses ESLint for both linting and formatting. Read
 [why Prettier is not used for every file type](https://antfu.me/posts/why-not-prettier) by antfu.
 
-This project uses [antfu/eslint-config](https://github.com/antfu/eslint-config) for eslint most of the files.
+This project uses ESLint for both linting and formatting most files, via [antfu/eslint-config](https://github.com/antfu/eslint-config).
 
 Keep in mind that the plugin names are renamed, see
 [Plugins Rename](https://github.com/antfu/eslint-config?tab=readme-ov-file#plugins-renaming), e.g.:
