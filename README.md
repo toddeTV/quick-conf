@@ -70,7 +70,7 @@ Please refer to the [LICENSE.md](/LICENSE.md) file for full details.
 
 ### Third-Party Libraries
 
-This project utilizes third-party libraries and other materials. These components are the property of their respective owners and are licensed under their own terms. A list of these can be found in the "Attribution/ Contribution" section in this document above, in the [package.json](/package.json) and in the project's documentation.
+This project utilizes third-party libraries and other materials. These components are the property of their respective owners and are licensed under their own terms. A list of these can be found in the [_Contribution & Attribution_](#contribution--attribution) section in this document above, in the [package.json](/package.json) and in the project's documentation.
 
 ### Need a Different License?
 
