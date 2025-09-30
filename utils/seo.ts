@@ -38,7 +38,7 @@ export function extractSeoMetadata(page: {
     description: page.description,
     seo: {
       title: page.seo?.title ?? page.title,
-      description: page.seo?.title ?? page.title,
+      description: page.seo?.description ?? page.description,
     },
   }
 }
@@ -84,7 +84,7 @@ export function getSeoMetaBase(page: {
 }): UseSeoMetaInput {
   return {
     title: getWebsiteTitle(page.title),
-    ogTitle: getWebsiteTitle(page.seo.title),
+    ogTitle: page.seo.title,
 
     description: page.description,
     ogDescription: page.seo.description,
