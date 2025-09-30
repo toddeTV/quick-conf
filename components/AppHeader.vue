@@ -14,8 +14,8 @@ const items = computed(() => [
   },
   {
     label: 'Location',
-    to: '/location',
-    active: route.path.startsWith('/location'),
+    to: '/faq/location',
+    active: route.path.startsWith('/faq/location'),
   },
   {
     label: 'FAQ',
