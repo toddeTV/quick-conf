@@ -56,7 +56,7 @@ useSeoMeta({
         Speakers:<br>
         <div v-for="speaker in speakers" :key="speaker.slug">
           <NuxtLink
-            aria-label="View details for Speaker '{{ speaker.name }}'"
+            :aria-label="`View details for Speaker ${speaker.name}`"
             :to="`/speakers/${speaker.slug}`"
           >
             {{ speaker.name }}<br>
