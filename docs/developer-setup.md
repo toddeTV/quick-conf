@@ -30,4 +30,4 @@ Duplicate the `.env.example` as `.env` and fill out all necessary variables for 
 
 ## 5. Start the Development Server
 
-Once dependencies are installed and environment variables are configured, you can start the Nuxt development server and use the project.
+Once dependencies are installed and environment variables are configured, you can start the Nuxt development server and use the project, see [package.json](/package.json) for available script commands.
