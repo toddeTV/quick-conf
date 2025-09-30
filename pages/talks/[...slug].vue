@@ -3,7 +3,7 @@ const route = useRoute()
 
 const slugParam = route.params.slug
 
-if (Array.isArray(slugParam)) {
+if (Array.isArray(slugParam) && slugParam.length > 1) {
   throw createError({
     statusCode: 404,
     statusMessage: `No Talk Provided`,
