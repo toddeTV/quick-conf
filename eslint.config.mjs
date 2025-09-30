@@ -63,6 +63,7 @@ export default antfu(
         {
           gltf: 'always',
           js: 'never',
+          json: 'always',
           mjs: 'never',
           ts: 'never',
           vue: 'never',
@@ -91,6 +92,23 @@ export default antfu(
     files: ['**/*.md'],
     rules: {
       'style/max-len': 'off',
+    },
+  },
+  {
+    // Node-run ESM files often require explicit extensions in relative imports
+    files: [
+      '**/*.mjs',
+      '**/*.cjs',
+      '**/*.config.*',
+      'scripts/**/*.{js,mjs}',
+    ],
+    rules: {
+      'import/extensions': ['error', 'ignorePackages', {
+        js: 'always',
+        mjs: 'always',
+        ts: 'never',
+        vue: 'never',
+      }],
     },
   },
 )
