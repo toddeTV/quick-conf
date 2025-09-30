@@ -11,7 +11,6 @@
     >
       <defs>
         <pattern
-          id="pattern-cb49ce14-2657-4b6a-ad69-bcaed71606f4"
           height="10"
           patternUnits="userSpaceOnUse"
           width="10"
