@@ -61,7 +61,11 @@ useSeoMeta({
           >
             {{ speaker.name }}<br>
             {{ speaker.image }}
-            <NuxtImg class="w-16 h-16 object-cover" :src="speaker.image" />
+            <NuxtImg
+              :alt="`image of ${speaker.name}`"
+              class="w-16 h-16 object-cover"
+              :src="speaker.image"
+            />
           </NuxtLink>
         </div>
       </div>
