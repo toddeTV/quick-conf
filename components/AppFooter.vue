@@ -78,6 +78,7 @@ const columns: FooterColumn[] = [
       <p class="text-muted text-sm">
         Created with template
         <NuxtLink
+          aria-label="quick-conf GitHub Repository"
           class="text-primary/70"
           target="_blank"
           to="https://github.com/toddeTV/quick-conf"
@@ -91,6 +92,7 @@ const columns: FooterColumn[] = [
           name="lucide:heart"
         />
         <NuxtLink
+          aria-label="Website of Thorsten Seyschab"
           class="text-primary/70"
           target="_blank"
           to="https://todde.tv/"

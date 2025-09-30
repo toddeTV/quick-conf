@@ -54,7 +54,10 @@ useSeoMeta({
       <UPageHeader :description="description" :title="title" />
 
       <div v-for="talk in processedData" :key="talk.slug">
-        <NuxtLink :to="`/talks/${talk.slug}`">
+        <NuxtLink
+          aria-label="View details for {{ talk.title }} at {{ talk.dateTime }}"
+          :to="`/talks/${talk.slug}`"
+        >
           {{ talk.title }} at {{ talk.dateTime }}
         </NuxtLink>
       </div>

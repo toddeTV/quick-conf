@@ -55,7 +55,10 @@ useSeoMeta({
       <div>
         Speakers:<br>
         <div v-for="speaker in speakers" :key="speaker.slug">
-          <NuxtLink :to="`/speakers/${speaker.slug}`">
+          <NuxtLink
+            aria-label="View details for Speaker '{{ speaker.name }}'"
+            :to="`/speakers/${speaker.slug}`"
+          >
             {{ speaker.name }}<br>
             {{ speaker.image }}
             <NuxtImg class="w-16 h-16 object-cover" :src="speaker.image" />

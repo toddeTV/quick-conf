@@ -28,7 +28,11 @@ const items = computed(() => [
 <template>
   <UHeader mode="slideover">
     <template #left>
-      <NuxtLink class="mr-0 md:mr-8" to="/">
+      <NuxtLink
+        aria-label="Home"
+        class="mr-0 md:mr-8"
+        to="/"
+      >
         <AppLogo class="w-auto h-6 shrink-0" />
       </NuxtLink>
 
@@ -43,9 +47,11 @@ const items = computed(() => [
       <UColorModeButton />
 
       <UButton
+        aria-label="Buy tickets"
         class="lg:hidden"
         color="neutral"
         icon="lucide:ticket"
+        title="Buy tickets"
         to="/tickets"
         variant="ghost"
       />

@@ -45,7 +45,10 @@ useSeoMeta({
       <div>
         Given Talks/Workshops:<br>
         <div v-for="talk in talks" :key="talk.slug">
-          <NuxtLink :to="`/talks/${talk.slug}`">
+          <NuxtLink
+            aria-label="View details for Talk '{{ talk.title }}'"
+            :to="`/talks/${talk.slug}`"
+          >
             {{ talk.title }}
           </NuxtLink>
         </div>
