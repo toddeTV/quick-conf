@@ -68,7 +68,7 @@
     "lodash-es": "~4.17.21",
     "typescript": "~5.9.3",
     "vue-router": "~4.5.0",
-    "vue-tsc": "^3.1.1"
+    "vue-tsc": "~3.1.1"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
