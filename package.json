@@ -45,7 +45,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test:types": "nuxt prepare && vue-tsc -b --noEmit"
   },
   "dependencies": {
     "nuxt": "~4.1.3",

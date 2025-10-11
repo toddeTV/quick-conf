@@ -41,4 +41,20 @@ export default defineNuxtConfig({
       // },
     },
   },
+
+  typescript: { // for TypeScript, see https://nuxt.com/docs/guide/concepts/typescript
+    // Customize app/server TypeScript config
+    tsConfig: {
+      compilerOptions: {
+        strict: true,
+      },
+    },
+    
+    // Customize build-time TypeScript config
+    nodeTsConfig: {
+      compilerOptions: {
+        strict: true,
+      },
+    },
+  },
 })
