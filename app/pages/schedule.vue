@@ -15,7 +15,7 @@ const [
 
 type ProcessedDataType = Omit<TalksCollectionItem, 'speakers' | 'stage'> & {
   speakers: SpeakersCollectionItem[]
-  stage: StagesCollectionItem | null
+  stage: StagesCollectionItem | undefined
 }
 
 const processedData = computed<ProcessedDataType[]>(() => {
@@ -32,7 +32,7 @@ const processedData = computed<ProcessedDataType[]>(() => {
     return {
       ...talk,
       speakers: speakers_hit ?? [],
-      stage: stage_hit ?? null,
+      stage: stage_hit ?? undefined,
     }
   })
 })
