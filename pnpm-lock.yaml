@@ -39,12 +39,18 @@ importers:
       '@nuxt/ui':
         specifier: ~4.0.1
         version: 4.0.1(@babel/parser@7.28.4)(@netlify/blobs@9.1.1)(change-case@5.4.4)(db0@0.3.4(better-sqlite3@11.10.0))(embla-carousel@8.6.0)(ioredis@5.8.1)(magicast@0.3.5)(typescript@5.9.3)(vite@7.1.9(@types/node@22.15.18)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.44.0)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))(zod@3.25.76)
+      '@types/lodash-es':
+        specifier: ~4.17.12
+        version: 4.17.12
       eslint:
         specifier: ~9.37.0
         version: 9.37.0(jiti@2.6.1)
       eslint-plugin-format:
         specifier: ~1.0.2
         version: 1.0.2(eslint@9.37.0(jiti@2.6.1))
+      lodash-es:
+        specifier: ~4.17.21
+        version: 4.17.21
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
@@ -1619,6 +1625,9 @@ packages:
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
+
+  '@types/lodash-es@4.17.12':
+    resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
 
   '@types/lodash@4.17.20':
     resolution: {integrity: sha512-H3MHACvFUEiujabxhaI/ImO6gUrd8oOurg7LQtS7mbwIXA/cUqWrvBsaeJ23aZEPk1TAYkurjfMbSELfoCXlGA==}
@@ -7736,6 +7745,10 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
+  '@types/lodash-es@4.17.12':
+    dependencies:
+      '@types/lodash': 4.17.20
+
   '@types/lodash@4.17.20': {}
 
   '@types/mdast@4.0.4':
@@ -10224,8 +10237,7 @@ snapshots:
     dependencies:
       p-locate: 6.0.0
 
-  lodash-es@4.17.21:
-    optional: true
+  lodash-es@4.17.21: {}
 
   lodash.debounce@4.0.8:
     optional: true

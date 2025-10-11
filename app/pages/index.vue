@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { range } from 'lodash-es'
+
 const route = useRoute()
 
 const { data } = await useAsyncData(route.path, () => queryCollection('index').first())
@@ -33,7 +35,7 @@ useSeoMeta({
       </template>
     </UPageHero>
 
-    <UContainer v-for="(index) in [...Array(20).keys()]" :key="index" class="mb-8">
+    <UContainer v-for="(index) in range(20)" :key="index" class="mb-8">
       <AppPlaceholder class="h-32" />
     </UContainer>
   </template>
