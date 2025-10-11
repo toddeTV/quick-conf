@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/image',
-    '@nuxt/ui-pro',
+    '@nuxt/ui',
   ],
 
   runtimeConfig: {
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  ui: { // for `@nuxt/ui` & `@nuxt/ui-pro`
+  ui: { // for `@nuxt/ui`
     fonts: true, // use `@nuxt/fonts`
   },
 
