@@ -62,6 +62,7 @@
     "@nuxt/eslint": "~1.9.0",
     "@nuxt/image": "~1.11.0",
     "@nuxt/ui": "~4.0.1",
+    "@types/lodash-es": "~4.17.12",
     "eslint": "~9.37.0",
     "eslint-plugin-format": "~1.0.2",
     "lodash-es": "~4.17.21",
