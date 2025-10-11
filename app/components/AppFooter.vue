@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FooterColumn } from '@nuxt/ui-pro'
+import type { FooterColumn } from '@nuxt/ui'
 
 const yearStart = 2025
 const yearCurrent = new Date().getFullYear()

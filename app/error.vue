@@ -1,9 +1,21 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 
-const props = defineProps<{
-  error: NuxtError
-}>()
+const props = defineProps({
+  error: Object as () => NuxtError
+})
+
+const error: NuxtError<unknown> = props.error ?? {
+  statusCode: 500,
+  fatal: true,
+  unhandled: true,
+  name: 'Unknown Error',
+  message: 'An unknown error occurred',
+  toJSON: () => ({
+    statusCode: 500,
+    message: 'An unknown error occurred',
+  }),
+}
 
 useHead({
   htmlAttrs: {
@@ -11,11 +23,9 @@ useHead({
   },
 })
 
-const statusCode = props.error.statusCode || undefined
-
 const seoMetadata = extractSeoMetadata({
-  title: statusCode === 404 ? 'Not Found' : 'Error',
-  description: statusCode === 404
+  title: error.statusCode === 404 ? 'Not Found' : 'Error',
+  description: error.statusCode === 404
     ? 'We are sorry but this resource could not be found.'
     : 'We are sorry but an error occurred while processing your request.',
 })

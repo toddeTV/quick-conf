@@ -44,7 +44,7 @@ export function normalizeSlug(slug: string | string[] | undefined): string {
 
   // Normalize: convert array to string if needed
   const normalizedSlug = Array.isArray(result.data)
-    ? result.data[0]
+    ? result.data[0]! // already checked by Zod, therefore it has already exact one element
     : result.data
 
   return normalizedSlug

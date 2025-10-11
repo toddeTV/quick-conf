@@ -1,12 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-10-11',
 
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/image',
-    '@nuxt/ui-pro',
+    '@nuxt/ui',
   ],
 
   runtimeConfig: {
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  ui: { // for `@nuxt/ui` & `@nuxt/ui-pro`
+  ui: { // for `@nuxt/ui`
     fonts: true, // use `@nuxt/fonts`
   },
 
@@ -39,6 +39,22 @@ export default defineNuxtConfig({
       //   owner: 'toddeTV',
       //   url: 'https://github.com/toddeTV/quick-conf',
       // },
+    },
+  },
+
+  typescript: { // for TypeScript, see https://nuxt.com/docs/guide/concepts/typescript
+    // Customize app/server TypeScript config
+    tsConfig: {
+      compilerOptions: {
+        strict: true,
+      },
+    },
+
+    // Customize build-time TypeScript config
+    nodeTsConfig: {
+      compilerOptions: {
+        strict: true,
+      },
     },
   },
 })
