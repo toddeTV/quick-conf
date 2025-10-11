@@ -45,6 +45,9 @@ importers:
       eslint-plugin-format:
         specifier: ~1.0.2
         version: 1.0.2(eslint@9.37.0(jiti@2.6.1))
+      lodash-es:
+        specifier: ~4.17.21
+        version: 4.17.21
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
@@ -10224,8 +10227,7 @@ snapshots:
     dependencies:
       p-locate: 6.0.0
 
-  lodash-es@4.17.21:
-    optional: true
+  lodash-es@4.17.21: {}
 
   lodash.debounce@4.0.8:
     optional: true
