@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { range } from 'lodash'
+import { range } from 'lodash-es'
 
 const route = useRoute()
 
