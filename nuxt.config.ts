@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-10-11',
 
   modules: [
     '@nuxt/content',
@@ -49,7 +49,7 @@ export default defineNuxtConfig({
         strict: true,
       },
     },
-    
+
     // Customize build-time TypeScript config
     nodeTsConfig: {
       compilerOptions: {
