@@ -1,4 +1,5 @@
 {
+  // (general)
   "[vue]": {
     "editor.defaultFormatter": "Vue.volar"
   },
@@ -13,6 +14,13 @@
     "strings": "on"
   },
   "editor.rulers": [120],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "files.autoSave": "onFocusChange",
+  "npm.packageManager": "pnpm",
+
+  // lint & format
   "eslint.rules.customizations": [
     { "fixable": true, "rule": "style/*", "severity": "off" },
     { "fixable": true, "rule": "format/*", "severity": "off" },
@@ -49,15 +57,9 @@
     "pcss",
     "postcss"
   ],
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "files.autoSave": "onFocusChange",
-  "javascript.preferences.importModuleSpecifier": "non-relative",
-  "javascript.preferences.importModuleSpecifierEnding": "js",
-  "javascript.preferences.renameMatchingJsxTags": true,
-  "npm.packageManager": "pnpm",
   "prettier.enable": false,
+
+  // search
   "search.exclude": {
     "**/.nuxt": true,
     "**/.output": true,
@@ -67,13 +69,22 @@
     "pnpm-lock.yaml": true
   },
   "search.useIgnoreFiles": false,
+
+  // TailwindCSS
   "tailwindCSS.classAttributes": ["class", "ui"],
   "tailwindCSS.experimental.classRegex": [
     ["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
+
+  // JS
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifierEnding": "minimal",
+  "javascript.preferences.renameMatchingJsxTags": true,
+
+  // TS
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.preferences.importModuleSpecifierEnding": "js",
+  "typescript.preferences.importModuleSpecifierEnding": "minimal",
   "typescript.preferences.renameMatchingJsxTags": true,
   "typescript.tsdk": "node_modules/typescript/lib"
 }
