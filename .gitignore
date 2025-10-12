@@ -1,6 +1,3 @@
-# custom for the project
-docs/rules
-
 # Nuxt dev/build outputs
 .output
 .data

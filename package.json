@@ -63,12 +63,13 @@
     "@nuxt/image": "~1.11.0",
     "@nuxt/ui": "~4.0.1",
     "@types/lodash-es": "~4.17.12",
+    "better-sqlite3": "~12.4.1",
     "eslint": "~9.37.0",
     "eslint-plugin-format": "~1.0.2",
     "lodash-es": "~4.17.21",
     "typescript": "~5.9.3",
     "vue-router": "~4.5.0",
-    "vue-tsc": "^3.1.1"
+    "vue-tsc": "~3.1.1"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
