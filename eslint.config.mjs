@@ -57,7 +57,7 @@ export default antfu(
       'antfu/consistent-chaining': [
         'off',
       ],
-      // TODO check if this should better be used, as after updating dependencies in #todo this does not work anymore
+      // TODO check if this should better be used, as after updating dependencies in #31 this does not work anymore
       // 'import/extensions': [ // ensure consistent file extensions in import declarations
       //   'error',
       //   'ignorePackages',
@@ -104,7 +104,7 @@ export default antfu(
       'scripts/**/*.{js,mjs}',
     ],
     rules: {
-      // TODO check if this should better be used, as after updating dependencies in #todo this does not work anymore
+      // TODO check if this should better be used, as after updating dependencies in #31 this does not work anymore
       // 'import/extensions': ['error', 'ignorePackages', {
       //   js: 'always',
       //   mjs: 'always',
