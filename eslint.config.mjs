@@ -1,6 +1,7 @@
 // @ts-check
 // import withNuxt from './.nuxt/eslint.config.mjs'
 import antfu from '@antfu/eslint-config'
+import importX from 'eslint-plugin-import-x'
 
 export default antfu(
   {
@@ -46,18 +47,16 @@ export default antfu(
       '**/*.yaml',
       '**/*.yml',
     ],
-
     ignores: [
     ],
-
     plugins: {
+      'import-x': importX,
     },
-
     rules: {
       'antfu/consistent-chaining': [
         'off',
       ],
-      'import/extensions': [ // ensure consistent file extensions in import declarations
+      'import-x/extensions': [ // ensure consistent file extensions in import declarations
         'error',
         'ignorePackages',
         {
@@ -102,8 +101,11 @@ export default antfu(
       '**/*.config.*',
       'scripts/**/*.{js,mjs}',
     ],
+    plugins: {
+      'import-x': importX,
+    },
     rules: {
-      'import/extensions': ['error', 'ignorePackages', {
+      'import-x/extensions': ['error', 'ignorePackages', {
         js: 'always',
         mjs: 'always',
         ts: 'never',
