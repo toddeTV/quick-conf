@@ -1,6 +1,7 @@
 // @ts-check
 // import withNuxt from './.nuxt/eslint.config.mjs'
 import antfu from '@antfu/eslint-config'
+import importX from 'eslint-plugin-import-x'
 
 export default antfu(
   {
@@ -46,30 +47,27 @@ export default antfu(
       '**/*.yaml',
       '**/*.yml',
     ],
-
     ignores: [
     ],
-
     plugins: {
+      'import-x': importX,
     },
-
     rules: {
       'antfu/consistent-chaining': [
         'off',
       ],
-      // TODO check if this should better be used, as after updating dependencies in #31 this does not work anymore
-      // 'import/extensions': [ // ensure consistent file extensions in import declarations
-      //   'error',
-      //   'ignorePackages',
-      //   {
-      //     gltf: 'always',
-      //     js: 'never',
-      //     json: 'always',
-      //     mjs: 'never',
-      //     ts: 'never',
-      //     vue: 'never',
-      //   },
-      // ],
+      'import-x/extensions': [ // ensure consistent file extensions in import declarations
+        'error',
+        'ignorePackages',
+        {
+          gltf: 'always',
+          js: 'never',
+          json: 'always',
+          mjs: 'never',
+          ts: 'never',
+          vue: 'never',
+        },
+      ],
       'jsonc/sort-keys': [
         'error',
       ],
@@ -103,14 +101,16 @@ export default antfu(
       '**/*.config.*',
       'scripts/**/*.{js,mjs}',
     ],
+    plugins: {
+      'import-x': importX,
+    },
     rules: {
-      // TODO check if this should better be used, as after updating dependencies in #31 this does not work anymore
-      // 'import/extensions': ['error', 'ignorePackages', {
-      //   js: 'always',
-      //   mjs: 'always',
-      //   ts: 'never',
-      //   vue: 'never',
-      // }],
+      'import-x/extensions': ['error', 'ignorePackages', {
+        js: 'always',
+        mjs: 'always',
+        ts: 'never',
+        vue: 'never',
+      }],
     },
   },
 )
