@@ -57,18 +57,19 @@ export default antfu(
       'antfu/consistent-chaining': [
         'off',
       ],
-      'import/extensions': [ // ensure consistent file extensions in import declarations
-        'error',
-        'ignorePackages',
-        {
-          gltf: 'always',
-          js: 'never',
-          json: 'always',
-          mjs: 'never',
-          ts: 'never',
-          vue: 'never',
-        },
-      ],
+      // TODO check if this should better be used, as after updating dependencies in #todo this does not work anymore
+      // 'import/extensions': [ // ensure consistent file extensions in import declarations
+      //   'error',
+      //   'ignorePackages',
+      //   {
+      //     gltf: 'always',
+      //     js: 'never',
+      //     json: 'always',
+      //     mjs: 'never',
+      //     ts: 'never',
+      //     vue: 'never',
+      //   },
+      // ],
       'jsonc/sort-keys': [
         'error',
       ],
@@ -103,12 +104,13 @@ export default antfu(
       'scripts/**/*.{js,mjs}',
     ],
     rules: {
-      'import/extensions': ['error', 'ignorePackages', {
-        js: 'always',
-        mjs: 'always',
-        ts: 'never',
-        vue: 'never',
-      }],
+      // TODO check if this should better be used, as after updating dependencies in #todo this does not work anymore
+      // 'import/extensions': ['error', 'ignorePackages', {
+      //   js: 'always',
+      //   mjs: 'always',
+      //   ts: 'never',
+      //   vue: 'never',
+      // }],
     },
   },
 )
