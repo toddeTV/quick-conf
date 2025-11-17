@@ -87,14 +87,22 @@ export default antfu(
     },
   },
   {
-    // Disable max-len rule specifically for Markdown files
-    files: ['**/*.md'],
+    /**
+     * Disable max-len rule in markdown & YAML files
+     */
+    files: [
+      '**/*.md',
+      '**/*.yaml',
+      '**/*.yml',
+    ],
     rules: {
       'style/max-len': 'off',
     },
   },
   {
-    // Node-run ESM files often require explicit extensions in relative imports
+    /**
+     * Node-run ESM files often require explicit extensions in relative imports
+     */
     files: [
       '**/*.mjs',
       '**/*.cjs',
@@ -105,12 +113,28 @@ export default antfu(
       'import-x': importX,
     },
     rules: {
-      'import-x/extensions': ['error', 'ignorePackages', {
-        js: 'always',
-        mjs: 'always',
-        ts: 'never',
-        vue: 'never',
-      }],
+      'import-x/extensions': [
+        'error',
+        'ignorePackages',
+        {
+          js: 'always',
+          mjs: 'always',
+          ts: 'never',
+          vue: 'never',
+        },
+      ],
+    },
+  },
+  {
+    /**
+     * Disable JSONC sort-keys rule for VSCode settings & TS config file
+     */
+    files: [
+      '.vscode/settings.json',
+      'tsconfig.json',
+    ],
+    rules: {
+      'jsonc/sort-keys': 'off',
     },
   },
 )
