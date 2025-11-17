@@ -26,13 +26,13 @@ export function extractSeoMetadata(page: {
     description?: string
   }
 }): {
+  title: string
+  description: string
+  seo: {
     title: string
     description: string
-    seo: {
-      title: string
-      description: string
-    }
-  } {
+  }
+} {
   return {
     title: page.title,
     description: page.description,
