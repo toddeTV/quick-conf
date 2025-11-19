@@ -20,12 +20,12 @@ useSeoMeta({
       <UPageHeader :description="description" :title="title" />
 
       <div v-for="speaker in speakers" :key="speaker.slug">
-        <NuxtLink
+        <ULink
           :aria-label="`View details for Speaker '${speaker.name}'`"
           :to="`/speakers/${speaker.slug}`"
         >
           {{ speaker.name }}
-        </NuxtLink>
+        </ULink>
       </div>
     </UContainer>
   </template>
