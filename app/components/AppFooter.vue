@@ -5,7 +5,7 @@ import { isNil } from 'lodash-es'
 const appConfig = useAppConfig()
 
 const yearCurrent = new Date().getFullYear()
-const yearStart = appConfig.general.conferenceFoundingYear ?? yearCurrent
+const yearStart = (appConfig as any).general.conferenceFoundingYear ?? yearCurrent
 const yearSpan = yearStart === yearCurrent ? yearStart : `${yearStart} - ${yearCurrent}`
 
 const columns: FooterColumn[] = [
@@ -43,25 +43,33 @@ const columns: FooterColumn[] = [
       },
     ],
   },
-  ...(isNil(appConfig.customFooterColumn) || isNil(appConfig.customFooterColumn.title)
-    ? []
-    : [{
-        label: appConfig.customFooterColumn.title,
-        children: Object.values(appConfig.customFooterColumn.links).map(link => ({
-          label: link.name,
-          icon: link.icon,
-          to: link.url,
-          target: isExternalLink(link.url) ? '_blank' : undefined,
-        })),
-      }]),
+  ...(
+    isNil(appConfig.customFooterColumn)
+    || isNil(appConfig.customFooterColumn.title)
+    || isNil(appConfig.customFooterColumn.links,
+    )
+      ? []
+      : [{
+          label: appConfig.customFooterColumn.title ?? '',
+          children: Object.values(appConfig.customFooterColumn.links)
+            .filter(link => link.url)
+            .map(link => ({
+              label: link.name ?? link.url!,
+              icon: link.icon,
+              to: link.url,
+              target: isExternalLink(link.url!) ? '_blank' : undefined,
+            })),
+        } as FooterColumn]),
   {
     label: 'Social Media',
-    children: Object.values(appConfig.socials).map(social => ({
-      label: social.name,
-      icon: social.icon,
-      to: social.url,
-      target: isExternalLink(social.url) ? '_blank' : undefined,
-    })),
+    children: Object.values(appConfig.socials)
+      .filter(social => social.url)
+      .map(social => ({
+        label: social.name ?? social.url!,
+        icon: social.icon,
+        to: social.url,
+        target: isExternalLink(social.url!) ? '_blank' : undefined,
+      })),
   },
 ]
 </script>
