@@ -44,9 +44,10 @@ const columns: FooterColumn[] = [
     ],
   },
   ...(
-    isNil(appConfig.customFooterColumn)
-    || isNil(appConfig.customFooterColumn.title)
-    || isNil(appConfig.customFooterColumn.links,
+    (
+      isNil(appConfig.customFooterColumn)
+      || isNil(appConfig.customFooterColumn.title)
+      || isNil(appConfig.customFooterColumn.links)
     )
       ? []
       : [{
@@ -59,18 +60,21 @@ const columns: FooterColumn[] = [
               to: link.url,
               target: isExternalLink(link.url!) ? '_blank' : undefined,
             })),
-        } as FooterColumn]),
-  {
-    label: 'Social Media',
-    children: Object.values(appConfig.socials)
-      .filter(social => social.url)
-      .map(social => ({
-        label: social.name ?? social.url!,
-        icon: social.icon,
-        to: social.url,
-        target: isExternalLink(social.url!) ? '_blank' : undefined,
-      })),
-  },
+        } as FooterColumn]
+  ),
+  ...(isNil(appConfig.socials)
+    ? []
+    : [{
+        label: 'Social Media',
+        children: Object.values(appConfig.socials)
+          .filter(social => social.url)
+          .map(social => ({
+            label: social.name ?? social.url!,
+            icon: social.icon,
+            to: social.url,
+            target: isExternalLink(social.url!) ? '_blank' : undefined,
+          })),
+      }]),
 ]
 </script>
 
