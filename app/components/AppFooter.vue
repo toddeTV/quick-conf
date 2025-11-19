@@ -77,28 +77,28 @@ const columns: FooterColumn[] = [
     <template #default>
       <p class="text-muted text-sm">
         Created with template
-        <NuxtLink
+        <ULink
           aria-label="quick-conf GitHub Repository"
           class="text-primary/70"
           target="_blank"
           to="https://github.com/toddeTV/quick-conf"
         >
           quick-conf
-        </NuxtLink>
+        </ULink>
         <!-- @ -->
         <UIcon
           aria-hidden="true"
           class="inline-block w-3.5 h-3.5 mx-0.5"
           name="i-lucide-heart"
         />
-        <NuxtLink
+        <ULink
           aria-label="Website of Thorsten Seyschab"
           class="text-primary/70"
           target="_blank"
           to="https://todde.tv/"
         >
           Thorsten Seyschab
-        </NuxtLink>
+        </ULink>
       </p>
     </template>
 

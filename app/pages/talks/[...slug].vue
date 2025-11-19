@@ -55,7 +55,7 @@ useSeoMeta({
       <div>
         Speakers:<br>
         <div v-for="speaker in speakers" :key="speaker.slug">
-          <NuxtLink
+          <ULink
             :aria-label="`View details for Speaker ${speaker.name}`"
             :to="`/speakers/${speaker.slug}`"
           >
@@ -66,7 +66,7 @@ useSeoMeta({
               class="w-16 h-16 object-cover"
               :src="speaker.image"
             />
-          </NuxtLink>
+          </ULink>
         </div>
       </div>
 

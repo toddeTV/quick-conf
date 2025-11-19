@@ -28,13 +28,13 @@ const items = computed(() => [
 <template>
   <UHeader mode="slideover">
     <template #left>
-      <NuxtLink
+      <ULink
         aria-label="Home"
         class="mr-0 md:mr-8"
         to="/"
       >
         <AppLogo class="w-auto h-6 shrink-0" />
-      </NuxtLink>
+      </ULink>
 
       <UNavigationMenu
         class="hidden lg:inline-flex"
