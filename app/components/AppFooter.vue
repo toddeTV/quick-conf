@@ -5,7 +5,7 @@ import { isNil } from 'lodash-es'
 const appConfig = useAppConfig()
 
 const yearCurrent = new Date().getFullYear()
-const yearStart = (appConfig as any).general.conferenceFoundingYear ?? yearCurrent
+const yearStart = appConfig.general?.conferenceFoundingYear ?? yearCurrent
 const yearSpan = yearStart === yearCurrent ? yearStart : `${yearStart} - ${yearCurrent}`
 
 const columns: FooterColumn[] = [
