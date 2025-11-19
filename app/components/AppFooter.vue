@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import type { FooterColumn } from '@nuxt/ui'
+import { isNil } from 'lodash-es'
 
-const yearStart = 2025
+const appConfig = useAppConfig()
+
 const yearCurrent = new Date().getFullYear()
+const yearStart = appConfig.general.conferenceFoundingYear ?? yearCurrent
 const yearSpan = yearStart === yearCurrent ? yearStart : `${yearStart} - ${yearCurrent}`
 
 const columns: FooterColumn[] = [
@@ -40,15 +43,25 @@ const columns: FooterColumn[] = [
       },
     ],
   },
+  ...(isNil(appConfig.customFooterColumn) || isNil(appConfig.customFooterColumn.title)
+    ? []
+    : [{
+        label: appConfig.customFooterColumn.title,
+        children: Object.values(appConfig.customFooterColumn.links).map(link => ({
+          label: link.name,
+          icon: link.icon,
+          to: link.url,
+          target: isExternalLink(link.url) ? '_blank' : undefined,
+        })),
+      }]),
   {
     label: 'Social Media',
-    children: [
-      // {
-      //   label: '',
-      //   icon: '',
-      //   to: 'https://...',
-      // },
-    ],
+    children: Object.values(appConfig.socials).map(social => ({
+      label: social.name,
+      icon: social.icon,
+      to: social.url,
+      target: isExternalLink(social.url) ? '_blank' : undefined,
+    })),
   },
 ]
 </script>
