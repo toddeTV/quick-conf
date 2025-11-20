@@ -159,7 +159,7 @@ export default defineNuxtSchema({
               icon: 'i-mdi-white-balance-sunny',
               default: 'i-lucide-sun',
             }),
-            external: field({ // TODO working? or use `linkLabelExternalIcon`?
+            external: field({
               type: 'icon',
               title: 'External Link',
               description: 'Icon for external link.',
