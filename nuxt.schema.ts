@@ -99,6 +99,7 @@ export default defineNuxtSchema({
               default: 'green',
               required: [
                 'amber',
+                'brand', // custom color pallet, only if defined in CSS, see description above
                 'blue',
                 'cyan',
                 'emerald',
