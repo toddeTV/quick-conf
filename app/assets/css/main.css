@@ -6,6 +6,21 @@
 @theme static {
   --font-sans: 'Public Sans', sans-serif;
   --breakpoint-xs: 480px;
+
+  /* Define new custom color */
+  /*
+  --color-brand-50: #fef2f2;
+  --color-brand-100: #fee2e2;
+  --color-brand-200: #fecaca;
+  --color-brand-300: #fca5a5;
+  --color-brand-400: #f87171;
+  --color-brand-500: #ef4444;
+  --color-brand-600: #dc2626;
+  --color-brand-700: #b91c1c;
+  --color-brand-800: #991b1b;
+  --color-brand-900: #7f1d1d;
+  --color-brand-950: #450a0a;
+  */
 }
 
 .dark {

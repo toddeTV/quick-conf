@@ -48,5 +48,9 @@ export default defineAppConfig({
   },
 
   ui: { // for `@nuxt/ui`
+    colors: {
+      primary: 'green',
+      neutral: 'slate',
+    },
   },
 })
