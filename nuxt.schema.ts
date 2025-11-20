@@ -78,5 +78,111 @@ export default defineNuxtSchema({
         ),
       },
     }),
+
+    ui: group({
+      title: 'UI',
+      description: 'UI Customization.',
+      icon: 'lucide:palette',
+      fields: {
+        colors: group({
+          title: 'Colors',
+          description: 'Manage main colors of your application. If you have a custom color pallet'
+            + ' (e.g. corporate design for branding), you can add the color pallet in `/app/assets/css/main.css`'
+            + ' by enabling and setting all `--color-brand-*` CSS variables and then use the word `brand` in the'
+            + ' fields below.',
+          icon: 'lucide:paint-bucket',
+          fields: {
+            primary: field({
+              type: 'string',
+              title: 'Primary',
+              description: 'Primary color of your UI.',
+              default: 'green',
+              required: [
+                'amber',
+                'blue',
+                'cyan',
+                'emerald',
+                'fuchsia',
+                'green',
+                'indigo',
+                'lime',
+                'orange',
+                'pink',
+                'purple',
+                'red',
+                'rose',
+                'sky',
+                'teal',
+                'violet',
+                'yellow',
+              ],
+            }),
+            neutral: field({
+              type: 'string',
+              title: 'Neutral',
+              description: 'Neutral color of your UI.',
+              default: 'slate',
+              required: [
+                'gray',
+                'neutral',
+                'slate',
+                'stone',
+                'zinc',
+              ],
+            }),
+          },
+        }),
+
+        icons: group({
+          title: 'Icons',
+          description: 'Manage icons used in NuxtUI.',
+          icon: 'i-mdi-application-settings-outline',
+          fields: {
+            search: field({
+              type: 'icon',
+              title: 'Search Bar',
+              description: 'Icon to display in the search bar.',
+              icon: 'i-mdi-magnify',
+              default: 'i-lucide-search',
+            }),
+            dark: field({
+              type: 'icon',
+              title: 'Dark mode',
+              description: 'Icon of color mode button for dark mode.',
+              icon: 'i-mdi-moon-waning-crescent',
+              default: 'i-lucide-moon',
+            }),
+            light: field({
+              type: 'icon',
+              title: 'Light mode',
+              description: 'Icon of color mode button for light mode.',
+              icon: 'i-mdi-white-balance-sunny',
+              default: 'i-lucide-sun',
+            }),
+            external: field({ // TODO working? or use `linkLabelExternalIcon`?
+              type: 'icon',
+              title: 'External Link',
+              description: 'Icon for external link.',
+              icon: 'i-mdi-arrow-top-right',
+              default: 'i-lucide-external-link',
+            }),
+            chevron: field({
+              type: 'icon',
+              title: 'Chevron',
+              description: 'Icon for chevron.',
+              icon: 'i-mdi-chevron-down',
+              default: 'i-lucide-chevron-down',
+            }),
+            hash: field({
+              type: 'icon',
+              title: 'Hash',
+              description: 'Icon for hash anchors.',
+              icon: 'i-ph-hash',
+              default: 'i-lucide-hash',
+            }),
+          },
+        }),
+      },
+    }),
   },
 })
