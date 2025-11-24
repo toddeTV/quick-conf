@@ -9,26 +9,33 @@ export function useSimplifiedColorMode() {
   const colorMode = useColorMode()
 
   /**
-   * The current color mode, simplified to 'light' or 'dark'.
-   * It correctly resolves the 'system' preference by checking the actual
-   * detected color mode (`colorMode.value`).
+   * A computed property that simplifies the color mode to either 'light' or 'dark'.
+   * It reactively returns the resolved value from `@nuxtjs/color-mode`, which correctly
+   * handles the 'system' preference by detecting the OS theme. This avoids FOUC
+   * by always providing a deterministic theme.
    */
   const currentColorMode = computed<'light' | 'dark'>(() => {
-    // If the color mode is already 'light' or 'dark' (e.g., forced by the user), return it directly.
+    // If `colorMode.value` is already resolved to 'light' or 'dark', return it.
     if (colorMode.value === 'light' || colorMode.value === 'dark') {
       return colorMode.value
     }
 
-    // If the preference is 'system', colorMode.value will hold the actual detected mode.
-    // This part of the logic might seem redundant if colorMode.value is always correct,
-    // but it serves as a fallback for the preference.
-    if (colorMode.preference === 'light' || colorMode.preference === 'dark') {
-      return colorMode.preference
+    // From here, `colorMode.value` is 'system'.
+    // On the server, we cannot know the OS preference, so we default to 'light'
+    // to ensure consistent SSR output and prevent hydration mismatch.
+    if (import.meta.server) {
+      return 'light'
     }
 
-    // TODO what to return when `system`? Check it in examples!
-    // As a final fallback, default to 'light' mode.
-    return 'light'
+    // On the client, we can determine the actual system preference.
+    try {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      return prefersDark ? 'dark' : 'light'
+    }
+    catch {
+      // just to be really sure
+      return 'light'
+    }
   })
 
   return {
