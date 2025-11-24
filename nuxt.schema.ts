@@ -65,7 +65,7 @@ export default defineNuxtSchema({
           title: 'Logo',
           description: 'The Logo for the application. Create one that works in both color modes (light and dark)'
             + ' and set in both fields or create two separate logos for each color mode.',
-          icon: 'lucide:share-2',
+          icon: 'lucide:image',
           fields: {
             dark: field({
               type: 'media',
@@ -86,7 +86,7 @@ export default defineNuxtSchema({
           description: 'The Favicon for the application. Some people use a different color mode (light vs dark)'
             + ' for the browser than for the website, so because of that and for consistency I recommend to use only'
             + ' one favicon that is capable to be used in both color modes. Use two only if you know what you do.',
-          icon: 'lucide:share-2',
+          icon: 'lucide:star',
           fields: {
             dark: field({
               type: 'media',
