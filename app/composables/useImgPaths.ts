@@ -1,5 +1,3 @@
-import { isEmpty } from 'lodash-es'
-
 /**
  * A composable for handling theme-aware image resolving. It provides functions
  * to select appropriate images or fallbacks based on the current color mode.
@@ -15,7 +13,7 @@ export function useImgPaths() {
     dark: '/image-placeholder/dark.svg',
     light: '/image-placeholder/light.svg',
   }
-  
+
   /**
    * Resolves a pair of dark and light image paths, falling back to default placeholders if either is not provided.
    *
