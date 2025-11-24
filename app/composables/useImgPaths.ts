@@ -15,26 +15,20 @@ export function useImgPaths() {
     dark: '/image-placeholder/dark.svg',
     light: '/image-placeholder/light.svg',
   }
-
+  
   /**
-   * Resolves an image path. If the path is empty, it returns a theme-appropriate
-   * placeholder image.
+   * Resolves a pair of dark and light image paths, falling back to default placeholders if either is not provided.
    *
-   * @param imagePath - The optional path to the image.
-   * @param theme - Determines which placeholder to use if the imagePath is missing.
-   *              'auto' uses the current color mode, while 'light' or 'dark' forces a specific theme.
-   * @returns The provided image path or a fallback placeholder path.
+   * @param data - An object containing optional 'dark' and 'light' image paths.
+   * @param data.dark - The path to the image for dark mode.
+   * @param data.light - The path to the image for light mode.
+   * @returns An object with resolved 'dark' and 'light' image paths, guaranteed to be strings.
    */
-  function resolveImagePath(imagePath?: string, theme: 'auto' | 'light' | 'dark' = 'auto'): string {
-    if (isEmpty(imagePath)) {
-      if (theme === 'auto') {
-        return placeholderImages[currentColorMode.value]
-      }
-      return placeholderImages[theme]
+  function resolveImagePath(data?: { dark?: string, light?: string }): { dark: string, light: string } {
+    return {
+      dark: data?.dark ?? placeholderImages.dark,
+      light: data?.light ?? placeholderImages.light,
     }
-
-    // Non-null assertion is safe here because isEmpty checks for null/undefined.
-    return imagePath!
   }
 
   /**
@@ -50,11 +44,8 @@ export function useImgPaths() {
    * @param data.light - The path to the image for light mode.
    * @returns The image path that corresponds to the current color mode.
    */
-  function autoSwitchOnColorMode(data: { dark?: string, light?: string }): string {
-    const images = {
-      dark: resolveImagePath(data.dark, 'dark'),
-      light: resolveImagePath(data.light, 'light'),
-    }
+  function autoSwitchOnColorMode(data?: { dark?: string, light?: string }): string {
+    const images = resolveImagePath(data)
     return images[currentColorMode.value]
   }
 
