@@ -7,12 +7,12 @@ export default defineAppConfig({
     conferenceName: 'CONF',
     // conferenceFoundingYear: 2025,
     logo: {
-      light: '/logo_light-mode.svg',
-      dark: '/logo_dark-mode.svg',
+      light: '/logo_light.svg',
+      dark: '/logo_dark.svg',
     },
     favicon: {
-      light: '/favicon_light-mode.svg',
-      dark: '/favicon_dark-mode.svg',
+      light: '/favicon.svg',
+      dark: '/favicon.svg',
     },
   },
 
