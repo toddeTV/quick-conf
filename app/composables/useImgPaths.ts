@@ -5,8 +5,7 @@
  * @returns An object with image utility functions.
  */
 export function useImgPaths() {
-  const colorMode = useSimplifiedColorMode()
-  const { currentColorMode } = toRefs(colorMode)
+  const { currentColorMode } = useSimplifiedColorMode()
 
   // Defines the default placeholder images for both dark and light themes.
   const placeholderImages = {
