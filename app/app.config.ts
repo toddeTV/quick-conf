@@ -3,6 +3,19 @@
  * Schema is defined in `nuxt.schema.ts`.
  */
 export default defineAppConfig({
+  general: {
+    conferenceName: 'CONF',
+    // conferenceFoundingYear: 2025,
+    logo: {
+      light: '/logo/light.svg',
+      dark: '/logo/dark.svg',
+    },
+    favicon: {
+      light: '/favicon/favicon.svg',
+      dark: '/favicon/favicon.svg',
+    },
+  },
+
   socials: {
     social1: {
       name: 'toddeTV',

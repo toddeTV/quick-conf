@@ -44,6 +44,67 @@ export default defineNuxtSchema({
    * Defines the structure for `app.config.ts`, used in `@nuxt/content` and Nuxt Studio.
    */
   appConfig: {
+    general: group({
+      title: 'General',
+      description: 'General Customization.',
+      icon: 'lucide:clipboard-list',
+      fields: {
+        conferenceName: field({
+          type: 'string',
+          title: 'Conference Name',
+          description: 'The name of the conference.',
+          default: 'Example Conference',
+        }),
+        conferenceFoundingYear: field({
+          type: 'number',
+          title: 'Conference Founding Year',
+          description: 'The year that the conference was founded (took place first or was invented).',
+          default: new Date().getFullYear(),
+        }),
+        logo: group({
+          title: 'Logo',
+          description: 'The Logo for the application. Create one that works in both color modes (light and dark)'
+            + ' and set in both fields or create two separate logos for each color mode.',
+          icon: 'lucide:image',
+          fields: {
+            dark: field({
+              type: 'media',
+              title: 'Logo for dark mode.',
+              description: 'The Logo used in dark mode.',
+              default: undefined,
+            }),
+            light: field({
+              type: 'media',
+              title: 'Logo for light mode.',
+              description: 'The Logo used in light mode.',
+              default: undefined,
+            }),
+          },
+        }),
+        favicon: group({
+          title: 'Favicon',
+          description: 'The Favicon for the application. Some people use a different color mode (light vs dark)'
+            + ' for the browser than for the website, so because of that and for consistency I recommend to use only'
+            + ' one favicon that is capable to be used in both color modes. Use two only if you know what you do.',
+          icon: 'lucide:star',
+          fields: {
+            dark: field({
+              type: 'media',
+              title: 'Favicon for dark mode.',
+              description: 'The Favicon used in dark mode.',
+              default: undefined,
+            }),
+            light: field({
+              type: 'media',
+              title: 'Favicon for light mode.',
+              description: 'The Favicon used in light mode.',
+              default: undefined,
+            }),
+          },
+        }),
+      },
+    }),
+
     socials: group({
       title: 'Socials',
       description: 'Socials Customization.',
