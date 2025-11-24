@@ -63,7 +63,7 @@ export default defineNuxtSchema({
         }),
         logo: group({
           title: 'Logo',
-          description: 'The Logo for the application. Create onw that works in both color modes (light and dark)'
+          description: 'The Logo for the application. Create one that works in both color modes (light and dark)'
             + ' and set in both fields or create two separate logos for each color mode.',
           icon: 'lucide:share-2',
           fields: {
