@@ -1,4 +1,54 @@
+/**
+ * @file Defines the `@nuxt/content` configuration for the application.
+ * Contains mainly the schema for content in the `/content/` folder.
+ */
+
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
+
+const variantEnum = z.enum(['solid', 'outline', 'subtle', 'soft', 'ghost', 'link'])
+const colorEnum = z.enum(['primary', 'secondary', 'neutral', 'error', 'warning', 'success', 'info'])
+const sizeEnum = z.enum(['xs', 'sm', 'md', 'lg', 'xl'])
+// const orientationEnum = z.enum(['vertical', 'horizontal'])
+
+function createBaseSchema() {
+  return z.object({
+    title: z.string().nonempty(),
+    description: z.string().nonempty(),
+    seo: z.object({
+      title: z.string().optional(),
+      description: z.string().optional(),
+      // image: z.string().optional().editor({ input: 'media' }),
+    }).optional(),
+  })
+}
+
+function createFeatureItemSchema() {
+  return createBaseSchema().extend({
+    icon: z.string().nonempty().editor({ input: 'icon' }),
+  })
+}
+
+function createLinkSchema() {
+  return z.object({
+    label: z.string().nonempty(),
+    to: z.string().nonempty(),
+    icon: z.string().optional().editor({ input: 'icon' }),
+    size: sizeEnum.optional(),
+    trailing: z.boolean().optional(),
+    target: z.string().optional(),
+    color: colorEnum.optional(),
+    variant: variantEnum.optional(),
+  })
+}
+
+// function createImageSchema() {
+//   return z.object({
+//     src: z.string().nonempty().editor({ input: 'media' }),
+//     alt: z.string().optional(),
+//     loading: z.string().optional(),
+//     srcset: z.string().optional(),
+//   })
+// }
 
 export default defineContentConfig({
   collections: {
@@ -7,13 +57,20 @@ export default defineContentConfig({
     index: defineCollection({
       type: 'page',
       source: '0.index.yml',
-      schema: z.object({
+      schema: createBaseSchema().extend({
+        hero: z.object(({
+          links: z.array(createLinkSchema()),
+        })),
+        features: createBaseSchema().extend({
+          items: z.array(createFeatureItemSchema()),
+        }),
       }),
     }),
 
     pages: defineCollection({
       type: 'page',
       source: 'pages/**/*.md',
+      schema: createBaseSchema(),
     }),
 
     // -------- standalone data
