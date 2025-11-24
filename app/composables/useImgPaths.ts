@@ -32,9 +32,11 @@ export function useImgPaths() {
    * Selects an image from a given pair of light and dark theme images based on the
    * current color mode. It uses `resolveImagePath` to handle fallbacks.
    *
-   * ATTENTION: Better use `UColorModeImage` for now. It will use `class="dark:hidden"` under the hood. Not ideal,
-   * as it will load always both images, but good enough for most use cases and much smoother than this current
-   * implementation.
+   * ATTENTION: For rendering images in templates, prefer `UColorModeImage` which uses CSS classes
+   * to switch between images - but it always loads dark and light and hides one of them. This avoids
+   * re-fetching the image file on color mode changes, but has a higher network traffic.
+   * Use `autoSwitchOnColorMode` only for cases where CSS switching isn't possible, such as
+   * favicons or other non-template image references.
    *
    * @param data - An object containing optional 'dark' and 'light' image paths.
    * @param data.dark - The path to the image for dark mode.
