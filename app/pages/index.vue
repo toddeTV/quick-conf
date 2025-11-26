@@ -38,8 +38,8 @@ useSeoMeta({
   >
     <template #top>
       <div
-        class="absolute rounded-full bg-primary-600 dark:bg-primary blur-[300px] size-60 sm:size-80 transform
-                 -translate-x-1/2 left-1/2 -translate-y-80"
+        class="absolute rounded-full bg-primary-600 dark:bg-primary blur-[300px] size-60 sm:size-80
+        transform -translate-x-1/2 left-1/2 -translate-y-80"
       />
       <LazyAppStarsBg
         :size="{
@@ -155,7 +155,7 @@ useSeoMeta({
       variant="naked"
     >
       <div
-        class="absolute rounded-full dark:bg-primary blur-[250px] size-40 sm:size-50
+        class="absolute rounded-full bg-primary-600 dark:bg-primary blur-[250px] size-40 sm:size-50
         transform -translate-x-1/2 left-1/2 -translate-y-80"
       />
 
