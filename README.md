@@ -55,7 +55,7 @@ _(excluding those listed in `./package.json`)_
 - [Twitch @toddeTV](https://twitch.tv/toddeTV) was used for live streaming the development of this project.
 - [CodeRabbit](https://www.coderabbit.ai/) was used as an AI code review assistant to help improve code quality and maintain best practices.
 - [Pravatar](https://pravatar.cc/) was used to provide placeholder avatars for development, licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/) (Public Domain).
-- [Unsplash](https://unsplash.com/) was used to provide example images for development, licensed under the [Unsplash License](https://unsplash.com/license) (free for commercial and non-commercial purposes with not attribution needed).
+- [Unsplash](https://unsplash.com/) was used to provide example images for development, licensed under the [Unsplash License](https://unsplash.com/license) (free for commercial and non-commercial purposes with no attribution needed).
 - [Picsum Photos](https://picsum.photos/) was used for placeholder images during development.
 
 **Assets & Materials Used:**<br>
