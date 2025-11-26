@@ -12,8 +12,8 @@ const orientationEnum = z.enum(['vertical', 'horizontal'])
 
 function createBaseSchema() {
   return z.object({
-    title: z.string().nonempty(),
-    description: z.string().nonempty(),
+    title: z.string().min(1),
+    description: z.string().min(1),
     seo: z.object({
       title: z.string().optional(),
       description: z.string().optional(),
@@ -24,14 +24,14 @@ function createBaseSchema() {
 
 function createFeatureItemSchema() {
   return createBaseSchema().extend({
-    icon: z.string().nonempty().editor({ input: 'icon' }),
+    icon: z.string().min(1).editor({ input: 'icon' }),
   })
 }
 
 function createLinkSchema() {
   return z.object({
-    label: z.string().nonempty(),
-    to: z.string().nonempty(),
+    label: z.string().min(1),
+    to: z.string().min(1),
     icon: z.string().optional().editor({ input: 'icon' }),
     size: sizeEnum.optional(),
     trailing: z.boolean().optional(),
@@ -43,7 +43,7 @@ function createLinkSchema() {
 
 function createImageSchema() {
   return z.object({
-    src: z.string().nonempty().editor({ input: 'media' }),
+    src: z.string().min(1).editor({ input: 'media' }),
     alt: z.string().optional(),
     loading: z.enum(['lazy', 'eager']).optional(),
     srcset: z.string().optional(),
@@ -58,9 +58,9 @@ export default defineContentConfig({
       type: 'page',
       source: '0.index.yml',
       schema: createBaseSchema().extend({
-        hero: z.object(({
+        hero: z.object({
           links: z.array(createLinkSchema()),
-        })),
+        }),
         sections: z.array(
           createBaseSchema().extend({
             headline: z.string().optional(),
@@ -78,12 +78,12 @@ export default defineContentConfig({
           headline: z.string().optional(),
           items: z.array(
             z.object({
-              quote: z.string().nonempty(),
+              quote: z.string().min(1),
               user: z.object({
-                name: z.string().nonempty(),
-                description: z.string().nonempty(),
-                to: z.string().nonempty(),
-                target: z.string().nonempty(),
+                name: z.string().min(1),
+                description: z.string().min(1),
+                to: z.string().min(1),
+                target: z.string().min(1),
                 avatar: createImageSchema(),
               }),
             }),
