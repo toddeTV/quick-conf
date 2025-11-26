@@ -88,28 +88,28 @@ testimonials:
         description: Senior Developer at TechCorp
         avatar:
           src: https://i.pravatar.cc/120?img=1
-          alt: Avatar
+          alt: Avatar of Alex Johnson
     - quote: An incredibly well-organized event with a great atmosphere. I learned a lot and met some amazing people. Highly recommended!
       user:
         name: Samantha Lee
         description: Product Manager at Innovate Ltd.
         avatar:
           src: https://i.pravatar.cc/120?img=2
-          alt: Avatar
+          alt: Avatar of Samantha Lee
     - quote: The workshops were very hands-on and practical. I was able to apply what I learned to my work immediately. Great job!
       user:
         name: David Chen
         description: UI/UX Designer at Creative Solutions
         avatar:
           src: https://i.pravatar.cc/120?img=3
-          alt: Avatar
+          alt: Avatar of David Chen
     - quote: A must-attend event for anyone in the industry. The quality of the talks and the level of organization were top-notch.
       user:
         name: Maria Garcia
         description: Engineering Manager at Future Systems
         avatar:
           src: https://i.pravatar.cc/120?img=4
-          alt: Avatar
+          alt: Avatar of Maria Garcia
 sponsors:
   title: Our Amazing Sponsors
   description: We are grateful for the support of our sponsors, who help make this event possible.
