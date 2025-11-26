@@ -9,6 +9,7 @@ const variantEnum = z.enum(['solid', 'outline', 'subtle', 'soft', 'ghost', 'link
 const colorEnum = z.enum(['primary', 'secondary', 'neutral', 'error', 'warning', 'success', 'info'])
 const sizeEnum = z.enum(['xs', 'sm', 'md', 'lg', 'xl'])
 const orientationEnum = z.enum(['vertical', 'horizontal'])
+const targetEnum = z.enum(['_self', '_blank', '_parent', '_top'])
 
 function createBaseSchema() {
   return z.object({
@@ -35,7 +36,7 @@ function createLinkSchema() {
     icon: z.string().optional().editor({ input: 'icon' }),
     size: sizeEnum.optional(),
     trailing: z.boolean().optional(),
-    target: z.string().optional(),
+    target: targetEnum.optional(),
     color: colorEnum.optional(),
     variant: variantEnum.optional(),
   })
@@ -83,7 +84,7 @@ export default defineContentConfig({
                 name: z.string().min(1),
                 description: z.string().min(1),
                 to: z.string().min(1),
-                target: z.string().min(1),
+                target: targetEnum.min(1),
                 avatar: createImageSchema(),
               }),
             }),
