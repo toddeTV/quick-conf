@@ -38,8 +38,11 @@ const speedMap = {
   fast: { duration: 100, opacity: 1, ratio: 0.4 },
 }
 
+// generate a unique ID to separate state instances when used multiple times on the same page
+const uniqueId = `pattern-${useId()}`
+
 // Use a more efficient approach to generate and store stars
-const stars = useState<{ slow: Star[], normal: Star[], fast: Star[] }>('stars', () => {
+const stars = useState<{ slow: Star[], normal: Star[], fast: Star[] }>(`stars-${uniqueId}`, () => {
   return {
     slow: generateStars(Math.floor(props.starCount * speedMap.slow.ratio)),
     normal: generateStars(Math.floor(props.starCount * speedMap.normal.ratio)),
