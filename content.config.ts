@@ -84,7 +84,7 @@ export default defineContentConfig({
                 name: z.string().min(1),
                 description: z.string().min(1),
                 to: z.string().min(1),
-                target: targetEnum.min(1),
+                target: targetEnum.optional(),
                 avatar: createImageSchema(),
               }),
             }),
