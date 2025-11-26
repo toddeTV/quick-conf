@@ -1,4 +1,61 @@
+/**
+ * @file Defines the `@nuxt/content` configuration for the application.
+ * Contains mainly the schema for content in the `/content/` folder.
+ */
+
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
+
+const variantEnum = z.enum(['solid', 'outline', 'subtle', 'soft', 'ghost', 'link'])
+const colorEnum = z.enum(['primary', 'secondary', 'neutral', 'error', 'warning', 'success', 'info'])
+const sizeEnum = z.enum(['xs', 'sm', 'md', 'lg', 'xl'])
+const orientationEnum = z.enum(['vertical', 'horizontal'])
+const targetEnum = z.enum(['_self', '_blank', '_parent', '_top'])
+
+function createBaseSchema() {
+  return z.object({
+    title: z.string().min(1),
+    description: z.string().min(1),
+    headline: z.string().optional(),
+  })
+}
+
+function createBaseWithSeoSchema() {
+  return createBaseSchema().extend({
+    seo: z.object({
+      title: z.string().optional(),
+      description: z.string().optional(),
+      // image: z.string().optional().editor({ input: 'media' }),
+    }).optional(),
+  })
+}
+
+function createFeatureItemSchema() {
+  return createBaseSchema().extend({
+    icon: z.string().min(1).editor({ input: 'icon' }),
+  })
+}
+
+function createLinkSchema() {
+  return z.object({
+    label: z.string().min(1),
+    to: z.string().min(1),
+    icon: z.string().optional().editor({ input: 'icon' }),
+    size: sizeEnum.optional(),
+    trailing: z.boolean().optional(),
+    target: targetEnum.optional(),
+    color: colorEnum.optional(),
+    variant: variantEnum.optional(),
+  })
+}
+
+function createImageSchema() {
+  return z.object({
+    src: z.string().min(1).editor({ input: 'media' }),
+    alt: z.string().optional(),
+    loading: z.enum(['lazy', 'eager']).optional(),
+    srcset: z.string().optional(),
+  })
+}
 
 export default defineContentConfig({
   collections: {
@@ -7,13 +64,46 @@ export default defineContentConfig({
     index: defineCollection({
       type: 'page',
       source: '0.index.yml',
-      schema: z.object({
+      schema: createBaseWithSeoSchema().extend({
+        hero: z.object({
+          links: z.array(createLinkSchema()),
+        }),
+        sections: z.array(
+          createBaseSchema().extend({
+            orientation: orientationEnum.optional(),
+            reverse: z.boolean().optional(),
+            features: z.array(createFeatureItemSchema()),
+            image: createImageSchema(),
+          }),
+        ).optional(),
+        features: createBaseSchema().extend({
+          items: z.array(createFeatureItemSchema()),
+        }).optional(),
+        testimonials: createBaseSchema().extend({
+          items: z.array(
+            z.object({
+              quote: z.string().min(1),
+              user: z.object({
+                name: z.string().min(1),
+                description: z.string().min(1),
+                to: z.string().min(1),
+                target: targetEnum.optional(),
+                avatar: createImageSchema(),
+              }),
+            }),
+          ),
+        }).optional(),
+        sponsors: createBaseSchema().optional(),
+        cta: createBaseSchema().extend({
+          links: z.array(createLinkSchema()),
+        }).optional(),
       }),
     }),
 
     pages: defineCollection({
       type: 'page',
       source: 'pages/**/*.md',
+      schema: createBaseWithSeoSchema(),
     }),
 
     // -------- standalone data
