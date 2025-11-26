@@ -86,6 +86,8 @@ testimonials:
       user:
         name: Alex Johnson
         description: Senior Developer at TechCorp
+        to: https://x.com/toddeTV
+        target: _blank
         avatar:
           src: https://i.pravatar.cc/120?img=1
           alt: Avatar of Alex Johnson
@@ -93,6 +95,8 @@ testimonials:
       user:
         name: Samantha Lee
         description: Product Manager at Innovate Ltd.
+        to: https://x.com/toddeTV
+        target: _blank
         avatar:
           src: https://i.pravatar.cc/120?img=2
           alt: Avatar of Samantha Lee
@@ -100,6 +104,8 @@ testimonials:
       user:
         name: David Chen
         description: UI/UX Designer at Creative Solutions
+        to: https://x.com/toddeTV
+        target: _blank
         avatar:
           src: https://i.pravatar.cc/120?img=3
           alt: Avatar of David Chen
@@ -107,6 +113,8 @@ testimonials:
       user:
         name: Maria Garcia
         description: Engineering Manager at Future Systems
+        to: https://x.com/toddeTV
+        target: _blank
         avatar:
           src: https://i.pravatar.cc/120?img=4
           alt: Avatar of Maria Garcia
