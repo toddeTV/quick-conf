@@ -63,7 +63,9 @@ export default defineContentConfig({
           links: z.array(createLinkSchema()),
         }),
         sections: z.array(
-          createBaseSchema().extend({
+          z.object({
+            title: z.string().min(1),
+            description: z.string().min(1),
             headline: z.string().optional(),
             orientation: orientationEnum.optional(),
             reverse: z.boolean().optional(),
@@ -71,11 +73,15 @@ export default defineContentConfig({
             image: createImageSchema(),
           }),
         ).optional(),
-        features: createBaseSchema().extend({
+        features: z.object({
+          title: z.string().min(1),
+          description: z.string().min(1),
           headline: z.string().optional(),
           items: z.array(createFeatureItemSchema()),
         }).optional(),
-        testimonials: createBaseSchema().extend({
+        testimonials: z.object({
+          title: z.string().min(1),
+          description: z.string().min(1),
           headline: z.string().optional(),
           items: z.array(
             z.object({
@@ -90,10 +96,14 @@ export default defineContentConfig({
             }),
           ),
         }).optional(),
-        sponsors: createBaseSchema().extend({
+        sponsors: z.object({
+          title: z.string().min(1),
+          description: z.string().min(1),
           headline: z.string().optional(),
         }).optional(),
-        cta: createBaseSchema().extend({
+        cta: z.object({
+          title: z.string().min(1),
+          description: z.string().min(1),
           links: z.array(createLinkSchema()),
         }).optional(),
       }),
