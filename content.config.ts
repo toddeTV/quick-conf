@@ -14,7 +14,7 @@ const targetEnum = z.enum(['_self', '_blank', '_parent', '_top'])
 function createBaseSchema() {
   return z.object({
     title: z.string().min(1),
-    description: z.string().optional(),
+    description: z.string().min(1),
     headline: z.string().optional(),
   })
 }
