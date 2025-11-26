@@ -1,1 +1,132 @@
-# empty for now
+title: Welcome to Your Next Conference
+description: This is a modern, feature-rich, and easily customizable template for your next conference or meetup. Built with Nuxt 4, it provides everything you need to get started.
+seo:
+  title: A Nuxt 4 Conference Template
+  description: A template for quickly setting up a new Conference or Meetup website with various functionalities.
+hero:
+  links:
+    - label: Buy Your Ticket
+      icon: i-lucide-ticket
+      trailing: false
+      # color: primary
+      # variant: solid
+      size: xl
+      to: /tickets
+      # target: _blank
+    - label: View Schedule
+      icon: i-lucide-calendar
+      trailing: false
+      color: neutral
+      variant: subtle
+      size: xl
+      to: /schedule
+      # target: _blank
+sections:
+  - title: Discover a World of Innovation
+    description: Join us for an unforgettable experience where industry leaders, experts, and enthusiasts come together to share their knowledge and passion. Explore the latest trends and network with peers.
+    orientation: horizontal
+    features:
+      - title: Expert Speakers
+        description: Learn from the best in the industry with a lineup of world-class speakers.
+        icon: i-lucide-users
+      - title: Networking Opportunities
+        description: Connect with fellow attendees, speakers, and sponsors to build valuable relationships.
+        icon: i-lucide-contact
+      - title: Hands-on Workshops
+        description: Participate in interactive workshops to gain practical skills and knowledge.
+        icon: i-lucide-wrench
+    image:
+      src: https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=700&auto=format
+      alt: A speaker presenting on a stage at a conference.
+  - title: Why You Should Attend
+    description: Our conference is designed to provide maximum value to attendees. Whether you are a beginner or an expert, you will find something to learn and enjoy.
+    orientation: horizontal
+    reverse: true
+    features:
+      - title: Diverse Topics
+        description: From cutting-edge technologies to best practices, our sessions cover a wide range of topics.
+        icon: i-lucide-book-open
+      - title: Engaging Sessions
+        description: Our talks, panels, and workshops are designed to be interactive and engaging.
+        icon: i-lucide-presentation
+      - title: Community Building
+        description: Be a part of a vibrant community of like-minded individuals.
+        icon: i-lucide-heart
+    image:
+      src: https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=700&auto=format
+      alt: A photo of an audience at a conference.
+features:
+  title: What to Expect at Our Conference
+  description: Our event is packed with features designed to provide a comprehensive and enriching experience for all attendees.
+  items:
+    - title: Keynote Speeches
+      description: Get inspired by visionary leaders who are shaping the future of the industry.
+      icon: i-lucide-mic
+    - title: Technical Deep Dives
+      description: Dive deep into complex topics with our in-depth technical sessions.
+      icon: i-lucide-code
+    - title: Panel Discussions
+      description: Hear from a variety of experts as they discuss and debate important industry topics.
+      icon: i-lucide-messages-square
+    - title: Networking Lounges
+      description: Relax and connect with other attendees in our dedicated networking areas.
+      icon: i-lucide-coffee
+    - title: Sponsor Booths
+      description: Discover new products and services from our amazing sponsors.
+      icon: i-lucide-store
+    - title: After Party
+      description: Unwind and socialize with fellow attendees at our official after-party.
+      icon: i-lucide-party-popper
+testimonials:
+  headline: What Our Attendees Say
+  title: A Truly Memorable Experience
+  description: Hear from past attendees about their experiences at our conference.
+  items:
+    - quote: The best conference I have attended this year. The speakers were excellent and the networking opportunities were fantastic. I will definitely be back next year!
+      user:
+        name: Alex Johnson
+        description: Senior Developer at TechCorp
+        avatar:
+          src: https://i.pravatar.cc/120?img=1
+          alt: Avatar
+    - quote: An incredibly well-organized event with a great atmosphere. I learned a lot and met some amazing people. Highly recommended!
+      user:
+        name: Samantha Lee
+        description: Product Manager at Innovate Ltd.
+        avatar:
+          src: https://i.pravatar.cc/120?img=2
+          alt: Avatar
+    - quote: The workshops were very hands-on and practical. I was able to apply what I learned to my work immediately. Great job!
+      user:
+        name: David Chen
+        description: UI/UX Designer at Creative Solutions
+        avatar:
+          src: https://i.pravatar.cc/120?img=3
+          alt: Avatar
+    - quote: A must-attend event for anyone in the industry. The quality of the talks and the level of organization were top-notch.
+      user:
+        name: Maria Garcia
+        description: Engineering Manager at Future Systems
+        avatar:
+          src: https://i.pravatar.cc/120?img=4
+          alt: Avatar
+sponsors:
+  title: Our Amazing Sponsors
+  description: We are grateful for the support of our sponsors, who help make this event possible.
+  headline: Meet Our Partners
+cta:
+  title: Ready to Join Us?
+  description: Don't miss out on this incredible opportunity to learn, network, and grow. Get your tickets now before they sell out!
+  links:
+    - label: Get Your Ticket
+      variant: solid
+      to: /tickets
+      icon: i-lucide-ticket
+    - label: Apply as Speaker
+      variant: subtle
+      to: /cfp
+      icon: i-lucide-megaphone
+    - label: Become a Sponsor
+      variant: subtle
+      to: /sponsors
+      icon: i-lucide-heart
