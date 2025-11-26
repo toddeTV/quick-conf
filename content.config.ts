@@ -14,7 +14,13 @@ const targetEnum = z.enum(['_self', '_blank', '_parent', '_top'])
 function createBaseSchema() {
   return z.object({
     title: z.string().min(1),
-    description: z.string().min(1),
+    description: z.string().optional(),
+    headline: z.string().optional(),
+  })
+}
+
+function createBaseWithSeoSchema() {
+  return createBaseSchema().extend({
     seo: z.object({
       title: z.string().optional(),
       description: z.string().optional(),
@@ -58,31 +64,22 @@ export default defineContentConfig({
     index: defineCollection({
       type: 'page',
       source: '0.index.yml',
-      schema: createBaseSchema().extend({
+      schema: createBaseWithSeoSchema().extend({
         hero: z.object({
           links: z.array(createLinkSchema()),
         }),
         sections: z.array(
-          z.object({
-            title: z.string().min(1),
-            description: z.string().min(1),
-            headline: z.string().optional(),
+          createBaseSchema().extend({
             orientation: orientationEnum.optional(),
             reverse: z.boolean().optional(),
             features: z.array(createFeatureItemSchema()),
             image: createImageSchema(),
           }),
         ).optional(),
-        features: z.object({
-          title: z.string().min(1),
-          description: z.string().min(1),
-          headline: z.string().optional(),
+        features: createBaseSchema().extend({
           items: z.array(createFeatureItemSchema()),
         }).optional(),
-        testimonials: z.object({
-          title: z.string().min(1),
-          description: z.string().min(1),
-          headline: z.string().optional(),
+        testimonials: createBaseSchema().extend({
           items: z.array(
             z.object({
               quote: z.string().min(1),
@@ -96,14 +93,8 @@ export default defineContentConfig({
             }),
           ),
         }).optional(),
-        sponsors: z.object({
-          title: z.string().min(1),
-          description: z.string().min(1),
-          headline: z.string().optional(),
-        }).optional(),
-        cta: z.object({
-          title: z.string().min(1),
-          description: z.string().min(1),
+        sponsors: createBaseSchema().optional(),
+        cta: createBaseSchema().extend({
           links: z.array(createLinkSchema()),
         }).optional(),
       }),
@@ -112,7 +103,7 @@ export default defineContentConfig({
     pages: defineCollection({
       type: 'page',
       source: 'pages/**/*.md',
-      schema: createBaseSchema(),
+      schema: createBaseWithSeoSchema(),
     }),
 
     // -------- standalone data
