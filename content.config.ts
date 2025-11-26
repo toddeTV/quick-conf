@@ -8,7 +8,7 @@ import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 const variantEnum = z.enum(['solid', 'outline', 'subtle', 'soft', 'ghost', 'link'])
 const colorEnum = z.enum(['primary', 'secondary', 'neutral', 'error', 'warning', 'success', 'info'])
 const sizeEnum = z.enum(['xs', 'sm', 'md', 'lg', 'xl'])
-// const orientationEnum = z.enum(['vertical', 'horizontal'])
+const orientationEnum = z.enum(['vertical', 'horizontal'])
 
 function createBaseSchema() {
   return z.object({
@@ -41,14 +41,14 @@ function createLinkSchema() {
   })
 }
 
-// function createImageSchema() {
-//   return z.object({
-//     src: z.string().nonempty().editor({ input: 'media' }),
-//     alt: z.string().optional(),
-//     loading: z.string().optional(),
-//     srcset: z.string().optional(),
-//   })
-// }
+function createImageSchema() {
+  return z.object({
+    src: z.string().nonempty().editor({ input: 'media' }),
+    alt: z.string().optional(),
+    loading: z.string().optional(),
+    srcset: z.string().optional(),
+  })
+}
 
 export default defineContentConfig({
   collections: {
@@ -61,9 +61,40 @@ export default defineContentConfig({
         hero: z.object(({
           links: z.array(createLinkSchema()),
         })),
+        sections: z.array(
+          createBaseSchema().extend({
+            headline: z.string().optional(),
+            orientation: orientationEnum.optional(),
+            reverse: z.boolean().optional(),
+            features: z.array(createFeatureItemSchema()),
+            image: createImageSchema(),
+          }),
+        ).optional(),
         features: createBaseSchema().extend({
+          headline: z.string().optional(),
           items: z.array(createFeatureItemSchema()),
-        }),
+        }).optional(),
+        testimonials: createBaseSchema().extend({
+          headline: z.string().optional(),
+          items: z.array(
+            z.object({
+              quote: z.string().nonempty(),
+              user: z.object({
+                name: z.string().nonempty(),
+                description: z.string().nonempty(),
+                to: z.string().nonempty(),
+                target: z.string().nonempty(),
+                avatar: createImageSchema(),
+              }),
+            }),
+          ),
+        }).optional(),
+        sponsors: createBaseSchema().extend({
+          headline: z.string().optional(),
+        }).optional(),
+        cta: createBaseSchema().extend({
+          links: z.array(createLinkSchema()),
+        }).optional(),
       }),
     }),
 
