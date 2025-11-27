@@ -83,7 +83,7 @@ const socialLinks = computed((): PageAnchor[] => {
             <div class="w-full">
               <UPageHeader
                 :description="speaker.description"
-                headline="Speaker"
+                headline="Speaker Details"
                 :title="speaker.name"
                 :ui="{
                   root: 'border-b-0!',
@@ -134,6 +134,7 @@ const socialLinks = computed((): PageAnchor[] => {
                 v-for="talk in talks"
                 :key="talk.slug"
                 :description="talk.type"
+                icon="i-lucide-megaphone"
                 spotlight
                 :title="talk.title"
                 :to="`/talks/${talk.slug}`"
