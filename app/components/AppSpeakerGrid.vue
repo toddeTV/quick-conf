@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { SpeakersCollectionItem } from '@nuxt/content'
-import { isNil } from 'lodash-es'
 
 const _props = withDefaults(defineProps<{
   speakers: SpeakersCollectionItem[]
@@ -20,12 +19,12 @@ const _props = withDefaults(defineProps<{
 
     <template v-if="!isAllSpeakers">
       <UPageCard
+        class="flex items-center justify-center text-center"
         spotlight
         to="/speakers"
-        class="flex items-center justify-center text-center"
       >
         <div class="flex flex-col items-center gap-y-2">
-          <UIcon name="i-lucide-users" class="text-4xl" />
+          <UIcon class="text-4xl" name="i-lucide-users" />
           <span class="text-lg font-medium text-gray-900 dark:text-white">
             View All Speakers
           </span>
