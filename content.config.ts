@@ -135,7 +135,7 @@ export default defineContentConfig({
         button: z.object({
           label: z.string(),
           to: z.string().url(),
-          target: targetEnum.optional().default('_blank'),
+          target: targetEnum.default('_blank'),
         }),
       }),
     }),
