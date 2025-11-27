@@ -11,13 +11,10 @@ const { data: _faqPages } = await useAsyncData(
   () => queryCollection('faq').order('order', 'ASC').all(),
 )
 
-// Determine the content path - use `/faq/index` for the root `/faq` route
-const contentPath = route.path === '/faq' ? '/faq' : route.path
-
 // Get the FAQ page data based on the content path
 const { data: _page } = await useAsyncData(
-  `faq-page-${contentPath}`,
-  () => queryCollection('faq').path(contentPath).first(),
+  `faq-page-${route.path}`,
+  () => queryCollection('faq').path(route.path).first(),
   { watch: [() => route.path] },
 )
 
@@ -35,8 +32,8 @@ const page = _page as globalThis.Ref<NonNullable<typeof _page.value>>
 
 // Fetch surrounding pages for prev/next navigation
 const { data: surround } = await useAsyncData(
-  `faq-surround-${contentPath}`,
-  () => queryCollectionItemSurroundings('faq', contentPath),
+  `faq-surround-${route.path}`,
+  () => queryCollectionItemSurroundings('faq', route.path),
   { watch: [() => route.path] },
 )
 
