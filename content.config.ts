@@ -80,6 +80,7 @@ export default defineContentConfig({
         features: createBaseSchema().extend({
           items: z.array(createFeatureItemSchema()),
         }).optional(),
+        speakers: createBaseSchema().optional(),
         testimonials: createBaseSchema().extend({
           items: z.array(
             z.object({
@@ -140,6 +141,7 @@ export default defineContentConfig({
       schema: z.object({
         slug: z.string().describe('The UNIQUE slug of the speaker. This is used to identify and link '
           + 'the speaker to other collections. Use `firstname-lastname` as convention. Never change this!'),
+        featured: z.boolean().default(false).describe('Whether the speaker is featured on the main page.'),
         name: z.string().describe('The name of the speaker.'),
         description: z.string().describe('A short description of the speaker - one line, best only a few words!'),
         // this is the body of the markdown file itself:
@@ -151,7 +153,7 @@ export default defineContentConfig({
           url: z.string().url().describe('Put in the full URL to the account/channel/etc.'),
           description: z.string().optional().describe('An optional description for the link.'),
           icon: property(z.string().optional()).editor({ input: 'icon' }).describe('Optionally override the icon. '
-            + 'Per default it is detected automatically. Please only use `Simple Icons`'),
+            + 'Per default it is detected automatically. Try sticking to `Simple Icons` for consistency.'),
         })).default([]),
       }),
     }),
@@ -162,7 +164,7 @@ export default defineContentConfig({
       schema: z.object({
         slug: z.string().describe('The UNIQUE slug of the talk. This is used to identify and '
           + 'link the stage to other collections. Never change this!'),
-        type: z.enum(['talk', 'panel', 'workshop']).describe('The type of the talk.'),
+        type: z.enum(['talk', 'lightning-talk', 'panel', 'keynote', 'workshop']).describe('The type of the talk.'),
         title: z.string().describe('The title of the talk.'),
         // abstract: z.string().describe('The abstract of the talk.'), // this is the body of the markdown file itself
         speakers: z.array(z.string()).default([]).describe('An array of speaker slugs.'),
@@ -172,7 +174,7 @@ export default defineContentConfig({
           url: z.string().url().describe('Put in the full URL to the resource.'),
           description: z.string().optional().describe('An optional description for the link.'),
           icon: property(z.string().optional()).editor({ input: 'icon' }).describe('Optionally override the icon. '
-            + 'Per default it is detected automatically. Please only use `Simple Icons`',
+            + 'Per default it is detected automatically. Try sticking to `Simple Icons` for consistency.',
           ),
         })).default([]),
       }),

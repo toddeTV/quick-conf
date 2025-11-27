@@ -1,11 +1,12 @@
 <script setup lang="ts">
 const { extractSeoMetadata, getSeoMetaBase } = useSeo()
 
-const { data: speakers } = await useAsyncData(route.path, () => queryCollection('speakers').all())
+const { data: speakers } = await useAsyncData('speakers-all', () =>
+  queryCollection('speakers').order('featured', 'DESC').all())
 
 const seoMetadata = extractSeoMetadata({
-  title: 'Speakers List',
-  description: 'List of speakers for the event',
+  title: 'Speakers',
+  description: 'Meet our amazing speakers and learn more about their talks.',
 })
 const { title, description } = seoMetadata
 
@@ -16,17 +17,16 @@ useSeoMeta({
 
 <template>
   <template v-if="speakers">
-    <UContainer>
-      <UPageHeader :description="description" :title="title" />
+    <UContainer class="flex flex-col gap-10">
+      <UPageHeader
+        :description="description"
+        :title="title"
+        :ui="{
+          root: 'border-b-0!',
+        }"
+      />
 
-      <div v-for="speaker in speakers" :key="speaker.slug">
-        <ULink
-          :aria-label="`View details for Speaker '${speaker.name}'`"
-          :to="`/speakers/${speaker.slug}`"
-        >
-          {{ speaker.name }}
-        </ULink>
-      </div>
+      <AppSpeakerGrid is-all-speakers :speakers="speakers" />
     </UContainer>
   </template>
 </template>

@@ -77,6 +77,10 @@ features:
     - title: After Party
       description: Unwind and socialize with fellow attendees at our official after-party.
       icon: i-lucide-party-popper
+speakers:
+  title: Our Esteemed Speakers
+  description: We are excited to present a lineup of distinguished speakers who are experts in their fields.
+  headline: Featured Speakers
 testimonials:
   headline: What Our Attendees Say
   title: A Truly Memorable Experience
