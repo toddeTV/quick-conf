@@ -21,6 +21,10 @@ const columns: FooterColumn[] = [
         to: '/faq/sponsoring',
       },
       {
+        label: 'Code of Conduct',
+        to: '/faq/code-of-conduct',
+      },
+      {
         label: 'Location',
         to: '/faq/location',
       },
