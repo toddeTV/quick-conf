@@ -5,6 +5,8 @@ const props = defineProps({
   error: Object as () => NuxtError,
 })
 
+const { extractSeoMetadata, getSeoMetaBase } = useSeo()
+
 const error: NuxtError<unknown> = props.error ?? {
   statusCode: 500,
   fatal: true,

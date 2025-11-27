@@ -2,6 +2,7 @@
 import type { SpeakersCollectionItem, StagesCollectionItem, TalksCollectionItem } from '@nuxt/content'
 
 const route = useRoute()
+const { extractSeoMetadata, getSeoMetaBase } = useSeo()
 
 const [
   { data: stages },
