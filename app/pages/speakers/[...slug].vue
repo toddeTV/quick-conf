@@ -28,7 +28,10 @@ if (!speaker.value) {
 const { data: talks } = await useAsyncData(`${route.path}-talks`, () =>
   queryCollection('talks').where('speakers', 'LIKE', `%"${slug_speaker}"%`).all())
 
-const seoMetadata = extractSeoMetadata(speaker.value)
+const seoMetadata = extractSeoMetadata({
+  ...extractSeoMetadata(speaker.value),
+  title: speaker.value.name, // `title` is present, but it is the filename, not the speaker name, so set manually
+})
 // const { title, description } = seoMetadata
 
 useSeoMeta({
