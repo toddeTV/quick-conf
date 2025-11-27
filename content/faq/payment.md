@@ -1,6 +1,7 @@
 ---
 title: Payment
 description: Information about payment methods and invoices
+order: 4
 ---
 
 # Payment

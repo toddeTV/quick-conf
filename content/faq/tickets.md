@@ -1,6 +1,7 @@
 ---
 title: Tickets
 description: Frequently asked questions about tickets and ticket purchase
+order: 3
 ---
 
 # Tickets

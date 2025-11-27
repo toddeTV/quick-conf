@@ -1,6 +1,7 @@
 ---
 title: Location & Directions
 description: Information about the QuickConf venue
+order: 2
 ---
 
 # Location & Directions

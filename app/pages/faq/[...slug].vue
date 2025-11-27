@@ -5,10 +5,10 @@ const route = useRoute()
 const appConfig = useAppConfig()
 const { extractSeoMetadata, getSeoMetaBase } = useSeo()
 
-// Fetch all FAQ pages for navigation
+// Fetch all FAQ pages for navigation, sorted by order field
 const { data: _faqPages } = await useAsyncData(
   'faq-all',
-  () => queryCollection('faq').order('stem', 'ASC').all(),
+  () => queryCollection('faq').order('order', 'ASC').all(),
 )
 
 // Determine the content path - use `/faq/index` for the root `/faq` route

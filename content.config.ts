@@ -107,7 +107,9 @@ export default defineContentConfig({
     faq: defineCollection({
       type: 'page',
       source: 'faq/**/*.md',
-      schema: createBaseWithSeoSchema(),
+      schema: createBaseWithSeoSchema().extend({
+        order: z.number().optional().default(999),
+      }),
     }),
 
     // generic pages, e.g. Contact, Privacy Policy, Legal Notice, etc.
