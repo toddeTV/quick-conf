@@ -21,7 +21,7 @@ To submit your talk proposal:
 3. Fill out the submission form with your talk details
 4. Submit before the deadline
 
-::u-button{to="https://sessionize.com/" target="\_blank" icon="i-heroicons-arrow-top-right-on-square"}
+::u-button{to="https://sessionize.com/" target="_blank" icon="i-heroicons-arrow-top-right-on-square"}
 Submit Your Talk on Sessionize
 ::
 
