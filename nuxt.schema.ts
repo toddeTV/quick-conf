@@ -22,7 +22,7 @@ function createSocialLinkGroup(index: number) {
       icon: field({
         type: 'icon',
         title: 'Icon',
-        description: 'Optionally override the icon. Per default it is detected automatically.'
+        description: 'Optionally override the icon. By default it is detected automatically.'
           + ' Try sticking to `Simple Icons` for consistency.',
         default: 'lucide:link',
       }),
