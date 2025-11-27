@@ -22,7 +22,8 @@ function createSocialLinkGroup(index: number) {
       icon: field({
         type: 'icon',
         title: 'Icon',
-        description: 'Choose an icon for this social media platform. Try sticking to `Simple Icons` for consistency.',
+        description: 'Optionally override the icon. Per default it is detected automatically.'
+          + ' Try sticking to `Simple Icons` for consistency.',
         default: 'lucide:link',
       }),
       url: field({
