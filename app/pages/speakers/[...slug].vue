@@ -49,7 +49,7 @@ const socialLinks = computed((): PageAnchor[] => {
     label: social.description || social.url,
     to: social.url,
     target: '_blank',
-    icon: social.icon,
+    icon: social.icon || getIconForUrl(social.url),
   }))
 })
 </script>

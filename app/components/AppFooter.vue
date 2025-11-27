@@ -70,7 +70,7 @@ const columns: FooterColumn[] = [
           .filter(social => social.url)
           .map(social => ({
             label: social.name ?? social.url!,
-            icon: social.icon,
+            icon: social.icon || getIconForUrl(social.url!),
             to: social.url,
             target: isExternalLink(social.url!) ? '_blank' : undefined,
           })),

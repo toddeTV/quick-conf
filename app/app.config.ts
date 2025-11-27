@@ -19,22 +19,18 @@ export default defineAppConfig({
   socials: {
     social1: {
       name: 'toddeTV',
-      icon: 'i-simple-icons-x',
       url: 'https://x.com/toddeTV',
     },
     social2: {
       name: 'toddeTV',
-      icon: 'i-simple-icons-bluesky',
       url: 'https://bsky.app/profile/todde.tv',
     },
     social3: {
       name: 'toddeTV',
-      icon: 'i-simple-icons-linkedin',
       url: 'https://www.linkedin.com/in/toddetv/',
     },
     social4: {
       name: 'toddeTV',
-      icon: 'i-simple-icons-github',
       url: 'https://github.com/toddeTV/',
     },
   },

@@ -153,7 +153,7 @@ export default defineContentConfig({
           url: z.string().url().describe('Put in the full URL to the account/channel/etc.'),
           description: z.string().optional().describe('An optional description for the link.'),
           icon: property(z.string().optional()).editor({ input: 'icon' }).describe('Optionally override the icon. '
-            + 'Per default it is detected automatically. Try sticking to `Simple Icons` for consistency.'),
+            + 'By default it is detected automatically. Try sticking to `Simple Icons` for consistency.'),
         })).default([]),
       }),
     }),
@@ -174,7 +174,7 @@ export default defineContentConfig({
           url: z.string().url().describe('Put in the full URL to the resource.'),
           description: z.string().optional().describe('An optional description for the link.'),
           icon: property(z.string().optional()).editor({ input: 'icon' }).describe('Optionally override the icon. '
-            + 'Per default it is detected automatically. Try sticking to `Simple Icons` for consistency.',
+            + 'By default it is detected automatically. Try sticking to `Simple Icons` for consistency.',
           ),
         })).default([]),
       }),
