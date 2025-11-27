@@ -89,6 +89,15 @@ const items = computed(() => [
         label="Buy Tickets"
         to="/tickets"
       />
+
+      <UButton
+        block
+        class="mb-3"
+        color="primary"
+        label="Apply as Speaker"
+        to="/cfp"
+        variant="subtle"
+      />
     </template>
   </UHeader>
 </template>
