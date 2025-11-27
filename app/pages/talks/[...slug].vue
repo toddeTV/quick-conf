@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
+const { extractSeoMetadata, getSeoMetaBase } = useSeo()
 
 let slug_talk: string
 try {

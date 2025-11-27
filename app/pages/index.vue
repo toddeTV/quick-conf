@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { isNil } from 'lodash-es'
 
+const { extractSeoMetadata, getSeoMetaBase } = useSeo()
+
 const [
   { data: _page },
   { data: _sponsors },
