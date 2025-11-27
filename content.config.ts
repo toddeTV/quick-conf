@@ -80,7 +80,6 @@ export default defineContentConfig({
         features: createBaseSchema().extend({
           items: z.array(createFeatureItemSchema()),
         }).optional(),
-        speakers: createBaseSchema().optional(),
         testimonials: createBaseSchema().extend({
           items: z.array(
             z.object({
@@ -116,7 +115,7 @@ export default defineContentConfig({
       schema: z.object({
         slug: z.string().describe('The UNIQUE slug of the sponsor. This is used to identify and '
           + 'link the sponsor to other collections. Never change this!'),
-        image: property(z.string()).editor({ input: 'media' }).describe('The image of the sponsor.'),
+        image: property(z.string().min(1)).editor({ input: 'media' }).describe('The image of the sponsor.'),
         url: z.string().url().optional().describe('The URL of the sponsors webpage.'),
       }),
     }),
@@ -141,13 +140,12 @@ export default defineContentConfig({
       schema: z.object({
         slug: z.string().describe('The UNIQUE slug of the speaker. This is used to identify and link '
           + 'the speaker to other collections. Use `firstname-lastname` as convention. Never change this!'),
-        featured: z.boolean().default(false).describe('Whether the speaker is featured on the main page.'),
         name: z.string().describe('The name of the speaker.'),
         description: z.string().describe('A short description of the speaker - one line, best only a few words!'),
         // this is the body of the markdown file itself:
         // biography: z.string().describe('A biography of the speaker. This is shown on the speaker page.'),
         // TODO or call it `avatar` instead of `image`?
-        image: property(z.string()).editor({ input: 'media' }).describe('The image of the speaker.'),
+        image: property(z.string().min(1)).editor({ input: 'media' }).describe('The image of the speaker.'),
         company: z.string().optional().describe('The name of the company the speaker works for.'),
         socialMedia: z.array(z.object({
           url: z.string().url().describe('Put in the full URL to the account/channel/etc.'),
