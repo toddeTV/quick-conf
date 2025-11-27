@@ -91,7 +91,7 @@ const columns: FooterColumn[] = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <UFooterColumns
             v-for="column in columns"
-            :key="column.label"
+            :key="`footer-column-${column.label}`"
             :columns="[column]"
           />
         </div>
