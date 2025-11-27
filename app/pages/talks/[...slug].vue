@@ -2,6 +2,7 @@
 import { DateTime } from 'luxon'
 
 const route = useRoute()
+const appConfig = useAppConfig()
 const { extractSeoMetadata, getSeoMetaBase } = useSeo()
 
 let slug_talk: string
@@ -49,9 +50,12 @@ function formatDateTime(dateTimeStr?: string): string {
   if (!dateTimeStr)
     return 'Date & time TBA'
 
-  const date = DateTime.fromISO(dateTimeStr)
-  if (!date.isValid)
+  const date = DateTime.fromISO(dateTimeStr, {
+    zone: appConfig.general.timeZone || 'UTC',
+  })
+  if (!date.isValid) {
     return 'Date & time TBA'
+  }
 
   const day = date.toISODate()
   const time = date.toLocaleString(DateTime.TIME_24_SIMPLE)

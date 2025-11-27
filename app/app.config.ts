@@ -6,6 +6,7 @@ export default defineAppConfig({
   general: {
     conferenceName: 'CONF',
     // conferenceFoundingYear: 2025,
+    timeZone: 'Europe/Berlin',
     logo: {
       light: '/logo/light.svg',
       dark: '/logo/dark.svg',
