@@ -1,0 +1,14 @@
+slug: weekend
+title: Weekend Ticket
+description: Full access to all conference days, including special events.
+price: €179
+scale: false
+features:
+  - Access to all talks and workshops
+  - Entry to the after-show party
+  - Exclusive goodie bag
+  - Free coffee and snacks
+  - Networking opportunities
+button:
+  label: Buy Now
+  to: https://example.com/shop/weekend-ticket
