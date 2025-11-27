@@ -13,63 +13,49 @@
  * @returns The name of the icon to use.
  */
 export function getIconForUrl(url: string): string {
+  const fallbackIcon = 'i-lucide-globe'
+
   try {
     const { hostname } = new URL(url)
     const normalizedHostname = hostname.replace(/^www\./, '').toLowerCase()
 
-    // Social & Professional Networks
-    if (normalizedHostname === 'github.com')
-      return 'i-simple-icons-github'
-    if (normalizedHostname === 'twitter.com' || normalizedHostname === 'x.com')
-      return 'i-simple-icons-x'
-    if (normalizedHostname === 'bsky.app')
-      return 'i-simple-icons-bluesky'
-    if (normalizedHostname === 'linkedin.com')
-      return 'i-simple-icons-linkedin'
-    if (normalizedHostname === 'youtube.com')
-      return 'i-simple-icons-youtube'
-    if (normalizedHostname === 'facebook.com')
-      return 'i-simple-icons-facebook'
-    if (normalizedHostname === 'instagram.com')
-      return 'i-simple-icons-instagram'
-    if (normalizedHostname === 'mastodon.social')
-      return 'i-simple-icons-mastodon'
-    if (normalizedHostname === 'medium.com')
-      return 'i-simple-icons-medium'
-    if (normalizedHostname === 'dev.to')
-      return 'i-simple-icons-devdotto'
-    if (normalizedHostname === 'behance.net')
-      return 'i-simple-icons-behance'
-    if (normalizedHostname === 'dribbble.com')
-      return 'i-simple-icons-dribbble'
-    if (normalizedHostname === 'codepen.io')
-      return 'i-simple-icons-codepen'
-    if (normalizedHostname === 'stackoverflow.com')
-      return 'i-simple-icons-stackoverflow'
-    if (normalizedHostname === 'thingiverse.com')
-      return 'i-simple-icons-thingiverse'
-    if (normalizedHostname === 'printables.com')
-      return 'i-simple-icons-printables'
-    if (normalizedHostname === 'artstation.com')
-      return 'i-simple-icons-artstation'
-    if (normalizedHostname === 'tiktok.com')
-      return 'i-simple-icons-tiktok'
-    if (normalizedHostname === 'twitch.tv')
-      return 'i-simple-icons-twitch'
-    if (normalizedHostname === 'discord.gg' || normalizedHostname === 'discord.com')
-      return 'i-simple-icons-discord'
-    if (normalizedHostname === 'reddit.com')
-      return 'i-simple-icons-reddit'
-    if (normalizedHostname === 'pinterest.com')
-      return 'i-simple-icons-pinterest'
-    if (normalizedHostname === 'gitlab.com')
-      return 'i-simple-icons-gitlab'
+    const domainMap = new Map<string, string>([
+      ['github.com', 'i-simple-icons-github'],
+      ['twitter.com', 'i-simple-icons-x'],
+      ['x.com', 'i-simple-icons-x'],
+      ['bsky.app', 'i-simple-icons-bluesky'],
+      ['linkedin.com', 'i-simple-icons-linkedin'],
+      ['youtube.com', 'i-simple-icons-youtube'],
+      ['facebook.com', 'i-simple-icons-facebook'],
+      ['instagram.com', 'i-simple-icons-instagram'],
+      ['mastodon.social', 'i-simple-icons-mastodon'],
+      ['medium.com', 'i-simple-icons-medium'],
+      ['dev.to', 'i-simple-icons-devdotto'],
+      ['behance.net', 'i-simple-icons-behance'],
+      ['dribbble.com', 'i-simple-icons-dribbble'],
+      ['codepen.io', 'i-simple-icons-codepen'],
+      ['stackoverflow.com', 'i-simple-icons-stackoverflow'],
+      ['thingiverse.com', 'i-simple-icons-thingiverse'],
+      ['printables.com', 'i-simple-icons-printables'],
+      ['artstation.com', 'i-simple-icons-artstation'],
+      ['tiktok.com', 'i-simple-icons-tiktok'],
+      ['twitch.tv', 'i-simple-icons-twitch'],
+      ['discord.gg', 'i-simple-icons-discord'],
+      ['discord.com', 'i-simple-icons-discord'],
+      ['reddit.com', 'i-simple-icons-reddit'],
+      ['pinterest.com', 'i-simple-icons-pinterest'],
+      ['gitlab.com', 'i-simple-icons-gitlab'],
+    ])
+
+    if (domainMap.has(normalizedHostname)) {
+      return domainMap.get(normalizedHostname)!
+    }
   }
   catch {
     // Invalid URL, fall back to the default icon
-    return 'i-lucide-globe'
+    return fallbackIcon
   }
 
   // Fallback for any other URL
-  return 'i-lucide-globe'
+  return fallbackIcon
 }
