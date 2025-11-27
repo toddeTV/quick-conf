@@ -62,6 +62,7 @@ export default defineContentConfig({
   collections: {
     // -------- static pages
 
+    // Home/Landing page
     index: defineCollection({
       type: 'page',
       source: '0.index.yml',
@@ -102,6 +103,14 @@ export default defineContentConfig({
       }),
     }),
 
+    // FAQ collection for frequently asked questions
+    faq: defineCollection({
+      type: 'page',
+      source: 'faq/**/*.md',
+      schema: createBaseWithSeoSchema(),
+    }),
+
+    // generic pages, e.g. Contact, Privacy Policy, Legal Notice, etc.
     pages: defineCollection({
       type: 'page',
       source: 'pages/**/*.md',
