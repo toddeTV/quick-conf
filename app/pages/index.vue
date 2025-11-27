@@ -5,8 +5,8 @@ const { extractSeoMetadata, getSeoMetaBase } = useSeo()
 
 const [
   { data: _page },
-  { data: _sponsors },
-  { data: _speakers },
+  { data: sponsors },
+  { data: speakers },
 ] = await Promise.all([
   useAsyncData('index-first', () => queryCollection('index').first()),
   useAsyncData('sponsors-all', () => queryCollection('sponsors').all()),
@@ -14,7 +14,7 @@ const [
     queryCollection('speakers').where('featured', '=', true).order('featured', 'DESC').all()),
 ])
 
-if (isNil(_page.value) || isNil(_sponsors.value) || isNil(_speakers.value)) {
+if (isNil(_page.value)) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Landing Page Data not Found',
@@ -24,8 +24,6 @@ if (isNil(_page.value) || isNil(_sponsors.value) || isNil(_speakers.value)) {
 
 // we tested above that these are not nil, so we can assert the types here safely by removing nil from them
 const page = _page as globalThis.Ref<NonNullable<typeof _page.value>>
-const sponsors = _sponsors as globalThis.Ref<NonNullable<typeof _sponsors.value>>
-const speakers = _speakers as globalThis.Ref<NonNullable<typeof _speakers.value>>
 
 const seoMetadata = extractSeoMetadata(page.value)
 // const { title, description } = seoMetadata
@@ -97,7 +95,7 @@ useSeoMeta({
   </template>
 
   <!-- speakers -->
-  <template v-if="page.speakers && speakers.length > 0">
+  <template v-if="page.speakers && speakers && speakers.length > 0">
     <UPageSection>
       <AppSpeakerGrid :speakers="speakers" />
     </UPageSection>
@@ -130,7 +128,7 @@ useSeoMeta({
   </template>
 
   <!-- sponsors -->
-  <template v-if="page.sponsors && sponsors.length > 0">
+  <template v-if="page.sponsors && sponsors && sponsors.length > 0">
     <UPageSection
       :description="page.sponsors.description"
       :headline="page.sponsors.headline"
