@@ -60,7 +60,7 @@ const items = computed(() => [
         class="hidden lg:inline-flex"
         color="primary"
         label="Apply as Speaker"
-        to="/cfp"
+        to="/faq/cfp"
         variant="outline"
       />
 
@@ -95,7 +95,7 @@ const items = computed(() => [
         class="mb-3"
         color="primary"
         label="Apply as Speaker"
-        to="/cfp"
+        to="/faq/cfp"
         variant="subtle"
       />
     </template>
