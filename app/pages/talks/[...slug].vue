@@ -45,8 +45,13 @@ useSeoMeta({
   ...getSeoMetaBase(seoMetadata),
 })
 
-function formatDateTime(dateTimeStr: string): string {
+function formatDateTime(dateTimeStr?: string): string {
+  if (!dateTimeStr)
+    return 'Date & time TBA'
+
   const date = DateTime.fromISO(dateTimeStr)
+  if (!date.isValid)
+    return 'Date & time TBA'
 
   const day = date.toISODate()
   const time = date.toLocaleString(DateTime.TIME_24_SIMPLE)
@@ -58,7 +63,7 @@ function formatDateTime(dateTimeStr: string): string {
 
 <template>
   <template v-if="talk">
-    <UContainer class="pt-3">
+    <UContainer>
       <UPageBody>
         <UPageHeader
           headline="Talk Details"
