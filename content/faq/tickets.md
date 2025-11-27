@@ -30,4 +30,4 @@ Yes! Students receive a 30% discount on all ticket categories. A valid student I
 
 ---
 
-For more information about payment, see [Payment](/faq/tickets/payment).
+For more information about payment, see [Payment](/faq/payment).
