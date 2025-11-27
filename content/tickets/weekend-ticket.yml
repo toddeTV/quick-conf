@@ -1,8 +1,9 @@
 slug: weekend
 title: Weekend Ticket
 description: Full access to all conference days, including special events.
-price: €179
-scale: false
+price: $179
+# discount: $80
+# scale: false
 features:
   - Access to all talks and workshops
   - Entry to the after-show party
