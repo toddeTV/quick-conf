@@ -96,7 +96,11 @@ useSeoMeta({
 
   <!-- speakers -->
   <template v-if="page.speakers && speakers && speakers.length > 0">
-    <UPageSection>
+    <UPageSection
+      :description="page.speakers.description"
+      :headline="page.speakers.headline"
+      :title="page.speakers.title"
+    >
       <AppSpeakerGrid :speakers="speakers" />
     </UPageSection>
   </template>
