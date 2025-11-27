@@ -14,13 +14,11 @@ All documentation is in the [docs](/docs) folder.
 
 ## Want to use the template for setting up a conference website?
 
-TODO
+Use this template directly on GitHub, or pull the repo, or use `npx degit toddeTV/quick-conf my-conf` and read the documentation in the [docs](/docs) folder. Then, have fun :)
 
 I would be thrilled to see how you are using this template! If you have launched a website for your conference or meetup with it, please consider adding it to the showcase.
 
 For instructions on how to add your event, please see the [usage documentation](/docs/usage.md).
-
-<!-- maybe: Use this template on GitHub (Use this template) or `npx degit toddeTV/quick-conf my-conf` -->
 
 ## Want to contribute to the template itself?
 
