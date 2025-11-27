@@ -116,7 +116,7 @@ export default defineContentConfig({
       schema: z.object({
         slug: z.string().describe('The UNIQUE slug of the sponsor. This is used to identify and '
           + 'link the sponsor to other collections. Never change this!'),
-        image: property(z.string()).editor({ input: 'media' }).describe('The image of the speaker.'),
+        image: property(z.string()).editor({ input: 'media' }).describe('The image of the sponsor.'),
         url: z.string().url().optional().describe('The URL of the sponsors webpage.'),
       }),
     }),
