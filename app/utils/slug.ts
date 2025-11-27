@@ -38,7 +38,7 @@ export function normalizeSlug(slug: string | string[] | undefined): string {
 
   if (!result.success) {
     // Extract the most relevant error message
-    const errorMessage = result.error.errors[0]?.message || 'Invalid slug format'
+    const errorMessage = result.error.message || 'Invalid slug format'
     throw new Error(errorMessage)
   }
 
