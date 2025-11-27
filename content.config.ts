@@ -3,7 +3,8 @@
  * Contains mainly the schema for content in the `/content/` folder.
  */
 
-import { defineCollection, defineContentConfig, z } from '@nuxt/content'
+import { defineCollection, defineContentConfig, property } from '@nuxt/content'
+import { z } from 'zod/v4'
 
 const variantEnum = z.enum(['solid', 'outline', 'subtle', 'soft', 'ghost', 'link'])
 const colorEnum = z.enum(['primary', 'secondary', 'neutral', 'error', 'warning', 'success', 'info'])
@@ -24,14 +25,14 @@ function createBaseWithSeoSchema() {
     seo: z.object({
       title: z.string().optional(),
       description: z.string().optional(),
-      // image: z.string().optional().editor({ input: 'media' }),
+      // image: property(z.string().optional()).editor({ input: 'media' }),
     }).optional(),
   })
 }
 
 function createFeatureItemSchema() {
   return createBaseSchema().extend({
-    icon: z.string().min(1).editor({ input: 'icon' }),
+    icon: property(z.string().min(1)).editor({ input: 'icon' }),
   })
 }
 
@@ -39,7 +40,7 @@ function createLinkSchema() {
   return z.object({
     label: z.string().min(1),
     to: z.string().min(1),
-    icon: z.string().optional().editor({ input: 'icon' }),
+    icon: property(z.string().optional()).editor({ input: 'icon' }),
     size: sizeEnum.optional(),
     trailing: z.boolean().optional(),
     target: targetEnum.optional(),
@@ -50,7 +51,7 @@ function createLinkSchema() {
 
 function createImageSchema() {
   return z.object({
-    src: z.string().min(1).editor({ input: 'media' }),
+    src: property(z.string().min(1)).editor({ input: 'media' }),
     alt: z.string().optional(),
     loading: z.enum(['lazy', 'eager']).optional(),
     srcset: z.string().optional(),
@@ -114,7 +115,7 @@ export default defineContentConfig({
       schema: z.object({
         slug: z.string().describe('The UNIQUE slug of the sponsor. This is used to identify and '
           + 'link the sponsor to other collections. Never change this!'),
-        image: z.string().editor({ input: 'media' }).describe('The image of the speaker.'),
+        image: property(z.string().min(1)).editor({ input: 'media' }).describe('The image of the sponsor.'),
         url: z.string().url().optional().describe('The URL of the sponsors webpage.'),
       }),
     }),
@@ -143,12 +144,13 @@ export default defineContentConfig({
         description: z.string().describe('A short description of the speaker - one line, best only a few words!'),
         // this is the body of the markdown file itself:
         // biography: z.string().describe('A biography of the speaker. This is shown on the speaker page.'),
-        image: z.string().editor({ input: 'media' }).describe('The image of the speaker.'),
+        // TODO or call it `avatar` instead of `image`?
+        image: property(z.string().min(1)).editor({ input: 'media' }).describe('The image of the speaker.'),
         company: z.string().optional().describe('The name of the company the speaker works for.'),
         socialMedia: z.array(z.object({
           url: z.string().url().describe('Put in the full URL to the account/channel/etc.'),
           description: z.string().optional().describe('An optional description for the link.'),
-          icon: z.string().optional().editor({ input: 'icon' }).describe('Optionally override the icon. '
+          icon: property(z.string().optional()).editor({ input: 'icon' }).describe('Optionally override the icon. '
             + 'Per default it is detected automatically. Please only use `Simple Icons`'),
         })).default([]),
       }),
@@ -169,7 +171,7 @@ export default defineContentConfig({
         resources: z.array(z.object({
           url: z.string().url().describe('Put in the full URL to the resource.'),
           description: z.string().optional().describe('An optional description for the link.'),
-          icon: z.string().optional().editor({ input: 'icon' }).describe('Optionally override the icon. '
+          icon: property(z.string().optional()).editor({ input: 'icon' }).describe('Optionally override the icon. '
             + 'Per default it is detected automatically. Please only use `Simple Icons`',
           ),
         })).default([]),
