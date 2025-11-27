@@ -35,15 +35,15 @@ const columns: FooterColumn[] = [
     children: [
       {
         label: 'Contact',
-        to: '',
+        to: '/contact',
       },
       {
         label: 'Privacy Policy',
-        to: '',
+        to: '/privacy-policy',
       },
       {
         label: 'Legal Notice',
-        to: '',
+        to: '/legal-notice',
       },
     ],
   },
