@@ -121,6 +121,25 @@ export default defineContentConfig({
       }),
     }),
 
+    tickets: defineCollection({
+      type: 'data',
+      source: 'tickets/**/*.yml',
+      schema: z.object({
+        slug: z.string().describe('The UNIQUE slug of the ticket. This is used to identify and '
+          + 'link the ticket to other collections. Never change this!'),
+        title: z.string(),
+        description: z.string(),
+        price: z.string(),
+        features: z.array(z.string()),
+        scale: z.boolean().optional(),
+        button: z.object({
+          label: z.string(),
+          to: z.string().url(),
+          target: targetEnum.optional().default('_blank'),
+        }),
+      }),
+    }),
+
     // -------- linked data
 
     stages: defineCollection({
