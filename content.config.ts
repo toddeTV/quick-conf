@@ -80,6 +80,7 @@ export default defineContentConfig({
         features: createBaseSchema().extend({
           items: z.array(createFeatureItemSchema()),
         }).optional(),
+        speakers: createBaseSchema().optional(),
         testimonials: createBaseSchema().extend({
           items: z.array(
             z.object({
@@ -140,6 +141,7 @@ export default defineContentConfig({
       schema: z.object({
         slug: z.string().describe('The UNIQUE slug of the speaker. This is used to identify and link '
           + 'the speaker to other collections. Use `firstname-lastname` as convention. Never change this!'),
+        featured: z.boolean().default(false).describe('Whether the speaker is featured on the main page.'),
         name: z.string().describe('The name of the speaker.'),
         description: z.string().describe('A short description of the speaker - one line, best only a few words!'),
         // this is the body of the markdown file itself:
