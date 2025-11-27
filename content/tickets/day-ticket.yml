@@ -1,8 +1,9 @@
 slug: day
 title: Day Ticket
 description: Access to all talks and events for a single day.
-price: €99
-scale: false
+price: $99
+discount: $50
+# scale: false
 features:
   - Access to all talks
   - Free coffee and snacks
