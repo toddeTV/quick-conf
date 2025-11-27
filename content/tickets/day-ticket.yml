@@ -1,0 +1,12 @@
+slug: day
+title: Day Ticket
+description: Access to all talks and events for a single day.
+price: €99
+scale: false
+features:
+  - Access to all talks
+  - Free coffee and snacks
+  - Networking opportunities
+button:
+  label: Buy Now
+  to: https://example.com/shop/day-ticket
