@@ -7,9 +7,7 @@ image: https://i.pravatar.cc/400?u=emily-white
 company: Creative Designs
 socialMedia:
   - url: https://emilywhite.design/
-    icon: i-lucide-globe
   - url: https://facebook.com/emilywhitedesigns
-    icon: i-simple-icons-facebook
 ---
 
 Emily White is a creative UX/UI designer with a focus on creating intuitive and user-friendly interfaces. She has worked with a variety of clients, from startups to large corporations.
