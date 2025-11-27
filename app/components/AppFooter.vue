@@ -14,11 +14,11 @@ const columns: FooterColumn[] = [
     children: [
       {
         label: 'Apply as Speaker',
-        to: '',
+        to: '/cfp',
       },
       {
-        label: 'Become a sponsor',
-        to: '',
+        label: 'Become a Sponsor',
+        to: '/faq/sponsoring',
       },
       {
         label: 'Location',
