@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { DateTime } from 'luxon'
+
 const route = useRoute()
+const appConfig = useAppConfig()
 const { extractSeoMetadata, getSeoMetaBase } = useSeo()
 
 let slug_talk: string
@@ -42,36 +45,84 @@ const seoMetadata = extractSeoMetadata(talk.value)
 useSeoMeta({
   ...getSeoMetaBase(seoMetadata),
 })
+
+function formatDateTime(dateTimeStr?: string): string {
+  if (!dateTimeStr)
+    return 'Date & time TBA'
+
+  const date = DateTime.fromISO(dateTimeStr, {
+    zone: appConfig.general.timeZone || 'UTC',
+  })
+  if (!date.isValid) {
+    return 'Date & time TBA'
+  }
+
+  const day = date.toISODate()
+  const time = date.toLocaleString(DateTime.TIME_24_SIMPLE)
+  const timeZone = date.zoneName
+
+  return `${day} at ${time} (${timeZone})`
+}
 </script>
 
 <template>
   <template v-if="talk">
     <UContainer>
-      <UPageHeader :description="talk.description" :title="talk.title" />
+      <UPageBody>
+        <UPageHeader
+          headline="Talk Details"
+          :title="talk.title"
+          :ui="{
+            root: 'border-b-0!',
+          }"
+        />
 
-      <div>
-        Stage: {{ stage?.name }}
-      </div>
+        <div class="flex flex-col gap-2 max-w-sm -mt-5">
+          <div class="flex items-center text-muted">
+            <UIcon class="mr-2 size-5" name="i-lucide-tag" />
+            <span>{{ talk.type }}</span>
+          </div>
 
-      <div>
-        Speakers:<br>
-        <div v-for="speaker in speakers" :key="speaker.slug">
-          <ULink
-            :aria-label="`View details for Speaker ${speaker.name}`"
-            :to="`/speakers/${speaker.slug}`"
-          >
-            {{ speaker.name }}<br>
-            {{ speaker.image }}
-            <NuxtImg
-              :alt="`image of ${speaker.name}`"
-              class="w-16 h-16 object-cover"
-              :src="speaker.image"
-            />
+          <ULink class="flex items-center" to="/schedule">
+            <UIcon class="mr-2 size-5" name="i-lucide-calendar" />
+            <span>{{ formatDateTime(talk.dateTime) }}</span>
+          </ULink>
+
+          <ULink v-if="stage" class="flex items-center" to="/faq/location">
+            <UIcon class="mr-2 size-5" name="i-lucide-map-pin" />
+            <span>{{ stage.name }}</span>
           </ULink>
         </div>
-      </div>
 
-      <ContentRenderer v-if="talk.body" :value="talk" />
+        <!-- talk details -->
+        <div class="prose dark:prose-invert">
+          <ContentRenderer v-if="talk.body" :value="talk" />
+        </div>
+
+        <!-- speakers -->
+        <div>
+          <ProseH2>
+            Speakers
+          </ProseH2>
+          <template v-if="speakers && speakers.length > 0">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12">
+              <AppSpeakerCard
+                v-for="speaker in speakers"
+                :key="speaker.slug"
+                :speaker="speaker"
+              />
+            </div>
+          </template>
+          <template v-else>
+            <UAlert
+              color="neutral"
+              description="There are no speakers listed for this talk."
+              icon="i-lucide-info"
+              variant="subtle"
+            />
+          </template>
+        </div>
+      </UPageBody>
     </UContainer>
   </template>
 </template>

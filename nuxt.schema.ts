@@ -62,6 +62,14 @@ export default defineNuxtSchema({
           description: 'The year that the conference was founded (took place first or was invented).',
           default: new Date().getFullYear(),
         }),
+        timeZone: field({
+          type: 'string',
+          title: 'Time Zone',
+          description: 'The time zone where the conference takes place, e.g. `Europe/Berlin`.'
+            + ' This is used to display the schedule in the correct local time.',
+          // + ' And all date-times in the content files are assumed to be in this time zone!', //TODO test!
+          default: 'UTC',
+        }),
         logo: group({
           title: 'Logo',
           description: 'The Logo for the application. Create one that works in both color modes (light and dark)'
