@@ -18,7 +18,13 @@ useSeoMeta({
 <template>
   <template v-if="speakers">
     <UContainer class="flex flex-col gap-10">
-      <UPageHeader :description="description" :title="title" />
+      <UPageHeader
+        :description="description"
+        :title="title"
+        :ui="{
+          root: 'border-b-0!',
+        }"
+      />
 
       <AppSpeakerGrid is-all-speakers :speakers="speakers" />
     </UContainer>
