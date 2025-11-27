@@ -136,7 +136,7 @@ cta:
       icon: i-lucide-ticket
     - label: Apply as Speaker
       variant: subtle
-      to: /cfp
+      to: /faq/cfp
       icon: i-lucide-megaphone
     - label: Become a Sponsor
       variant: subtle
