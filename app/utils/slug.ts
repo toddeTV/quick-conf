@@ -1,4 +1,4 @@
-import { z } from '@nuxt/content'
+import { z } from 'zod/v4'
 
 /**
  * Zod schema for validating route slugs.
