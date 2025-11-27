@@ -88,12 +88,13 @@ const columns: FooterColumn[] = [
   <UFooter :ui="{ top: 'border-b border-default' }">
     <template #top>
       <UContainer>
-        <UFooterColumns
-          :columns="columns"
-          :ui="{
-            center: 'md:grid',
-          }"
-        />
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <UFooterColumns
+            v-for="column in columns"
+            :key="column.label"
+            :columns="[column]"
+          />
+        </div>
       </UContainer>
     </template>
 
