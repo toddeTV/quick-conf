@@ -52,6 +52,14 @@ useSeoMeta({
 <template>
   <template v-if="talks">
     <UContainer>
+      <UBreadcrumb
+        class="pt-3"
+        :items="[
+          { label: 'Home', to: '/' },
+          { label: 'Schedule' },
+        ]"
+      />
+
       <UPageHeader :description="description" :title="title" />
 
       <div v-for="talk in processedData" :key="talk.slug">

@@ -56,7 +56,16 @@ const socialLinks = computed((): PageAnchor[] => {
 
 <template>
   <template v-if="speaker">
-    <UContainer class="pt-3">
+    <UContainer>
+      <UBreadcrumb
+        class="pt-3"
+        :items="[
+          { label: 'Home', to: '/' },
+          { label: 'Speakers', to: '/speakers' },
+          { label: speaker.name },
+        ]"
+      />
+
       <UPageBody>
         <UPageCard
           :ui="{

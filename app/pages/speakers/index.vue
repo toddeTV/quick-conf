@@ -17,7 +17,15 @@ useSeoMeta({
 
 <template>
   <template v-if="speakers">
-    <UContainer class="flex flex-col gap-10">
+    <UContainer>
+      <UBreadcrumb
+        class="pt-3"
+        :items="[
+          { label: 'Home', to: '/' },
+          { label: 'Speakers' },
+        ]"
+      />
+
       <UPageHeader
         :description="description"
         :title="title"
