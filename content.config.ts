@@ -130,6 +130,7 @@ export default defineContentConfig({
         title: z.string(),
         description: z.string(),
         price: z.string(),
+        discount: z.string().optional(),
         features: z.array(z.string()),
         scale: z.boolean().optional(),
         button: z.object({
