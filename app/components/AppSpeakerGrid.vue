@@ -20,7 +20,7 @@ const _props = withDefaults(defineProps<{
     <template v-if="!isAllSpeakers">
       <div class="flex items-center">
         <UPageCard
-          class="flex items-center justify-center text-center w-full p-3"
+          class="flex items-center justify-center text-center w-full h-full p-3"
           spotlight
           to="/speakers"
         >
