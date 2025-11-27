@@ -71,7 +71,7 @@ const socialLinks = computed((): PageAnchor[] => {
                   :alt="`Picture of ${speaker.name}`"
                   class="h-full w-full rounded-lg object-cover ring-2 ring-white dark:ring-gray-900"
                   densities="1x 2x"
-                  fit="contain"
+                  fit="cover"
                   format="webp"
                   height="300"
                   quality="80"
