@@ -4,13 +4,13 @@ import { field, group } from '@nuxt/content/preview'
 
 /**
  * Helper function to create a social link group.
- * @param index The index of the social link.
- * @returns A group schema for the social link.
+ * @param {number} index used in the group's title/description.
+ * @returns {import('@nuxt/content/preview').GroupSchema} A configured group schema for a single social/link entry.
  */
-function createSocialLinkGroup(index: number) {
+function createLinkGroup(index: number) {
   return group({
-    title: `Social Link ${index}`,
-    description: `Configure your social media link ${index}.`,
+    title: `Link ${index}`,
+    description: `Configure link ${index}.`,
     icon: 'lucide:share-2',
     fields: {
       name: field({
@@ -122,7 +122,7 @@ export default defineNuxtSchema({
         // generates `social1: createSocialLinkGroup(1)`, ..., `social6: createSocialLinkGroup(6)`
         Array.from({ length: 6 }, (_, i) => i + 1).map(index => [
           `social${index}`,
-          createSocialLinkGroup(index),
+          createLinkGroup(index),
         ]),
       ),
     }),
@@ -143,7 +143,7 @@ export default defineNuxtSchema({
           // generates `link1: createSocialLinkGroup(1)`, ..., `link4: createSocialLinkGroup(4)`
           Array.from({ length: 4 }, (_, i) => i + 1).map(index => [
             `link${index}`,
-            createSocialLinkGroup(index),
+            createLinkGroup(index),
           ]),
         ),
       },
