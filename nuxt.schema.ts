@@ -74,6 +74,7 @@ export default defineNuxtSchema({
           type: 'string',
           title: 'GitHub Project Link',
           description: 'The link to the GitHub project of this conference website. Leave empty to hide.',
+          default: '',
         }),
         logo: group({
           title: 'Logo',
