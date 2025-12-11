@@ -3,7 +3,7 @@ title: Privacy Policy
 description: How we handle your personal data
 ---
 
-# Privacy Policy
+<UPageHeader title="Privacy Policy" />
 
 _Last updated: November 2025_
 

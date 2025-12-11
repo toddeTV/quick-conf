@@ -3,9 +3,7 @@ title: Contact
 description: Get in touch with the QuickConf team
 ---
 
-# Contact
-
-Have questions? We're here to help!
+<UPageHeader title="Contact" description="Have questions? We're here to help!" />
 
 ## Email
 

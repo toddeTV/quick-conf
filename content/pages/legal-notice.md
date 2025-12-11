@@ -3,7 +3,7 @@ title: Legal Notice
 description: Legal information and disclaimer
 ---
 
-# Legal Notice
+<UPageHeader title="Legal Notice" />
 
 ## Publisher
 
