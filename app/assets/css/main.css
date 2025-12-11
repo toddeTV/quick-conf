@@ -1,10 +1,10 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
 
+@import '../../../content/custom-styles.css';
+
 @source "../../../content/**/*";
 
 @theme static {
   --breakpoint-xs: 480px;
 }
-
-@import '../../../content/custom-styles.css';
