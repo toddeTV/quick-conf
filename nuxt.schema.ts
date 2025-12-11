@@ -156,10 +156,12 @@ export default defineNuxtSchema({
       fields: {
         colors: group({
           title: 'Colors',
-          description: 'Manage main colors of your application. If you have a custom color pallet'
-            + ' (e.g. corporate design for branding), you can add the color pallet in `/app/assets/css/main.css`'
-            + ' by enabling and setting all `--color-brand-*` CSS variables and then use the word `brand` in the'
-            + ' fields below. Without that, the `brand` option will not work here and might crash the application!',
+          description: 'Manage main colors of your application. If you have a custom color palette'
+            + ' (e.g. corporate design for branding), you can add the color palette in `/content/custom-styles.css`'
+            + ' by overriding/setting all `--color-brand-*` CSS variables and then use the word `brand` in the'
+            + ' fields below.'
+            + ' Also keep in mind that you can set even more custom styles in the file `/content/custom-styles.css`, '
+            + ' because you can use default CSS syntax here and the file is imported automatically.',
           icon: 'lucide:paint-bucket',
           fields: {
             primary: field({
@@ -169,7 +171,7 @@ export default defineNuxtSchema({
               default: 'green',
               required: [
                 'amber',
-                'brand', // custom color pallet, only if defined in CSS, see description above
+                'brand', // custom color palette, only if defined in CSS, see description above
                 'blue',
                 'cyan',
                 'emerald',
