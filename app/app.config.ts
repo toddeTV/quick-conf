@@ -7,6 +7,7 @@ export default defineAppConfig({
     conferenceName: 'CONF',
     // conferenceFoundingYear: 2025,
     timeZone: 'Europe/Berlin',
+    githubProjectLink: '',
     logo: {
       light: '/logo/light.svg',
       dark: '/logo/dark.svg',

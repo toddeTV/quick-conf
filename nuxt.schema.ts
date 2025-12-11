@@ -70,6 +70,11 @@ export default defineNuxtSchema({
           // + ' And all date-times in the content files are assumed to be in this time zone!', //TODO test!
           default: 'UTC',
         }),
+        githubProjectLink: field({
+          type: 'string',
+          title: 'GitHub Project Link',
+          description: 'The link to the GitHub project of this conference website. Leave empty to hide.',
+        }),
         logo: group({
           title: 'Logo',
           description: 'The Logo for the application. Create one that works in both color modes (light and dark)'

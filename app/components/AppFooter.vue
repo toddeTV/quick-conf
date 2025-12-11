@@ -141,11 +141,12 @@ const columns: FooterColumn[] = [
 
     <template #right>
       <UButton
+        v-if="!isEmpty(appConfig.general.githubProjectLink)"
         aria-label="GitHub"
         color="neutral"
         icon="i-simple-icons-github"
         target="_blank"
-        to="https://github.com/toddeTV/quick-conf"
+        :to="appConfig.general.githubProjectLink"
         variant="ghost"
       />
 
