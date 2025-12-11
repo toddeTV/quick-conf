@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import type { FooterColumn } from '@nuxt/ui'
-import { isNil } from 'lodash-es'
+import { isEmpty, isNil } from 'lodash-es'
 
 const appConfig = useAppConfig()
 
 const yearCurrent = new Date().getFullYear()
 const yearStart = appConfig.general?.conferenceFoundingYear ?? yearCurrent
 const yearSpan = yearStart === yearCurrent ? yearStart : `${yearStart} - ${yearCurrent}`
+
+const hasCustomFooterColumn = !(isNil(appConfig.customFooterColumn) || isEmpty(appConfig.customFooterColumn)
+  || isNil(appConfig.customFooterColumn.title) || isEmpty(appConfig.customFooterColumn.title)
+  || isNil(appConfig.customFooterColumn.links) || isEmpty(appConfig.customFooterColumn.links)
+  || !Object.values(appConfig.customFooterColumn.links).some(link => !isNil(link.url) && link.url !== ''))
 
 const columns: FooterColumn[] = [
   {
@@ -48,15 +53,11 @@ const columns: FooterColumn[] = [
     ],
   },
   ...(
-    (
-      isNil(appConfig.customFooterColumn)
-      || isNil(appConfig.customFooterColumn.title)
-      || isNil(appConfig.customFooterColumn.links)
-    )
+    !hasCustomFooterColumn
       ? []
       : [{
           label: appConfig.customFooterColumn.title ?? '',
-          children: Object.values(appConfig.customFooterColumn.links)
+          children: Object.values(appConfig.customFooterColumn.links!)
             .filter(link => link.url)
             .map(link => ({
               label: link.name ?? link.url!,
@@ -88,7 +89,13 @@ const columns: FooterColumn[] = [
   <UFooter :ui="{ top: 'border-b border-default' }">
     <template #top>
       <UContainer>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+          :class="{
+            'lg:grid-cols-3': !hasCustomFooterColumn,
+            'lg:grid-cols-4': hasCustomFooterColumn,
+          }"
+        >
           <UFooterColumns
             v-for="column in columns"
             :key="`footer-column-${column.label}`"
