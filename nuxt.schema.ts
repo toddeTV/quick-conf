@@ -119,7 +119,7 @@ export default defineNuxtSchema({
       description: 'Socials Customization.',
       icon: 'lucide:share-2',
       fields: Object.fromEntries(
-        // generates `social1: createSocialLinkGroup(1)`, ..., `social6: createSocialLinkGroup(6)`
+        // generates `social1: createLinkGroup(1)`, ..., `social6: createLinkGroup(6)`
         Array.from({ length: 6 }, (_, i) => i + 1).map(index => [
           `social${index}`,
           createLinkGroup(index),
@@ -140,7 +140,7 @@ export default defineNuxtSchema({
           default: '',
         }),
         links: Object.fromEntries(
-          // generates `link1: createSocialLinkGroup(1)`, ..., `link4: createSocialLinkGroup(4)`
+          // generates `link1: createLinkGroup(1)`, ..., `link4: createLinkGroup(4)`
           Array.from({ length: 4 }, (_, i) => i + 1).map(index => [
             `link${index}`,
             createLinkGroup(index),
