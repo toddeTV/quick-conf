@@ -16,7 +16,7 @@ function createLinkGroup(index: number) {
       name: field({
         type: 'string',
         title: 'Name',
-        description: 'Name or label for this social media link.',
+        description: 'Name or label for this link.',
         default: '',
       }),
       icon: field({
@@ -29,7 +29,7 @@ function createLinkGroup(index: number) {
       url: field({
         type: 'string',
         title: 'URL',
-        description: 'Destination URL for this social media link, including `https://` as prefix.',
+        description: 'Destination URL for this link, including `https://` as prefix.',
         default: '',
       }),
     },
