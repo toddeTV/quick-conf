@@ -27,9 +27,6 @@ useSeoMeta({
       <UPageHeader
         :description="description"
         :title="title"
-        :ui="{
-          root: 'border-b-0!',
-        }"
       />
 
       <UPricingPlans :plans="tickets" />

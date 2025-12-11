@@ -28,9 +28,6 @@ useSeoMeta({
       <UPageHeader
         :description="description"
         :title="title"
-        :ui="{
-          root: 'border-b-0!',
-        }"
       />
 
       <AppSpeakerGrid is-all-speakers :speakers="speakers" />

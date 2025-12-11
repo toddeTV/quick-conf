@@ -74,6 +74,8 @@ const breadcrumbItems = computed(() => {
       title="FAQ"
     />
 
+    <USeparator />
+
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 py-8">
       <aside class="lg:col-span-1">
         <UContentNavigation

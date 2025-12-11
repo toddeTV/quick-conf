@@ -62,5 +62,10 @@ export default defineAppConfig({
       primary: 'green',
       neutral: 'slate',
     },
+    pageHeader: {
+      slots: {
+        root: 'border-b-0!', // remove bottom border
+      },
+    },
   },
 })

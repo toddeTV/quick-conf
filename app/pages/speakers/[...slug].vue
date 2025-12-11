@@ -93,9 +93,6 @@ const socialLinks = computed((): PageAnchor[] => {
                 :description="speaker.description"
                 headline="Speaker Details"
                 :title="speaker.name"
-                :ui="{
-                  root: 'border-b-0!',
-                }"
               />
               <!-- <UPageAnchors :links="socialLinks" /> -->
               <!-- <UFooterColumns

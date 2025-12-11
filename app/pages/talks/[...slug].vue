@@ -80,9 +80,6 @@ function formatDateTime(dateTimeStr?: string): string {
         <UPageHeader
           headline="Talk Details"
           :title="talk.title"
-          :ui="{
-            root: 'border-b-0!',
-          }"
         />
 
         <div class="flex flex-col gap-2 max-w-sm -mt-5">
