@@ -23,9 +23,8 @@ useSeoMeta({
 
 <template>
   <template v-if="page">
-    <UContainer>
+    <UContainer class="pt-3 pb-8">
       <UBreadcrumb
-        class="pt-3 pb-8"
         :items="[
           { label: 'Home', to: '/' },
           { label: page.title },

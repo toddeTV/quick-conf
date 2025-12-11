@@ -64,9 +64,8 @@ const breadcrumbItems = computed(() => {
 </script>
 
 <template>
-  <UContainer>
+  <UContainer class="pt-3 pb-8">
     <UBreadcrumb
-      class="pt-3"
       :items="breadcrumbItems"
     />
 

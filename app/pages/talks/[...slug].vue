@@ -67,9 +67,8 @@ function formatDateTime(dateTimeStr?: string): string {
 
 <template>
   <template v-if="talk">
-    <UContainer>
+    <UContainer class="pt-3 pb-8">
       <UBreadcrumb
-        class="pt-3"
         :items="[
           { label: 'Home', to: '/' },
           { label: 'Schedule', to: '/schedule' },
