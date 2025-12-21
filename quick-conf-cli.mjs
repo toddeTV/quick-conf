@@ -25,6 +25,17 @@ const rl = readline.createInterface({
 
 // --- Helpers ---
 
+function safeUnlink(filePath) {
+  try {
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath)
+    }
+  }
+  catch {
+    // ignore errors (e.g. file locked)
+  }
+}
+
 /**
  * Prompts the user with a question and returns the answer.
  * @param {string} query - The question to ask.
@@ -249,9 +260,42 @@ async function checkSelfUpdate(remoteCliVer) {
         }
 
         log(`Downloading update from ${downloadUrl}...`)
-        await downloadFile(downloadUrl, __filename)
-        log('Update complete. Please restart the tool.', 'success')
-        process.exit(0)
+        const newFile = `${__filename}.new`
+        const oldFile = `${__filename}.old`
+
+        await downloadFile(downloadUrl, newFile)
+
+        // Rename current to .old
+        try {
+          if (fs.existsSync(oldFile))
+            safeUnlink(oldFile)
+          fs.renameSync(__filename, oldFile)
+        }
+        catch (e) {
+          log(`Failed to rename current script: ${e.message}`, 'error')
+          log(`Update downloaded to: ${newFile}`, 'info')
+          log('Please manually rename it to quick-conf-cli.mjs', 'info')
+          process.exit(1)
+        }
+
+        // Rename .new to current
+        try {
+          fs.renameSync(newFile, __filename)
+          log('Update complete. Please restart the tool.', 'success')
+          process.exit(0)
+        }
+        catch (e) {
+          log(`Failed to install new script: ${e.message}`, 'error')
+          // Try to restore
+          try {
+            fs.renameSync(oldFile, __filename)
+            log('Restored original script.', 'info')
+          }
+          catch {
+            log('Failed to restore original script. You may need to reinstall.', 'error')
+          }
+          process.exit(1)
+        }
       }
     }
     else {
@@ -305,9 +349,30 @@ async function freshInstall() {
     const tempTar = path.join(__dirname, 'temp_install.tar.gz')
     await downloadFile(tarballUrl, tempTar)
 
+    // Extract to temp dir first to avoid overwriting current files directly (especially the CLI tool)
+    const tempDir = path.join(__dirname, '.install_temp')
+    if (fs.existsSync(tempDir))
+      fs.rmSync(tempDir, { recursive: true, force: true })
+    fs.mkdirSync(tempDir)
+
     log('Extracting...')
-    extractTarball(tempTar, __dirname)
+    extractTarball(tempTar, tempDir)
     fs.unlinkSync(tempTar)
+
+    log('Installing files...')
+    // Copy files from tempDir to __dirname, excluding quick-conf-cli.mjs
+    const extractedFiles = fs.readdirSync(tempDir)
+    for (const file of extractedFiles) {
+      if (file === 'quick-conf-cli.mjs')
+        continue // Skip overwriting the CLI tool
+
+      const srcPath = path.join(tempDir, file)
+      const destPath = path.join(__dirname, file)
+      fs.cpSync(srcPath, destPath, { recursive: true, force: true })
+    }
+
+    // Cleanup
+    fs.rmSync(tempDir, { recursive: true, force: true })
 
     log('Installation files downloaded.', 'success')
 
@@ -423,6 +488,9 @@ async function updateTemplate() {
     // Using fs.cpSync for cross-platform compatibility (Windows/Linux/macOS)
     const extractedFiles = fs.readdirSync(extractDir)
     for (const file of extractedFiles) {
+      if (file === 'quick-conf-cli.mjs')
+        continue // Skip overwriting the CLI tool
+
       const srcPath = path.join(extractDir, file)
       const destPath = path.join(__dirname, file)
       fs.cpSync(srcPath, destPath, { recursive: true, force: true })
@@ -554,6 +622,9 @@ async function main() {
 `)
 
   checkRequirements()
+
+  // Cleanup old update file if exists
+  safeUnlink(`${__filename}.old`)
 
   log('Fetching version information...')
   const localCliVer = CLI_VERSION
