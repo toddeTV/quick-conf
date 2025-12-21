@@ -6,7 +6,7 @@ This project is provided under a dual-license structure. The source code is lice
 
 ## MIT License (Source Code)
 
-This license applies to all files within this repository **except** for the contents of the `/content`, `/public`, and `/assets` directories.
+This license applies to all files within this repository **except** for the contents of the `/content`, `/app/public`, and `/app/assets` directories.
 
 ```
 Copyright (c) 2025-present, Thorsten Seyschab
@@ -35,8 +35,8 @@ SOFTWARE.
 This license applies to all files located within the following directories (including e.g., Markdown, JSON, YAML data, images, 3D models, videos, media and asset files in general):
 
 - `/content`
-- `/public`
-- `/assets`
+- `/app/public`
+- `/app/assets`
 
 **All Rights Reserved.**
 
