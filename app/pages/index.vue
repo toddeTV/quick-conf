@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import {
   AppLandingCta,
+  AppLandingFaqPreview,
   AppLandingFeatures,
+  AppLandingGallery,
   AppLandingHero,
+  AppLandingHeroCountdown,
+  AppLandingHeroMedia,
+  AppLandingMarquee,
+  AppLandingMetaInfo,
   AppLandingSection,
   AppLandingSpeakers,
   AppLandingSponsors,
@@ -11,13 +17,19 @@ import {
 import { isNil } from 'lodash-es'
 
 const componentsMap: Record<string, Component> = {
-  AppLandingHero,
-  AppLandingSection,
-  AppLandingFeatures,
-  AppLandingSpeakers,
-  AppLandingTestimonials,
-  AppLandingSponsors,
   AppLandingCta,
+  AppLandingFaqPreview,
+  AppLandingFeatures,
+  AppLandingGallery,
+  AppLandingHero,
+  AppLandingHeroCountdown,
+  AppLandingHeroMedia,
+  AppLandingMarquee,
+  AppLandingMetaInfo,
+  AppLandingSection,
+  AppLandingSpeakers,
+  AppLandingSponsors,
+  AppLandingTestimonials,
 }
 
 const { extractSeoMetadata, getSeoMetaBase } = useSeo()
