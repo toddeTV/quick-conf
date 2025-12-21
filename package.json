@@ -1,6 +1,7 @@
 {
   "name": "quick-conf",
   "type": "module",
+  "version": "1.0.0-rc.0",
   "packageManager": "pnpm@10.8.1+sha512.c50088ba998c67b8ca8c99df8a5e02fd2ae2e2b29aaf238feaa9e124248d3f48f9fb6db2424949ff901cffbb5e0f0cc1ad6aedb602cd29450751d11c35023677",
   "description": "This is a template for quickly setting up a new Conference or Meetup website with various functionalities.",
   "author": "Thorsten Seyschab <business@todde.tv> (https://todde.tv/)",
@@ -41,12 +42,12 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "fix:lint": "eslint . --fix",
     "generate": "nuxt generate",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
     "nuxt": "nuxt",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "test:lint": "eslint .",
     "test:typecheck": "nuxt typecheck"
   },
   "dependencies": {
