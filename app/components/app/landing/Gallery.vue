@@ -2,7 +2,7 @@
 defineProps<{
   title: string
   description: string
-  headline: string
+  headline?: string
   images: {
     src: string
     alt?: string
