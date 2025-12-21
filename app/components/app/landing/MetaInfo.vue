@@ -1,5 +1,8 @@
 <script setup lang="ts">
 defineProps<{
+  title: string
+  description: string
+  headline?: string
   items: {
     icon: string
     text: string
@@ -9,8 +12,12 @@ defineProps<{
 </script>
 
 <template>
-  <USeparator />
-  <UContainer class="my-12">
+  <UPageSection
+    class="my-12"
+    :description="description"
+    :headline="headline"
+    :title="title"
+  >
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
       <div
         v-for="(item, index) in items"
@@ -35,6 +42,5 @@ defineProps<{
         </div>
       </div>
     </div>
-  </UContainer>
-  <USeparator />
+  </UPageSection>
 </template>
