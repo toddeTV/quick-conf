@@ -24,12 +24,12 @@ logs
 !.env.example
 
 # only specific files in `.vscode`
-.vscode
+.vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
 
 # only specific files in `.github`
-.github
+.github/*
 !.github/dependabot.yml
 !.github/FUNDING.yml
-!.github/workflows
+!.github/workflows/
