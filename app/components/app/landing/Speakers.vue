@@ -1,0 +1,22 @@
+<script setup lang="ts">
+defineProps<{
+  title: string
+  description: string
+  headline?: string
+}>()
+
+const { data: speakers } = await useAsyncData('speakers-featured-all', () =>
+  queryCollection('speakers').where('featured', '=', true).order('featured', 'DESC').all())
+</script>
+
+<template>
+  <template v-if="speakers && speakers.length > 0">
+    <UPageSection
+      :description="description"
+      :headline="headline"
+      :title="title"
+    >
+      <AppSpeakerGrid :speakers="speakers" />
+    </UPageSection>
+  </template>
+</template>
