@@ -18,7 +18,7 @@ jobs:
       tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
       - name: Checkout the Codebase
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # ref: main # branch to checkout, but we use the provided branch by the event
           fetch-depth: 0
@@ -28,19 +28,6 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: node
           target-branch: main
-          changelog-types: |
-            [
-              {"type":"feat",     "section":"Features"},
-              {"type":"fix",      "section":"Bug Fixes"},
-              {"type":"perf",     "section":"Performance Improvements"},
-              {"type":"revert",   "section":"Reverts"},
-              {"type":"chore",    "section":"Miscellaneous Chores"},
-              {"type":"docs",     "section":"Documentation"},
-              {"type":"style",    "section":"Styles"},
-              {"type":"refactor", "section":"Code Refactoring"},
-              {"type":"test",     "section":"Tests"},
-              {"type":"build",    "section":"Build System"},
-              {"type":"ci",       "section":"Continuous Integration"}
-            ]
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json

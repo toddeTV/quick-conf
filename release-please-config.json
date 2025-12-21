@@ -1,0 +1,20 @@
+{
+  "packages": {
+    ".": {
+      "changelog-sections": [
+        { "section": "Features", "type": "feat" },
+        { "section": "Bug Fixes", "type": "fix" },
+        { "section": "Performance Improvements", "type": "perf" },
+        { "section": "Reverts", "type": "revert" },
+        { "section": "Miscellaneous Chores", "type": "chore" },
+        { "section": "Documentation", "type": "docs" },
+        { "section": "Styles", "type": "style" },
+        { "section": "Code Refactoring", "type": "refactor" },
+        { "section": "Tests", "type": "test" },
+        { "section": "Build System", "type": "build" },
+        { "section": "Continuous Integration", "type": "ci" }
+      ],
+      "release-type": "node"
+    }
+  }
+}
