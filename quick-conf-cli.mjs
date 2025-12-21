@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { execSync } from 'node:child_process'
+import { execSync, spawnSync } from 'node:child_process'
 import fs from 'node:fs'
 import https from 'node:https'
 import path from 'node:path'
@@ -128,13 +128,13 @@ function extractTarball(tarPath, destDir) {
     fs.mkdirSync(destDir, { recursive: true })
   }
   try {
-    // Normalize paths to forward slashes to avoid Windows backslash+quote issues
-    const safeTarPath = tarPath.replace(/\\/g, '/')
-    const safeDestDir = destDir.replace(/\\/g, '/')
+    // Use spawnSync to avoid shell injection risks
+    const result = spawnSync('tar', ['-xf', tarPath, '-C', destDir, '--strip-components=1'], { stdio: 'inherit' })
 
-    // Try using system tar
-    // --strip-components=1 assumes the tarball has a top-level directory (standard for GitHub archives)
-    execSync(`tar -xf "${safeTarPath}" -C "${safeDestDir}" --strip-components=1`)
+    if (result.error)
+      throw result.error
+    if (result.status !== 0)
+      throw new Error(`tar exited with code ${result.status}`)
   }
   catch (error) {
     throw new Error(`Failed to extract tarball: ${error.message}`)
