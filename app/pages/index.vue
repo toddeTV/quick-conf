@@ -40,7 +40,13 @@ const renderedBlocks = computed(() => {
     return []
 
   return page.value.blocks
-    .filter(block => componentsMap[block.component])
+    .filter((block) => {
+      if (!componentsMap[block.component]) {
+        console.warn(`[Landing Page] Component "${block.component}" not found in componentsMap.`)
+        return false
+      }
+      return true
+    })
     .map((block, index) => {
       const { component: componentName, ...props } = block
       const Component = componentsMap[componentName]
