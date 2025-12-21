@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { FooterColumn } from '@nuxt/ui'
 import { isEmpty, isNil } from 'lodash-es'
+import { version } from '~~/package.json'
 
 const appConfig = useAppConfig()
 
@@ -122,6 +123,7 @@ const columns: FooterColumn[] = [
         >
           quick-conf
         </ULink>
+        <span class="ml-0.5 mr-1">v{{ version }}</span>
         <!-- @ -->
         <UIcon
           aria-hidden="true"
