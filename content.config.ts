@@ -67,46 +67,56 @@ export default defineContentConfig({
       type: 'page',
       source: '0.index.yml',
       schema: createBaseWithSeoSchema().extend({
-        hero: z.object({
-          links: z.array(createLinkSchema()),
-        }),
-        sections: z.array(
-          createBaseSchema().extend({
-            orientation: orientationEnum.optional(),
-            reverse: z.boolean().optional(),
-            features: z.array(createFeatureItemSchema()),
-            image: createImageSchema(),
-          }),
-        ).optional(),
-        features: createBaseSchema().extend({
-          items: z.array(createFeatureItemSchema()),
-        }).optional(),
-        speakers: createBaseSchema().optional(),
-        testimonials: createBaseSchema().extend({
-          items: z.array(
-            z.object({
-              quote: z.string().min(1),
-              user: z.object({
-                name: z.string().min(1),
-                description: z.string().min(1),
-                to: z.string().min(1),
-                target: targetEnum.optional(),
-                avatar: createImageSchema(),
-              }),
+        blocks: z.array(
+          z.discriminatedUnion('component', [
+            createBaseSchema().extend({
+              component: z.literal('AppLandingHero'),
+              links: z.array(createLinkSchema()).optional(),
             }),
-          ),
-        }).optional(),
-        sponsors: createBaseSchema().extend({
-          showViewAll: z.boolean().default(false).describe(
-            'Show a "View all Sponsors" button. Links to the sponsors FAQ page, which must be created manually.',
-          ),
-          viewAllLink: z.string().min(1).default('/faq/sponsors').describe(
-            'The link for the "View all Sponsors" button.',
-          ),
-        }).optional(),
-        cta: createBaseSchema().extend({
-          links: z.array(createLinkSchema()),
-        }).optional(),
+            createBaseSchema().extend({
+              component: z.literal('AppLandingSection'),
+              orientation: orientationEnum.optional(),
+              reverse: z.boolean().optional(),
+              features: z.array(createFeatureItemSchema()).optional(),
+              image: createImageSchema().optional(),
+            }),
+            createBaseSchema().extend({
+              component: z.literal('AppLandingFeatures'),
+              items: z.array(createFeatureItemSchema()),
+            }),
+            createBaseSchema().extend({
+              component: z.literal('AppLandingSpeakers'),
+            }),
+            createBaseSchema().extend({
+              component: z.literal('AppLandingTestimonials'),
+              items: z.array(
+                z.object({
+                  quote: z.string().min(1),
+                  user: z.object({
+                    name: z.string().min(1),
+                    description: z.string().min(1),
+                    to: z.string().min(1),
+                    target: targetEnum.optional(),
+                    avatar: createImageSchema(),
+                  }),
+                }),
+              ),
+            }),
+            createBaseSchema().extend({
+              component: z.literal('AppLandingSponsors'),
+              showViewAll: z.boolean().default(false).describe(
+                'Show a "View all Sponsors" button. Links to the sponsors FAQ page, which must be created manually.',
+              ),
+              viewAllLink: z.string().min(1).default('/faq/sponsors').describe(
+                'The link for the "View all Sponsors" button.',
+              ),
+            }),
+            createBaseSchema().extend({
+              component: z.literal('AppLandingCta'),
+              links: z.array(createLinkSchema()).optional(),
+            }),
+          ]),
+        ),
       }),
     }),
 
