@@ -82,7 +82,7 @@ export default defineContentConfig({
             }),
             createBaseSchema().extend({
               component: z.literal('AppLandingFeatures'),
-              items: z.array(createFeatureItemSchema()),
+              items: z.array(createFeatureItemSchema()).default([]),
             }),
             createBaseSchema().extend({
               component: z.literal('AppLandingSpeakers'),
@@ -100,7 +100,7 @@ export default defineContentConfig({
                     avatar: createImageSchema(),
                   }),
                 }),
-              ),
+              ).default([]),
             }),
             createBaseSchema().extend({
               component: z.literal('AppLandingSponsors'),
