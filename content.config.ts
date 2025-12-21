@@ -58,6 +58,12 @@ function createImageSchema() {
   })
 }
 
+function createLandingBlockBaseSchema() {
+  return z.object({
+    class: z.string().optional().describe('Tailwind classes for custom styling (e.g. "md:-mt-20").'),
+  })
+}
+
 export default defineContentConfig({
   collections: {
     // -------- static pages
@@ -72,21 +78,21 @@ export default defineContentConfig({
             createBaseSchema().extend({
               component: z.literal('AppLandingHero'),
               links: z.array(createLinkSchema()).optional(),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             createBaseSchema().extend({
               component: z.literal('AppLandingSection'),
               orientation: orientationEnum.optional(),
               reverse: z.boolean().optional(),
               features: z.array(createFeatureItemSchema()).optional(),
               image: createImageSchema().optional(),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             createBaseSchema().extend({
               component: z.literal('AppLandingFeatures'),
               items: z.array(createFeatureItemSchema()).default([]),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             createBaseSchema().extend({
               component: z.literal('AppLandingSpeakers'),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             createBaseSchema().extend({
               component: z.literal('AppLandingTestimonials'),
               items: z.array(
@@ -101,7 +107,7 @@ export default defineContentConfig({
                   }),
                 }),
               ).default([]),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             createBaseSchema().extend({
               component: z.literal('AppLandingSponsors'),
               showViewAll: z.boolean().default(false).describe(
@@ -110,11 +116,11 @@ export default defineContentConfig({
               viewAllLink: z.string().min(1).default('/faq/sponsors').describe(
                 'The link for the "View all Sponsors" button.',
               ),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             createBaseSchema().extend({
               component: z.literal('AppLandingCta'),
               links: z.array(createLinkSchema()).optional(),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             createBaseSchema().extend({
               component: z.literal('AppLandingHeroMedia'),
               links: z.array(createLinkSchema()).optional(),
@@ -125,12 +131,12 @@ export default defineContentConfig({
               }).optional(),
               overlayOpacity: z.number().min(0).max(1).default(0.5)
                 .describe('The opacity of the black overlay on top of the media (0-1).'),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             createBaseSchema().extend({
               component: z.literal('AppLandingHeroCountdown'),
               links: z.array(createLinkSchema()).optional(),
               targetDate: z.string().datetime(),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             createBaseSchema().extend({
               component: z.literal('AppLandingMetaInfo'),
               items: z.array(z.object({
@@ -138,18 +144,18 @@ export default defineContentConfig({
                 text: z.string().min(1),
                 label: z.string().optional(),
               })),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             z.object({
               component: z.literal('AppLandingMarquee'),
               images: z.array(createImageSchema()),
               direction: z.enum(['left', 'right']).default('left'),
               speed: z.number().default(20),
               gap: z.number().default(0),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             createBaseSchema().extend({
               component: z.literal('AppLandingGallery'),
               images: z.array(createImageSchema()),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             createBaseSchema().extend({
               component: z.literal('AppLandingFaqPreview'),
               items: z.array(z.object({
@@ -157,13 +163,13 @@ export default defineContentConfig({
                 content: z.string().min(1),
               })),
               link: createLinkSchema().optional(),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
             z.object({
               component: z.literal('AppLandingSeparator'),
               label: z.string().optional(),
               icon: property(z.string().optional()).editor({ input: 'icon' }),
               avatar: createImageSchema().optional(),
-            }),
+            }).merge(createLandingBlockBaseSchema()),
           ]),
         ),
       }),

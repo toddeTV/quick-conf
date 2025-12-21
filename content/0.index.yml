@@ -30,6 +30,7 @@ blocks:
     # title: Event Details
     # description: Key information about the upcoming conference.
     # headline: At a Glance
+    class: md:-my-[70px] relative z-10
     items:
       - icon: i-lucide-calendar
         text: October 15-17, 2026
@@ -43,6 +44,7 @@ blocks:
       - icon: i-lucide-mic-2
         text: 30+ Speakers
         label: Content
+  - component: AppLandingSeparator
   - component: AppLandingSection
     title: Discover a World of Innovation
     description: Join us for an unforgettable experience where industry leaders, experts, and enthusiasts come together to share their knowledge and passion. Explore the latest trends and network with peers.

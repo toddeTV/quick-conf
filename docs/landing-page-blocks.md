@@ -4,6 +4,12 @@ The landing page is built using a modular block system. You can customize the la
 
 ## Available Blocks
 
+### Common Properties
+
+All blocks support the following optional properties to control spacing:
+
+- `class`: Tailwind classes for custom styling (e.g., `md:-mt-20`).
+
 ### `AppLandingHero`
 
 The main hero section of the page with background effects.

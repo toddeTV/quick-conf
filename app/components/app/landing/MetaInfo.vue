@@ -13,7 +13,6 @@ defineProps<{
 
 <template>
   <UPageSection
-    class="my-12"
     :description="description"
     :headline="headline"
     :title="title"
