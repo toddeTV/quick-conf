@@ -12,7 +12,7 @@ To get started with a new conference website using this template, we provide a C
 
 Open the terminal and navigate inside the folder you want the project to be installed. Here you need the CLI tool. Get it by downloading it from the repository or via one of the following commands:
 
-- For Linux & MacOS:
+- For Linux & macOS:
 
   ```bash
   curl -o quick-conf-cli.mjs https://raw.githubusercontent.com/toddeTV/quick-conf/main/quick-conf-cli.mjs
