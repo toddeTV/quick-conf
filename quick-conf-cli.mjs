@@ -25,10 +25,20 @@ const rl = readline.createInterface({
 
 // --- Helpers ---
 
+/**
+ * Prompts the user with a question and returns the answer.
+ * @param {string} query - The question to ask.
+ * @returns {Promise<string>} The user's input.
+ */
 function askQuestion(query) {
   return new Promise(resolve => rl.question(query, resolve))
 }
 
+/**
+ * Logs a message to the console with color coding based on type.
+ * @param {string} msg - The message to log.
+ * @param {'info'|'success'|'warn'|'error'} type - The type of log message.
+ */
 function log(msg, type = 'info') {
   const colors = {
     info: '\x1B[36m%s\x1B[0m', // Cyan
@@ -39,6 +49,11 @@ function log(msg, type = 'info') {
   console.log(colors[type] || colors.info, `[Quick Conf] ${msg}`)
 }
 
+/**
+ * Fetches and parses JSON content from a URL.
+ * @param {string} url - The URL to fetch.
+ * @returns {Promise<any>} The parsed JSON data.
+ */
 async function fetchJson(url) {
   return new Promise((resolve, reject) => {
     const options = {
@@ -69,6 +84,13 @@ async function fetchJson(url) {
   })
 }
 
+/**
+ * Downloads a file from a URL to a local destination.
+ * Handles redirects (301/302).
+ * @param {string} url - The URL to download from.
+ * @param {string} dest - The local file path destination.
+ * @returns {Promise<string>} The destination path upon success.
+ */
 async function downloadFile(url, dest) {
   return new Promise((resolve, reject) => {
     const file = fs.createWriteStream(dest)
@@ -94,6 +116,12 @@ async function downloadFile(url, dest) {
   })
 }
 
+/**
+ * Extracts a tarball to a destination directory using the system `tar` command.
+ * @param {string} tarPath - The path to the tarball file.
+ * @param {string} destDir - The directory where files should be extracted.
+ * @throws {Error} If extraction fails.
+ */
 function extractTarball(tarPath, destDir) {
   // Ensure destDir exists
   if (!fs.existsSync(destDir)) {
@@ -113,6 +141,11 @@ function extractTarball(tarPath, destDir) {
   }
 }
 
+/**
+ * Fetches the content of a remote file as a string.
+ * @param {string} url - The URL of the file to fetch.
+ * @returns {Promise<string>} The file content.
+ */
 async function getRemoteFileContent(url) {
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
@@ -123,6 +156,10 @@ async function getRemoteFileContent(url) {
   })
 }
 
+/**
+ * Retrieves the version of the CLI tool from the remote repository.
+ * @returns {Promise<string>} The remote version string, or 'Unknown' if fetch fails.
+ */
 async function getRemoteCliVersion() {
   try {
     const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/quick-conf-cli.mjs`
@@ -135,6 +172,10 @@ async function getRemoteCliVersion() {
   }
 }
 
+/**
+ * Retrieves the version of the local project from package.json.
+ * @returns {string} The local project version, or '-' if not found.
+ */
 function getLocalProjectVersion() {
   try {
     const pkgPath = path.join(process.cwd(), 'package.json')
@@ -147,6 +188,11 @@ function getLocalProjectVersion() {
   return '-'
 }
 
+/**
+ * Prompts the user to select a package manager and updates the global configuration.
+ * Defaults to 'pnpm'.
+ * @returns {Promise<void>}
+ */
 async function selectPackageManager() {
   console.log('\nSelect Package Manager:')
   console.log('1. pnpm (Recommended because of existing `pnpm-lock.yaml`)')
@@ -174,6 +220,11 @@ async function selectPackageManager() {
 
 // --- Features ---
 
+/**
+ * Checks if a newer version of the CLI is available and prompts for update.
+ * @param {string} remoteCliVer - The version string of the remote CLI.
+ * @returns {Promise<void>}
+ */
 async function checkSelfUpdate(remoteCliVer) {
   log('Checking for updates...')
   try {
@@ -213,6 +264,12 @@ async function checkSelfUpdate(remoteCliVer) {
   }
 }
 
+/**
+ * Compares two semantic version strings.
+ * @param {string} v1 - The first version string.
+ * @param {string} v2 - The second version string.
+ * @returns {number} 1 if v1 > v2, -1 if v1 < v2, 0 if equal.
+ */
 function compareVersions(v1, v2) {
   const p1 = v1.split('.').map(Number)
   const p2 = v2.split('.').map(Number)
@@ -227,6 +284,11 @@ function compareVersions(v1, v2) {
   return 0
 }
 
+/**
+ * Performs a fresh installation of the template.
+ * Downloads the latest release, extracts it, and optionally installs dependencies.
+ * @returns {Promise<void>}
+ */
 async function freshInstall() {
   const answer = await askQuestion(
     'This will download the latest release and overwrite files in the current directory. Continue? (y/N): ',
@@ -266,6 +328,11 @@ async function freshInstall() {
   }
 }
 
+/**
+ * Updates the template while preserving user content.
+ * Backs up specific directories/files, installs the new version, and restores the backup.
+ * @returns {Promise<void>}
+ */
 async function updateTemplate() {
   log('Starting update process...')
 
@@ -401,6 +468,11 @@ async function updateTemplate() {
   }
 }
 
+/**
+ * Fetches and displays migration notes from the repository.
+ * Allows the user to select a specific migration guide to view.
+ * @returns {Promise<void>}
+ */
 async function viewMigrationNotes() {
   log('Fetching migration notes...')
   try {
@@ -448,6 +520,11 @@ async function viewMigrationNotes() {
   }
 }
 
+/**
+ * Checks if the system meets the requirements for the CLI tool.
+ * Specifically checks for the presence of the `tar` command.
+ * Exits the process if requirements are not met.
+ */
 function checkRequirements() {
   try {
     execSync('tar --version', { stdio: 'ignore' })
@@ -459,6 +536,11 @@ function checkRequirements() {
   }
 }
 
+/**
+ * The main entry point of the CLI application.
+ * Displays the menu and handles user interaction.
+ * @returns {Promise<void>}
+ */
 async function main() {
   console.log(`
    ___        _      _         ____             __     ____ _     ___
