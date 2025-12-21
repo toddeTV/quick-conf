@@ -175,3 +175,13 @@ A preview of Frequently Asked Questions with an accordion layout.
 - `items`: A list of FAQ items.
   - `label`: The question.
   - `content`: The answer.
+
+### `AppLandingSeparator`
+
+A simple separator line to visually divide sections.
+
+- `label`: Optional text in the middle of the separator.
+- `icon`: Optional icon in the middle of the separator.
+- `avatar`: Optional avatar in the middle of the separator.
+  - `src`: Image path.
+  - `alt`: Image description.

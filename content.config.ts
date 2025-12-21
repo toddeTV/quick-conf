@@ -158,6 +158,12 @@ export default defineContentConfig({
               })),
               link: createLinkSchema().optional(),
             }),
+            z.object({
+              component: z.literal('AppLandingSeparator'),
+              label: z.string().optional(),
+              icon: property(z.string().optional()).editor({ input: 'icon' }),
+              avatar: createImageSchema().optional(),
+            }),
           ]),
         ),
       }),
