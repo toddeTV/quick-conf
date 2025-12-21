@@ -115,6 +115,49 @@ export default defineContentConfig({
               component: z.literal('AppLandingCta'),
               links: z.array(createLinkSchema()).optional(),
             }),
+            createBaseSchema().extend({
+              component: z.literal('AppLandingHeroMedia'),
+              links: z.array(createLinkSchema()).optional(),
+              image: createImageSchema().optional(),
+              video: z.object({
+                src: property(z.string().min(1)).editor({ input: 'media' }),
+                poster: property(z.string().optional()).editor({ input: 'media' }),
+              }).optional(),
+              overlayOpacity: z.number().min(0).max(1).default(0.5)
+                .describe('The opacity of the black overlay on top of the media (0-1).'),
+            }),
+            createBaseSchema().extend({
+              component: z.literal('AppLandingHeroCountdown'),
+              links: z.array(createLinkSchema()).optional(),
+              targetDate: z.string().datetime(),
+            }),
+            createBaseSchema().extend({
+              component: z.literal('AppLandingMetaInfo'),
+              items: z.array(z.object({
+                icon: property(z.string().min(1)).editor({ input: 'icon' }),
+                text: z.string().min(1),
+                label: z.string().optional(),
+              })),
+            }),
+            z.object({
+              component: z.literal('AppLandingMarquee'),
+              images: z.array(createImageSchema()),
+              direction: z.enum(['left', 'right']).default('left'),
+              speed: z.number().default(20),
+              gap: z.number().default(0),
+            }),
+            createBaseSchema().extend({
+              component: z.literal('AppLandingGallery'),
+              images: z.array(createImageSchema()),
+            }),
+            createBaseSchema().extend({
+              component: z.literal('AppLandingFaqPreview'),
+              items: z.array(z.object({
+                label: z.string().min(1),
+                content: z.string().min(1),
+              })),
+              link: createLinkSchema().optional(),
+            }),
           ]),
         ),
       }),
