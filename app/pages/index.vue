@@ -35,6 +35,24 @@ if (isNil(_page.value)) {
 // we tested above that these are not nil, so we can assert the types here safely by removing nil from them
 const page = _page as globalThis.Ref<NonNullable<typeof _page.value>>
 
+const renderedBlocks = computed(() => {
+  if (!page.value?.blocks)
+    return []
+
+  return page.value.blocks
+    .filter(block => componentsMap[block.component])
+    .map((block, index) => {
+      const { component: componentName, ...props } = block
+      const Component = componentsMap[componentName]
+
+      return {
+        is: Component,
+        props,
+        key: `${componentName}-${index}`,
+      }
+    })
+})
+
 const seoMetadata = extractSeoMetadata(page.value)
 // const { title, description } = seoMetadata
 
@@ -45,11 +63,8 @@ useSeoMeta({
 
 <template>
   <div v-if="page.blocks">
-    <component
-      :is="componentsMap[block.component]"
-      v-for="(block, index) in page.blocks"
-      :key="index"
-      v-bind="block"
-    />
+    <template v-for="block in renderedBlocks" :key="block.key">
+      <component :is="block.is" v-bind="block.props" />
+    </template>
   </div>
 </template>
