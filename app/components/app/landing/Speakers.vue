@@ -6,7 +6,7 @@ defineProps<{
 }>()
 
 const { data: speakers } = await useAsyncData('speakers-featured-all', () =>
-  queryCollection('speakers').where('featured', '=', true).order('featured', 'DESC').all())
+  queryCollection('speakers').where('featured', '=', true).order('featured', 'DESC').order('name', 'ASC').all())
 </script>
 
 <template>
