@@ -22,8 +22,8 @@ const { data: sponsors } = await useAsyncData('sponsors-all', () => queryCollect
     >
       <UPageGrid>
         <UPageCard
-          v-for="(sponsor, index) in sponsors"
-          :key="index"
+          v-for="sponsor in sponsors"
+          :key="sponsor.slug"
           class="flex h-32 items-center justify-center text-center"
           rel="noopener noreferrer"
           spotlight
