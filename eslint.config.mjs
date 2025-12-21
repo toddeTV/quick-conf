@@ -137,4 +137,13 @@ export default antfu(
       'jsonc/sort-keys': 'off',
     },
   },
+  {
+    files: [
+      'quick-conf-cli.mjs',
+    ],
+    rules: {
+      'no-console': 'off',
+      'node/prefer-global/process': 'off',
+    },
+  },
 )
