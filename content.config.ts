@@ -96,7 +96,14 @@ export default defineContentConfig({
             }),
           ),
         }).optional(),
-        sponsors: createBaseSchema().optional(),
+        sponsors: createBaseSchema().extend({
+          showViewAll: z.boolean().default(false).describe(
+            'Show a "View all Sponsors" button. Links to the sponsors FAQ page, which must be created manually.',
+          ),
+          viewAllLink: z.string().default('/faq/sponsors').describe(
+            'The link for the "View all Sponsors" button.',
+          ),
+        }).optional(),
         cta: createBaseSchema().extend({
           links: z.array(createLinkSchema()),
         }).optional(),

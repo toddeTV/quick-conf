@@ -126,6 +126,8 @@ sponsors:
   title: Our Amazing Sponsors
   description: We are grateful for the support of our sponsors, who help make this event possible.
   headline: Meet Our Partners
+  showViewAll: false
+  viewAllLink: /faq/sponsors
 cta:
   title: Ready to Join Us?
   description: Don't miss out on this incredible opportunity to learn, network, and grow. Get your tickets now before they sell out!
