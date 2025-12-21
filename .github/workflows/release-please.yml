@@ -1,0 +1,46 @@
+name: Release Please Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  release_please:
+    name: Release Please Job
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - name: Checkout the Codebase
+        uses: actions/checkout@v4
+        with:
+          # ref: main # branch to checkout, but we use the provided branch by the event
+          fetch-depth: 0
+
+      - name: Release Please Action
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+          target-branch: main
+          changelog-types: |
+            [
+              {"type":"feat",     "section":"Features"},
+              {"type":"fix",      "section":"Bug Fixes"},
+              {"type":"perf",     "section":"Performance Improvements"},
+              {"type":"revert",   "section":"Reverts"},
+              {"type":"chore",    "section":"Miscellaneous Chores"},
+              {"type":"docs",     "section":"Documentation"},
+              {"type":"style",    "section":"Styles"},
+              {"type":"refactor", "section":"Code Refactoring"},
+              {"type":"test",     "section":"Tests"},
+              {"type":"build",    "section":"Build System"},
+              {"type":"ci",       "section":"Continuous Integration"}
+            ]
