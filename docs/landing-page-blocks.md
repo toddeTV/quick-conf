@@ -10,6 +10,7 @@ The main hero section of the page with background effects.
 
 - `title`: Main heading.
 - `description`: Subtext.
+- `headline`: Small text above the title.
 - `links`: A list of buttons. Each button includes:
   - `label`: The text on the button.
   - `to`: The link destination.
@@ -30,6 +31,8 @@ A generic content section with an image and optional features.
 - `image`: The section image:
   - `src`: Image path.
   - `alt`: Description of the image.
+  - `loading`: Image loading strategy (`lazy` or `eager`).
+  - `srcset`: Image srcset.
 - `features`: A list of highlights. Each highlight includes:
   - `title`: Feature heading.
   - `description`: Feature text.
@@ -68,6 +71,7 @@ A grid of attendee testimonials.
     - `name`: Their name.
     - `description`: Their role or company.
     - `to`: Link to their profile or website.
+    - `target`: Link target (e.g., `_blank`).
     - `avatar`: Their profile picture:
       - `src`: Image path.
       - `alt`: Description of the image.
@@ -88,6 +92,7 @@ A call-to-action section with background effects, typically used at the bottom o
 
 - `title`: CTA heading.
 - `description`: CTA text.
+- `headline`: Small text above the title.
 - `links`: A list of buttons. Each button includes:
   - `label`: The text on the button.
   - `to`: The link destination.
@@ -95,3 +100,78 @@ A call-to-action section with background effects, typically used at the bottom o
   - `color`: Button color (e.g., `primary`, `white`).
   - `variant`: Button style (e.g., `solid`, `outline`).
   - `size`: Button size (e.g., `md`, `lg`).
+
+### `AppLandingHeroMedia`
+
+A hero section with a full-width background image or video.
+
+- `title`: Main heading.
+- `description`: Subtext.
+- `headline`: Small text above the title.
+- `links`: A list of buttons.
+- `image`: Background image (optional).
+  - `src`: Image path.
+  - `alt`: Image description.
+- `video`: Background video (optional, takes precedence over image).
+  - `src`: Video path.
+  - `poster`: Poster image path.
+- `overlayOpacity`: Opacity of the black overlay (0-1, default: 0.5).
+
+### `AppLandingHeroCountdown`
+
+A hero section with a countdown timer.
+
+- `title`: Main heading.
+- `description`: Subtext.
+- `headline`: Small text above the title.
+- `links`: A list of buttons.
+- `targetDate`: The target date and time in ISO format (e.g., `2025-12-31T10:00:00Z`).
+
+**Behavior:**
+
+- **Counting Down**: Shows days, hours, minutes, and seconds until `targetDate`.
+- **Live**: Shows "Live Now" for 12 hours after `targetDate` is reached.
+- **Ended**: Shows "Event Ended" after the 12-hour live window.
+
+### `AppLandingMetaInfo`
+
+A block for displaying key meta-information (Date, Location, etc.) in a grid.
+
+- `items`: A list of info items. Each item includes:
+  - `icon`: Icon name.
+  - `text`: Main text.
+  - `label`: Optional label above the text.
+
+### `AppLandingMarquee`
+
+An infinite scrolling bar of images (e.g., logos).
+
+- `direction`: Scroll direction (`left` or `right`).
+- `speed`: Animation duration in seconds (default: 20).
+- `gap`: Gap between images in pixels (default: 0).
+- `images`: A list of images.
+  - `src`: Image path.
+  - `alt`: Image description.
+
+### `AppLandingGallery`
+
+A grid of images to showcase past events or highlights.
+
+- `title`: Section heading.
+- `description`: Section text.
+- `headline`: Small text above the title.
+- `images`: A list of images.
+  - `src`: Image path.
+  - `alt`: Image description.
+
+### `AppLandingFaqPreview`
+
+A preview of Frequently Asked Questions with an accordion layout.
+
+- `title`: Section heading.
+- `description`: Section text.
+- `headline`: Small text above the title.
+- `link`: Optional button to view all FAQs.
+- `items`: A list of FAQ items.
+  - `label`: The question.
+  - `content`: The answer.
