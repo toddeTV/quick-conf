@@ -21,8 +21,8 @@ export default antfu(
           'error',
           {
             code: 120,
-            // ignore the `packageManager` in `package.json` and SVG path d attributes
-            ignorePattern: '^\\s*("packageManager":\\s*["\']|d=")',
+            // ignore the `packageManager` and `description` in `package.json` and SVG path d attributes
+            ignorePattern: '^\\s*("(packageManager|description)":\\s*["\']|d=")',
           },
         ],
       },
