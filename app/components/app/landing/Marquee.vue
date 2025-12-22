@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
+  title?: string // TODO not used
+  description?: string // TODO not used
+  headline?: string // TODO not used
   images: {
     src: string
     alt?: string
