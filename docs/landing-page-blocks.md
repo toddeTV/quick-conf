@@ -6,17 +6,17 @@ The landing page is built using a modular block system. You can customize the la
 
 ### Common Properties
 
-All blocks support the following optional properties to control spacing:
+All blocks support the following base properties:
 
+- `title`: heading.
+- `description`: Subtext.
+- `headline`: Small text above the title.
 - `class`: Tailwind classes for custom styling (e.g., `md:-mt-20`).
 
 ### `AppLandingHero`
 
 The main hero section of the page with background effects.
 
-- `title`: Main heading.
-- `description`: Subtext.
-- `headline`: Small text above the title.
 - `links`: A list of buttons. Each button includes:
   - `label`: The text on the button.
   - `to`: The link destination.
@@ -29,9 +29,6 @@ The main hero section of the page with background effects.
 
 A generic content section with an image and optional features.
 
-- `title`: Section heading.
-- `description`: Section text.
-- `headline`: Small text above the title.
 - `orientation`: `horizontal` or `vertical`.
 - `reverse`: Boolean to flip image and text.
 - `image`: The section image:
@@ -48,9 +45,6 @@ A generic content section with an image and optional features.
 
 A grid of feature cards to showcase event highlights.
 
-- `title`: Section heading.
-- `description`: Section text.
-- `headline`: Small text above the title.
 - `items`: A list of features. Each feature includes:
   - `title`: Feature heading.
   - `description`: Feature text.
@@ -60,17 +54,10 @@ A grid of feature cards to showcase event highlights.
 
 Displays featured speakers automatically fetched from the `speakers` collection.
 
-- `title`: Section heading.
-- `description`: Section text.
-- `headline`: Small text above the title.
-
 ### `AppLandingTestimonials`
 
 A grid of attendee testimonials.
 
-- `title`: Section heading.
-- `description`: Section text.
-- `headline`: Small text above the title.
 - `items`: A list of testimonials. Each testimonial includes:
   - `quote`: The testimonial text.
   - `user`: Information about the person:
@@ -86,9 +73,6 @@ A grid of attendee testimonials.
 
 A grid of sponsor logos automatically fetched from the `sponsors` collection.
 
-- `title`: Section heading.
-- `description`: Section text.
-- `headline`: Small text above the title.
 - `showViewAll`: Boolean to show a "View All Sponsors" button.
 - `viewAllLink`: The link for the "View All" button (defaults to `/faq/sponsors`).
 
@@ -96,9 +80,6 @@ A grid of sponsor logos automatically fetched from the `sponsors` collection.
 
 A call-to-action section with background effects, typically used at the bottom of the page.
 
-- `title`: CTA heading.
-- `description`: CTA text.
-- `headline`: Small text above the title.
 - `links`: A list of buttons. Each button includes:
   - `label`: The text on the button.
   - `to`: The link destination.
@@ -111,9 +92,6 @@ A call-to-action section with background effects, typically used at the bottom o
 
 A hero section with a full-width background image or video.
 
-- `title`: Main heading.
-- `description`: Subtext.
-- `headline`: Small text above the title.
 - `links`: A list of buttons.
 - `image`: Background image (optional).
   - `src`: Image path.
@@ -127,9 +105,6 @@ A hero section with a full-width background image or video.
 
 A hero section with a countdown timer.
 
-- `title`: Main heading.
-- `description`: Subtext.
-- `headline`: Small text above the title.
 - `links`: A list of buttons.
 - `targetDate`: The target date and time in ISO format (e.g., `2025-12-31T10:00:00Z`).
 
@@ -163,9 +138,6 @@ An infinite scrolling bar of images (e.g., logos).
 
 A grid of images to showcase past events or highlights.
 
-- `title`: Section heading.
-- `description`: Section text.
-- `headline`: Small text above the title.
 - `images`: A list of images.
   - `src`: Image path.
   - `alt`: Image description.
@@ -174,9 +146,6 @@ A grid of images to showcase past events or highlights.
 
 A preview of Frequently Asked Questions with an accordion layout.
 
-- `title`: Section heading.
-- `description`: Section text.
-- `headline`: Small text above the title.
 - `link`: Optional button to view all FAQs.
 - `items`: A list of FAQ items.
   - `label`: The question.

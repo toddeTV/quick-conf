@@ -1,11 +1,11 @@
 <script setup lang="ts">
 defineProps<{
-  title: string
-  description: string
+  title?: string
+  description?: string
   headline?: string
   items: {
-    title: string
-    description: string
+    title?: string
+    description?: string
     icon?: string
   }[]
 }>()

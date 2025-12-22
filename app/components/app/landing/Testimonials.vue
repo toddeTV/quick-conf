@@ -1,13 +1,13 @@
 <script setup lang="ts">
 defineProps<{
-  title: string
-  description: string
+  title?: string
+  description?: string
   headline?: string
   items: {
     quote: string
     user: {
       name: string
-      description: string
+      description?: string
       to: string
       target?: string
       avatar: {

@@ -2,8 +2,8 @@
 import type { ButtonProps } from '@nuxt/ui'
 
 const props = defineProps<{
-  title: string
-  description: string
+  title?: string
+  description?: string
   headline?: string
   links?: ButtonProps[]
   targetDate: string // ISO string or UTC date string

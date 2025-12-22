@@ -1,13 +1,13 @@
 <script setup lang="ts">
 defineProps<{
-  title: string
-  description: string
+  title?: string
+  description?: string
   headline?: string
   orientation?: 'vertical' | 'horizontal'
   reverse?: boolean
   features?: {
-    title: string
-    description: string
+    title?: string
+    description?: string
     icon?: string
   }[]
   image?: {
