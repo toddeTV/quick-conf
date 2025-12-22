@@ -13,19 +13,35 @@ All blocks support the following base properties:
 - `headline`: [optional] Small text above the title.
 - `class`: [optional] Tailwind classes for custom styling (e.g., `md:-mt-20`).
 
+### Property Presets
+
+#### Link / Button Object
+
+Used for buttons and links.
+
+- `label`: The text on the button.
+- `to`: The link destination.
+- `icon`: [optional] An icon name.
+- `color`: [optional] Button color (e.g., `primary`, `white`).
+- `variant`: [optional] Button style (e.g., `solid`, `outline`).
+- `size`: [optional] Button size (e.g., `md`, `lg`).
+- `trailing`: [optional] Whether the icon should be trailing.
+- `target`: [optional] Link target (e.g., `_blank`).
+
+#### Image Object
+
+Used for images and avatars.
+
+- `src`: Image path.
+- `alt`: [optional] Description of the image.
+- `loading`: [optional] Image loading strategy (`lazy` or `eager`).
+- `srcset`: [optional] Image srcset.
+
 ### `AppLandingHero`
 
 The main hero section of the page with background effects.
 
-- `links`: [optional] A list of buttons. Each button includes:
-  - `label`: The text on the button.
-  - `to`: The link destination.
-  - `icon`: [optional] An icon name.
-  - `color`: [optional] Button color (e.g., `primary`, `white`).
-  - `variant`: [optional] Button style (e.g., `solid`, `outline`).
-  - `size`: [optional] Button size (e.g., `md`, `lg`).
-  - `trailing`: [optional] Whether the icon should be trailing.
-  - `target`: [optional] Link target (e.g., `_blank`).
+- `links`: [optional] A list of **Link Objects**.
 
 ### `AppLandingSection`
 
@@ -33,11 +49,7 @@ A generic content section with an image and optional features.
 
 - `orientation`: [optional] `horizontal` or `vertical`.
 - `reverse`: [optional] Boolean to flip image and text.
-- `image`: [optional] The section image:
-  - `src`: Image path.
-  - `alt`: [optional] Description of the image.
-  - `loading`: [optional] Image loading strategy (`lazy` or `eager`).
-  - `srcset`: [optional] Image srcset.
+- `image`: [optional] An **Image Object**.
 - `features`: [optional] A list of highlights. Each highlight includes:
   - `title`: Feature heading.
   - `description`: Feature text.
@@ -69,11 +81,7 @@ A grid of attendee testimonials.
     - `description`: Their role or company.
     - `to`: Link to their profile or website.
     - `target`: [optional] Link target (e.g., `_blank`).
-    - `avatar`: Their profile picture:
-      - `src`: Image path.
-      - `alt`: [optional] Description of the image.
-      - `loading`: [optional] Image loading strategy.
-      - `srcset`: [optional] Image srcset.
+    - `avatar`: An **Image Object**.
 
 ### `AppLandingSponsors`
 
@@ -86,26 +94,14 @@ A grid of sponsor logos automatically fetched from the `sponsors` collection.
 
 A call-to-action section with background effects, typically used at the bottom of the page.
 
-- `links`: [optional] A list of buttons. Each button includes:
-  - `label`: The text on the button.
-  - `to`: The link destination.
-  - `icon`: [optional] An icon name.
-  - `color`: [optional] Button color (e.g., `primary`, `white`).
-  - `variant`: [optional] Button style (e.g., `solid`, `outline`).
-  - `size`: [optional] Button size (e.g., `md`, `lg`).
-  - `trailing`: [optional] Whether the icon should be trailing.
-  - `target`: [optional] Link target (e.g., `_blank`).
+- `links`: [optional] A list of **Link Objects**.
 
 ### `AppLandingHeroMedia`
 
 A hero section with a full-width background image or video.
 
-- `links`: [optional] A list of buttons.
-- `image`: [optional] Background image.
-  - `src`: Image path.
-  - `alt`: [optional] Image description.
-  - `loading`: [optional] Image loading strategy.
-  - `srcset`: [optional] Image srcset.
+- `links`: [optional] A list of **Link Objects**.
+- `image`: [optional] Background **Image Object**.
 - `video`: [optional] Background video (takes precedence over image).
   - `src`: Video path.
   - `poster`: [optional] Poster image path.
@@ -115,7 +111,7 @@ A hero section with a full-width background image or video.
 
 A hero section with a countdown timer.
 
-- `links`: [optional] A list of buttons.
+- `links`: [optional] A list of **Link Objects**.
 - `targetDate`: The target date and time in ISO format (e.g., `2025-12-31T10:00:00Z`).
 
 **Behavior:**
@@ -140,35 +136,19 @@ An infinite scrolling bar of images (e.g., logos).
 - `direction`: [optional] Scroll direction (`left` or `right`).
 - `speed`: [optional] Animation duration in seconds (default: 20).
 - `gap`: [optional] Gap between images in pixels (default: 0).
-- `images`: A list of images.
-  - `src`: Image path.
-  - `alt`: [optional] Image description.
-  - `loading`: [optional] Image loading strategy.
-  - `srcset`: [optional] Image srcset.
+- `images`: A list of **Image Objects**.
 
 ### `AppLandingGallery`
 
 A grid of images to showcase past events or highlights.
 
-- `images`: A list of images.
-  - `src`: Image path.
-  - `alt`: [optional] Image description.
-  - `loading`: [optional] Image loading strategy.
-  - `srcset`: [optional] Image srcset.
+- `images`: A list of **Image Objects**.
 
 ### `AppLandingFaqPreview`
 
 A preview of Frequently Asked Questions with an accordion layout.
 
-- `link`: [optional] Optional button to view all FAQs.
-  - `label`: The text on the button.
-  - `to`: The link destination.
-  - `icon`: [optional] An icon name.
-  - `color`: [optional] Button color.
-  - `variant`: [optional] Button style.
-  - `size`: [optional] Button size.
-  - `trailing`: [optional] Whether the icon should be trailing.
-  - `target`: [optional] Link target.
+- `link`: [optional] Optional **Link Object** to view all FAQs.
 - `items`: A list of FAQ items.
   - `label`: The question.
   - `content`: The answer.
@@ -179,8 +159,4 @@ A simple separator line to visually divide sections.
 
 - `label`: [optional] Text in the middle of the separator.
 - `icon`: [optional] Icon in the middle of the separator.
-- `avatar`: [optional] Avatar in the middle of the separator.
-  - `src`: Image path.
-  - `alt`: [optional] Image description.
-  - `loading`: [optional] Image loading strategy.
-  - `srcset`: [optional] Image srcset.
+- `avatar`: [optional] **Image Object** in the middle of the separator.
