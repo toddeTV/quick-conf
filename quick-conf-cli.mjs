@@ -443,12 +443,9 @@ async function updateTemplate() {
     }
 
     // Specific preservations
-    // Note: 'public' might be at root or 'app/public'. We try both.
     const preservedMap = {}
     if (moveIfExists('content', 'content'))
       preservedMap.content = true
-    if (moveIfExists('app/public', 'app/public'))
-      preservedMap['app/public'] = true
     if (moveIfExists('public', 'public'))
       preservedMap.public = true
     if (moveIfExists('.env', '.env'))
@@ -517,8 +514,6 @@ async function updateTemplate() {
 
     if (preservedMap.content)
       restore('content', 'content')
-    if (preservedMap['app/public'])
-      restore('app/public', 'app/public')
     if (preservedMap.public)
       restore('public', 'public')
     if (preservedMap['.env'])
