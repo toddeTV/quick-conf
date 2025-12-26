@@ -36,7 +36,7 @@ For easily managing the template, we provide a CLI tool to streamline the proces
    8. Read and confirm the first few prompts until you are in the **Main Menu**.
    9. Here, choose **Fresh Installation after using the Template on GitHub**. Answer the questions and go through the wizard. This will ensure the correct name is set for your project and more. Be aware that everything should run smoothly without any errors. If some occur, fix them.
    10. Test locally if the project runs and that there are no errors.
-   11. **IMPORTANT:** The folders `/content` and `/public` are not under the MIT license. Start and test the template locally but clear the folders before you push them, as you most likely do not have permission for them.
+   11. **IMPORTANT:** The folders `/content` and `/public` contain example data not covered under the MIT license. Start and test the template locally, then replace all example content in these folders with your own data before pushing, as you most likely do not have permission to redistribute the example content.
    12. Push the changes that the CLI made onto the main branch of your repository.
 
    </details>
@@ -82,7 +82,7 @@ For easily managing the template, we provide a CLI tool to streamline the proces
    4. Read and confirm the first few prompts until you are in the **Main Menu**.
    5. Here, choose **Fresh Installation in an empty folder**. Answer the questions and go through the wizard. This will ensure the correct name is set for your project and more. Be aware that everything should run smoothly without any errors. If some occur, fix them.
    6. Test locally if the project runs and that there are no errors.
-   7. **IMPORTANT:** The folders `/content` and `/public` are not under the MIT license. Start and test the template locally but clear the folders before you push them, as you most likely do not have permission for them.
+   7. **IMPORTANT:** The folders `/content` and `/public` contain example data not covered under the MIT license. Start and test the template locally, then replace all example content in these folders with your own data before pushing, as you most likely do not have permission to redistribute the example content.
    8. Push the files that the CLI made onto the main branch of your repository.
 
    </details>
