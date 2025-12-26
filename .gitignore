@@ -33,3 +33,6 @@ logs
 !.github/dependabot.yml
 !.github/FUNDING.yml
 !.github/workflows/
+
+# Ignore `*.psd` files in `/docs/assets`
+/docs/assets/**/*.psd
