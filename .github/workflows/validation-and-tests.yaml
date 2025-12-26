@@ -1,0 +1,64 @@
+name: Validation & Tests
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # This job validates that the PR title conforms to the Conventional Commit standard
+  validate-pr:
+    name: Validate PR Title
+    # Only runs this job on pull_request events, no need to run on push events
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - uses: amannn/action-semantic-pull-request@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # This job runs all tests and checks using a matrix strategy
+  run-checks:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    needs: validate-pr
+    # The matrix strategy allows running different test configurations in parallel to run all, even if one fails
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Lint & Format Check
+            command: pnpm test:lint
+          - name: Type Check
+            command: pnpm test:types
+
+    steps:
+      # Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      # Install and set up pnpm for use in the workflow
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      # Set up Node.js and enable pnpm caching
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+
+      # Install project dependencies using the custom script.
+      # Thanks to the cache, this step is extremely fast on subsequent runs.
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile --prefer-offline
+
+      # Execute the specific check command from the matrix
+      - name: Run Check
+        # could also run as `pnpm test` as all commands are defined to run sequentially, but more control this way for now
+        run: ${{ matrix.command }}
