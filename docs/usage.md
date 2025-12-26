@@ -8,9 +8,9 @@ Are you using this template for your conference or meetup? That's fantastic!
 
 To get your event featured in this list, please choose one of the following methods:
 
-1. **Create a Pull Request**: The preferred method is to create a pull request that adds your event directly to this file. Simply edit `docs/usage.md` and follow the existing format.
-2. **Open an Issue**: If you are not comfortable with pull requests, feel free to open a GitHub issue with the details of your event, and I will add it for you.
-3. **Contact Me**: You can also reach out via social media to let me know about your event.
+- **Create a Pull Request**: The preferred method is to create a pull request that adds your event directly to this file. Simply edit `docs/usage.md` and follow the existing format.
+- **Open an Issue**: If you are not comfortable with pull requests, feel free to open a GitHub issue with the details of your event, and I will add it for you.
+- **Contact Me**: You can also reach out via social media to let me know about your event.
 
 I appreciate you being a part of this community!
 
