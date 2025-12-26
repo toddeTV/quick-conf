@@ -37,19 +37,23 @@
     "website"
   ],
   "engines": {
-    "node": "~22",
-    "pnpm": "~10"
+    "node": "22.x",
+    "pnpm": "10.x"
   },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "fix:lint": "eslint . --fix",
+    "dev:preset": "nuxt dev --port 3000 --public",
+    "fix:lint": "run-s \"test:lint --fix\"",
     "generate": "nuxt generate",
+    "nuxi": "nuxi",
     "nuxt": "nuxt",
-    "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "preview": "nuxt preview",
+    "reset": "rimraf node_modules .nuxt .output dist .data",
+    "test": "run-s test:*",
     "test:lint": "eslint .",
-    "test:typecheck": "nuxt typecheck"
+    "test:types": "nuxt typecheck"
   },
   "dependencies": {
     "nuxt": "~4.2.1",
@@ -72,6 +76,9 @@
     "eslint-plugin-import-x": "~4.16.1",
     "lodash-es": "~4.17.21",
     "luxon": "~3.7.2",
+    "npm-run-all2": "~8.0.4",
+    "nuxi": "~3.31.3",
+    "rimraf": "~6.1.2",
     "typescript": "~5.9.3",
     "vue-router": "~4.6.3",
     "vue-tsc": "~3.1.5",
