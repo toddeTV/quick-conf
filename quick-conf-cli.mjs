@@ -116,6 +116,12 @@ async function configureProject(isUpdate = false) {
   let projectName = pkg.name
   if (isUpdate) {
     // For updates, we keep the existing name if it's not the default 'quick-conf'
+    if (projectName === 'quick-conf') {
+      const newName = await askQuestion(`Enter the name of your project (default: ${projectName}): `)
+      if (newName.trim()) {
+        projectName = newName
+      }
+    }
   }
   else {
     projectName = await askQuestion('Enter the name of your project: ')
@@ -547,14 +553,35 @@ async function freshInstall(isTemplateClone = false) {
 async function updateTemplate() {
   log('Starting update process...')
 
-  // Capture current project name before update
-  let currentProjectName = 'quick-conf'
+  // Capture current project metadata before update
+  const currentMetadata = {
+    name: 'quick-conf',
+    author: '',
+    contributors: [],
+    description: '',
+    repository: '',
+    bugs: '',
+    keywords: [],
+  }
+
   try {
     const pkgPath = path.join(process.cwd(), 'package.json')
     if (fs.existsSync(pkgPath)) {
       const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
       if (pkg.name)
-        currentProjectName = pkg.name
+        currentMetadata.name = pkg.name
+      if (pkg.author)
+        currentMetadata.author = pkg.author
+      if (pkg.contributors)
+        currentMetadata.contributors = pkg.contributors
+      if (pkg.description)
+        currentMetadata.description = pkg.description
+      if (pkg.repository)
+        currentMetadata.repository = pkg.repository
+      if (pkg.bugs)
+        currentMetadata.bugs = pkg.bugs
+      if (pkg.keywords)
+        currentMetadata.keywords = pkg.keywords
     }
   }
   catch (e) {
@@ -696,16 +723,17 @@ async function updateTemplate() {
     if (fs.existsSync(pkgPath)) {
       try {
         const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
-        pkg.name = currentProjectName
-        // Also clear metadata as requested for updates too
-        pkg.author = ''
-        pkg.contributors = []
-        pkg.description = ''
-        pkg.repository = ''
-        pkg.bugs = ''
-        pkg.keywords = []
+        // Restore metadata
+        pkg.name = currentMetadata.name
+        pkg.author = currentMetadata.author
+        pkg.contributors = currentMetadata.contributors
+        pkg.description = currentMetadata.description
+        pkg.repository = currentMetadata.repository
+        pkg.bugs = currentMetadata.bugs
+        pkg.keywords = currentMetadata.keywords
+
         fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
-        log(`Restored project name to "${currentProjectName}" and cleared metadata.`, 'success')
+        log(`Restored project metadata.`, 'success')
       }
       catch (e) {
         log(`Failed to restore project name: ${e.message}`, 'error')
