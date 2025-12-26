@@ -9,7 +9,8 @@
       "groupSlug": "all-minor-patch",
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "schedule": [
-        "before 5am on monday"
+        // Run between 3am and 5am on monday
+        "* 3-5 * * 1"
       ]
     }
   ],
