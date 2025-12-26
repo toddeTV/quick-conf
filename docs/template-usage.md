@@ -56,7 +56,7 @@ node quick-conf-cli.mjs
 Select the **"Update"** feature. This process is designed to safely update the core application files while preserving your custom data. Specifically, it will preserve:
 
 - The `content/` directory (your talks, speakers, pages, etc.)
-- The `app/public/` directory (your static assets)
+- The `public/` directory (your static assets)
 - The `.env` file (your environment configuration)
 
 ## Migrations
