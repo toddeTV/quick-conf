@@ -92,7 +92,7 @@ For easily managing the template, we provide a CLI tool to streamline the proces
 4. Open Nuxt Studio (the Git-based CMS), configure your website, and add content.
 5. Enjoy :)
 
-**License Compliance**
+### License Compliance
 
 Please be aware that the `/content` and `/public` folders in this template contain example data, including images and text, which are not covered under the MIT license of the code.
 
