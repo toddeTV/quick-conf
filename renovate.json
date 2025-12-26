@@ -13,5 +13,6 @@
       ]
     }
   ],
-  "prConcurrentLimit": 10
+  "prConcurrentLimit": 10,
+  "timezone": "Europe/Berlin"
 }
