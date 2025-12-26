@@ -37,6 +37,121 @@ function safeUnlink(filePath) {
 }
 
 /**
+ * Checks if the current directory is empty (ignoring .git and the script itself).
+ * @returns {boolean} True if empty, false otherwise.
+ */
+function checkDirectoryEmpty() {
+  const files = fs.readdirSync(process.cwd())
+  const allowed = ['.git', path.basename(__filename)]
+  const others = files.filter(f => !allowed.includes(f))
+  return others.length === 0
+}
+
+/**
+ * Checks if the current directory is a clone of the template.
+ * @returns {boolean} True if it is a template clone, false otherwise.
+ */
+function checkIsTemplateClone() {
+  const pkgPath = path.join(process.cwd(), 'package.json')
+  if (!fs.existsSync(pkgPath))
+    return false
+  try {
+    const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
+    return pkg.name === 'quick-conf' && pkg.version.includes('-rc.')
+  }
+  catch {
+    return false
+  }
+}
+
+/**
+ * Deletes all files in the current directory except .git and the script itself.
+ */
+function clearDirectory() {
+  const files = fs.readdirSync(process.cwd())
+  const allowed = ['.git', path.basename(__filename)]
+  for (const file of files) {
+    if (allowed.includes(file))
+      continue
+    fs.rmSync(path.join(process.cwd(), file), { recursive: true, force: true })
+  }
+}
+
+/**
+ * Cleans up template-specific files after installation.
+ */
+function cleanupTemplateFiles() {
+  log('Cleaning up template files...', 'info')
+  const toDelete = ['README.md', 'LICENSE.md', '.github']
+  for (const item of toDelete) {
+    const itemPath = path.join(process.cwd(), item)
+    if (fs.existsSync(itemPath)) {
+      fs.rmSync(itemPath, { recursive: true, force: true })
+      log(`Deleted ${item}`, 'info')
+    }
+  }
+}
+
+/**
+ * Configures the project by asking for the name and clearing metadata.
+ * @param {boolean} isUpdate - Whether this is run during an update.
+ */
+async function configureProject(isUpdate = false) {
+  log('Configuring project...', 'info')
+  const pkgPath = path.join(process.cwd(), 'package.json')
+  if (!fs.existsSync(pkgPath)) {
+    log('package.json not found, skipping configuration.', 'warn')
+    return
+  }
+
+  let pkg
+  try {
+    pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
+  }
+  catch (e) {
+    log(`Failed to parse package.json: ${e.message}`, 'error')
+    return
+  }
+
+  let projectName = pkg.name
+  if (isUpdate) {
+    // For updates, we keep the existing name if it's not the default 'quick-conf'
+  }
+  else {
+    projectName = await askQuestion('Enter the name of your project: ')
+  }
+
+  // Update package.json fields
+  pkg.name = projectName
+  pkg.author = ''
+  pkg.contributors = []
+  pkg.description = ''
+  pkg.repository = ''
+  pkg.bugs = ''
+  pkg.keywords = []
+
+  fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
+  log(`Updated package.json with name "${projectName}" and cleared metadata.`, 'success')
+}
+
+/**
+ * Displays the license compliance warning.
+ */
+async function showLicenseWarning() {
+  console.log(`\n${'='.repeat(50)}`)
+  log('LICENSE COMPLIANCE WARNING', 'warn')
+  console.log('='.repeat(50))
+  console.log('The /content and /public folders in this template contain example data,')
+  console.log('including images and text, which are not covered under the MIT license of the code.')
+  console.log('\nImportant: You must replace all example content in the /content and /public')
+  console.log('folders with your own assets and information to ensure you are not infringing')
+  console.log('on any copyrights or usage rights associated with the placeholder data.')
+  console.log(`${'='.repeat(50)}\n`)
+
+  await askQuestion('Press Enter to confirm you have read and understood this warning...')
+}
+
+/**
  * Prompts the user with a question and returns the answer.
  * @param {string} query - The question to ask.
  * @returns {Promise<string>} The user's input.
@@ -331,14 +446,40 @@ function compareVersions(v1, v2) {
 /**
  * Performs a fresh installation of the template.
  * Downloads the latest release, extracts it, and optionally installs dependencies.
+ * @param {boolean} isTemplateClone - Whether we are installing over a template clone.
  * @returns {Promise<void>}
  */
-async function freshInstall() {
-  const answer = await askQuestion(
-    'This will download the latest release and overwrite files in the current directory. Continue? (y/N): ',
-  )
-  if (answer.toLowerCase() !== 'y')
-    return
+async function freshInstall(isTemplateClone = false) {
+  if (isTemplateClone) {
+    log('Detected "Fresh Installation after using the Template on GitHub".', 'info')
+    if (!checkIsTemplateClone()) {
+      log('Error: Current directory does not appear to be a valid template clone', 'error')
+      log('(wrong name or version in package.json).', 'error')
+      return
+    }
+    const answer = await askQuestion(
+      'This will DELETE ALL FILES in the current directory (except .git and this script) '
+      + 'and install the latest release. Continue? (y/N): ',
+    )
+    if (answer.toLowerCase() !== 'y')
+      return
+
+    log('Clearing directory...', 'warn')
+    clearDirectory()
+  }
+  else {
+    log('Detected "Fresh Installation in an empty folder".', 'info')
+    log('Checking if directory is empty...', 'info')
+    if (!checkDirectoryEmpty()) {
+      log('Error: Directory is not empty. Please run this in an empty folder (except .git and this script).', 'error')
+      return
+    }
+    const answer = await askQuestion(
+      'This will download the latest release into the current directory. Continue? (y/N): ',
+    )
+    if (answer.toLowerCase() !== 'y')
+      return
+  }
 
   try {
     log('Fetching latest release info...')
@@ -376,6 +517,11 @@ async function freshInstall() {
 
     log('Installation files downloaded.', 'success')
 
+    // Post-install cleanup and config
+    cleanupTemplateFiles()
+    await configureProject(false)
+    await showLicenseWarning()
+
     const installDeps = await askQuestion(`Do you want to run "${PACKAGE_MANAGER} install"? (y/N): `)
     if (installDeps.toLowerCase() === 'y') {
       log(`Running ${PACKAGE_MANAGER} install...`)
@@ -400,6 +546,20 @@ async function freshInstall() {
  */
 async function updateTemplate() {
   log('Starting update process...')
+
+  // Capture current project name before update
+  let currentProjectName = 'quick-conf'
+  try {
+    const pkgPath = path.join(process.cwd(), 'package.json')
+    if (fs.existsSync(pkgPath)) {
+      const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
+      if (pkg.name)
+        currentProjectName = pkg.name
+    }
+  }
+  catch (e) {
+    log(`Could not read current package.json: ${e.message}`, 'warn')
+  }
 
   try {
     // 1. Download
@@ -450,6 +610,11 @@ async function updateTemplate() {
       preservedMap.public = true
     if (moveIfExists('.env', '.env'))
       preservedMap['.env'] = true
+    if (moveIfExists('.github', '.github'))
+      preservedMap['.github'] = true
+    if (moveIfExists('README.md', 'README.md'))
+      preservedMap['README.md'] = true
+    // .git is handled by not deleting it in step 4
 
     // 4. Delete Root (except preserved and script itself)
     log('Cleaning up old files...')
@@ -465,9 +630,7 @@ async function updateTemplate() {
         continue
 
       // If we already moved it to backup, it's gone from root, so no need to delete.
-      // But we need to check if it was a preserved path that we DIDN'T move (e.g. if we decided to keep it in place).
-      // Our strategy was move-to-backup, so it should be gone.
-      // However, we need to be careful not to delete things we want to keep but didn't move (like .git).
+      // But we need to be careful not to delete things we want to keep but didn't move (like .git).
 
       const filePath = path.join(__dirname, file)
       if (fs.existsSync(filePath)) { // Check existence again
@@ -518,10 +681,36 @@ async function updateTemplate() {
       restore('public', 'public')
     if (preservedMap['.env'])
       restore('.env', '.env')
+    if (preservedMap['.github'])
+      restore('.github', '.github')
+    if (preservedMap['README.md'])
+      restore('README.md', 'README.md')
 
     // 7. Cleanup
     log('Cleaning up temp files...')
     fs.rmSync(tempDir, { recursive: true, force: true })
+
+    // 8. Configure Project (Restore name and clear metadata)
+    // We need to manually set the name back to what it was
+    const pkgPath = path.join(process.cwd(), 'package.json')
+    if (fs.existsSync(pkgPath)) {
+      try {
+        const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
+        pkg.name = currentProjectName
+        // Also clear metadata as requested for updates too
+        pkg.author = ''
+        pkg.contributors = []
+        pkg.description = ''
+        pkg.repository = ''
+        pkg.bugs = ''
+        pkg.keywords = []
+        fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
+        log(`Restored project name to "${currentProjectName}" and cleared metadata.`, 'success')
+      }
+      catch (e) {
+        log(`Failed to restore project name: ${e.message}`, 'error')
+      }
+    }
 
     log('Update complete!', 'success')
   }
@@ -648,24 +837,28 @@ async function main() {
 
   while (true) {
     console.log('\nMain Menu:')
-    console.log('1. Fresh Installation')
-    console.log('2. Update Template (Preserve Content)')
-    console.log('3. View Migration Notes')
-    console.log('4. Exit')
+    console.log('1. Fresh Installation in an empty folder')
+    console.log('2. Fresh Installation after using the Template on GitHub')
+    console.log('3. Update Template (Preserve Content)')
+    console.log('4. View Migration Notes')
+    console.log('5. Exit')
 
-    const choice = await askQuestion('\nEnter your choice (1-4): ')
+    const choice = await askQuestion('\nEnter your choice (1-5): ')
 
     switch (choice.trim()) {
       case '1':
-        await freshInstall()
+        await freshInstall(false)
         break
       case '2':
-        await updateTemplate()
+        await freshInstall(true)
         break
       case '3':
-        await viewMigrationNotes()
+        await updateTemplate()
         break
       case '4':
+        await viewMigrationNotes()
+        break
+      case '5':
         log('Goodbye!')
         rl.close()
         process.exit(0)
