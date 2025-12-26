@@ -62,7 +62,7 @@ jobs:
       - name: Bump to next RC version
         id: bump
         run: |
-          npm version preminor --preid=rc --no-git-tag-version
+          pnpm version preminor --preid=rc --no-git-tag-version
           pnpm install --no-frozen-lockfile
           echo "new_version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
