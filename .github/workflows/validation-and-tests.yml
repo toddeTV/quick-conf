@@ -36,6 +36,8 @@ jobs:
             command: pnpm test:lint
           - name: Type Check
             command: pnpm test:types
+          - name: Renovate Config Check
+            command: pnpm test:renovate
 
     steps:
       # Check out the repository
