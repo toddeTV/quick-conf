@@ -41,7 +41,7 @@ jobs:
 
     steps:
       # Check out the repository
-      - name: Checkout repository
+      - name: Checkout the Codebase
         uses: actions/checkout@v6
 
       # Install and set up pnpm for use in the workflow

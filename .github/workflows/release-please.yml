@@ -31,3 +31,48 @@ jobs:
           target-branch: main
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+
+  bump_dev_version:
+    needs: release_please
+    if: ${{ needs.release_please.outputs.release_created }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      # Check out the repository
+      - name: Checkout the Codebase
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      # Install and set up pnpm for use in the workflow
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      # Set up Node.js and enable pnpm caching
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+
+      # Bump to next RC version
+      - name: Bump to next RC version
+        id: bump
+        run: |
+          npm version preminor --preid=rc --no-git-tag-version
+          pnpm install --no-frozen-lockfile
+          echo "new_version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      # Create a Pull Request with the version bump
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: bump version to ${{ steps.bump.outputs.new_version }} after release'
+          title: 'chore: bump version to ${{ steps.bump.outputs.new_version }} after release'
+          body: Automated version bump to next RC version after the last release.
+          branch: 'chore/bump-version-to-${{ steps.bump.outputs.new_version }}'
+          base: main
