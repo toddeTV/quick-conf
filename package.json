@@ -53,6 +53,7 @@
     "reset": "rimraf node_modules .nuxt .output dist .data",
     "test": "run-s test:*",
     "test:lint": "eslint .",
+    "test:renovate": "renovate-config-validator",
     "test:types": "nuxt typecheck"
   },
   "dependencies": {
@@ -78,6 +79,7 @@
     "luxon": "~3.7.2",
     "npm-run-all2": "~8.0.4",
     "nuxi": "~3.31.3",
+    "renovate": "~42.66.8",
     "rimraf": "~6.1.2",
     "typescript": "~5.9.3",
     "vue-router": "~4.6.3",
