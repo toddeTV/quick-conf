@@ -58,7 +58,7 @@ function checkIsTemplateClone() {
     return false
   try {
     const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
-    return pkg.name === 'quick-conf' && pkg.version.includes('-rc.')
+    return pkg.isQuickConfTemplate === true
   }
   catch {
     return false
@@ -146,6 +146,7 @@ async function configureProject(isUpdate = false) {
   pkg.repository = ''
   pkg.bugs = ''
   pkg.keywords = []
+  delete pkg.isQuickConfTemplate
 
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
   log(`Updated package.json with name "${projectName}" and cleared metadata.`, 'success')
@@ -742,6 +743,7 @@ async function updateTemplate() {
         pkg.repository = currentMetadata.repository
         pkg.bugs = currentMetadata.bugs
         pkg.keywords = currentMetadata.keywords
+        delete pkg.isQuickConfTemplate
 
         fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
         log(`Restored project metadata.`, 'success')
