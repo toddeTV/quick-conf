@@ -3,6 +3,7 @@
 import { execSync, spawnSync } from 'node:child_process'
 import fs from 'node:fs'
 import https from 'node:https'
+import os from 'node:os'
 import path from 'node:path'
 import process from 'node:process'
 import readline from 'node:readline'
@@ -68,6 +69,16 @@ function checkIsTemplateClone() {
  * Deletes all files in the current directory except .git and the script itself.
  */
 function clearDirectory() {
+  // Safety check: ensure we're not in a dangerous location
+  const cwd = path.resolve(process.cwd())
+  const home = path.resolve(os.homedir())
+  const { root } = path.parse(cwd)
+  if (cwd === home || cwd === root) {
+    log('Error: Cannot clear directory in home or root directory', 'error')
+    process.exit(1)
+  }
+
+  // Read and delete files and folders
   const files = fs.readdirSync(process.cwd())
   const allowed = ['.git', path.basename(__filename)]
   for (const file of files) {
