@@ -105,9 +105,8 @@ function cleanupTemplateFiles() {
 
 /**
  * Configures the project by asking for the name and clearing metadata.
- * @param {boolean} isUpdate - Whether this is run during an update.
  */
-async function configureProject(isUpdate = false) {
+async function configureProject() {
   log('Configuring project...', 'info')
   const pkgPath = path.join(process.cwd(), 'package.json')
   if (!fs.existsSync(pkgPath)) {
@@ -124,27 +123,15 @@ async function configureProject(isUpdate = false) {
     return
   }
 
-  let projectName = pkg.name
-  if (isUpdate) {
-    // For updates, we keep the existing name if it's not the default 'quick-conf'
-    if (projectName === 'quick-conf') {
-      const newName = await askQuestion(`Enter the name of your project (default: ${projectName}): `)
-      if (newName.trim()) {
-        projectName = newName
-      }
-    }
-  }
-  else {
-    projectName = await askQuestion('Enter the name of your project: ')
-  }
+  const projectName = await askQuestion('Enter the name of your project: ')
 
   // Update package.json fields
   pkg.name = projectName
   pkg.author = ''
   pkg.contributors = []
   pkg.description = ''
-  pkg.repository = ''
-  pkg.bugs = ''
+  pkg.repository = {}
+  pkg.bugs = {}
   pkg.keywords = []
   delete pkg.isQuickConfTemplate
 
@@ -537,7 +524,7 @@ async function freshInstall(isTemplateClone = false) {
 
     // Post-install cleanup and config
     cleanupTemplateFiles()
-    await configureProject(false)
+    await configureProject()
     await showLicenseWarning()
 
     const installDeps = await askQuestion(`Do you want to run "${PACKAGE_MANAGER} install"? (y/N): `)
@@ -571,8 +558,8 @@ async function updateTemplate() {
     author: '',
     contributors: [],
     description: '',
-    repository: '',
-    bugs: '',
+    repository: {},
+    bugs: {},
     keywords: [],
   }
 
@@ -749,7 +736,7 @@ async function updateTemplate() {
         log(`Restored project metadata.`, 'success')
       }
       catch (e) {
-        log(`Failed to restore project name: ${e.message}`, 'error')
+        log(`Failed to restore project metadata: ${e.message}`, 'error')
       }
     }
 
