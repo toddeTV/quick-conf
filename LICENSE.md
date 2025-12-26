@@ -10,7 +10,7 @@ We assume no liability for the use of this project, including all code. You are 
 
 ## MIT License (Source Code)
 
-This license applies to all files within this repository **except** for the contents of the `/content`, `/public`, and `/app/assets` directories.
+This license applies to all files within this repository **except** for the contents of the `/content` and `/public` directories.
 
 ```
 Copyright (c) 2025-present, Thorsten Seyschab
@@ -40,7 +40,6 @@ This license applies to all files located within the following directories (incl
 
 - `/content`
 - `/public`
-- `/app/assets`
 
 **All Rights Reserved.**
 
