@@ -2,11 +2,11 @@ title: Welcome to Your Next Conference
 description: This is a modern, feature-rich, and easily customizable template for your next conference or meetup. Built with Nuxt 4, it provides everything you need to get started.
 seo:
   title: A Nuxt 4 Conference Template
-  description: A template for quickly setting up a new Conference or Meetup website with various functionalities.
+  description: A modern, feature-rich conference template powered by Nuxt Studio. Enjoy a Git-based CMS with visual editing and live previews directly in your browser.
 blocks:
   - component: AppLandingHero
     title: Welcome to Your Next Conference
-    description: This is a modern, feature-rich, and easily customizable template for your next conference or meetup. Built with Nuxt 4, it provides everything you need to get started.
+    description: A modern, feature-rich conference template powered by Nuxt Studio. Enjoy a Git-based CMS with visual editing and live previews directly in your browser - perfect for non-technical organizers to manage content seamlessly.
     headline: Annual Tech Summit
     links:
       - label: Buy Your Ticket

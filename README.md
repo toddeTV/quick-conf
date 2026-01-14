@@ -1,6 +1,6 @@
 # quick-conf
 
-This is a template for quickly setting up a new Conference or Meetup website with various functionalities.
+This is a template for quickly setting up a new Conference or Meetup website, powered by **Nuxt Studio** under the hood as a Git-based CMS. It features **visual editors**, **live previews** directly in your browser, and an intuitive interface, making it effortless to manage content without touching code. Once set up, it is the perfect solution for non-technical users, as all content updates can be handled visually through the browser interface.
 
 ## Sponsoring
 

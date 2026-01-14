@@ -4,7 +4,7 @@ Aka. **Get started**
 
 ## Introduction
 
-This project serves as a comprehensive template for creating conference and meetup websites. It is designed to be easily configurable and deployable, allowing organizers to focus on the event content rather than the technical infrastructure.
+This project serves as a comprehensive template for creating conference and meetup websites. It fully integrates **Nuxt Studio** as a Git-based CMS, providing **visual editors**, real-time **live previews**, and a seamless updating experience directly in the browser. This effortless workflow allows organizers to focus entirely on the event content rather than the technical infrastructure.
 
 ## Requirements
 
