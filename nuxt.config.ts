@@ -1,4 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import process from 'node:process'
+import { get } from 'lodash-es'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
@@ -48,14 +51,16 @@ export default defineNuxtConfig({
   },
 
   content: { // for `@nuxt/content`
-    preview: {
-      api: 'https://api.nuxt.studio',
-      // Automatically detected, override only if needed:
-      // gitInfo: {
-      //   name: 'quick-conf',
-      //   owner: 'toddeTV',
-      //   url: 'https://github.com/toddeTV/quick-conf',
-      // },
+  },
+
+  studio: {
+    repository: {
+      provider: get(process.env, 'NUXT_STUDIO_PROVIDER', 'github') as 'github' | 'gitlab',
+      owner: get(process.env, 'NUXT_STUDIO_OWNER', ''),
+      repo: get(process.env, 'NUXT_STUDIO_REPO', ''),
+      branch: get(process.env, 'NUXT_STUDIO_BRANCH', 'main'),
+      private: get(process.env, 'NUXT_STUDIO_PRIVATE') === 'true',
+      rootDir: get(process.env, 'NUXT_STUDIO_ROOT_DIR') || undefined,
     },
   },
 })
