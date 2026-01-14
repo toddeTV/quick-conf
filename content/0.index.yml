@@ -6,7 +6,7 @@ seo:
 blocks:
   - component: AppLandingHero
     title: Welcome to Your Next Conference
-    description: A modern, feature-rich conference template powered by Nuxt Studio. Enjoy a Git-based CMS with visual editing and live previews directly in your browser - perfect for non-technical organizers to manage content seamlessly.
+    description: A completely free, modern, and feature-rich conference template powered by Nuxt Studio. Enjoy a free Git-based CMS with visual editing and live previews directly in your browser - perfect for non-technical organizers to manage content seamlessly.
     headline: Annual Tech Summit
     links:
       - label: Buy Your Ticket
