@@ -70,5 +70,8 @@ export default defineNuxtConfig({
       branch: get(process.env, 'NUXT_STUDIO_BRANCH', 'main'),
       private: get(process.env, 'NUXT_STUDIO_PRIVATE') === 'true',
     },
+    i18n: {
+      defaultLocale: get(process.env, 'NUXT_STUDIO_LOCALE', 'en'),
+    },
   },
 })
