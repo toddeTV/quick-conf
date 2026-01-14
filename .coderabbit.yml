@@ -1,0 +1,174 @@
+# Language of the review.
+language: en-US
+
+# Opt-in to the free tier limits if no paid subscription is detected.
+enable_free_tier: false
+
+reviews:
+  # "assertive" emits a broad range of issues including nitpicks and improvements.
+  # "chill" only reports critical issues.
+  profile: assertive
+
+  # If true, CodeRabbit will request changes on the PR if there are issues. If false, it will only comment.
+  request_changes_workflow: false
+
+  # Edit the PR description with a generated summary.
+  high_level_summary: true
+  high_level_summary_placeholder: '@coderabbitai summary'
+  # high_level_summary_instructions:
+  # high_level_summary_in_walkthrough: false
+
+  # Generate the PR title if this is the title.
+  auto_title_placeholder: '@coderabbitai'
+  # auto_title_instructions:
+
+  # Print info about the review.
+  review_status: true
+
+  # Mark the commit as pending during review.
+  commit_status: true
+
+  # Do NOT mark the commit as failed if the review failed (due to any reason).
+  fail_commit_status: false
+
+  # Hide the walkthrough by default to save vertical space.
+  collapse_walkthrough: true
+
+  # Include a summary of changed files in the walkthrough.
+  changed_files_summary: true
+
+  # Generate sequence diagrams to visualize control flow.
+  # Very useful for understanding logic in Nuxt server routes or complex composables.
+  sequence_diagrams: true
+
+  # Estimate the effort required to review the PR.
+  estimate_code_review_effort: true
+
+  # Assess how well the changes address linked issues.
+  assess_linked_issues: true
+
+  # Find and list related issues.
+  related_issues: true
+
+  # Find and list related pull requests.
+  related_prs: true
+
+  # We don't have/use labels so don't suggest any.
+  suggested_labels: false
+  # auto_apply_labels: false
+  # labeling_instructions:
+  #   - label:
+  #     instructions:
+
+  # We are a small team and everything should be reviewed by the other. So disable this.
+  suggested_reviewers: false
+  # auto_assign_reviewers: false
+
+  # Disable "fun" content like fortunes and poems to maintain professional tone.
+  in_progress_fortune: false
+  poem: false
+
+  # Include a "Prompt for AI Agents" section in review comments.
+  enable_prompt_for_ai_agents: true
+
+  # Only run on relevant paths.
+  path_filters:
+    - '!pnpm-lock.yaml'
+    - '!package-lock.json'
+    - '!yarn.lock'
+    - '!**/*.min.js'
+    - '!**/*.min.css'
+    - '!dist/**'
+    - '!public/**'
+    - '!.output/**'
+    - '!.nuxt/**'
+    - '!node_modules/**'
+
+  # Special instructions for certain code paths.
+  # CRITICAL: Since .github/instructions are not in the repo, these rules completely define the project standards.
+  path_instructions:
+    - path: '**/*.{ts,js,vue,mjs}'
+      instructions: |
+        **General Code Style & Architecture:**
+        - **Senior Developer Standard:** Write production-ready code. Use English only.
+        - **File Limits:** Keep files under 200 lines. Refactor/split if larger.
+        - **Naming Conventions:**
+          - Components: `PascalCase.vue`
+          - Files/Utils: `kebab-case.ts`
+          - Composables: `usePascalCase.ts`
+        - **Imports:** Explicit imports preferred. No file extensions in imports (except .vue if forced).
+        - **Utilities:** Reuse before creating. Check `shared/utils` -> `app/utils` -> `server/utils` -> `lodash-es`.
+        - **Environment:** NEVER hardcode secrets. Use `runtimeConfig` and `.env`.
+
+    - path: '**/*.vue'
+      instructions: |
+        **Vue & Nuxt Components System:**
+        - **Syntax:** `<script setup lang="ts">` ONLY. Options API is FORBIDDEN.
+        - **Strict Element Replacement:**
+          - ❌ NO `<NuxtLink>` -> ✅ USE `<ULink>` (NuxtUI)
+          - ❌ NO `<img>` -> ✅ USE `<NuxtImg>`
+        - **Component Structure:**
+          1. `<script setup>`
+          2. `<template>`
+          3. `<style scoped>` (if needed)
+        - **UI Architecture:**
+          - `components/ui/`: Pure, reusable, prop-driven, NO logic/stores.
+          - `components/app/`: Business logic, connects to stores/composables.
+        - **Styling (Tailwind v4):**
+          - Use internal NuxtUI components where possible.
+          - Use `@apply` within `<style scoped>` if a utility string is repeated >2 times.
+          - ❌ NO global CSS styles.
+        - **Typing:** Strict `defineProps` and `defineEmits`.
+
+    - path: 'app/stores/**/*.ts'
+      instructions: |
+        **Pinia State Management:**
+        - **Pattern:** Use Setup Stores (Composition API) ONLY.
+        - **Architecture:** Multiple domain-focused stores (e.g. `userStore`, `uiStore`). ❌ NO Monolithic stores.
+        - **Usage:** Always use `storeToRefs(store)` when destructuring state to maintain reactivity.
+
+    - path: 'content/**/*.{md,yml,json}'
+      instructions: |
+        **Nuxt Content (CMS):**
+        - **Schema:** All content MUST match Zod schemas defined in `content.config.ts`.
+        - **Conventions:**
+          - Slugs: Strict `kebab-case`.
+          - Date format: YYYY-MM-DD.
+        - **Assets:** Images must be stored in `public/` and referenced by absolute path (e.g. `/images/speakers/alice.jpg`).
+        - **References:** Ensure relations (e.g. `speakers` in talks) link to valid existing slugs.
+
+  # Abort in-progress review on close/merge.
+  abort_on_close: true
+
+  auto_review:
+    # We want automatic reviews.
+    enabled: true
+    auto_incremental_review: true
+    drafts: false
+
+  finishing_touches:
+    # Disable AI generation of docstrings/tests as we prefer manual control or existing suites.
+    docstrings:
+      enabled: false
+    unit_tests:
+      enabled: false
+
+  # Do not download the repo for each review.
+  disable_cache: false
+
+# Configure knowledge base features to let the AI learn from your project's documentation.
+knowledge_base:
+  learnings:
+    # "auto" allows the AI to automatically learn from PR feedback and apply it to future reviews.
+    scope: auto
+
+  code_guidelines:
+    # Enable the AI to read and apply project-specific documentation.
+    enabled: true
+
+    # Index documentation to understand project conventions.
+    filePatterns:
+      - 'docs/**/*.md'
+      - content.config.ts
+      - CONTRIBUTING.md
+      - README.md
