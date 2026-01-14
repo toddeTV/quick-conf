@@ -69,7 +69,6 @@ export default defineNuxtConfig({
       repo: get(process.env, 'NUXT_STUDIO_REPO', ''),
       branch: get(process.env, 'NUXT_STUDIO_BRANCH', 'main'),
       private: get(process.env, 'NUXT_STUDIO_PRIVATE') === 'true',
-      rootDir: get(process.env, 'NUXT_STUDIO_ROOT_DIR') || undefined,
     },
   },
 })
