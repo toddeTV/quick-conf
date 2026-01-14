@@ -79,6 +79,7 @@
     "luxon": "~3.7.2",
     "npm-run-all2": "~8.0.4",
     "nuxi": "~3.31.3",
+    "nuxt-studio": "~1.0.0",
     "renovate": "~42.66.8",
     "rimraf": "~6.1.2",
     "typescript": "~5.9.3",
