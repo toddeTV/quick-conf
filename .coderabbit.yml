@@ -74,12 +74,9 @@ reviews:
   # Only run on relevant paths.
   path_filters:
     - '!pnpm-lock.yaml'
-    - '!package-lock.json'
-    - '!yarn.lock'
     - '!**/*.min.js'
     - '!**/*.min.css'
     - '!dist/**'
-    - '!public/**'
     - '!.output/**'
     - '!.nuxt/**'
     - '!node_modules/**'
@@ -171,4 +168,5 @@ knowledge_base:
       - 'docs/**/*.md'
       - content.config.ts
       - CONTRIBUTING.md
+      - nuxt.config.ts
       - README.md
