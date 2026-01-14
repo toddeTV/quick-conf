@@ -163,10 +163,10 @@ export default defineNuxtSchema({
         colors: group({
           title: 'Colors',
           description: 'Manage main colors of your application. If you have a custom color palette'
-            + ' (e.g. corporate design for branding), you can add the color palette in `/content/custom-styles.css`'
+            + ' (e.g. corporate design for branding), you can add the color palette in `/public/custom-styles.css`'
             + ' by overriding/setting all `--color-brand-*` CSS variables and then use the word `brand` in the'
             + ' fields below.'
-            + ' Also keep in mind that you can set even more custom styles in the file `/content/custom-styles.css`, '
+            + ' Also keep in mind that you can set even more custom styles in the file `/public/custom-styles.css`, '
             + ' because you can use default CSS syntax here and the file is imported automatically.',
           icon: 'lucide:paint-bucket',
           fields: {
