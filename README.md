@@ -14,7 +14,7 @@ All documentation is in the [docs](/docs) folder.
 
 ## Want to use the template for setting up a conference website?
 
-We provide a CLI tool to help you get started quickly. Please refer to the [Template Usage Documentation](/docs/template-usage.md) for detailed installation and update instructions.
+We provide a CLI tool to help you get started quickly. Please refer to the [Template Usage Documentation](/docs/template-usage.md) for getting started with detailed installation and update instructions.
 
 I would be thrilled to see how you are using this template! If you have launched a website for your conference or meetup with it, please consider adding it to the [showcase](/docs/usage.md) in this repository.
 
