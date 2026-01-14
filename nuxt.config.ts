@@ -24,6 +24,22 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
+  typescript: { // for TypeScript, see https://nuxt.com/docs/guide/concepts/typescript
+    // Customize app/server TypeScript config
+    tsConfig: {
+      compilerOptions: {
+        strict: true,
+      },
+    },
+
+    // Customize build-time TypeScript config
+    nodeTsConfig: {
+      compilerOptions: {
+        strict: true,
+      },
+    },
+  },
+
   ui: { // for `@nuxt/ui`
     fonts: true, // use `@nuxt/fonts`
   },
@@ -40,22 +56,6 @@ export default defineNuxtConfig({
       //   owner: 'toddeTV',
       //   url: 'https://github.com/toddeTV/quick-conf',
       // },
-    },
-  },
-
-  typescript: { // for TypeScript, see https://nuxt.com/docs/guide/concepts/typescript
-    // Customize app/server TypeScript config
-    tsConfig: {
-      compilerOptions: {
-        strict: true,
-      },
-    },
-
-    // Customize build-time TypeScript config
-    nodeTsConfig: {
-      compilerOptions: {
-        strict: true,
-      },
     },
   },
 })
