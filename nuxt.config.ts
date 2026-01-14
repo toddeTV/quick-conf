@@ -19,6 +19,15 @@ export default defineNuxtConfig({
     },
   },
 
+  // ssr: false,
+  // nitro: {
+  //   // Needed for Nuxt Studio in SSR=false mode
+  //   prerender: {
+  //     routes: ['/'], // Pre-render the homepage
+  //     crawlLinks: true, // Then crawl all the links on the page
+  //   },
+  // },
+
   css: [
     '~/assets/css/main.css',
   ],
