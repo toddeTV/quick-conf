@@ -42,7 +42,7 @@ function createLinkGroup(index: number) {
 export default defineNuxtSchema({
   /**
    * Application configuration schema.
-   * Defines the structure for `app.config.ts`, used in `@nuxt/content` and Nuxt Studio.
+   * Defines the structure for `app.config.ts`, used in `@nuxt/content` and `nuxt-studio`.
    */
   appConfig: {
     general: group({
