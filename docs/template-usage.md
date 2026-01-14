@@ -1,5 +1,7 @@
 # Template Usage Documentation
 
+Aka. **Get started**
+
 ## Introduction
 
 This project serves as a comprehensive template for creating conference and meetup websites. It is designed to be easily configurable and deployable, allowing organizers to focus on the event content rather than the technical infrastructure.
@@ -36,7 +38,8 @@ For easily managing the template, we provide a CLI tool to streamline the proces
    8. Read and confirm the first few prompts until you are in the **Main Menu**.
    9. Here, choose **Fresh Installation after using the Template on GitHub**. Answer the questions and go through the wizard. This will ensure the correct name is set for your project and more. Be aware that everything should run smoothly without any errors. If some occur, fix them.
    10. Test locally if the project runs and that there are no errors.
-   11. **IMPORTANT:** The folders `/content` and `/public` contain example data not covered under the MIT license. Start and test the template locally, then replace all example content in these folders with your own data before pushing, as you most likely do not have permission to redistribute the example content.
+   11. **IMPORTANT:** The folders `/content` and `/public` contain example data not covered under the MIT license. Replace all example content in these folders with your own data before pushing, as you most likely do not have permission to redistribute the example content.<br>
+       **IMPORTANT** Ensure that the files `public/robots.txt` and `public/custom-styles.css` exist but contain your own content, as they are needed!
    12. Push the changes that the CLI made onto the main branch of your repository.
 
    </details>
@@ -82,7 +85,8 @@ For easily managing the template, we provide a CLI tool to streamline the proces
    4. Read and confirm the first few prompts until you are in the **Main Menu**.
    5. Here, choose **Fresh Installation in an empty folder**. Answer the questions and go through the wizard. This will ensure the correct name is set for your project and more. Be aware that everything should run smoothly without any errors. If some occur, fix them.
    6. Test locally if the project runs and that there are no errors.
-   7. **IMPORTANT:** The folders `/content` and `/public` contain example data not covered under the MIT license. Start and test the template locally, then replace all example content in these folders with your own data before pushing, as you most likely do not have permission to redistribute the example content.
+   7. **IMPORTANT:** The folders `/content` and `/public` contain example data not covered under the MIT license. Start and test the template locally, then replace all example content in these folders with your own data before pushing, as you most likely do not have permission to redistribute the example content.<br>
+      **IMPORTANT** Ensure that the files `public/robots.txt` and `public/custom-styles.css` exist but contain your own content, as they are needed!
    8. Push the files that the CLI made onto the main branch of your repository.
 
    </details>
@@ -97,6 +101,8 @@ For easily managing the template, we provide a CLI tool to streamline the proces
 Please be aware that the `/content` and `/public` folders in this template contain example data, including images and text, which are not covered under the MIT license of the code.
 
 **Important:** You must replace all example content in the `/content` and `/public` folders with your own assets and information to ensure you are not infringing on any copyrights or usage rights associated with the placeholder data.
+
+**Essential Files**: The files `public/robots.txt` and `public/custom-styles.css` are required for the project to function correctly. While you must not use the provided example content directly, these files must remain in place. You should update their contents according to your project's needs (e.g., updating any variables or site-specific rules).
 
 ## Updating the Template
 
