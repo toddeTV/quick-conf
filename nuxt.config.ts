@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import process from 'node:process'
-import { get } from 'lodash-es'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -64,14 +63,14 @@ export default defineNuxtConfig({
 
   studio: {
     repository: {
-      provider: get(process.env, 'NUXT_STUDIO_PROVIDER', 'github') as 'github' | 'gitlab',
-      owner: get(process.env, 'NUXT_STUDIO_OWNER', ''),
-      repo: get(process.env, 'NUXT_STUDIO_REPO', ''),
-      branch: get(process.env, 'NUXT_STUDIO_BRANCH', 'main'),
-      private: get(process.env, 'NUXT_STUDIO_PRIVATE') === 'true',
+      provider: (process.env.NUXT_STUDIO_PROVIDER ?? 'github') as 'github' | 'gitlab',
+      owner: process.env.NUXT_STUDIO_OWNER ?? '',
+      repo: process.env.NUXT_STUDIO_REPO ?? '',
+      branch: process.env.NUXT_STUDIO_BRANCH ?? 'main',
+      private: process.env.NUXT_STUDIO_PRIVATE === 'true',
     },
     i18n: {
-      defaultLocale: get(process.env, 'NUXT_STUDIO_LOCALE', 'en'),
+      defaultLocale: process.env.NUXT_STUDIO_LOCALE ?? 'en',
     },
   },
 })
