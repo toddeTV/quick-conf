@@ -23,7 +23,7 @@ I would be thrilled to see how you are using this template! If you have launched
 
 ## Want to contribute to the template itself?
 
-Start with the [developer setup guide](/docs/developer-setup.md) for local setup and usage.
+Check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
 
 ## Contribution & Attribution
 
