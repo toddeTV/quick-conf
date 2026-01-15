@@ -30,9 +30,10 @@ logs
 
 # only specific files in `.github`
 .github/*
+!.github/actions/
+!.github/workflows/
 !.github/dependabot.yml
 !.github/FUNDING.yml
-!.github/workflows/
 
 # Ignore `*.psd` files in `/docs/assets`
 /docs/assets/**/*.psd

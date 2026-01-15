@@ -93,7 +93,19 @@ function clearDirectory() {
  */
 function cleanupTemplateFiles() {
   log('Cleaning up template files...', 'info')
-  const toDelete = ['README.md', 'LICENSE.md', '.github']
+  const toDelete = [
+    // folders
+    '.github',
+    'docs',
+
+    // files
+    '.coderabbit.yml',
+    '.release-please-manifest.json',
+    'LICENSE.md',
+    'README.md',
+    'release-please-config.json',
+    'renovate.json',
+  ]
   for (const item of toDelete) {
     const itemPath = path.join(process.cwd(), item)
     if (fs.existsSync(itemPath)) {
@@ -151,6 +163,8 @@ async function showLicenseWarning() {
   console.log('\nImportant: You must replace all example content in the /content and /public')
   console.log('folders with your own assets and information to ensure you are not infringing')
   console.log('on any copyrights or usage rights associated with the placeholder data.')
+  console.log('\nNote: The files public/robots.txt and public/custom-styles.css must exist')
+  console.log('for the project to function, but you must replace their placeholder content.')
   console.log(`${'='.repeat(50)}\n`)
 
   await askQuestion('Press Enter to confirm you have read and understood this warning...')
@@ -640,6 +654,8 @@ async function updateTemplate() {
       preservedMap['.github'] = true
     if (moveIfExists('README.md', 'README.md'))
       preservedMap['README.md'] = true
+    if (moveIfExists('LICENSE.md', 'LICENSE.md'))
+      preservedMap['LICENSE.md'] = true
     // .git is handled by not deleting it in step 4
 
     // 4. Delete Root (except preserved and script itself)
@@ -682,7 +698,10 @@ async function updateTemplate() {
       fs.cpSync(srcPath, destPath, { recursive: true, force: true })
     }
 
-    // 6. Restore Backup
+    // 6. Cleanup Template Files (remove docs etc. that came with fresh install)
+    cleanupTemplateFiles()
+
+    // 7. Restore Backup
     log('Restoring user files...')
     const restore = (backupRel, destRel) => {
       const src = path.join(backupDir, backupRel)
@@ -711,12 +730,14 @@ async function updateTemplate() {
       restore('.github', '.github')
     if (preservedMap['README.md'])
       restore('README.md', 'README.md')
+    if (preservedMap['LICENSE.md'])
+      restore('LICENSE.md', 'LICENSE.md')
 
-    // 7. Cleanup
+    // 8. Cleanup
     log('Cleaning up temp files...')
     fs.rmSync(tempDir, { recursive: true, force: true })
 
-    // 8. Configure Project (Restore name and clear metadata)
+    // 9. Configure Project (Restore name and clear metadata)
     // We need to manually set the name back to what it was
     const pkgPath = path.join(process.cwd(), 'package.json')
     if (fs.existsSync(pkgPath)) {
