@@ -121,9 +121,15 @@ If you have already set up your conference website and want to pull in the lates
 
 4. Read and confirm the first few prompts until you are in the **Main Menu**.
 5. Here, choose **Update**. Answer the questions and go through the wizard. This will ensure to set the correct name for your project and more. Be aware that everything runs smoothly without any errors. If some occur, fix them. This process is designed to safely update the core application files while preserving your custom data. Specifically, it will preserve:
+   - The `/.github/` directory (your workflows and settings)
    - The `/content/` directory (your talks, speakers, pages, etc.)
    - The `/public/` directory (your static assets)
    - The `/.env` file (your environment configuration)
+   - The `/LICENSE.md` file
+   - The `/README.md` file
+
+   Additionally, the process automatically removes template-specific files and folders (like `docs`, `renovate.json`, and release configuration files) that are not needed in your end-project. You should create your own infrastructure files for your custom needs.
+
 6. **Migrations:**<br>
    When updating between versions, there might be breaking changes or required data structure updates. Migration guides are available to help you transition smoothly.<br>
    You can access these guides in two ways:
