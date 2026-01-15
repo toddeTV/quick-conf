@@ -18,7 +18,7 @@ This project uses a modern tech stack. Please ensure you are familiar with the f
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS v4 (via Nuxt UI)
 - **Content**: `@nuxt/content` with Zod validation
-- **Package Manager**: If your work does not affect the package manager (dependencies, etc.) the package manger you use does not matter. But when pushing changes, this project should only receive `pnpm` related changes.
+- **Package Manager**: **pnpm** is the project standard and highly recommended. While you may use other tools locally at your own risk, `pnpm` must be used for any changes affecting dependencies or project structure to ensure `pnpm-lock.yaml` remains consistent.
 
 ### Code Style
 
