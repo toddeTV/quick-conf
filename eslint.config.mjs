@@ -60,11 +60,11 @@ export default antfu(
         'error',
         'ignorePackages',
         {
-          js: 'never',
+          js: 'always',
           json: 'always',
-          mjs: 'never',
+          mjs: 'always',
           ts: 'always',
-          vue: 'never',
+          vue: 'always',
         },
       ],
       'jsonc/sort-keys': [
@@ -119,7 +119,7 @@ export default antfu(
           js: 'always',
           mjs: 'always',
           ts: 'always',
-          vue: 'never',
+          vue: 'always',
         },
       ],
     },
