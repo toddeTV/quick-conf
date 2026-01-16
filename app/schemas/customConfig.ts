@@ -3,6 +3,11 @@ import { z } from 'zod/v4'
 import { createSimpleLinkSchema } from './common'
 
 export const customConfigSchema = z.object({
+  _warning: z.string()
+    .default('⚠️ RESTART REQUIRED: Changes here need a full rebuild/restart!')
+    .readonly()
+    .describe('⚠️ NOTE: This configuration file is not hot-reloaded. '
+      + 'You must restart the development server or rebuild the application to see your changes.'),
   general: z.object({
     conferenceName: z.string().min(1).describe('The name of the conference.'),
     conferenceFoundingYear: z.number().default(new Date().getFullYear())
