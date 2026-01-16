@@ -8,7 +8,7 @@ export const talkSchema = z.object({
   title: z.string().describe('The title of the talk.'),
   // abstract: z.string().describe('The abstract of the talk.'), // this is the body of the markdown file itself
   speakers: z.array(z.string()).default([]).describe('An array of speaker slugs.'),
-  dateTime: z.date().describe('The date and time of the talk when it takes place.'),
+  dateTime: z.coerce.date().describe('The date and time of the talk when it takes place.'),
   stage: z.string().describe('The slug of the stage where the talk takes place.'),
   resources: z.array(z.object({
     url: z.url().describe('Put in the full URL to the resource.'),
