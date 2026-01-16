@@ -1,4 +1,5 @@
 {
+  "_warning": "⚠️ RESTART REQUIRED: Changes here need a full rebuild/restart!",
   "customFooterColumn": {
     "links": [
       {
@@ -31,6 +32,18 @@
       "light": "/logo/light.svg"
     },
     "timeZone": "Europe/Berlin"
+  },
+  "nuxtStudio": {
+    "i18n": {
+      "defaultLocale": "en"
+    },
+    "repository": {
+      "branch": "main",
+      "owner": "",
+      "private": false,
+      "provider": "github",
+      "repo": ""
+    }
   },
   "nuxtUI": {
     "colors": {

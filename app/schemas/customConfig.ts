@@ -88,4 +88,16 @@ export const customConfigSchema = z.object({
       hash: 'i-lucide-hash',
     }),
   }).describe('NuxtUI Customization.'),
+  nuxtStudio: z.object({
+    repository: z.object({
+      provider: z.enum(['github', 'gitlab']).default('github').describe('The git provider.'),
+      owner: z.string().min(1).describe('The owner of the repository.'),
+      repo: z.string().min(1).describe('The name of the repository.'),
+      branch: z.string().default('main').describe('The branch to use.'),
+      private: z.boolean().default(false).describe('Whether the repository is private.'),
+    }).describe('Repository configuration.'),
+    i18n: z.object({
+      defaultLocale: z.string().default('en').describe('The default locale of the content.'),
+    }).describe('Internationalization configuration.'),
+  }).describe('Nuxt Studio configuration.'),
 })
