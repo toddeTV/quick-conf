@@ -104,6 +104,30 @@ const repositoryUrl = computed(() => {
   console.warn(`[AppFooter] Unsupported provider: ${provider} for repository ${owner}/${repo}`)
   return '#'
 })
+
+const repositoryIcon = computed(() => {
+  const { provider } = appConfig.studio.repository
+  if (provider === 'gitlab') {
+    return 'i-simple-icons-gitlab'
+  }
+  if (provider === 'github') {
+    return 'i-simple-icons-github'
+  }
+  // console warning is part of `repositoryUrl` and will not be present here redundant
+  return ''
+})
+
+const repositoryLabel = computed(() => {
+  const { provider } = appConfig.studio.repository
+  if (provider === 'gitlab') {
+    return 'GitLab'
+  }
+  if (provider === 'github') {
+    return 'GitHub'
+  }
+  // console warning is part of `repositoryUrl` and will not be present here redundant
+  return ''
+})
 </script>
 
 <template>
@@ -163,9 +187,9 @@ const repositoryUrl = computed(() => {
     <template #right>
       <UButton
         v-if="appConfig.studio.repository.private === false"
-        aria-label="GitHub"
+        :aria-label="repositoryLabel"
         color="neutral"
-        icon="i-simple-icons-github"
+        :icon="repositoryIcon"
         target="_blank"
         :to="repositoryUrl"
         variant="ghost"
