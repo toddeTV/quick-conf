@@ -72,10 +72,10 @@ const columns: FooterColumn[] = [
       : [{
           label: appConfig.customFooterColumn?.title ?? '',
           children: customFooterLinks.map(link => ({
-            label: link.name ?? link.url!,
+            label: link.name ?? link.url,
             icon: link.icon,
             to: link.url,
-            target: isExternalLink(link.url!) ? '_blank' : undefined,
+            target: isExternalLink(link.url) ? '_blank' : undefined,
           })),
         } as FooterColumn]
   ),
@@ -84,10 +84,10 @@ const columns: FooterColumn[] = [
     : [{
         label: 'Social Media',
         children: socialLinks.map(social => ({
-          label: social.name ?? social.url!,
-          icon: social.icon || getIconForUrl(social.url!),
+          label: social.name ?? social.url,
+          icon: social.icon || getIconForUrl(social.url),
           to: social.url,
-          target: isExternalLink(social.url!) ? '_blank' : undefined,
+          target: isExternalLink(social.url) ? '_blank' : undefined,
         })),
       }]),
 ]

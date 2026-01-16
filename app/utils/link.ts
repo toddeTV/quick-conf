@@ -7,5 +7,5 @@ import { startsWith } from 'lodash-es'
  */
 export function isExternalLink(url: string) {
   // TODO better check by comparing with current domain
-  return (startsWith(url, 'https://') || startsWith(url, 'http://'))
+  return (startsWith(url, 'https://') || startsWith(url, 'http://') || startsWith(url, '//'))
 }
