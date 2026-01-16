@@ -64,3 +64,24 @@ jobs:
       - name: Run Check
         # could also run as `pnpm test` as all commands are defined to run sequentially, but more control this way for now
         run: ${{ matrix.command }}
+
+  # This job acts as a single, final status check for branch protection.
+  all_checks_passed:
+    name: All Validations & Tests Passed
+    runs-on: ubuntu-latest
+    # We need to run this job regardless of the outcome of the dependent jobs
+    # to be able to report a failure.
+    if: always()
+    needs:
+      - validate-pr
+      - run-checks
+    steps:
+      - name: Check status of dependent jobs
+        run: |
+          # The flexible approach: a job is also considered "passed" if it was intentionally skipped.
+          # This is important for conditional jobs that should only run if specific files have changed
+          # (e.g., using an `if:` condition). In such cases, 'skipped' is a valid, non-error state.
+          # echo '<DOLLAR_SYMBOL>{{ toJSON(needs) }}' | jq -e 'all(.result == "success" or .result == "skipped")'
+
+          # The strict approach: only 'success' is accepted. This will fail if any job is skipped.
+          echo '${{ toJSON(needs) }}' | jq -e 'all(.result == "success")'
