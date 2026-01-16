@@ -1,0 +1,59 @@
+{
+  "customFooterColumn": {
+    "links": [
+      {
+        "name": "some link without icon",
+        "url": "/"
+      },
+      {
+        "icon": "i-lucide-house",
+        "name": "some link with icon",
+        "url": "/"
+      },
+      {
+        "icon": "i-simple-icons-x",
+        "name": "external links also work",
+        "url": "https://x.com/toddeTV"
+      }
+    ],
+    "title": "About This Conference"
+  },
+  "general": {
+    "conferenceFoundingYear": 2025,
+    "conferenceName": "CONF",
+    "favicon": {
+      "dark": "/favicon/favicon.svg",
+      "light": "/favicon/favicon.svg"
+    },
+    "githubProjectLink": "",
+    "logo": {
+      "dark": "/logo/dark.svg",
+      "light": "/logo/light.svg"
+    },
+    "timeZone": "Europe/Berlin"
+  },
+  "nuxtUI": {
+    "colors": {
+      "neutral": "slate",
+      "primary": "green"
+    }
+  },
+  "socials": [
+    {
+      "name": "toddeTV",
+      "url": "https://x.com/toddeTV"
+    },
+    {
+      "name": "toddeTV",
+      "url": "https://bsky.app/profile/todde.tv"
+    },
+    {
+      "name": "toddeTV",
+      "url": "https://www.linkedin.com/in/toddetv/"
+    },
+    {
+      "name": "toddeTV",
+      "url": "https://github.com/toddeTV/"
+    }
+  ]
+}
