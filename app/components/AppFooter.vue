@@ -96,6 +96,17 @@ const columns: FooterColumn[] = [
           })),
       }]),
 ]
+
+const repositoryUrl = computed(() => {
+  const { provider, owner, repo } = appConfig.studio.repository
+  if (provider === 'github') {
+    return `https://github.com/${owner}/${repo}`
+  }
+  if (provider === 'gitlab') {
+    return `https://gitlab.com/${owner}/${repo}`
+  }
+  return '#'
+})
 </script>
 
 <template>
@@ -154,12 +165,12 @@ const columns: FooterColumn[] = [
 
     <template #right>
       <UButton
-        v-if="!isEmpty(appConfig.general.githubProjectLink)"
+        v-if="appConfig.studio.repository.private === false"
         aria-label="GitHub"
         color="neutral"
         icon="i-simple-icons-github"
         target="_blank"
-        :to="appConfig.general.githubProjectLink"
+        :to="repositoryUrl"
         variant="ghost"
       />
 
