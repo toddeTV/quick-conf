@@ -84,11 +84,11 @@ const columns: FooterColumn[] = [
     : [{
         label: 'Social Media',
         children: socialLinks.map(social => ({
-            label: social.name ?? social.url!,
-            icon: social.icon || getIconForUrl(social.url!),
-            to: social.url,
-            target: isExternalLink(social.url!) ? '_blank' : undefined,
-          })),
+          label: social.name ?? social.url!,
+          icon: social.icon || getIconForUrl(social.url!),
+          to: social.url,
+          target: isExternalLink(social.url!) ? '_blank' : undefined,
+        })),
       }]),
 ]
 
