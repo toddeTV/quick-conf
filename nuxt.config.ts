@@ -6,6 +6,8 @@ import _customConfig from './content/0.custom-config.json'
 
 const parseResult = customConfigSchema.safeParse(_customConfig)
 if (!parseResult.success) {
+  // We only warn here and do not throw an error to allow the app to start even if the config is invalid.
+  // This is intentional to prevent the app from crashing if non-technical users make a mistake in the CMS.
   console.warn('⚠️ Invalid custom config:', z.treeifyError(parseResult.error))
 }
 
