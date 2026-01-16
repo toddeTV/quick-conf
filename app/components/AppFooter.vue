@@ -9,10 +9,22 @@ const yearCurrent = new Date().getFullYear()
 const yearStart = appConfig.general?.conferenceFoundingYear ?? yearCurrent
 const yearSpan = yearStart === yearCurrent ? yearStart : `${yearStart} - ${yearCurrent}`
 
-const hasCustomFooterColumn = !(isNil(appConfig.customFooterColumn) || isEmpty(appConfig.customFooterColumn)
-  || isNil(appConfig.customFooterColumn.title) || isEmpty(appConfig.customFooterColumn.title)
-  || isNil(appConfig.customFooterColumn.links) || isEmpty(appConfig.customFooterColumn.links)
-  || !Object.values(appConfig.customFooterColumn.links).some(link => !isNil(link.url) && link.url !== ''))
+const hasCustomFooterColumn = !isEmpty(appConfig.customFooterColumn)
+  && !isEmpty(appConfig.customFooterColumn.title)
+  && !isEmpty(appConfig.customFooterColumn.links)
+const hasSocials = !isEmpty(appConfig.socials)
+
+const gridClass = computed(() => {
+  const count = 2 + (hasCustomFooterColumn ? 1 : 0) + (hasSocials ? 1 : 0)
+
+  if (count === 4) {
+    return 'md:grid-cols-2 lg:grid-cols-4'
+  }
+  if (count === 3) {
+    return 'md:grid-cols-3 lg:grid-cols-3'
+  }
+  return 'md:grid-cols-2 lg:grid-cols-2'
+})
 
 const columns: FooterColumn[] = [
   {
@@ -58,7 +70,7 @@ const columns: FooterColumn[] = [
       ? []
       : [{
           label: appConfig.customFooterColumn.title ?? '',
-          children: Object.values(appConfig.customFooterColumn.links!)
+          children: appConfig.customFooterColumn.links!
             .filter(link => link.url)
             .map(link => ({
               label: link.name ?? link.url!,
@@ -68,11 +80,11 @@ const columns: FooterColumn[] = [
             })),
         } as FooterColumn]
   ),
-  ...(isNil(appConfig.socials)
+  ...(!hasSocials
     ? []
     : [{
         label: 'Social Media',
-        children: Object.values(appConfig.socials)
+        children: appConfig.socials
           .filter(social => social.url)
           .map(social => ({
             label: social.name ?? social.url!,
@@ -91,11 +103,8 @@ const columns: FooterColumn[] = [
     <template #top>
       <UContainer>
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
-          :class="{
-            'lg:grid-cols-3': !hasCustomFooterColumn,
-            'lg:grid-cols-4': hasCustomFooterColumn,
-          }"
+          class="grid grid-cols-1 sm:grid-cols-2 gap-8"
+          :class="gridClass"
         >
           <UFooterColumns
             v-for="column in columns"
