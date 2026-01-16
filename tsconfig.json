@@ -1,6 +1,5 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
-  // "extends": "./.nuxt/tsconfig.json" // TODO better or worse than below?
   "files": [],
   "references": [
     {
