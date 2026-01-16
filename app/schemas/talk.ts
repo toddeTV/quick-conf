@@ -3,7 +3,7 @@ import { z } from 'zod/v4'
 
 export const talkSchema = z.object({
   slug: z.string().describe('The UNIQUE slug of the talk. This is used to identify and '
-    + 'link the stage to other collections. Never change this!'),
+    + 'link the talk to other collections. Never change this!'),
   type: z.enum(['talk', 'lightning-talk', 'panel', 'keynote', 'workshop']).describe('The type of the talk.'),
   title: z.string().describe('The title of the talk.'),
   // abstract: z.string().describe('The abstract of the talk.'), // this is the body of the markdown file itself
