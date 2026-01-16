@@ -100,6 +100,8 @@ const repositoryUrl = computed(() => {
   if (provider === 'gitlab') {
     return `https://gitlab.com/${owner}/${repo}`
   }
+
+  console.warn(`[AppFooter] Unsupported provider: ${provider} for repository ${owner}/${repo}`)
   return '#'
 })
 </script>
