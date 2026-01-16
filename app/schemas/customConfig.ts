@@ -52,7 +52,7 @@ export const customConfigSchema = z.object({
         'teal',
         'violet',
         'yellow',
-      ]).default('red').describe('Primary color of your UI.'),
+      ]).default('green').describe('Primary color of your UI.'),
       neutral: z.enum(['gray', 'neutral', 'slate', 'stone', 'zinc']).default('slate')
         .describe('Neutral color of your UI.'),
     }).describe('Manage main colors of your application. If you have a custom color palette'
