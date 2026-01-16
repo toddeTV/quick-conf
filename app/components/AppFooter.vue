@@ -71,8 +71,8 @@ const columns: FooterColumn[] = [
     !hasCustomFooterColumn
       ? []
       : [{
-          label: appConfig.customFooterColumn.title ?? '',
-          children: appConfig.customFooterColumn.links!
+          label: appConfig.customFooterColumn?.title ?? '',
+          children: (appConfig.customFooterColumn?.links || [])
             .filter(link => link.url)
             .map(link => ({
               label: link.name ?? link.url!,
