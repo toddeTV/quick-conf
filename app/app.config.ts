@@ -1,6 +1,6 @@
 import { z } from 'zod/v4'
 import _customConfig from '../content/0.custom-config.json'
-import { customConfigSchema } from './schemas/customConfigPlain.ts'
+import { customConfigSchema } from './schemas/customConfigPlain'
 
 const parseResult = customConfigSchema.safeParse(_customConfig)
 if (!parseResult.success) {

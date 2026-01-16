@@ -4,15 +4,15 @@
  */
 
 import { defineCollection, defineContentConfig } from '@nuxt/content'
-import { customConfigSchema } from './app/schemas/customConfig.ts'
-import { faqSchema } from './app/schemas/faq.ts'
-import { landingSchema } from './app/schemas/landing.ts'
-import { pageSchema } from './app/schemas/page.ts'
-import { speakerSchema } from './app/schemas/speaker.ts'
-import { sponsorSchema } from './app/schemas/sponsor.ts'
-import { stageSchema } from './app/schemas/stage.ts'
-import { talkSchema } from './app/schemas/talk.ts'
-import { ticketSchema } from './app/schemas/ticket.ts'
+import { customConfigSchema } from './app/schemas/customConfig'
+import { faqSchema } from './app/schemas/faq'
+import { landingSchema } from './app/schemas/landing'
+import { pageSchema } from './app/schemas/page'
+import { speakerSchema } from './app/schemas/speaker'
+import { sponsorSchema } from './app/schemas/sponsor'
+import { stageSchema } from './app/schemas/stage'
+import { talkSchema } from './app/schemas/talk'
+import { ticketSchema } from './app/schemas/ticket'
 
 export default defineContentConfig({
   collections: {

@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import { z } from 'zod/v4'
-import { customConfigSchema } from './app/schemas/customConfigPlain.ts'
+import { customConfigSchema } from './app/schemas/customConfigPlain'
 import _customConfig from './content/0.custom-config.json'
 
 const parseResult = customConfigSchema.safeParse(_customConfig)

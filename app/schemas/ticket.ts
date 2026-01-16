@@ -1,5 +1,5 @@
 import { z } from 'zod/v4'
-import { targetEnum } from './common.ts'
+import { targetEnum } from './common'
 
 export const ticketSchema = z.object({
   slug: z.string().describe('The UNIQUE slug of the ticket. This is used to identify and '

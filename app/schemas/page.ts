@@ -1,3 +1,3 @@
-import { createBaseWithSeoSchema } from './common.ts'
+import { createBaseWithSeoSchema } from './common'
 
 export const pageSchema = createBaseWithSeoSchema()
