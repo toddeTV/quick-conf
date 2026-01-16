@@ -93,7 +93,7 @@ reviews:
           - Components: `PascalCase.vue`
           - Files/Utils: `kebab-case.ts`
           - Composables: `usePascalCase.ts`
-        - **Imports:** Explicit imports preferred. No file extensions in imports (except .vue if forced).
+        - **Imports:** Explicit imports preferred. ALWAYS add all file extensions in imports (e.g. `.vue`, `.ts`, `.json`, `.mjs`, `.js`, etc.).
         - **Utilities:** Reuse before creating. Check `shared/utils` -> `app/utils` -> `server/utils` -> `lodash-es`.
         - **Environment:** NEVER hardcode secrets. Use `runtimeConfig` and `.env`.
 
