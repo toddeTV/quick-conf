@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import type { FooterColumn } from '@nuxt/ui'
-import { isEmpty, isNil } from 'lodash-es'
+import { isEmpty } from 'lodash-es'
 import { version } from '~~/package.json'
 
 const appConfig = useAppConfig()
 
 const yearCurrent = new Date().getFullYear()
-const yearStart = appConfig.general?.conferenceFoundingYear ?? yearCurrent
+const yearStart = appConfig.general.conferenceFoundingYear === 0
+  ? yearCurrent
+  : appConfig.general.conferenceFoundingYear
 const yearSpan = yearStart === yearCurrent ? yearStart : `${yearStart} - ${yearCurrent}`
 
 const hasCustomFooterColumn = !isEmpty(appConfig.customFooterColumn)
