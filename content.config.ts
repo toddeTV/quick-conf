@@ -74,7 +74,7 @@ export default defineContentConfig({
     // Home/Landing page
     index: defineCollection({
       type: 'page',
-      source: '0.index.yml',
+      source: '1.index.yml',
       schema: createBaseWithSeoSchema().extend({
         blocks: z.array(
           z.discriminatedUnion('component', [

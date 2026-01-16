@@ -1,6 +1,6 @@
 # Landing Page Blocks
 
-The landing page is built using a modular block system. You can customize the layout by adding, removing, or reordering blocks in `content/0.index.yml`. Each block is a Vue component that receives its content via properties.
+The landing page is built using a modular block system. You can customize the layout by adding, removing, or reordering blocks in `content/1.index.yml`. Each block is a Vue component that receives its content via properties.
 
 ## Property Presets
 
