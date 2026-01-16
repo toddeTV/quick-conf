@@ -1,16 +1,13 @@
+import { z } from 'zod/v4'
 import _customConfig from '~~/content/0.custom-config.json'
 import { customConfigSchema } from '~/schemas/customConfigPlain'
 
-const customConfig = customConfigSchema.parse(_customConfig)
+const parseResult = customConfigSchema.safeParse(_customConfig)
+if (!parseResult.success) {
+  console.warn('⚠️ Invalid custom config:', z.treeifyError(parseResult.error))
+}
 
-// Explicitly type loose properties to prevent TS union inference issues with optional keys (like "icon")
-const socials = customConfig.socials as Array<{ name: string, url: string, icon?: string }>
-const customFooterColumn = customConfig.customFooterColumn
-  ? {
-      title: customConfig.customFooterColumn.title,
-      links: customConfig.customFooterColumn.links as Array<{ name: string, url: string, icon?: string }>,
-    }
-  : undefined
+const customConfig = (parseResult.success ? parseResult.data : _customConfig) as z.infer<typeof customConfigSchema>
 
 /**
  * Application configuration file.
@@ -18,8 +15,8 @@ const customFooterColumn = customConfig.customFooterColumn
  */
 export default defineAppConfig({
   general: customConfig.general,
-  socials,
-  customFooterColumn,
+  socials: customConfig.socials,
+  customFooterColumn: customConfig.customFooterColumn,
   ui: {
     ...customConfig.nuxtUI,
     pageHeader: {
