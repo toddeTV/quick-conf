@@ -24,7 +24,6 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      siteUrl: '',
     },
   },
 

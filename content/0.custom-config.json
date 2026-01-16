@@ -30,6 +30,7 @@
       "dark": "/logo/dark.svg",
       "light": "/logo/light.svg"
     },
+    "siteUrl": "https://todde.tv",
     "timeZone": "Europe/Berlin"
   },
   "nuxtStudio": {

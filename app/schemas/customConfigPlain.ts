@@ -26,6 +26,7 @@ export const customConfigSchema = z.object({
     timeZone: z.string().default('UTC')
       .describe('The time zone where the conference takes place, e.g. `Europe/Berlin`. '
         + 'This is used to display the schedule in the correct local time.'),
+    siteUrl: z.string().describe('The public URL of the website (e.g. `https://my-conference.com`).'),
     logo: z.object({
       light: z.string().min(1).describe('The Logo used in light mode.'),
       dark: z.string().min(1).describe('The Logo used in dark mode.'),
