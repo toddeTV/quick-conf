@@ -51,6 +51,8 @@ export default defineNuxtConfig({
     tsConfig: {
       compilerOptions: {
         strict: true,
+        allowImportingTsExtensions: true,
+        noEmit: true,
       },
     },
 
@@ -58,6 +60,8 @@ export default defineNuxtConfig({
     nodeTsConfig: {
       compilerOptions: {
         strict: true,
+        allowImportingTsExtensions: true,
+        noEmit: true,
       },
     },
   },
