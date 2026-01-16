@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { FooterColumn } from '@nuxt/ui'
-import { isEmpty } from 'lodash-es'
 import { version } from '~~/package.json'
 
 const appConfig = useAppConfig()
@@ -11,10 +10,10 @@ const yearStart = appConfig.general.conferenceFoundingYear === 0
   : appConfig.general.conferenceFoundingYear
 const yearSpan = yearStart === yearCurrent ? yearStart : `${yearStart} - ${yearCurrent}`
 
-const hasCustomFooterColumn = !isEmpty(appConfig.customFooterColumn)
-  && !isEmpty(appConfig.customFooterColumn.title)
-  && !isEmpty(appConfig.customFooterColumn.links)
-const hasSocials = !isEmpty(appConfig.socials)
+const customFooterLinks = (appConfig.customFooterColumn?.links ?? []).filter(link => link.url)
+const socialLinks = (appConfig.socials ?? []).filter(social => social.url)
+const hasCustomFooterColumn = Boolean(appConfig.customFooterColumn?.title) && customFooterLinks.length > 0
+const hasSocials = socialLinks.length > 0
 
 const gridClass = computed(() => {
   const count = 2 + (hasCustomFooterColumn ? 1 : 0) + (hasSocials ? 1 : 0)
@@ -72,23 +71,19 @@ const columns: FooterColumn[] = [
       ? []
       : [{
           label: appConfig.customFooterColumn?.title ?? '',
-          children: (appConfig.customFooterColumn?.links || [])
-            .filter(link => link.url)
-            .map(link => ({
-              label: link.name ?? link.url!,
-              icon: link.icon,
-              to: link.url,
-              target: isExternalLink(link.url!) ? '_blank' : undefined,
-            })),
+          children: customFooterLinks.map(link => ({
+            label: link.name ?? link.url!,
+            icon: link.icon,
+            to: link.url,
+            target: isExternalLink(link.url!) ? '_blank' : undefined,
+          })),
         } as FooterColumn]
   ),
   ...(!hasSocials
     ? []
     : [{
         label: 'Social Media',
-        children: appConfig.socials
-          .filter(social => social.url)
-          .map(social => ({
+        children: socialLinks.map(social => ({
             label: social.name ?? social.url!,
             icon: social.icon || getIconForUrl(social.url!),
             to: social.url,
