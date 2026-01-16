@@ -63,7 +63,7 @@ export default antfu(
           js: 'never',
           json: 'always',
           mjs: 'never',
-          ts: 'never',
+          ts: 'always',
           vue: 'never',
         },
       ],
@@ -118,7 +118,7 @@ export default antfu(
         {
           js: 'always',
           mjs: 'always',
-          ts: 'never',
+          ts: 'always',
           vue: 'never',
         },
       ],
