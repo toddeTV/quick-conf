@@ -1,11 +1,16 @@
-import customConfig from '../content/0.custom-config.json'
+import _customConfig from '~~/content/0.custom-config.json'
+import { customConfigSchema } from '~/schemas/customConfig'
+
+const customConfig = customConfigSchema.parse(_customConfig)
 
 // Explicitly type loose properties to prevent TS union inference issues with optional keys (like "icon")
-const socials = (customConfig.socials || []) as Array<{ name: string, url: string, icon?: string }>
-const customFooterColumn = {
-  title: customConfig.customFooterColumn.title,
-  links: (customConfig.customFooterColumn.links || []) as Array<{ name: string, url: string, icon?: string }>,
-}
+const socials = customConfig.socials as Array<{ name: string, url: string, icon?: string }>
+const customFooterColumn = customConfig.customFooterColumn
+  ? {
+      title: customConfig.customFooterColumn.title,
+      links: customConfig.customFooterColumn.links as Array<{ name: string, url: string, icon?: string }>,
+    }
+  : undefined
 
 /**
  * Application configuration file.
