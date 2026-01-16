@@ -69,7 +69,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_BOT_PAT_TOKEN }}
           commit-message: 'chore: bump version to ${{ steps.bump.outputs.new_version }} after release'
           title: 'chore: bump version to ${{ steps.bump.outputs.new_version }} after release'
           body: Automated version bump to next RC version after the last release.
