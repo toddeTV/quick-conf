@@ -11,7 +11,7 @@ export function createSimpleLinkSchema() {
   return z.object({
     name: z.string().optional().describe('Name or label for this link.'),
     // we use `string()` and not `url()` as internal links like e.g. `/something` are also valid
-    url: z.string().min(1).describe('Destination URL for this link, including `https://` as prefix.'),
+    url: z.string().min(1).describe('Destination URL for this link (internal paths like `/something` are valid).'),
     icon: z.string().optional()
       .describe('Optionally override the icon. By default it is detected automatically. '
         + 'Try sticking to `Simple Icons` for consistency.'),
