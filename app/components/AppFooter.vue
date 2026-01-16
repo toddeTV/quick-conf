@@ -113,7 +113,7 @@ const repositoryIcon = computed(() => {
   if (provider === 'github') {
     return 'i-simple-icons-github'
   }
-  // console warning is part of `repositoryUrl` and will not be present here redundant
+  // console warning is handled in `repositoryUrl` and not repeated here
   return ''
 })
 
@@ -125,7 +125,7 @@ const repositoryLabel = computed(() => {
   if (provider === 'github') {
     return 'GitHub'
   }
-  // console warning is part of `repositoryUrl` and will not be present here redundant
+  // console warning is handled in `repositoryUrl` and not repeated here
   return ''
 })
 </script>
