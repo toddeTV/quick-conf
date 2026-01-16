@@ -34,7 +34,7 @@ const { data: sponsors } = await useAsyncData('sponsors-all', () => queryCollect
           <template #default>
             <NuxtImg
               :alt="`Logo of sponsor ${sponsor.slug}`"
-              class="mx-auto h-20 w-full object-contain dark:invert"
+              class="mx-auto h-20 w-full object-contain"
               :src="sponsor.image"
             />
           </template>
