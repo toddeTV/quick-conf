@@ -25,4 +25,5 @@ export default defineAppConfig({
       },
     },
   },
+  studio: customConfig.nuxtStudio,
 })
