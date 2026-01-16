@@ -39,10 +39,10 @@
     },
     "repository": {
       "branch": "main",
-      "owner": "",
+      "owner": "your-org",
       "private": false,
       "provider": "github",
-      "repo": ""
+      "repo": "your-repo"
     }
   },
   "nuxtUI": {
