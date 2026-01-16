@@ -8,7 +8,7 @@ import {
   createLinkSchema,
   orientationEnum,
   targetEnum,
-} from './common'
+} from './common.ts'
 
 export const landingSchema = createBaseWithSeoSchema().extend({
   blocks: z.array(

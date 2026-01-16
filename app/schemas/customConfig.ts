@@ -1,6 +1,6 @@
 import { property } from '@nuxt/content'
 import { z } from 'zod/v4'
-import { createSimpleLinkSchema } from './common'
+import { createSimpleLinkSchema } from './common.ts'
 
 export const customConfigSchema = z.object({
   _warning: z.string()
