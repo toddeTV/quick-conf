@@ -106,10 +106,14 @@ export default defineContentConfig({
         }).describe('General Customization.'),
         socials: z.array(createSimpleLinkSchema()).default([]).describe('Socials Customization.'),
         customFooterColumn: z.object({
+          // TODO would be better `.min(1)` instead of `.optional()`, but NuxtStudio does not delete it in the UI
           title: z.string().optional().describe('The title of the custom footer column.'),
-          links: z.array(createSimpleLinkSchema()).default([]),
-        }).describe('Customize the custom footer column. This is the third column in the footer, before the socials.'
-          + ' Leave fields empty to hide the column (at least the \'title\').'),
+          // TODO would be better `.nonempty()` instead of `.default([])`, but NuxtStudio does not delete it in the UI
+          links: z.array(createSimpleLinkSchema()).default([])
+            .describe('The links to show in the custom footer column.'),
+        }).optional()
+          .describe('Customize the custom footer column. This is the third column in the footer, before the socials.'
+            + ' Leave fields empty to hide the column (at least the \'title\').'),
         nuxtUI: z.object({
           colors: z.object({
             primary: z.enum([
