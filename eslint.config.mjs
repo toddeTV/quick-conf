@@ -90,7 +90,8 @@ export default antfu(
   },
   {
     /**
-     * Node-run ESM files often require explicit extensions in relative imports
+     * Node-run ESM files often require explicit extensions in relative imports.
+     * // TODO: Enforce this rule once project specifications are stabilized. Currently disabled to avoid breakage.
      */
     files: [
       '**/*.mjs',
