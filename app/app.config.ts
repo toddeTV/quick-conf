@@ -1,5 +1,5 @@
 import _customConfig from '~~/content/0.custom-config.json'
-import { customConfigSchema } from '~/schemas/customConfig'
+import { customConfigSchema } from '~/schemas/customConfigPlain'
 
 const customConfig = customConfigSchema.parse(_customConfig)
 
