@@ -9,43 +9,35 @@ import { z } from 'zod/v4'
 
 export function createSimpleLinkSchema() {
   return z.object({
-    name: z.string().optional().describe('Name or label for this link.'),
+    name: z.string().optional(),
     // we use `string()` and not `url()` as internal links like e.g. `/something` are also valid
-    url: z.string().min(1).describe('Destination URL for this link (internal paths like `/something` are valid).'),
-    icon: z.string().optional()
-      .describe('Optionally override the icon. By default it is detected automatically. '
-        + 'Try sticking to `Simple Icons` for consistency.'),
+    url: z.string().min(1),
+    icon: z.string().optional(),
   })
 }
 
 export const customConfigSchema = z.object({
   general: z.object({
-    conferenceName: z.string().min(1).describe('The name of the conference.'),
-    conferenceFoundingYear: z.number().default(new Date().getFullYear())
-      .describe('The year that the conference was founded (took place first or was invented).'),
-    timeZone: z.string().default('UTC')
-      .describe('The time zone where the conference takes place, e.g. `Europe/Berlin`. '
-        + 'This is used to display the schedule in the correct local time.'),
-    siteUrl: z.string().describe('The public URL of the website (e.g. `https://my-conference.com`).'),
+    conferenceName: z.string().min(1),
+    conferenceFoundingYear: z.number().default(new Date().getFullYear()),
+    timeZone: z.string().default('UTC'),
+    siteUrl: z.string(),
     logo: z.object({
-      light: z.string().min(1).describe('The Logo used in light mode.'),
-      dark: z.string().min(1).describe('The Logo used in dark mode.'),
+      light: z.string().min(1),
+      dark: z.string().min(1),
     }),
     favicon: z.object({
-      light: z.string().min(1).describe('The Favicon used in light mode.'),
-      dark: z.string().min(1).describe('The Favicon used in dark mode.'),
+      light: z.string().min(1),
+      dark: z.string().min(1),
     }),
-  }).describe('General Customization.'),
-  socials: z.array(createSimpleLinkSchema()).default([]).describe('Socials Customization.'),
+  }),
+  socials: z.array(createSimpleLinkSchema()).default([]),
   customFooterColumn: z.object({
     // TODO would be better `.min(1)` instead of `.optional()`, but NuxtStudio does not delete it in the UI
-    title: z.string().optional().describe('The title of the custom footer column.'),
+    title: z.string().optional(),
     // TODO would be better `.nonempty()` instead of `.default([])`, but NuxtStudio does not delete it in the UI
-    links: z.array(createSimpleLinkSchema()).default([])
-      .describe('The links to show in the custom footer column.'),
-  }).optional()
-    .describe('Customize the custom footer column. This is the third column in the footer, before the socials.'
-      + ' Leave fields empty to hide the column (at least the \'title\').'),
+    links: z.array(createSimpleLinkSchema()).default([]),
+  }).optional(),
   nuxtUI: z.object({
     colors: z.object({
       primary: z.enum([
@@ -67,28 +59,16 @@ export const customConfigSchema = z.object({
         'teal',
         'violet',
         'yellow',
-      ]).default('green').describe('Primary color of your UI.'),
-      neutral: z.enum(['gray', 'neutral', 'slate', 'stone', 'zinc']).default('slate')
-        .describe('Neutral color of your UI.'),
-    }).describe('Manage main colors of your application. If you have a custom color palette'
-      + ' (e.g. corporate design for branding), you can add the color palette in `/public/custom-styles.css`'
-      + ' by overriding/setting all `--color-brand-*` CSS variables and then use the word `brand` in the'
-      + ' fields below.'
-      + ' Also keep in mind that you can set even more custom styles in the file `/public/custom-styles.css`, '
-      + ' because you can use default CSS syntax here and the file is imported automatically.'),
+      ]).default('green'),
+      neutral: z.enum(['gray', 'neutral', 'slate', 'stone', 'zinc']).default('slate'),
+    }),
     icons: z.object({
-      search: z.string().default('i-lucide-search')
-        .describe('Icon to display in the search bar.'),
-      dark: z.string().default('i-lucide-moon')
-        .describe('Icon of color mode button for dark mode.'),
-      light: z.string().default('i-lucide-sun')
-        .describe('Icon of color mode button for light mode.'),
-      external: z.string().default('i-lucide-external-link')
-        .describe('Icon for external link.'),
-      chevron: z.string().default('i-lucide-chevron-down')
-        .describe('Icon for chevron.'),
-      hash: z.string().default('i-lucide-hash')
-        .describe('Icon for hash anchors.'),
+      search: z.string().default('i-lucide-search'),
+      dark: z.string().default('i-lucide-moon'),
+      light: z.string().default('i-lucide-sun'),
+      external: z.string().default('i-lucide-external-link'),
+      chevron: z.string().default('i-lucide-chevron-down'),
+      hash: z.string().default('i-lucide-hash'),
     }).default({
       search: 'i-lucide-search',
       dark: 'i-lucide-moon',
@@ -97,17 +77,17 @@ export const customConfigSchema = z.object({
       chevron: 'i-lucide-chevron-down',
       hash: 'i-lucide-hash',
     }),
-  }).describe('NuxtUI Customization.'),
+  }),
   nuxtStudio: z.object({
     repository: z.object({
-      provider: z.enum(['github', 'gitlab']).default('github').describe('The git provider.'),
-      owner: z.string().min(1).describe('The owner of the repository.'),
-      repo: z.string().min(1).describe('The name of the repository.'),
-      branch: z.string().default('main').describe('The branch to use.'),
-      private: z.boolean().default(false).describe('Whether the repository is private.'),
-    }).describe('Repository configuration.'),
+      provider: z.enum(['github', 'gitlab']).default('github'),
+      owner: z.string().min(1),
+      repo: z.string().min(1),
+      branch: z.string().default('main'),
+      private: z.boolean().default(false),
+    }),
     i18n: z.object({
-      defaultLocale: z.string().default('en').describe('The default locale of the content.'),
-    }).describe('Internationalization configuration.'),
-  }).describe('Nuxt Studio configuration.'),
+      defaultLocale: z.string().default('en'),
+    }),
+  }),
 })
