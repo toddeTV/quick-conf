@@ -24,7 +24,7 @@ export const ticketSchema = z.object({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'An optional discount price to show a striked-through price.',
   }),
-  features: property(z.array(z.string())).editor({
+  features: property(z.array(z.string().min(1))).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'A list of features for the ticket.',
   }),
