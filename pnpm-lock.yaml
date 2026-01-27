@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   nuxt-studio:
-    hash: e2ec6ac263cc48bc93710a1489d97e76ef2684b8a3092e314c69fcec44f20620
+    hash: 619700d326dec8f384a000a0ca2a3a225e3d48d3b4878a2545bcb74611736543
     path: patches/nuxt-studio.patch
 
 importers:
@@ -73,7 +73,7 @@ importers:
         version: 3.32.0
       nuxt-studio:
         specifier: ~1.2.0
-        version: 1.2.0(patch_hash=e2ec6ac263cc48bc93710a1489d97e76ef2684b8a3092e314c69fcec44f20620)(@netlify/blobs@9.1.1)(db0@0.3.4(better-sqlite3@12.6.2))(ioredis@5.9.2)(magicast@0.5.1)(vue@3.5.27(typescript@5.9.3))
+        version: 1.2.0(patch_hash=619700d326dec8f384a000a0ca2a3a225e3d48d3b4878a2545bcb74611736543)(@netlify/blobs@9.1.1)(db0@0.3.4(better-sqlite3@12.6.2))(ioredis@5.9.2)(magicast@0.5.1)(vue@3.5.27(typescript@5.9.3))
       renovate:
         specifier: ~42.92.13
         version: 42.92.13(encoding@0.1.13)(typanion@3.14.0)
@@ -17242,7 +17242,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  nuxt-studio@1.2.0(patch_hash=e2ec6ac263cc48bc93710a1489d97e76ef2684b8a3092e314c69fcec44f20620)(@netlify/blobs@9.1.1)(db0@0.3.4(better-sqlite3@12.6.2))(ioredis@5.9.2)(magicast@0.5.1)(vue@3.5.27(typescript@5.9.3)):
+  nuxt-studio@1.2.0(patch_hash=619700d326dec8f384a000a0ca2a3a225e3d48d3b4878a2545bcb74611736543)(@netlify/blobs@9.1.1)(db0@0.3.4(better-sqlite3@12.6.2))(ioredis@5.9.2)(magicast@0.5.1)(vue@3.5.27(typescript@5.9.3)):
     dependencies:
       '@iconify-json/lucide': 1.2.87
       '@nuxtjs/mdc': 0.20.0(magicast@0.5.1)
