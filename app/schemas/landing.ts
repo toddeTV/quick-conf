@@ -131,7 +131,11 @@ export const landingSchema = createBaseWithSeoSchema().extend({
       createLandingBlockBaseSchema().extend({
         component: z.literal('AppLandingSeparator'),
         label: z.string().optional(),
-        icon: property(z.string().optional()).editor({ input: 'icon' }),
+        icon: property(z.string().optional()).editor({
+          input: 'icon',
+          // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+          description: 'An optional icon for the separator.',
+        }),
         avatar: createImageSchema().optional(),
       }),
     ]),
