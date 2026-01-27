@@ -49,12 +49,12 @@ export const landingSchema = createBaseWithSeoSchema().extend({
       createLandingBlockBaseSchema().extend({
         component: z.literal('AppLandingSponsors'),
         showViewAll: property(z.boolean().default(false)).editor({
-          // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+          // @ts-expect-error `description` is custom and patched in `nuxt-studio`
           description: 'Show a "View all Sponsors" button. Links to the sponsors FAQ page, which must '
             + 'be created manually.',
         }),
         viewAllLink: property(z.string().min(1).default('/faq/sponsors')).editor({
-          // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+          // @ts-expect-error `description` is custom and patched in `nuxt-studio`
           description: 'The link for the "View all Sponsors" button.',
         }),
       }),
@@ -71,7 +71,7 @@ export const landingSchema = createBaseWithSeoSchema().extend({
           poster: property(z.string().optional()).editor({ input: 'media' }),
         }).optional(),
         overlayOpacity: property(z.number().min(0).max(1).default(0.5)).editor({
-          // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+          // @ts-expect-error `description` is custom and patched in `nuxt-studio`
           description: 'The opacity of the black overlay on top of the media (0-1).',
         }),
       }),
@@ -115,7 +115,7 @@ export const landingSchema = createBaseWithSeoSchema().extend({
       }),
     ]),
   )).editor({
-    // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+    // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: '⚠️ NOTE: Click the little dots at the top right of the sidebar and change to "Use code editor" '
       + 'to edit the landing page blocks properly as the visual editor does not support all features here!',
   }),
