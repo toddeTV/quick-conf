@@ -11,7 +11,7 @@ import {
 } from './common'
 
 export const landingSchema = createBaseWithSeoSchema().extend({
-  blocks: z.array(
+  blocks: property(z.array(
     z.discriminatedUnion('component', [
       createLandingBlockBaseSchema().extend({
         component: z.literal('AppLandingHero'),
@@ -50,7 +50,8 @@ export const landingSchema = createBaseWithSeoSchema().extend({
         component: z.literal('AppLandingSponsors'),
         showViewAll: property(z.boolean().default(false)).editor({
           // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
-          description: 'Show a "View all Sponsors" button. Links to the sponsors FAQ page, which must be created manually.',
+          description: 'Show a "View all Sponsors" button. Links to the sponsors FAQ page, which must '
+            + 'be created manually.',
         }),
         viewAllLink: property(z.string().min(1).default('/faq/sponsors')).editor({
           // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
@@ -113,5 +114,9 @@ export const landingSchema = createBaseWithSeoSchema().extend({
         avatar: createImageSchema().optional(),
       }),
     ]),
-  ),
+  )).editor({
+    // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+    description: '⚠️ NOTE: Click the little dots at the top right of the sidebar and change to "Use code editor" '
+      + 'to edit the landing page blocks properly as the visual editor does not support all features here!',
+  }),
 })
