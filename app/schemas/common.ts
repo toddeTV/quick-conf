@@ -58,18 +58,30 @@ export function createLandingBlockBaseSchema() {
     title: z.string().optional(),
     description: z.string().optional(),
     headline: z.string().optional(),
-    class: z.string().optional().describe('Tailwind classes for custom styling (e.g. "md:-mt-20").'),
+    class: property(z.string().optional()).editor({
+      // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+      description: 'Tailwind classes for custom styling (e.g. "md:-mt-20").',
+    }),
   })
 }
 
 export function createSimpleLinkSchema() {
   return z.object({
-    name: z.string().optional().describe('Name or label for this link.'),
+    name: property(z.string().optional()).editor({
+      // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+      description: 'Name or label for this link.',
+    }),
     // we use `string()` and not `url()` as internal links like e.g. `/something` are also valid
-    url: z.string().min(1).describe('Destination URL for this link (internal paths like `/something` are valid).'),
+    url: property(z.string().min(1)).editor({
+      // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+      description: 'Destination URL for this link (internal paths like `/something` are valid).',
+    }),
     icon: property(z.string().optional())
-      .editor({ input: 'icon' })
-      .describe('Optionally override the icon. By default it is detected automatically. '
-        + 'Try sticking to `Simple Icons` for consistency.'),
+      .editor({
+        input: 'icon',
+        // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+        description: 'Optionally override the icon. By default it is detected automatically. '
+          + 'Try sticking to `Simple Icons` for consistency.',
+      }),
   })
 }

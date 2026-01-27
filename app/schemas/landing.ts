@@ -48,12 +48,14 @@ export const landingSchema = createBaseWithSeoSchema().extend({
       }),
       createLandingBlockBaseSchema().extend({
         component: z.literal('AppLandingSponsors'),
-        showViewAll: z.boolean().default(false).describe(
-          'Show a "View all Sponsors" button. Links to the sponsors FAQ page, which must be created manually.',
-        ),
-        viewAllLink: z.string().min(1).default('/faq/sponsors').describe(
-          'The link for the "View all Sponsors" button.',
-        ),
+        showViewAll: property(z.boolean().default(false)).editor({
+          // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+          description: 'Show a "View all Sponsors" button. Links to the sponsors FAQ page, which must be created manually.',
+        }),
+        viewAllLink: property(z.string().min(1).default('/faq/sponsors')).editor({
+          // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+          description: 'The link for the "View all Sponsors" button.',
+        }),
       }),
       createLandingBlockBaseSchema().extend({
         component: z.literal('AppLandingCta'),
@@ -67,8 +69,10 @@ export const landingSchema = createBaseWithSeoSchema().extend({
           src: property(z.string().min(1)).editor({ input: 'media' }),
           poster: property(z.string().optional()).editor({ input: 'media' }),
         }).optional(),
-        overlayOpacity: z.number().min(0).max(1).default(0.5)
-          .describe('The opacity of the black overlay on top of the media (0-1).'),
+        overlayOpacity: property(z.number().min(0).max(1).default(0.5)).editor({
+          // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+          description: 'The opacity of the black overlay on top of the media (0-1).',
+        }),
       }),
       createLandingBlockBaseSchema().extend({
         component: z.literal('AppLandingHeroCountdown'),
