@@ -149,7 +149,10 @@ export const customConfigSchema = z.object({
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'Icon for hash anchors.',
       }),
-    })),
+    })).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'Icons used across the UI.',
+    }),
   })).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'NuxtUI Customization.',
