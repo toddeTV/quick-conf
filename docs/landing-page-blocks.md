@@ -1,177 +1,279 @@
 # Landing Page Blocks
 
-The landing page is built using a modular block system. You can customize the layout by adding, removing, or reordering blocks in `content/1.index.yml`. Each block is a Vue component that receives its content via properties.
+The landing page of Quick Conf is composed of modular blocks defined in `content/1.index.yml`. Each block corresponds to a Vue component in `app/components/app/landing/`.
 
-## Property Presets
-
-### Base Object
-
-All blocks support the following base properties:
-
-- `title`: [optional] Heading.
-- `description`: [optional] Subtext.
-- `headline`: [optional] Small text above the title.
-- `class`: [optional] Tailwind classes for custom styling (e.g., `md:-mt-20`).
-
-#### Link Object & Button Object
-
-Used for buttons and links.
-
-- `label`: The text on the button.
-- `to`: The link destination.
-- `icon`: [optional] An icon name.
-- `color`: [optional] Button color (e.g., `primary`, `white`).
-- `variant`: [optional] Button style (e.g., `solid`, `outline`).
-- `size`: [optional] Button size (e.g., `md`, `lg`).
-- `trailing`: [optional] Whether the icon should be trailing.
-- `target`: [optional] Link target (e.g., `_blank`).
-
-#### Image Object
-
-Used for images and avatars.
-
-- `src`: Image path.
-- `alt`: [optional] Description of the image.
-- `loading`: [optional] Image loading strategy (`lazy` or `eager`).
-- `srcset`: [optional] Image srcset.
+> **Note**: The screenshots below demonstrate the layout structure. Colors, fonts, and spacing may vary depending on your project's global configuration and theme settings.
 
 ## Available Blocks
 
-### `AppLandingHero`
+### AppLandingCta
 
-The main hero section of the page with background effects.
+A "Call to Action" section, typically used at the bottom of the page to encourage ticket sales.
 
-- Inherits base from **Base Object**.
-- `links`: [optional] A list of **Link Objects**.
+```yaml
+- component: AppLandingCta
+  title: Ready to Join Us?
+  description: Get your ticket now and secure your spot at the most anticipated event of the year.
+  links:
+    - label: Get Tickets
+      to: /tickets
+      icon: i-lucide-ticket
+      size: xl
+      color: primary
+```
 
-### `AppLandingSection`
+![AppLandingCta Screenshot](/docs/assets/landing-page-blocks/AppLandingCta.png)
 
-A generic content section with an image and optional features.
+### AppLandingFaqPreview
 
-- Inherits base from **Base Object**.
-- `orientation`: [optional] `horizontal` or `vertical`.
-- `reverse`: [optional] Boolean to flip image and text.
-- `image`: [optional] An **Image Object**.
-- `features`: [optional] A list of highlights. Each highlight includes:
-  - `title`: Feature heading.
-  - `description`: Feature text.
-  - `icon`: Feature icon.
-  - `headline`: [optional] Small text above the title.
+A preview section for Frequently Asked Questions.
 
-### `AppLandingFeatures`
+```yaml
+- component: AppLandingFaqPreview
+  title: FAQ
+  description: Answers to common questions.
+  headline: Need Help?
+  link:
+    label: View all FAQs
+    to: /faq
+    color: gray
+    variant: ghost
+  items:
+    - label: What is the refund policy?
+      content: You can get a full refund up to 30 days before the event.
+    - label: Is there parking available?
+      content: Yes, we have a dedicated parking lot for attendees.
+```
 
-A grid of feature cards to showcase event highlights.
+![AppLandingFaqPreview Screenshot](/docs/assets/landing-page-blocks/AppLandingFaqPreview.png)
 
-- Inherits base from **Base Object**.
-- `items`: [optional] A list of features. Each feature includes:
-  - `title`: Feature heading.
-  - `description`: Feature text.
-  - `icon`: Feature icon.
-  - `headline`: [optional] Small text above the title.
+### AppLandingFeatures
 
-### `AppLandingSpeakers`
+A generic feature grid to highlight key aspects of your conference.
 
-Displays featured speakers automatically fetched from the `speakers` collection.
+```yaml
+- component: AppLandingFeatures
+  title: Why Attend?
+  description: Discover what makes this conference unique.
+  headline: Features
+  items:
+    - title: Expert Speakers
+      description: Learn from industry leaders.
+      icon: i-lucide-mic
+    - title: Networking
+      description: Connect with 500+ peers.
+      icon: i-lucide-users
+    - title: Workshops
+      description: Hands-on sessions to improved skills.
+      icon: i-lucide-wrench
+```
 
-- Inherits base from **Base Object**.
+![AppLandingFeatures Screenshot](/docs/assets/landing-page-blocks/AppLandingFeatures.png)
 
-### `AppLandingTestimonials`
+### AppLandingGallery
 
-A grid of attendee testimonials.
+A grid of images to showcase past events or the venue.
 
-- Inherits base from **Base Object**.
-- `items`: [optional] A list of testimonials. Each testimonial includes:
-  - `quote`: The testimonial text.
-  - `user`: Information about the person:
-    - `name`: Their name.
-    - `description`: Their role or company.
-    - `to`: Link to their profile or website.
-    - `target`: [optional] Link target (e.g., `_blank`).
-    - `avatar`: An **Image Object**.
+```yaml
+- component: AppLandingGallery
+  title: Gallery
+  description: Highlights from last year.
+  headline: Memories
+  images:
+    - src: /images/gallery/1.jpg
+      alt: Conference Hall
+    - src: /images/gallery/2.jpg
+      alt: Networking Session
+    - src: /images/gallery/3.jpg
+      alt: Keynote Speech
+```
 
-### `AppLandingSponsors`
+![AppLandingGallery Screenshot](/docs/assets/landing-page-blocks/AppLandingGallery.png)
 
-A grid of sponsor logos automatically fetched from the `sponsors` collection.
+### AppLandingHero
 
-- Inherits base from **Base Object**.
-- `showViewAll`: [optional] Boolean to show a "View All Sponsors" button.
-- `viewAllLink`: [optional] The link for the "View All" button (defaults to `/faq/sponsors`).
+The standard hero section with title, description, and action buttons.
 
-### `AppLandingCta`
+```yaml
+- component: AppLandingHero
+  title: The Tech Conference of 2026
+  description: Join us for 3 days of inspiring talks and workshops.
+  headline: October 15-17
+  links:
+    - label: Buy Tickets
+      to: /tickets
+      icon: i-lucide-ticket
+      size: xl
+    - label: Schedule
+      to: /schedule
+      color: gray
+      variant: ghost
+      size: xl
+```
 
-A call-to-action section with background effects, typically used at the bottom of the page.
+![AppLandingHero Screenshot](/docs/assets/landing-page-blocks/AppLandingHero.png)
 
-- Inherits base from **Base Object**.
-- `links`: [optional] A list of **Link Objects**.
+### AppLandingHeroCountdown
 
-### `AppLandingHeroMedia`
+A hero variant that features a countdown timer to a specific date.
 
-A hero section with a full-width background image or video.
+```yaml
+- component: AppLandingHeroCountdown
+  title: The Countdown Begins
+  description: Don't miss out on the early bird tickets.
+  targetDate: 2026-10-15T09:00:00.000Z
+  links:
+    - label: Register Now
+      to: /tickets
+      size: xl
+```
 
-- Inherits base from **Base Object**.
-- `links`: [optional] A list of **Link Objects**.
-- `image`: [optional] Background **Image Object**.
-- `video`: [optional] Background video (takes precedence over image).
-  - `src`: Video path.
-  - `poster`: [optional] Poster image path.
-- `overlayOpacity`: [optional] Opacity of the black overlay (0-1, default: 0.5).
+![AppLandingHeroCountdown Screenshot](/docs/assets/landing-page-blocks/AppLandingHeroCountdown.png)
 
-### `AppLandingHeroCountdown`
+### AppLandingHeroMedia
 
-A hero section with a countdown timer.
+A rich hero section with support for a large image or video alongside the text.
 
-- Inherits base from **Base Object**.
-- `links`: [optional] A list of **Link Objects**.
-- `targetDate`: The target date and time in ISO format (e.g., `2025-12-31T10:00:00Z`).
+```yaml
+- component: AppLandingHeroMedia
+  title: Experience the Future
+  description: Watch the recap video from our last event.
+  image:
+    src: /images/hero-bg.jpg
+    alt: Event Crowd
+  # Optional: Use video instead of image
+  # video:
+  #   src: /videos/intro.mp4
+  #   poster: /images/video-poster.jpg
+  links:
+    - label: Watch Full Video
+      to: https://youtube.com
+      target: _blank
+      color: gray
+```
 
-**Behavior:**
+![AppLandingHeroMedia Screenshot](/docs/assets/landing-page-blocks/AppLandingHeroMedia.png)
 
-- **Counting Down**: Shows days, hours, minutes, and seconds until `targetDate`.
-- **Live**: Shows "Live Now" for 12 hours after `targetDate` is reached.
-- **Ended**: Shows "Event Ended" after the 12-hour live window.
+### AppLandingMarquee
 
-### `AppLandingMetaInfo`
+A scrolling marquee of logos or images.
 
-A block for displaying key meta-information (Date, Location, etc.) in a grid.
+```yaml
+- component: AppLandingMarquee
+  speed: 30
+  direction: left
+  gap: 50
+  images:
+    - src: /images/partners/logo1.svg
+    - src: /images/partners/logo2.svg
+    - src: /images/partners/logo3.svg
+    - src: /images/partners/logo4.svg
+```
 
-- Inherits base from **Base Object**.
-- `items`: A list of info items. Each item includes:
-  - `icon`: Icon name.
-  - `text`: Main text.
-  - `label`: [optional] Optional label above the text.
+![AppLandingMarquee Screenshot](/docs/assets/landing-page-blocks/AppLandingMarquee.png)
 
-### `AppLandingMarquee`
+### AppLandingMetaInfo
 
-An infinite scrolling bar of images (e.g., logos).
+A horizontal bar displaying key event information like date, location, and stats.
 
-- Inherits base from **Base Object**.
-- `direction`: [optional] Scroll direction (`left` or `right`).
-- `speed`: [optional] Animation duration in seconds (default: 20).
-- `gap`: [optional] Gap between images in pixels (default: 0).
-- `images`: A list of **Image Objects**.
+```yaml
+- component: AppLandingMetaInfo
+  items:
+    - icon: i-lucide-calendar
+      label: Date
+      text: Oct 15-17
+    - icon: i-lucide-map-pin
+      label: Location
+      text: Amsterdam
+    - icon: i-lucide-users
+      label: Capacity
+      text: 500+
+```
 
-### `AppLandingGallery`
+![AppLandingMetaInfo Screenshot](/docs/assets/landing-page-blocks/AppLandingMetaInfo.png)
 
-A grid of images to showcase past events or highlights.
+### AppLandingSection
 
-- Inherits base from **Base Object**.
-- `images`: A list of **Image Objects**.
+A versatile section for text and an image, supporting split layouts.
 
-### `AppLandingFaqPreview`
+```yaml
+- component: AppLandingSection
+  title: About the Venue
+  description: We are hosted at the historic Grand Hall.
+  orientation: horizontal
+  reverse: false # Set true to put image on the left/right depending on locale
+  image:
+    src: /images/venue.jpg
+    alt: Grand Hall
+  features:
+    - title: Central Location
+      description: Easy access by public transport.
+      icon: i-lucide-map
+    - title: Great Food
+      description: Catering included.
+      icon: i-lucide-coffee
+```
 
-A preview of Frequently Asked Questions with an accordion layout.
+![AppLandingSection Screenshot](/docs/assets/landing-page-blocks/AppLandingSection.png)
 
-- Inherits base from **Base Object**.
-- `link`: [optional] Optional **Link Object** to view all FAQs.
-- `items`: A list of FAQ items.
-  - `label`: The question.
-  - `content`: The answer.
+### AppLandingSeparator
 
-### `AppLandingSeparator`
+A simple visual separator line.
 
-A simple separator line to visually divide sections.
+```yaml
+- component: AppLandingSeparator
+```
 
-- Inherits base from **Base Object**.
-- `label`: [optional] Text in the middle of the separator.
-- `icon`: [optional] Icon in the middle of the separator.
-- `avatar`: [optional] **Image Object** in the middle of the separator.
+![AppLandingSeparator Screenshot](/docs/assets/landing-page-blocks/AppLandingSeparator.png)
+
+### AppLandingSpeakers
+
+Displays a selection of speakers. Data is automatically fetched from the `speakers` content collection.
+
+```yaml
+- component: AppLandingSpeakers
+  title: Meet the Experts
+  description: Learn from the best in the industry.
+  headline: Speakers
+```
+
+![AppLandingSpeakers Screenshot](/docs/assets/landing-page-blocks/AppLandingSpeakers.png)
+
+### AppLandingSponsors
+
+Displays a grid of sponsors. Data is automatically fetched from the `sponsors` content collection.
+
+```yaml
+- component: AppLandingSponsors
+  title: Our Partners
+  description: Thank you to our amazing sponsors.
+  showViewAll: true
+  viewAllLink: /faq/sponsoring
+```
+
+![AppLandingSponsors Screenshot](/docs/assets/landing-page-blocks/AppLandingSponsors.png)
+
+### AppLandingTestimonials
+
+Displays user testimonials in a grid.
+
+```yaml
+- component: AppLandingTestimonials
+  title: What People Say
+  description: Hear from past attendees.
+  items:
+    - quote: "The best conference I've ever attended!"
+      user:
+        name: Jane Doe
+        description: Developer at TechCorp
+        avatar:
+          src: /images/avatars/jane.jpg
+    - quote: Incredible atmosphere and great talks.
+      user:
+        name: John Smith
+        description: Freelancer
+        avatar:
+          src: /images/avatars/john.jpg
+```
+
+![AppLandingTestimonials Screenshot](/docs/assets/landing-page-blocks/AppLandingTestimonials.png)
