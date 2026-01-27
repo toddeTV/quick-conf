@@ -3,12 +3,12 @@ import { z } from 'zod/v4'
 import { targetEnum } from './common'
 
 export const ticketSchema = z.object({
-  slug: property(z.string()).editor({
+  slug: property(z.string().min(1)).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'The UNIQUE slug of the ticket. This is used to identify and '
       + 'link the ticket to other collections. Never change this!',
   }),
-  title: property(z.string()).editor({
+  title: property(z.string().min(1)).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'The title of the ticket.',
   }),
