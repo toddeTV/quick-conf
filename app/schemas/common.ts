@@ -9,33 +9,65 @@ export const targetEnum = z.enum(['_self', '_blank', '_parent', '_top'])
 
 export function createBaseSchema() {
   return z.object({
-    title: z.string().min(1),
-    description: z.string().min(1),
-    headline: z.string().optional(),
+    title: property(z.string().min(1)).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The title of the item.',
+    }),
+    description: property(z.string().min(1)).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The description of the item.',
+    }),
+    headline: property(z.string().optional()).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'An optional small headline above the title.',
+    }),
   })
 }
 
 export function createBaseWithSeoSchema() {
   return createBaseSchema().extend({
-    seo: z.object({
-      title: z.string().optional(),
-      description: z.string().optional(),
+    seo: property(z.object({
+      title: property(z.string().optional()).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'Override the default title.',
+      }),
+      description: property(z.string().optional()).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'Override the default description.',
+      }),
       // image: property(z.string().optional()).editor({ input: 'media' }),
-    }).optional(),
+    }).optional()).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'SEO settings for this page. If empty, the default values are used.',
+    }),
   })
 }
 
 export function createFeatureItemSchema() {
   return createBaseSchema().extend({
-    icon: property(z.string().min(1)).editor({ input: 'icon' }),
+    icon: property(z.string().min(1)).editor({
+      input: 'icon',
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The icon of the feature.',
+    }),
   })
 }
 
 export function createLinkSchema() {
   return z.object({
-    label: z.string().min(1),
-    to: z.string().min(1),
-    icon: property(z.string().optional()).editor({ input: 'icon' }),
+    label: property(z.string().min(1)).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The label of the link.',
+    }),
+    to: property(z.string().min(1)).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The URL to link to. Start with `https://` for external links. For internal links, start with `/` and do not paste the domain of your website in it.',
+    }),
+    icon: property(z.string().optional()).editor({
+      input: 'icon',
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'An optional icon for the link. If no icon is set, the website will autodetect and select one depending on the destination.',
+    }),
     size: sizeEnum.optional(),
     trailing: z.boolean().optional(),
     target: targetEnum.optional(),
@@ -46,8 +78,15 @@ export function createLinkSchema() {
 
 export function createImageSchema() {
   return z.object({
-    src: property(z.string().min(1)).editor({ input: 'media' }),
-    alt: z.string().optional(),
+    src: property(z.string().min(1)).editor({
+      input: 'media',
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The source of the image.',
+    }),
+    alt: property(z.string().optional()).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'Alternative text for accessibility. Set this for screen readers.',
+    }),
     loading: z.enum(['lazy', 'eager']).optional(),
     srcset: z.string().optional(),
   })
@@ -55,9 +94,18 @@ export function createImageSchema() {
 
 export function createLandingBlockBaseSchema() {
   return z.object({
-    title: z.string().optional(),
-    description: z.string().optional(),
-    headline: z.string().optional(),
+    title: property(z.string().optional()).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The title of the block.',
+    }),
+    description: property(z.string().optional()).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The description of the block.',
+    }),
+    headline: property(z.string().optional()).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'An optional small headline above the title.',
+    }),
     class: property(z.string().optional()).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Tailwind classes for custom styling (e.g. "md:-mt-20").',

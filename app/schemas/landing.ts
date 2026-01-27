@@ -67,8 +67,16 @@ export const landingSchema = createBaseWithSeoSchema().extend({
         links: z.array(createLinkSchema()).optional(),
         image: createImageSchema().optional(),
         video: z.object({
-          src: property(z.string().min(1)).editor({ input: 'media' }),
-          poster: property(z.string().optional()).editor({ input: 'media' }),
+          src: property(z.string().min(1)).editor({
+            input: 'media',
+            // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+            description: 'The source of the video.',
+          }),
+          poster: property(z.string().optional()).editor({
+            input: 'media',
+            // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+            description: 'The poster image for the video.',
+          }),
         }).optional(),
         overlayOpacity: property(z.number().min(0).max(1).default(0.5)).editor({
           // @ts-expect-error `description` is custom and patched in `nuxt-studio`
@@ -78,14 +86,27 @@ export const landingSchema = createBaseWithSeoSchema().extend({
       createLandingBlockBaseSchema().extend({
         component: z.literal('AppLandingHeroCountdown'),
         links: z.array(createLinkSchema()).optional(),
-        targetDate: z.string().datetime(),
+        targetDate: property(z.string().datetime()).editor({
+          // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+          description: 'The target date for the countdown (ISO format, e.g. `2026-10-15T10:00:00Z`).',
+        }),
       }),
       createLandingBlockBaseSchema().extend({
         component: z.literal('AppLandingMetaInfo'),
         items: z.array(z.object({
-          icon: property(z.string().min(1)).editor({ input: 'icon' }),
-          text: z.string().min(1),
-          label: z.string().optional(),
+          icon: property(z.string().min(1)).editor({
+            input: 'icon',
+            // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+            description: 'The icon of the item.',
+          }),
+          text: property(z.string().min(1)).editor({
+            // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+            description: 'The text of the item.',
+          }),
+          label: property(z.string().optional()).editor({
+            // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+            description: 'The label of the item.',
+          }),
         })),
       }),
       createLandingBlockBaseSchema().extend({
