@@ -26,7 +26,7 @@ export const customConfigSchema = z.object({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'The public URL of the website (e.g. `https://my-conference.com`).',
     }),
-    logo: z.object({
+    logo: property(z.object({
       light: property(z.string().min(1)).editor({
         input: 'media',
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
@@ -37,8 +37,11 @@ export const customConfigSchema = z.object({
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'The Logo used in dark mode.',
       }),
+    })).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The Logo configuration.',
     }),
-    favicon: z.object({
+    favicon: property(z.object({
       light: property(z.string().min(1)).editor({
         input: 'media',
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
@@ -49,6 +52,9 @@ export const customConfigSchema = z.object({
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'The Favicon used in dark mode.',
       }),
+    })).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The Favicon configuration.',
     }),
   })).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
