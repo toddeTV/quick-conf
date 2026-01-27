@@ -143,14 +143,7 @@ export const customConfigSchema = z.object({
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'Icon for hash anchors.',
       }),
-    })).default({
-      search: 'i-lucide-search',
-      dark: 'i-lucide-moon',
-      light: 'i-lucide-sun',
-      external: 'i-lucide-external-link',
-      chevron: 'i-lucide-chevron-down',
-      hash: 'i-lucide-hash',
-    }),
+    })),
   })).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'NuxtUI Customization.',
