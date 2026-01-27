@@ -95,6 +95,9 @@
       "sharp",
       "unrs-resolver",
       "vue-demi"
-    ]
+    ],
+    "patchedDependencies": {
+      "nuxt-studio": "patches/nuxt-studio.patch"
+    }
   }
 }
