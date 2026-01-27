@@ -12,11 +12,11 @@ export const ticketSchema = z.object({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'The title of the ticket.',
   }),
-  description: property(z.string()).editor({
+  description: property(z.string().min(1)).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'The description of the ticket.',
   }),
-  price: property(z.string()).editor({
+  price: property(z.string().min(1)).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'The price of the ticket. Can be a string like `free` or a number with currency.',
   }),
