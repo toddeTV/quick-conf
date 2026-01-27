@@ -61,12 +61,14 @@ export function createLinkSchema() {
     }),
     to: property(z.string().min(1)).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'The URL to link to. Start with `https://` for external links. For internal links, start with `/` and do not paste the domain of your website in it.',
+      description: 'The URL to link to. Start with `https://` for external links. For internal links, start with '
+        + '`/` and do not paste the domain of your website in it.',
     }),
     icon: property(z.string().optional()).editor({
       input: 'icon',
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'An optional icon for the link. If no icon is set, the website will autodetect and select one depending on the destination.',
+      description: 'An optional icon for the link. If no icon is set, the website will autodetect and select one '
+        + 'depending on the destination.',
     }),
     size: sizeEnum.optional(),
     trailing: z.boolean().optional(),
