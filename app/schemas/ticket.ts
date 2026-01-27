@@ -32,7 +32,7 @@ export const ticketSchema = z.object({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'Whether the ticket should be scaled up to attract more attention.',
   }),
-  button: z.object({
+  button: property(z.object({
     label: property(z.string()).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'The label of the button.',
@@ -45,5 +45,8 @@ export const ticketSchema = z.object({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'The target of the link.',
     }),
+  })).editor({
+    // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+    description: 'The button configuration for the ticket.',
   }),
 })
