@@ -2,7 +2,7 @@ import { property } from '@nuxt/content'
 import { z } from 'zod/v4'
 
 export const sponsorSchema = z.object({
-  slug: property(z.string()).editor({
+  slug: property(z.string().min(1)).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'The UNIQUE slug of the sponsor. This is used to identify and link the sponsor to other '
       + 'collections. Never change this!',
@@ -14,6 +14,6 @@ export const sponsorSchema = z.object({
   }),
   url: property(z.url().optional()).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-    description: 'The URL of the sponsors webpage.',
+    description: 'The URL of the sponsor\'s webpage.',
   }),
 })
