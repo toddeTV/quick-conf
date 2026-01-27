@@ -15,7 +15,11 @@ export const talkSchema = z.object({
     // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
     description: 'The title of the talk.',
   }),
-  // abstract: z.string().describe('The abstract of the talk.'), // this is the body of the markdown file itself
+  // this is the body of the markdown file itself:
+  // abstract: property(z.string()).editor({
+  //   // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+  //   description: 'The abstract of the talk.',
+  // }),
   speakers: property(z.array(z.string()).default([])).editor({
     // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
     description: 'An array of speaker slugs.',

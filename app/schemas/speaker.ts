@@ -20,7 +20,10 @@ export const speakerSchema = z.object({
     description: 'A short description of the speaker - one line, best only a few words!',
   }),
   // this is the body of the markdown file itself:
-  // biography: z.string().describe('A biography of the speaker. This is shown on the speaker page.'),
+  // biography: property(z.string()).editor({
+  //   // @ts-expect-error `description` does not exist in original project, but in our `nuxt-studio` patch it is used
+  //   description: 'A biography of the speaker. This is shown on the speaker page.',
+  // }),
   // TODO or call it `avatar` instead of `image`?
   image: property(z.string().min(1)).editor({
     input: 'media',
