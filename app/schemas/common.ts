@@ -11,11 +11,11 @@ export function createBaseSchema() {
   return z.object({
     title: property(z.string().min(1)).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'The title of the item.',
+      description: 'The title.',
     }),
     description: property(z.string().min(1)).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'The description of the item.',
+      description: 'The description.',
     }),
     headline: property(z.string().optional()).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
