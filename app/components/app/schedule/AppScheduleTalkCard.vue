@@ -6,9 +6,8 @@ const props = defineProps<{
 }>()
 
 const timeInfo = computed(() => {
-  const start = new Date(props.talk.dateTime)
-  const h = start.getHours().toString().padStart(2, '0')
-  const m = start.getMinutes().toString().padStart(2, '0')
+  const h = props.talk.start.toFormat('HH')
+  const m = props.talk.start.toFormat('mm')
   return `${h}:${m} • ${props.talk.duration} min`
 })
 

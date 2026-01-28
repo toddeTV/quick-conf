@@ -1,4 +1,5 @@
 import type { ProcessedTalkType } from '~/types/schedule'
+import { DateTime } from 'luxon'
 
 export const HEADER_HEIGHT = 48
 export const HOUR_HEIGHT = 160
@@ -6,6 +7,8 @@ export const HOUR_HEIGHT = 160
 export async function useSchedule() {
   const route = useRoute()
   const router = useRouter()
+  const appConfig = useAppConfig()
+  const timeZone = appConfig.general.timeZone || 'UTC'
 
   // --- Data Fetching ---
   const [
@@ -27,8 +30,10 @@ export async function useSchedule() {
     return talks.value.map((talk) => {
       const speakers_hit = speakers.value?.filter(speaker => talk.speakers?.includes(speaker.slug)) ?? []
       const stage_hit = stages.value?.find(stage => stage.slug === talk.stage)
-      const start = new Date(talk.dateTime)
-      const end = new Date(start.getTime() + talk.duration * 60 * 1000)
+
+      // Parse as UTC ISO content, then converting to configured timezone
+      const start = DateTime.fromJSDate(new Date(talk.dateTime)).setZone(timeZone)
+      const end = start.plus({ minutes: talk.duration })
 
       return {
         ...talk,
@@ -44,7 +49,7 @@ export async function useSchedule() {
   const availableDays = computed(() => {
     const days = new Set<string>()
     processedTalks.value.forEach((t) => {
-      const day = t.start.toISOString().split('T')[0]
+      const day = t.start.toISODate()
       if (day) {
         days.add(day)
       }
@@ -71,7 +76,7 @@ export async function useSchedule() {
       if (availableDays.value.includes(q)) {
         return q
       }
-      return (availableDays.value[0] || new Date().toISOString().split('T')[0]) as string
+      return (availableDays.value[0] || DateTime.now().setZone(timeZone).toISODate()) as string
     },
     set: (val) => {
       router.replace({ query: { ...route.query, day: val } })
@@ -88,7 +93,7 @@ export async function useSchedule() {
   })
 
   const activeTalks = computed(() => {
-    return processedTalks.value.filter(t => t.start.toISOString().split('T')[0] === activeDayISO.value)
+    return processedTalks.value.filter(t => t.start.toISODate() === activeDayISO.value)
   })
 
   const timeRange = computed(() => {
@@ -100,14 +105,14 @@ export async function useSchedule() {
     let maxH = 0
 
     activeTalks.value.forEach((t) => {
-      const s = t.start.getHours()
+      const s = t.start.hour
       // For end, if minutes > 0, round up next hour
-      let e = t.end.getHours()
+      let e = t.end.hour
       // Handle midnight crossing
-      if (t.end.getDate() !== t.start.getDate()) {
+      if (!t.end.hasSame(t.start, 'day')) {
         e += 24
       }
-      if (t.end.getMinutes() > 0)
+      if (t.end.minute > 0)
         e += 1
 
       if (s < minH)
@@ -133,12 +138,12 @@ export async function useSchedule() {
   })
 
   // --- Live Time Line ---
-  const now = ref(new Date())
+  const now = ref(DateTime.now().setZone(timeZone))
   let timer: ReturnType<typeof setInterval>
 
   onMounted(() => {
     timer = setInterval(() => {
-      now.value = new Date()
+      now.value = DateTime.now().setZone(timeZone)
     }, 60000) // Update every minute
   })
 
@@ -149,13 +154,13 @@ export async function useSchedule() {
   })
 
   const currentTimeLineStyle = computed(() => {
-    const currentISO = now.value.toISOString().split('T')[0]
+    const currentISO = now.value.toISODate()
     if (currentISO !== activeDayISO.value) {
       return { display: 'none' }
     }
 
-    const currentHour = now.value.getHours()
-    const currentMin = now.value.getMinutes()
+    const currentHour = now.value.hour
+    const currentMin = now.value.minute
 
     // Calculate total minutes from start of the schedule view
     const minutesFromStart = (currentHour - timeRange.value.start) * 60 + currentMin
@@ -174,8 +179,8 @@ export async function useSchedule() {
 
   // --- Helper Functions ---
   function getTalkStyle(talk: ProcessedTalkType) {
-    const startHour = talk.start.getHours()
-    const startMin = talk.start.getMinutes()
+    const startHour = talk.start.hour
+    const startMin = talk.start.minute
 
     // Calculate minutes from start of day view
     const startOffsetMinutes = (startHour - timeRange.value.start) * 60 + startMin
@@ -215,7 +220,7 @@ export function formatDateReadable(iso: string) {
   if (!iso) {
     return ''
   }
-  return new Date(iso).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+  return DateTime.fromISO(iso).toLocaleString({ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 }
 
 export function formatHour(h: number) {
