@@ -7,5 +7,7 @@
     </UMain>
 
     <AppFooter />
+
+    <AppDemoBanner />
   </div>
 </template>
