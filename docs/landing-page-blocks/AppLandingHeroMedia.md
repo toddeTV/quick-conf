@@ -22,15 +22,15 @@ blocks:
         to: https://youtube.com/...
 ```
 
-| Prop Name        | Required | Type                                | Description                                                      |
-| :--------------- | :------- | :---------------------------------- | :--------------------------------------------------------------- |
-| `title`          | No       | `string`                            | The main heading.                                                |
-| `description`    | No       | `string`                            | Subtitle text.                                                   |
-| `headline`       | No       | `string`                            | Small eyebrow text.                                              |
-| `class`          | No       | `string`                            | Tailwind classes for custom styling (e.g., `md:-mt-20`).         |
+| Prop Name        | Required | Type                                                 | Description                                                      |
+| :--------------- | :------- | :--------------------------------------------------- | :--------------------------------------------------------------- |
+| `title`          | No       | `string`                                             | The main heading.                                                |
+| `description`    | No       | `string`                                             | Subtitle text.                                                   |
+| `headline`       | No       | `string`                                             | Small eyebrow text.                                              |
+| `class`          | No       | `string`                                             | Tailwind classes for custom styling (e.g., `md:-mt-20`).         |
 | `links`          | No       | [`ButtonProps[]`](./property-presets/ButtonProps.md) | Array of buttons.                                                |
 | `image`          | No       | [`ImageProps`](./property-presets/ImageProps.md)     | Main hero image ({`src`, `alt`}).                                |
-| `video`          | No       | `object`                            | Optional video ({`src`, `poster`}) to replace the image.         |
-| `overlayOpacity` | No       | `number`                            | Opacity of the overlay on the media (`0` to `1`, default `0.5`). |
+| `video`          | No       | `object`                                             | Optional video ({`src`, `poster`}) to replace the image.         |
+| `overlayOpacity` | No       | `number`                                             | Opacity of the overlay on the media (`0` to `1`, default `0.5`). |
 
 ![AppLandingHeroMedia Screenshot](/docs/assets/landing-page-blocks/AppLandingHeroMedia.png)

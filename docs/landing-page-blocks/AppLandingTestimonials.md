@@ -22,12 +22,12 @@ blocks:
             alt: Avatar of John Smith
 ```
 
-| Prop Name     | Required | Type       | Description                                                                                                                              |
-| :------------ | :------- | :--------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`       | No       | `string`   | The main heading.                                                                                                                        |
-| `description` | No       | `string`   | Subtitle text.                                                                                                                           |
-| `headline`    | No       | `string`   | Small eyebrow text.                                                                                                                      |
-| `class`       | No       | `string`   | Tailwind classes for custom styling (e.g., `md:-mt-20`).                                                                                 |
+| Prop Name     | Required | Type       | Description                                                                                                                                               |
+| :------------ | :------- | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`       | No       | `string`   | The main heading.                                                                                                                                         |
+| `description` | No       | `string`   | Subtitle text.                                                                                                                                            |
+| `headline`    | No       | `string`   | Small eyebrow text.                                                                                                                                       |
+| `class`       | No       | `string`   | Tailwind classes for custom styling (e.g., `md:-mt-20`).                                                                                                  |
 | `items`       | Yes      | `object[]` | List of testimonials ({`quote`, `user: {name, description, avatar, tom target}`}). The user avatar uses [`ImageProps`](./property-presets/ImageProps.md). |
 
 ![AppLandingTestimonials Screenshot](/docs/assets/landing-page-blocks/AppLandingTestimonials.png)

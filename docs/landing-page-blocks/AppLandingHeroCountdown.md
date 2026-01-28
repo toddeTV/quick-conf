@@ -19,13 +19,13 @@ blocks:
         to: /tickets
 ```
 
-| Prop Name     | Required | Type                                | Description                                              |
-| :------------ | :------- | :---------------------------------- | :------------------------------------------------------- |
-| `title`       | No       | `string`                            | The main heading.                                        |
-| `description` | No       | `string`                            | Subtitle text.                                           |
-| `headline`    | No       | `string`                            | Small eyebrow text.                                      |
-| `class`       | No       | `string`                            | Tailwind classes for custom styling (e.g., `md:-mt-20`). |
-| `targetDate`  | Yes      | `string`                            | ISO date string or UTC string for the countdown target.  |
+| Prop Name     | Required | Type                                                 | Description                                              |
+| :------------ | :------- | :--------------------------------------------------- | :------------------------------------------------------- |
+| `title`       | No       | `string`                                             | The main heading.                                        |
+| `description` | No       | `string`                                             | Subtitle text.                                           |
+| `headline`    | No       | `string`                                             | Small eyebrow text.                                      |
+| `class`       | No       | `string`                                             | Tailwind classes for custom styling (e.g., `md:-mt-20`). |
+| `targetDate`  | Yes      | `string`                                             | ISO date string or UTC string for the countdown target.  |
 | `links`       | No       | [`ButtonProps[]`](./property-presets/ButtonProps.md) | Array of buttons.                                        |
 
 ## States

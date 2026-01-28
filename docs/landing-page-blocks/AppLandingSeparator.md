@@ -9,11 +9,11 @@ blocks:
   - component: AppLandingSeparator
 ```
 
-| Prop Name | Required | Type                            | Description                                              |
-| :-------- | :------- | :------------------------------ | :------------------------------------------------------- |
-| `class`   | No       | `string`                        | Tailwind classes for custom styling (e.g., `md:-mt-20`). |
-| `label`   | No       | `string`                        | Optional text label in the middle.                       |
-| `icon`    | No       | `string`                        | Optional icon in the middle.                             |
+| Prop Name | Required | Type                                             | Description                                              |
+| :-------- | :------- | :----------------------------------------------- | :------------------------------------------------------- |
+| `class`   | No       | `string`                                         | Tailwind classes for custom styling (e.g., `md:-mt-20`). |
+| `label`   | No       | `string`                                         | Optional text label in the middle.                       |
+| `icon`    | No       | `string`                                         | Optional icon in the middle.                             |
 | `avatar`  | No       | [`ImageProps`](./property-presets/ImageProps.md) | Optional avatar in the middle ({`src`, `alt`}).          |
 
 ![AppLandingSeparator Screenshot](/docs/assets/landing-page-blocks/AppLandingSeparator.png)

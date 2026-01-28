@@ -31,11 +31,11 @@ blocks:
         size: xl
 ```
 
-| Prop Name     | Required | Type                                | Description                                                   |
-| :------------ | :------- | :---------------------------------- | :------------------------------------------------------------ |
-| `title`       | No       | `string`                            | The main heading of the section.                              |
-| `description` | No       | `string`                            | Subtitle text.                                                |
-| `class`       | No       | `string`                            | Tailwind classes for custom styling (e.g., `md:-mt-20`).      |
+| Prop Name     | Required | Type                                                 | Description                                                   |
+| :------------ | :------- | :--------------------------------------------------- | :------------------------------------------------------------ |
+| `title`       | No       | `string`                                             | The main heading of the section.                              |
+| `description` | No       | `string`                                             | Subtitle text.                                                |
+| `class`       | No       | `string`                                             | Tailwind classes for custom styling (e.g., `md:-mt-20`).      |
 | `links`       | No       | [`ButtonProps[]`](./property-presets/ButtonProps.md) | Array of button objects (label, to, icon, color, size, etc.). |
 
 ![AppLandingCta Screenshot](/docs/assets/landing-page-blocks/AppLandingCta.png)

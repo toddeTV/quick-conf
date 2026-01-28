@@ -27,12 +27,12 @@ blocks:
         to: /schedule
 ```
 
-| Prop Name     | Required | Type                                | Description                                              |
-| :------------ | :------- | :---------------------------------- | :------------------------------------------------------- |
-| `title`       | No       | `string`                            | The main heading of the hero.                            |
-| `description` | No       | `string`                            | Subtext explaining the event.                            |
-| `headline`    | No       | `string`                            | Small eyebrow text.                                      |
-| `class`       | No       | `string`                            | Tailwind classes for custom styling (e.g., `md:-mt-20`). |
+| Prop Name     | Required | Type                                                 | Description                                              |
+| :------------ | :------- | :--------------------------------------------------- | :------------------------------------------------------- |
+| `title`       | No       | `string`                                             | The main heading of the hero.                            |
+| `description` | No       | `string`                                             | Subtext explaining the event.                            |
+| `headline`    | No       | `string`                                             | Small eyebrow text.                                      |
+| `class`       | No       | `string`                                             | Tailwind classes for custom styling (e.g., `md:-mt-20`). |
 | `links`       | No       | [`ButtonProps[]`](./property-presets/ButtonProps.md) | Array of buttons for call-to-actions.                    |
 
 ![AppLandingHero Screenshot](/docs/assets/landing-page-blocks/AppLandingHero.png)

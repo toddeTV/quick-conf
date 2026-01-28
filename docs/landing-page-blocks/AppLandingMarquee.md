@@ -23,12 +23,12 @@ blocks:
         alt: Focused view of a speaker during a workshop session
 ```
 
-| Prop Name   | Required | Type                              | Description                                              |
-| :---------- | :------- | :-------------------------------- | :------------------------------------------------------- |
-| `class`     | No       | `string`                          | Tailwind classes for custom styling (e.g., `md:-mt-20`). |
-| `speed`     | No       | `number`                          | Animation duration in seconds (default: 20).             |
-| `direction` | No       | `string`                          | `left` or `right` (default: `left`).                     |
-| `gap`       | No       | `number`                          | Gap between images in px (default: 0).                   |
+| Prop Name   | Required | Type                                               | Description                                              |
+| :---------- | :------- | :------------------------------------------------- | :------------------------------------------------------- |
+| `class`     | No       | `string`                                           | Tailwind classes for custom styling (e.g., `md:-mt-20`). |
+| `speed`     | No       | `number`                                           | Animation duration in seconds (default: 20).             |
+| `direction` | No       | `string`                                           | `left` or `right` (default: `left`).                     |
+| `gap`       | No       | `number`                                           | Gap between images in px (default: 0).                   |
 | `images`    | Yes      | [`ImageProps[]`](./property-presets/ImageProps.md) | List of logo images ({`src`, `alt`}).                    |
 
 ![AppLandingMarquee Screenshot](/docs/assets/landing-page-blocks/AppLandingMarquee.png)
