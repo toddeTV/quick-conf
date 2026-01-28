@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { StagesCollectionItem } from '@nuxt/content'
 import type { ProcessedTalkType } from '~/types/schedule'
-import { formatHour, HEADER_HEIGHT, HOUR_HEIGHT } from '~/composables/useSchedule'
+import { HEADER_HEIGHT, HOUR_HEIGHT } from '~/composables/useSchedule'
+import { formatHour } from '~/utils/date'
 
 defineProps<{
   stages: StagesCollectionItem[]

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { formatDateReadable } from '~/composables/useSchedule'
+import { formatDateReadable } from '~/utils/date'
 
 defineProps<{
   availableDays: string[]
