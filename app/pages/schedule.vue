@@ -174,6 +174,45 @@ function getTalksForStage(stageSlug: string) {
   return activeTalks.value.filter(t => t.stage?.slug === stageSlug)
 }
 
+// --- Live Time Line ---
+const now = ref(new Date())
+let timer: ReturnType<typeof setInterval>
+
+onMounted(() => {
+  timer = setInterval(() => {
+    now.value = new Date()
+  }, 60000) // Update every minute
+})
+
+onUnmounted(() => {
+  if (timer) {
+    clearInterval(timer)
+  }
+})
+
+const currentTimeLineStyle = computed(() => {
+  const currentISO = now.value.toISOString().split('T')[0]
+  if (currentISO !== activeDayISO.value) {
+    return { display: 'none' }
+  }
+
+  const currentHour = now.value.getHours()
+  const currentMin = now.value.getMinutes()
+
+  // Calculate total minutes from start of the schedule view
+  const minutesFromStart = (currentHour - timeRange.value.start) * 60 + currentMin
+
+  // Check if current time is within view range
+  if (minutesFromStart < 0) {
+    return { display: 'none' }
+  }
+
+  const top = HEADER_HEIGHT + (minutesFromStart / 60) * HOUR_HEIGHT
+  return {
+    top: `${top}px`,
+  }
+})
+
 // --- SEO ---
 const seoMetadata = extractSeoMetadata({
   title: 'Schedule',
@@ -236,6 +275,17 @@ useSeoMeta({
             :style="{ height: `${HEADER_HEIGHT}px` }"
           />
 
+          <!-- Current Time Label -->
+          <div
+            v-if="currentTimeLineStyle.display !== 'none'"
+            class="pointer-events-none absolute right-0 z-50 -mt-3 pr-0 text-right"
+            :style="currentTimeLineStyle"
+          >
+            <span class="rounded bg-red-500 px-1.5 py-0.5 text-xs font-bold leading-none text-white">
+              now
+            </span>
+          </div>
+
           <!-- Time Labels -->
           <div
             v-for="h in timeSlots"
@@ -250,7 +300,14 @@ useSeoMeta({
         </div>
 
         <!-- Stages Container (Scrollable Horizontally) -->
-        <div class="flex flex-1 min-w-0 overflow-x-auto">
+        <div class="relative flex flex-1 min-w-0 overflow-x-auto">
+          <!-- Current Time Line -->
+          <div
+            v-if="currentTimeLineStyle.display !== 'none'"
+            class="pointer-events-none absolute inset-x-0 z-50 border-t-2 border-red-500 shadow-sm"
+            :style="currentTimeLineStyle"
+          />
+
           <div
             v-for="stage in stages"
             :key="stage.slug"
