@@ -159,9 +159,10 @@ export async function useSchedule() {
 
     // Calculate total minutes from start of the schedule view
     const minutesFromStart = (currentHour - timeRange.value.start) * 60 + currentMin
+    const totalViewMinutes = (timeRange.value.end - timeRange.value.start) * 60
 
     // Check if current time is within view range
-    if (minutesFromStart < 0) {
+    if (minutesFromStart < 0 || minutesFromStart > totalViewMinutes) {
       return { display: 'none' }
     }
 

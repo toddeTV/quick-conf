@@ -14,7 +14,7 @@ defineProps<{
 
 <template>
   <div
-    class="relative flex overflow-x-auto overflow-y-hidden rounded-xl border border-gray-200
+    class="relative flex rounded-xl border border-gray-200
       bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900"
     :class="stages.length === 1 ? 'max-w-3xl mx-auto' : ''"
   >
