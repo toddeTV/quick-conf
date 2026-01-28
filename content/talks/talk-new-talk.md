@@ -3,10 +3,10 @@ slug: talk-new-talk
 type: workshop
 title: Building Interactive UIs with Nuxt UI
 speakers:
-  - jane-doe
+  - speaker-jane-doe
 dateTime: 2025-12-05T14:00:00.000Z
 duration: 90
-stage: main-stage
+stage: stage-main
 resources:
   - url: https://todde.tv/
     description: Workshop Repository

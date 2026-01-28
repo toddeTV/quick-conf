@@ -1,5 +1,5 @@
 ---
-slug: alex-miller
+slug: speaker-alex-miller
 featured: false
 name: Alex Miller
 description: Cloud Native Architect

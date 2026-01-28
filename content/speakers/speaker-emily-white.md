@@ -1,5 +1,5 @@
 ---
-slug: emily-white
+slug: speaker-emily-white
 featured: false
 name: Emily White
 description: UX/UI Designer and Consultant

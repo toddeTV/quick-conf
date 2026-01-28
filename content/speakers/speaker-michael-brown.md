@@ -1,5 +1,5 @@
 ---
-slug: michael-brown
+slug: speaker-michael-brown
 featured: true
 name: Michael Brown
 description: DevOps Engineer and Automation Expert

@@ -5,7 +5,7 @@ title: "Lunch Break"
 speakers: []
 dateTime: 2025-12-05T12:00:00.000Z
 duration: 60
-stage: main-stage
+stage: stage-main
 resources: []
 ---
 

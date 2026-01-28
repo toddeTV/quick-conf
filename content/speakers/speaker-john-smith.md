@@ -1,5 +1,5 @@
 ---
-slug: john-smith
+slug: speaker-john-smith
 featured: true
 name: John Smith
 description: Cloud Architect at a major tech company

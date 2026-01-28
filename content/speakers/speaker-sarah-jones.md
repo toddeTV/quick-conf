@@ -1,5 +1,5 @@
 ---
-slug: sarah-jones
+slug: speaker-sarah-jones
 featured: false
 name: Sarah Jones
 description: Data Scientist and AI Researcher

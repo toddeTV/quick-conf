@@ -1,5 +1,5 @@
 ---
-slug: jane-doe
+slug: speaker-jane-doe
 featured: false
 name: Jane Doe
 description: Software Engineer at TechCorp
