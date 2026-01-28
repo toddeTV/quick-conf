@@ -109,6 +109,10 @@ const timeRange = computed(() => {
     const s = t.start.getHours()
     // For end, if minutes > 0, round up next hour
     let e = t.end.getHours()
+    // Handle midnight crossing
+    if (t.end.getDate() !== t.start.getDate()) {
+      e += 24
+    }
     if (t.end.getMinutes() > 0)
       e += 1
 
@@ -121,7 +125,8 @@ const timeRange = computed(() => {
   // Padding
   return {
     start: Math.max(0, minH - 1),
-    end: Math.min(24, maxH + 1),
+    // Allow up to 26 hours (2am next day) for late night events
+    end: Math.min(26, maxH + 1),
   }
 })
 
@@ -216,8 +221,9 @@ useSeoMeta({
     <div v-if="stages && timeSlots.length">
       <!-- Schedule Grid -->
       <div
-        class="relative flex overflow-x-auto rounded-xl border border-gray-200
+        class="relative flex overflow-x-auto overflow-y-hidden rounded-xl border border-gray-200
           bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900"
+        :class="stages.length === 1 ? 'max-w-3xl mx-auto' : ''"
       >
         <!-- Time Axis (Sticky Left) -->
         <div
@@ -248,8 +254,10 @@ useSeoMeta({
           <div
             v-for="stage in stages"
             :key="stage.slug"
-            class="relative flex-1 shrink-0 border-r border-gray-200 last:border-r-0 dark:border-gray-800 max-w-2xl"
-            :class="stages.length > 1 ? 'min-w-[85vw] md:min-w-80' : 'min-w-full md:min-w-0'"
+            class="relative shrink-0 border-r border-gray-200 last:border-r-0 dark:border-gray-800 max-w-2xl"
+            :class="stages.length > 1
+              ? 'w-[80vw] flex-none md:w-auto md:flex-1 md:min-w-80'
+              : 'w-full flex-none md:w-auto md:flex-1'"
           >
             <!-- Stage Header (Sticky Top) -->
             <div
