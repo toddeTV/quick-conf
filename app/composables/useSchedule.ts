@@ -32,7 +32,7 @@ export async function useSchedule() {
       const stage_hit = stages.value?.find(stage => stage.slug === talk.stage)
 
       // Parse as UTC ISO content, then converting to configured timezone
-      const start = DateTime.fromJSDate(new Date(talk.dateTime)).setZone(timeZone)
+      const start = DateTime.fromISO(talk.dateTime).setZone(timeZone)
       const end = start.plus({ minutes: talk.duration })
 
       return {
