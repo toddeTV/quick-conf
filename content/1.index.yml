@@ -159,7 +159,6 @@ blocks:
   - component: AppLandingCta
     title: Ready to Join Us?
     description: Don't miss out on this opportunity to learn, network, and grow. Get your ticket today!
-    # headline: Join Us
     links:
       - label: Get Your Ticket Now
         variant: solid
