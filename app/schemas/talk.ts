@@ -28,7 +28,7 @@ export const talkSchema = z.object({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'The date and time of the talk in UTC (Z) format. The website will automatically convert this to the configured timezone.',
   }),
-  duration: property(z.number().min(1).default(30)).editor({
+  duration: property(z.number().int().min(1).default(30)).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'The duration of the talk in minutes.',
   }),
