@@ -111,7 +111,7 @@ function formatDateTime(dateTimeStr?: string): string {
           </ProseH2>
           <div class="flex flex-wrap gap-3">
             <UButton
-              v-for="(resource, index) in talk.resources"
+              v-for="resource in talk.resources"
               :key="resource.url"
               color="neutral"
               :icon="resource.icon || getIconForUrl(resource.url)"

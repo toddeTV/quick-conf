@@ -1,4 +1,3 @@
-import type { UseSeoMetaInput } from '@unhead/vue'
 import { isNil } from 'lodash-es'
 
 /**
@@ -93,7 +92,12 @@ export function useSeo() {
       title: string
       description: string
     }
-  }): UseSeoMetaInput {
+  }): {
+    title: string
+    ogTitle: string
+    description: string
+    ogDescription: string
+  } {
     return {
       title: getWebsiteTitle(page.title),
       // ogTitle: page.seo.title,

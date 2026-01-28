@@ -215,4 +215,3 @@ export async function useSchedule() {
     getTalksForStage,
   }
 }
-

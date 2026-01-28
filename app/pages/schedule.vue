@@ -19,9 +19,14 @@ const seoMetadata = computed(() => extractSeoMetadata({
   description: `Conference schedule for ${activeDayISO.value}`,
 }))
 
-useSeoMeta(() => ({
-  ...getSeoMetaBase(seoMetadata.value),
-}))
+const meta = computed(() => getSeoMetaBase(seoMetadata.value))
+
+useSeoMeta({
+  title: () => meta.value.title,
+  ogTitle: () => meta.value.ogTitle,
+  description: () => meta.value.description,
+  ogDescription: () => meta.value.ogDescription,
+})
 </script>
 
 <template>
