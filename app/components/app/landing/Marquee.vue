@@ -8,7 +8,7 @@ const props = withDefaults(defineProps<{
     src: string
     alt?: string
     loading?: 'eager' | 'lazy'
-    srcset?: string
+    sizes?: string
   }[]
   direction?: 'left' | 'right'
   speed?: number // duration in seconds
@@ -37,8 +37,8 @@ const style = computed(() => ({
         :alt="image.alt"
         class="max-w-none h-32 object-contain"
         :loading="image.loading"
+        :sizes="image.sizes"
         :src="image.src"
-        :srcset="image.srcset"
       />
     </div>
     <div
@@ -53,8 +53,8 @@ const style = computed(() => ({
         :alt="image.alt"
         class="max-w-none h-32 object-contain"
         :loading="image.loading"
+        :sizes="image.sizes"
         :src="image.src"
-        :srcset="image.srcset"
       />
     </div>
   </div>

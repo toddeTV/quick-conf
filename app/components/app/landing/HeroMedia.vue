@@ -11,7 +11,7 @@ withDefaults(defineProps<{
     src: string
     alt?: string
     loading?: 'eager' | 'lazy'
-    srcset?: string
+    sizes?: string
   }
   video?: {
     src: string
@@ -42,8 +42,8 @@ withDefaults(defineProps<{
         :alt="image.alt"
         class="w-full h-full object-cover"
         :loading="image.loading"
+        :sizes="image.sizes"
         :src="image.src"
-        :srcset="image.srcset"
       />
 
       <!-- Overlay for better text readability -->

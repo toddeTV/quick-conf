@@ -15,7 +15,7 @@ defineProps<{
         src: string
         alt?: string
         loading?: 'eager' | 'lazy'
-        srcset?: string
+        sizes?: string
       }
     }
   }[]

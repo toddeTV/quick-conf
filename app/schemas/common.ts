@@ -94,10 +94,9 @@ export function createImageSchema() {
       description: 'Image loading strategy. "lazy" loads the image when it enters the viewport (default), "eager" '
         + 'loads it immediately (useful for above-the-fold images).',
     }),
-    srcset: property(z.string().optional()).editor({
+    sizes: property(z.string().optional()).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'Responsive image sources (srcset attribute) to serve different image sizes based on device '
-        + 'screen size.',
+      description: 'Image sizes for responsive serving (e.g., "100vw sm:50vw md:400px").',
     }),
   })
 }

@@ -15,7 +15,7 @@ defineProps<{
     src: string
     alt?: string
     loading?: 'eager' | 'lazy'
-    srcset?: string
+    sizes?: string
   }
 }>()
 </script>
@@ -34,8 +34,8 @@ defineProps<{
       :alt="image.alt"
       class="w-full rounded-lg h-full object-cover"
       :loading="image.loading"
+      :sizes="image.sizes"
       :src="image.src"
-      :srcset="image.srcset"
     />
   </UPageSection>
 </template>

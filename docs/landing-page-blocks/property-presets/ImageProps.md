@@ -8,9 +8,9 @@ image:
   alt: Conference Hall
 ```
 
-| Prop Name | Required | Type              | Description                                            |
-| :-------- | :------- | :---------------- | :----------------------------------------------------- |
-| `src`     | Yes      | `string`          | The source URL of the image.                           |
-| `alt`     | No       | `string`          | Alternative text for the image (for accessibility).    |
-| `loading` | No       | `eager` or `lazy` | Image loading strategy. Default is `lazy`.             |
-| `srcset`  | No       | `string`          | A set of source sizes for responsive images.           |
+| Prop Name | Required | Type              | Description                                                          |
+| :-------- | :------- | :---------------- | :------------------------------------------------------------------- |
+| `src`     | Yes      | `string`          | The source URL of the image.                                         |
+| `alt`     | No       | `string`          | Alternative text for the image (for accessibility).                  |
+| `loading` | No       | `eager` or `lazy` | Image loading strategy. Default is `lazy`.                           |
+| `sizes`   | No       | `string`          | Image sizes for responsive serving (e.g., `100vw sm:50vw md:400px`). |

@@ -8,7 +8,7 @@ defineProps<{
     src: string
     alt?: string
     loading?: 'eager' | 'lazy'
-    srcset?: string
+    sizes?: string
   }[]
 }>()
 </script>
@@ -29,8 +29,8 @@ defineProps<{
           :alt="image.alt"
           class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 hover:scale-105"
           :loading="image.loading"
+          :sizes="image.sizes"
           :src="image.src"
-          :srcset="image.srcset"
         />
       </div>
     </div>
