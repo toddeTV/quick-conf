@@ -28,6 +28,14 @@ Yes, changes are free of charge up to 14 days before the event. After that, a pr
 
 Yes! Students receive a 30% discount on all ticket categories. A valid student ID must be presented at check-in.
 
+## Buy ticket
+
+<div class="flex justify-center">
+
+<UButton icon="i-lucide-ticket" to="/tickets">Buy ticket</UButton>
+
+</div>
+
 ---
 
 For more information about payment, see [Payment](/faq/payment).
