@@ -5,6 +5,7 @@ title: Building Interactive UIs with Nuxt UI
 speakers:
   - jane-doe
 dateTime: 2025-12-05T14:00:00.000Z
+duration: 90
 stage: main-stage
 resources:
   - url: https://todde.tv/

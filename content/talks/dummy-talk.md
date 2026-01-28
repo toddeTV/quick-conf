@@ -6,6 +6,7 @@ speakers:
   - john-smith
   - michael-brown
 dateTime: 2025-12-05T10:00:00.000Z
+duration: 45
 stage: main-stage
 resources:
   - url: https://todde.tv/

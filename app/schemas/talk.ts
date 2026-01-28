@@ -28,6 +28,10 @@ export const talkSchema = z.object({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'The date and time of the talk when it takes place.',
   }),
+  duration: property(z.number().min(1).default(30)).editor({
+    // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+    description: 'The duration of the talk in minutes.',
+  }),
   stage: property(z.string().min(1)).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'The slug of the stage where the talk takes place.',
