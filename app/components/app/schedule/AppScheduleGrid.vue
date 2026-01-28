@@ -20,7 +20,7 @@ defineProps<{
   >
     <!-- Time Axis (Sticky Left) -->
     <div
-      class="sticky left-0 z-30 min-w-15 flex-none border-r border-gray-200 bg-gray-50
+      class="sticky left-0 z-30 min-w-[3.75rem] flex-none border-r border-gray-200 bg-gray-50
       dark:border-gray-800 dark:bg-gray-800/95 backdrop-blur"
     >
       <!-- Header Spacer -->
