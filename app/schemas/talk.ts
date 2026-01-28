@@ -7,7 +7,7 @@ export const talkSchema = z.object({
     description: 'The UNIQUE slug of the talk. This is used to identify and '
       + 'link the talk to other collections. Never change this!',
   }),
-  type: property(z.enum(['talk', 'lightning-talk', 'panel', 'keynote', 'workshop'])).editor({
+  type: property(z.enum(['talk', 'lightning-talk', 'panel', 'keynote', 'workshop', 'other'])).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'The type of the talk.',
   }),
