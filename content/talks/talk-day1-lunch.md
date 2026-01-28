@@ -1,5 +1,5 @@
 ---
-slug: day1-lunch
+slug: talk-day1-lunch
 type: other
 title: "Lunch Break"
 speakers: []
