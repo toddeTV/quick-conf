@@ -4,7 +4,11 @@ export function formatDateReadable(iso: string) {
   if (!iso) {
     return ''
   }
-  return DateTime.fromISO(iso).toLocaleString({ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+  const dt = DateTime.fromISO(iso)
+  if (!dt.isValid) {
+    return ''
+  }
+  return dt.toLocaleString({ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 }
 
 export function formatHour(h: number) {
