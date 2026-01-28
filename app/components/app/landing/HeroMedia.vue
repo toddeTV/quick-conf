@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ButtonProps } from '@nuxt/ui'
 
-defineProps<{
+withDefaults(defineProps<{
   title?: string
   description?: string
   headline?: string
@@ -18,7 +18,9 @@ defineProps<{
     poster?: string
   }
   overlayOpacity?: number
-}>()
+}>(), {
+  overlayOpacity: 0.5, // redundant, keep in sync with Zod schema default in `app/schemas/landing.ts`
+})
 </script>
 
 <template>
