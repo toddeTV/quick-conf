@@ -1,6 +1,25 @@
 # AppLandingMetaInfo
 
+## Description
+
 A horizontal bar displaying key event information like date, location, and stats.
+
+## Screenshot
+
+![AppLandingMetaInfo Screenshot](/docs/assets/landing-page-blocks/AppLandingMetaInfo.png)
+
+## Props
+
+| Prop Name     | Required | Type       | Description                                                     |
+| :------------ | :------- | :--------- | :-------------------------------------------------------------- |
+| `title`       | No       | `string`   | Optional section title (rarely used).                           |
+| `description` | No       | `string`   | Optional description.                                           |
+| `headline`    | No       | `string`   | Small eyebrow text.                                             |
+| `class`       | No       | `string`   | Tailwind classes for custom styling (e.g., `md:-mt-20`).        |
+| `height`      | No       | `string`   | Section size: `normal` (default) or `small`.                    |
+| `items`       | Yes      | `object[]` | List of items. Each needs `icon`, `text`, and optional `label`. |
+
+## Example
 
 ```yaml
 blocks:
@@ -24,14 +43,3 @@ blocks:
         text: 30+ Speakers
         label: Content
 ```
-
-| Prop Name     | Required | Type       | Description                                                     |
-| :------------ | :------- | :--------- | :-------------------------------------------------------------- |
-| `title`       | No       | `string`   | Optional section title (rarely used).                           |
-| `description` | No       | `string`   | Optional description.                                           |
-| `headline`    | No       | `string`   | Small eyebrow text.                                             |
-| `class`       | No       | `string`   | Tailwind classes for custom styling (e.g., `md:-mt-20`).        |
-| `height`      | No       | `string`   | Section size: `normal` (default) or `small`.                    |
-| `items`       | Yes      | `object[]` | List of items. Each needs `icon`, `text`, and optional `label`. |
-
-![AppLandingMetaInfo Screenshot](/docs/assets/landing-page-blocks/AppLandingMetaInfo.png)

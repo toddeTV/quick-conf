@@ -1,6 +1,24 @@
 # AppLandingMarquee
 
+## Description
+
 A scrolling marquee of logos or images.
+
+## Screenshot
+
+![AppLandingMarquee Screenshot](/docs/assets/landing-page-blocks/AppLandingMarquee.png)
+
+## Props
+
+| Prop Name   | Required | Type                                               | Description                                              |
+| :---------- | :------- | :------------------------------------------------- | :------------------------------------------------------- |
+| `class`     | No       | `string`                                           | Tailwind classes for custom styling (e.g., `md:-mt-20`). |
+| `speed`     | No       | `number`                                           | Animation duration in seconds (default: 20).             |
+| `direction` | No       | `string`                                           | `left` or `right` (default: `left`).                     |
+| `gap`       | No       | `number`                                           | Gap between images in px (default: 0).                   |
+| `images`    | Yes      | [`ImageProps[]`](./property-presets/ImageProps.md) | List of logo images.                                     |
+
+## Example
 
 ```yaml
 blocks:
@@ -22,13 +40,3 @@ blocks:
       - src: https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&auto=format
         alt: Focused view of a speaker during a workshop session
 ```
-
-| Prop Name   | Required | Type                                               | Description                                              |
-| :---------- | :------- | :------------------------------------------------- | :------------------------------------------------------- |
-| `class`     | No       | `string`                                           | Tailwind classes for custom styling (e.g., `md:-mt-20`). |
-| `speed`     | No       | `number`                                           | Animation duration in seconds (default: 20).             |
-| `direction` | No       | `string`                                           | `left` or `right` (default: `left`).                     |
-| `gap`       | No       | `number`                                           | Gap between images in px (default: 0).                   |
-| `images`    | Yes      | [`ImageProps[]`](./property-presets/ImageProps.md) | List of logo images.                                     |
-
-![AppLandingMarquee Screenshot](/docs/assets/landing-page-blocks/AppLandingMarquee.png)

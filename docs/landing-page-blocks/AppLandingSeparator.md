@@ -1,13 +1,14 @@
 # AppLandingSeparator
 
+## Description
+
 A simple visual separator line.
 
-```yaml
-blocks:
-  - [...]
+## Screenshot
 
-  - component: AppLandingSeparator
-```
+![AppLandingSeparator Screenshot](/docs/assets/landing-page-blocks/AppLandingSeparator.png)
+
+## Props
 
 | Prop Name | Required | Type                                             | Description                                              |
 | :-------- | :------- | :----------------------------------------------- | :------------------------------------------------------- |
@@ -16,4 +17,11 @@ blocks:
 | `icon`    | No       | `string`                                         | Optional icon in the middle.                             |
 | `avatar`  | No       | [`ImageProps`](./property-presets/ImageProps.md) | Optional avatar in the middle.                           |
 
-![AppLandingSeparator Screenshot](/docs/assets/landing-page-blocks/AppLandingSeparator.png)
+## Example
+
+```yaml
+blocks:
+  - [...]
+
+  - component: AppLandingSeparator
+```

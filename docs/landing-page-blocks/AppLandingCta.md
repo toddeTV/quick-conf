@@ -1,6 +1,23 @@
 # AppLandingCta
 
+## Description
+
 A "Call to Action" section, typically used at the bottom of the page to encourage ticket sales.
+
+## Screenshot
+
+![AppLandingCta Screenshot](/docs/assets/landing-page-blocks/AppLandingCta.png)
+
+## Props
+
+| Prop Name     | Required | Type                                                 | Description                                                   |
+| :------------ | :------- | :--------------------------------------------------- | :------------------------------------------------------------ |
+| `title`       | No       | `string`                                             | The main heading of the section.                              |
+| `description` | No       | `string`                                             | Subtitle text.                                                |
+| `class`       | No       | `string`                                             | Tailwind classes for custom styling (e.g., `md:-mt-20`).      |
+| `links`       | No       | [`ButtonProps[]`](./property-presets/ButtonProps.md) | Array of button objects (label, to, icon, color, size, etc.). |
+
+## Example
 
 ```yaml
 blocks:
@@ -30,12 +47,3 @@ blocks:
         trailing: false
         size: xl
 ```
-
-| Prop Name     | Required | Type                                                 | Description                                                   |
-| :------------ | :------- | :--------------------------------------------------- | :------------------------------------------------------------ |
-| `title`       | No       | `string`                                             | The main heading of the section.                              |
-| `description` | No       | `string`                                             | Subtitle text.                                                |
-| `class`       | No       | `string`                                             | Tailwind classes for custom styling (e.g., `md:-mt-20`).      |
-| `links`       | No       | [`ButtonProps[]`](./property-presets/ButtonProps.md) | Array of button objects (label, to, icon, color, size, etc.). |
-
-![AppLandingCta Screenshot](/docs/assets/landing-page-blocks/AppLandingCta.png)
