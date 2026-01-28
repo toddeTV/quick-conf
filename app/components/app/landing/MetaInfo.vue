@@ -15,7 +15,7 @@ defineProps<{
 
 <template>
   <UPageSection
-    :class="[height === 'small' ? 'md:-my-[70px] relative z-10' : '']"
+    :class="{ 'md:-my-[70px] relative z-10': height === 'small' }"
     :description="description"
     :headline="headline"
     :title="title"
