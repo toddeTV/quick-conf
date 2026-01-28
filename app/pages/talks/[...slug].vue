@@ -104,6 +104,25 @@ function formatDateTime(dateTimeStr?: string): string {
           <ContentRenderer v-if="talk.body" :value="talk" />
         </div>
 
+        <!-- resources -->
+        <div v-if="talk.resources?.length">
+          <ProseH2>
+            Resources
+          </ProseH2>
+          <div class="flex flex-wrap gap-3">
+            <UButton
+              v-for="(resource, index) in talk.resources"
+              :key="index"
+              color="neutral"
+              :icon="resource.icon || getIconForUrl(resource.url)"
+              :label="resource.description || 'Resource'"
+              target="_blank"
+              :to="resource.url"
+              variant="subtle"
+            />
+          </div>
+        </div>
+
         <!-- speakers -->
         <div>
           <ProseH2>
