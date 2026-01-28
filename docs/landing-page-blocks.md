@@ -22,6 +22,13 @@ A "Call to Action" section, typically used at the bottom of the page to encourag
       color: primary
 ```
 
+| Prop Name     | Required | Type            | Description                                                   |
+| :------------ | :------- | :-------------- | :------------------------------------------------------------ |
+| `title`       | No       | `string`        | The main heading of the section.                              |
+| `description` | No       | `string`        | Subtitle text.                                                |
+| `headline`    | No       | `string`        | Small text above the title.                                   |
+| `links`       | No       | `ButtonProps[]` | Array of button objects (label, to, icon, color, size, etc.). |
+
 ![AppLandingCta Screenshot](/docs/assets/landing-page-blocks/AppLandingCta.png)
 
 ### AppLandingFaqPreview
@@ -44,6 +51,14 @@ A preview section for Frequently Asked Questions.
     - label: Is there parking available?
       content: Yes, we have a dedicated parking lot for attendees.
 ```
+
+| Prop Name     | Required | Type          | Description                                                                 |
+| :------------ | :------- | :------------ | :-------------------------------------------------------------------------- |
+| `items`       | Yes      | `object[]`    | List of FAQ items. Each item needs `label` (string) and `content` (string). |
+| `title`       | No       | `string`      | The main heading.                                                           |
+| `description` | No       | `string`      | Subtitle text.                                                              |
+| `headline`    | No       | `string`      | Small text above the title.                                                 |
+| `link`        | No       | `ButtonProps` | A generic link button, usually pointing to the full FAQ page.               |
 
 ![AppLandingFaqPreview Screenshot](/docs/assets/landing-page-blocks/AppLandingFaqPreview.png)
 
@@ -68,6 +83,13 @@ A generic feature grid to highlight key aspects of your conference.
       icon: i-lucide-wrench
 ```
 
+| Prop Name     | Required | Type       | Description                                                           |
+| :------------ | :------- | :--------- | :-------------------------------------------------------------------- |
+| `items`       | Yes      | `object[]` | List of features. Each item takes `title`, `description`, and `icon`. |
+| `title`       | No       | `string`   | The main heading.                                                     |
+| `description` | No       | `string`   | Subtitle text.                                                        |
+| `headline`    | No       | `string`   | Small text above the title.                                           |
+
 ![AppLandingFeatures Screenshot](/docs/assets/landing-page-blocks/AppLandingFeatures.png)
 
 ### AppLandingGallery
@@ -87,6 +109,13 @@ A grid of images to showcase past events or the venue.
     - src: /images/gallery/3.jpg
       alt: Keynote Speech
 ```
+
+| Prop Name     | Required | Type       | Description                                                                   |
+| :------------ | :------- | :--------- | :---------------------------------------------------------------------------- |
+| `images`      | Yes      | `object[]` | List of images. Each object needs `src` (string) and optional `alt` (string). |
+| `title`       | No       | `string`   | The main heading.                                                             |
+| `description` | No       | `string`   | Subtitle text.                                                                |
+| `headline`    | No       | `string`   | Small text above the title.                                                   |
 
 ![AppLandingGallery Screenshot](/docs/assets/landing-page-blocks/AppLandingGallery.png)
 
@@ -111,6 +140,13 @@ The standard hero section with title, description, and action buttons.
       size: xl
 ```
 
+| Prop Name     | Required | Type            | Description                           |
+| :------------ | :------- | :-------------- | :------------------------------------ |
+| `title`       | No       | `string`        | The main heading of the hero.         |
+| `description` | No       | `string`        | Subtext explaining the event.         |
+| `headline`    | No       | `string`        | Small eyebrow text.                   |
+| `links`       | No       | `ButtonProps[]` | Array of buttons for call-to-actions. |
+
 ![AppLandingHero Screenshot](/docs/assets/landing-page-blocks/AppLandingHero.png)
 
 ### AppLandingHeroCountdown
@@ -127,6 +163,14 @@ A hero variant that features a countdown timer to a specific date.
       to: /tickets
       size: xl
 ```
+
+| Prop Name     | Required | Type            | Description                                             |
+| :------------ | :------- | :-------------- | :------------------------------------------------------ |
+| `targetDate`  | Yes      | `string`        | ISO date string or UTC string for the countdown target. |
+| `title`       | No       | `string`        | The main heading.                                       |
+| `description` | No       | `string`        | Subtitle text.                                          |
+| `headline`    | No       | `string`        | Small eyebrow text.                                     |
+| `links`       | No       | `ButtonProps[]` | Array of buttons.                                       |
 
 ![AppLandingHeroCountdown Screenshot](/docs/assets/landing-page-blocks/AppLandingHeroCountdown.png)
 
@@ -152,6 +196,16 @@ A rich hero section with support for a large image or video alongside the text.
       color: gray
 ```
 
+| Prop Name        | Required | Type            | Description                                              |
+| :--------------- | :------- | :-------------- | :------------------------------------------------------- |
+| `title`          | No       | `string`        | The main heading.                                        |
+| `description`    | No       | `string`        | Subtitle text.                                           |
+| `headline`       | No       | `string`        | Small eyebrow text.                                      |
+| `links`          | No       | `ButtonProps[]` | Array of buttons.                                        |
+| `image`          | No       | `object`        | Main hero image ({`src`, `alt`}).                        |
+| `video`          | No       | `object`        | Optional video ({`src`, `poster`}) to replace the image. |
+| `overlayOpacity` | No       | `number`        | Opacity of the overlay on the media (0 to 1).            |
+
 ![AppLandingHeroMedia Screenshot](/docs/assets/landing-page-blocks/AppLandingHeroMedia.png)
 
 ### AppLandingMarquee
@@ -169,6 +223,13 @@ A scrolling marquee of logos or images.
     - src: /images/partners/logo3.svg
     - src: /images/partners/logo4.svg
 ```
+
+| Prop Name   | Required | Type       | Description                                  |
+| :---------- | :------- | :--------- | :------------------------------------------- |
+| `images`    | Yes      | `object[]` | List of logo images ({`src`, `alt`}).        |
+| `speed`     | No       | `number`   | Animation duration in seconds (default: 20). |
+| `direction` | No       | `string`   | 'left' or 'right' (default: 'left').         |
+| `gap`       | No       | `number`   | Gap between images in px (default: 0).       |
 
 ![AppLandingMarquee Screenshot](/docs/assets/landing-page-blocks/AppLandingMarquee.png)
 
@@ -189,6 +250,12 @@ A horizontal bar displaying key event information like date, location, and stats
       label: Capacity
       text: 500+
 ```
+
+| Prop Name     | Required | Type       | Description                                                     |
+| :------------ | :------- | :--------- | :-------------------------------------------------------------- |
+| `items`       | Yes      | `object[]` | List of items. Each needs `icon`, `text`, and optional `label`. |
+| `title`       | No       | `string`   | Optional section title (rarely used).                           |
+| `description` | No       | `string`   | Optional description.                                           |
 
 ![AppLandingMetaInfo Screenshot](/docs/assets/landing-page-blocks/AppLandingMetaInfo.png)
 
@@ -214,6 +281,16 @@ A versatile section for text and an image, supporting split layouts.
       icon: i-lucide-coffee
 ```
 
+| Prop Name     | Required | Type       | Description                                                         |
+| :------------ | :------- | :--------- | :------------------------------------------------------------------ |
+| `title`       | No       | `string`   | The main heading.                                                   |
+| `description` | No       | `string`   | Subtitle text.                                                      |
+| `headline`    | No       | `string`   | Small eyebrow text.                                                 |
+| `orientation` | No       | `string`   | 'horizontal' or 'vertical'.                                         |
+| `reverse`     | No       | `boolean`  | If true, flips the image/text order.                                |
+| `image`       | No       | `object`   | The main image ({`src`, `alt`}).                                    |
+| `features`    | No       | `object[]` | Optional list of feature points ({`title`, `description`, `icon`}). |
+
 ![AppLandingSection Screenshot](/docs/assets/landing-page-blocks/AppLandingSection.png)
 
 ### AppLandingSeparator
@@ -223,6 +300,12 @@ A simple visual separator line.
 ```yaml
 - component: AppLandingSeparator
 ```
+
+| Prop Name | Required | Type     | Description                                     |
+| :-------- | :------- | :------- | :---------------------------------------------- |
+| `label`   | No       | `string` | Optional text label in the middle.              |
+| `icon`    | No       | `string` | Optional icon in the middle.                    |
+| `avatar`  | No       | `object` | Optional avatar in the middle ({`src`, `alt`}). |
 
 ![AppLandingSeparator Screenshot](/docs/assets/landing-page-blocks/AppLandingSeparator.png)
 
@@ -237,6 +320,12 @@ Displays a selection of speakers. Data is automatically fetched from the `speake
   headline: Speakers
 ```
 
+| Prop Name     | Required | Type     | Description         |
+| :------------ | :------- | :------- | :------------------ |
+| `title`       | No       | `string` | The main heading.   |
+| `description` | No       | `string` | Subtitle text.      |
+| `headline`    | No       | `string` | Small eyebrow text. |
+
 ![AppLandingSpeakers Screenshot](/docs/assets/landing-page-blocks/AppLandingSpeakers.png)
 
 ### AppLandingSponsors
@@ -250,6 +339,14 @@ Displays a grid of sponsors. Data is automatically fetched from the `sponsors` c
   showViewAll: true
   viewAllLink: /faq/sponsoring
 ```
+
+| Prop Name     | Required | Type      | Description                                    |
+| :------------ | :------- | :-------- | :--------------------------------------------- |
+| `title`       | No       | `string`  | The main heading.                              |
+| `description` | No       | `string`  | Subtitle text.                                 |
+| `headline`    | No       | `string`  | Small eyebrow text.                            |
+| `showViewAll` | No       | `boolean` | If true, shows a card linking to all sponsors. |
+| `viewAllLink` | No       | `string`  | The URL for the "View All" card.               |
 
 ![AppLandingSponsors Screenshot](/docs/assets/landing-page-blocks/AppLandingSponsors.png)
 
@@ -275,5 +372,12 @@ Displays user testimonials in a grid.
         avatar:
           src: /images/avatars/john.jpg
 ```
+
+| Prop Name     | Required | Type       | Description                                                                |
+| :------------ | :------- | :--------- | :------------------------------------------------------------------------- |
+| `items`       | Yes      | `object[]` | List of testimonials ({`quote`, `user: {name, description, avatar, to}`}). |
+| `title`       | No       | `string`   | The main heading.                                                          |
+| `description` | No       | `string`   | Subtitle text.                                                             |
+| `headline`    | No       | `string`   | Small eyebrow text.                                                        |
 
 ![AppLandingTestimonials Screenshot](/docs/assets/landing-page-blocks/AppLandingTestimonials.png)
