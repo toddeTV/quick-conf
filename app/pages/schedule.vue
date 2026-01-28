@@ -250,13 +250,13 @@ useSeoMeta({
         </div>
 
         <!-- Stages Container (Scrollable Horizontally) -->
-        <div class="flex flex-1 min-w-0">
+        <div class="flex flex-1 min-w-0 overflow-x-auto">
           <div
             v-for="stage in stages"
             :key="stage.slug"
             class="relative shrink-0 border-r border-gray-200 last:border-r-0 dark:border-gray-800 max-w-2xl"
             :class="stages.length > 1
-              ? 'w-[80vw] flex-none md:w-auto md:flex-1 md:min-w-80'
+              ? 'w-[60vw] flex-none md:w-auto md:flex-1 md:min-w-60'
               : 'w-full flex-none md:w-auto md:flex-1'"
           >
             <!-- Stage Header (Sticky Top) -->
