@@ -95,7 +95,6 @@ defineProps<{
           <AppScheduleTalkCard
             v-for="talk in getTalksForStage(stage.slug)"
             :key="talk.slug"
-            :speakers="talk.speakers"
             :style="getTalkStyle(talk)"
             :talk="talk"
           />
