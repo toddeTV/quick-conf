@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ProcessedTalkType } from '~/pages/schedule.vue'
+import type { ProcessedTalkType } from '~/types/schedule'
 
 const props = defineProps<{
   talk: ProcessedTalkType
@@ -13,7 +13,7 @@ const timeInfo = computed(() => {
 })
 
 const typeFormatted = computed(() => {
-  return props.talk.type.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+  return props.talk.type.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
 })
 
 const typeConfig = computed(() => getTalkTypeStyle(props.talk.type))
