@@ -14,14 +14,14 @@ const {
 // --- SEO ---
 const { extractSeoMetadata, getSeoMetaBase } = useSeo()
 
-const seoMetadata = extractSeoMetadata({
+const seoMetadata = computed(() => extractSeoMetadata({
   title: 'Schedule',
   description: `Conference schedule for ${activeDayISO.value}`,
-})
+}))
 
-useSeoMeta({
-  ...getSeoMetaBase(seoMetadata),
-})
+useSeoMeta(() => ({
+  ...getSeoMetaBase(seoMetadata.value),
+}))
 </script>
 
 <template>
