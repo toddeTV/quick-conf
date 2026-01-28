@@ -29,6 +29,6 @@ blocks:
 | `speed`     | No       | `number`                                           | Animation duration in seconds (default: 20).             |
 | `direction` | No       | `string`                                           | `left` or `right` (default: `left`).                     |
 | `gap`       | No       | `number`                                           | Gap between images in px (default: 0).                   |
-| `images`    | Yes      | [`ImageProps[]`](./property-presets/ImageProps.md) | List of logo images ({`src`, `alt`}).                    |
+| `images`    | Yes      | [`ImageProps[]`](./property-presets/ImageProps.md) | List of logo images.                                     |
 
 ![AppLandingMarquee Screenshot](/docs/assets/landing-page-blocks/AppLandingMarquee.png)

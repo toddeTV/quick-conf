@@ -34,7 +34,7 @@ blocks:
 | `class`       | No       | `string`                                         | Tailwind classes for custom styling (e.g., `md:-mt-20`).            |
 | `orientation` | No       | `string`                                         | `horizontal` or `vertical`.                                         |
 | `reverse`     | No       | `boolean`                                        | If true, flips the image/text order.                                |
-| `image`       | No       | [`ImageProps`](./property-presets/ImageProps.md) | The main image ({`src`, `alt`}).                                    |
+| `image`       | No       | [`ImageProps`](./property-presets/ImageProps.md) | The main image.                                                     |
 | `features`    | No       | `object[]`                                       | Optional list of feature points ({`title`, `description`, `icon`}). |
 
 ![AppLandingSection Screenshot](/docs/assets/landing-page-blocks/AppLandingSection.png)

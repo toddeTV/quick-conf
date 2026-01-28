@@ -30,14 +30,14 @@ blocks:
 
 ## States
 
-**Countdown**
+### Countdown
 
 ![AppLandingHeroCountdown state "countdown" Screenshot](/docs/assets/landing-page-blocks/AppLandingHeroCountdown.png)
 
-**Live Now for 12 hours from start**
+### Live Now for 12 hours from start
 
 ![AppLandingHeroCountdown state "live now" Screenshot](/docs/assets/landing-page-blocks/AppLandingHeroCountdown_liveNow.png)
 
-**Event Ended after 12 hours after start**
+### Event Ended after 12 hours after start
 
 ![AppLandingHeroCountdown state "event ended" Screenshot](/docs/assets/landing-page-blocks/AppLandingHeroCountdown_eventEnded.png)

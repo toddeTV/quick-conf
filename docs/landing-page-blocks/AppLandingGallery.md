@@ -19,12 +19,12 @@ blocks:
         alt: Workshop
 ```
 
-| Prop Name     | Required | Type                                               | Description                                                                   |
-| :------------ | :------- | :------------------------------------------------- | :---------------------------------------------------------------------------- |
-| `title`       | No       | `string`                                           | The main heading.                                                             |
-| `description` | No       | `string`                                           | Subtitle text.                                                                |
-| `headline`    | No       | `string`                                           | Small text above the title.                                                   |
-| `class`       | No       | `string`                                           | Tailwind classes for custom styling (e.g., `md:-mt-20`).                      |
-| `images`      | Yes      | [`ImageProps[]`](./property-presets/ImageProps.md) | List of images. Each object needs `src` (string) and optional `alt` (string). |
+| Prop Name     | Required | Type                                               | Description                                              |
+| :------------ | :------- | :------------------------------------------------- | :------------------------------------------------------- |
+| `title`       | No       | `string`                                           | The main heading.                                        |
+| `description` | No       | `string`                                           | Subtitle text.                                           |
+| `headline`    | No       | `string`                                           | Small text above the title.                              |
+| `class`       | No       | `string`                                           | Tailwind classes for custom styling (e.g., `md:-mt-20`). |
+| `images`      | Yes      | [`ImageProps[]`](./property-presets/ImageProps.md) | List of images.                                          |
 
 ![AppLandingGallery Screenshot](/docs/assets/landing-page-blocks/AppLandingGallery.png)
