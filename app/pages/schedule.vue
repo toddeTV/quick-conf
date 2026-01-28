@@ -8,6 +8,7 @@ const {
   currentTimeLineStyle,
   getTalkStyle,
   getTalksForStage,
+  activeTalks,
 } = await useSchedule()
 
 // --- SEO ---
@@ -43,7 +44,7 @@ useSeoMeta({
       :available-days="availableDays"
     />
 
-    <div v-if="stages && timeSlots.length">
+    <div v-if="stages && stages.length > 0 && activeTalks.length > 0">
       <!-- Schedule Grid -->
       <AppScheduleGrid
         :current-time-line-style="currentTimeLineStyle"
@@ -57,8 +58,22 @@ useSeoMeta({
       <AppScheduleLegend :available-talk-types="availableTalkTypes" />
     </div>
 
-    <div v-else class="py-12 text-center text-gray-500">
-      No schedule data available.
+    <div v-else class="flex flex-col items-center justify-center gap-2 py-12 text-center">
+      <UIcon
+        class="text-3xl text-gray-300 dark:text-gray-700"
+        name="i-lucide-calendar-x-2"
+      />
+      <div class="text-lg font-medium text-gray-900 dark:text-white">
+        <span v-if="!stages || stages.length === 0">
+          No stages configured yet.
+        </span>
+        <span v-else>
+          No talks scheduled yet.
+        </span>
+      </div>
+      <div class="text-gray-500">
+        Check back later for updates to the schedule.
+      </div>
     </div>
   </UContainer>
 </template>
