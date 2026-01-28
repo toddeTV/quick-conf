@@ -1,3 +1,3 @@
 # Landing Page Blocks
 
-This documentation can be found [here](./landing-page-blocks/README.md).
+See the [Landing Page Blocks documentation](./landing-page-blocks/README.md).
