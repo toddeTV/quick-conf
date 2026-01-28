@@ -12,5 +12,8 @@ export function formatDateReadable(iso: string) {
 }
 
 export function formatHour(h: number) {
-  return `${h.toString().padStart(2, '0')}:00`
+  const dayOffset = Math.floor(h / 24)
+  const hourOfDay = h % 24
+  const formattedHour = `${hourOfDay.toString().padStart(2, '0')}:00`
+  return dayOffset > 0 ? `${formattedHour} (+${dayOffset}d)` : formattedHour
 }
