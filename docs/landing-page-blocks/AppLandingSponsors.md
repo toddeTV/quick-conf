@@ -10,14 +10,14 @@ Displays a grid of sponsors. Data is automatically fetched from the `sponsors` c
 
 ## Props
 
-| Prop Name     | Required | Type      | Description                                                                   |
-| :------------ | :------- | :-------- | :---------------------------------------------------------------------------- |
-| `title`       | No       | `string`  | The main heading.                                                             |
-| `description` | No       | `string`  | Subtitle text.                                                                |
-| `headline`    | No       | `string`  | Small eyebrow text.                                                           |
-| `class`       | No       | `string`  | Tailwind classes for custom styling (e.g., `md:-mt-20`).                      |
-| `showViewAll` | No       | `boolean` | If true, show all sponsors. If `false`, shows a card linking to all sponsors. |
-| `viewAllLink` | No       | `string`  | The URL for the "View All" card.                                              |
+| Prop Name     | Required | Type      | Description                                                     |
+| :------------ | :------- | :-------- | :-------------------------------------------------------------- |
+| `title`       | No       | `string`  | The main heading.                                               |
+| `description` | No       | `string`  | Subtitle text.                                                  |
+| `headline`    | No       | `string`  | Small eyebrow text.                                             |
+| `class`       | No       | `string`  | Tailwind classes for custom styling (e.g., `md:-mt-20`).        |
+| `showViewAll` | No       | `boolean` | If `true`, show button "View All Sponsors". Default is `false`. |
+| `viewAllLink` | No       | `string`  | The URL for the "View All" card.                                |
 
 ## Example
 

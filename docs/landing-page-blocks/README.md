@@ -80,5 +80,5 @@ Click on a block to see its full documentation, including code examples and prop
 
 Common property sets used across multiple blocks:
 
-- [ButtonProps](./landing-page-blocks/property-presets/ButtonProps.md) - Configuration for buttons and links (label, to, icon, variant, etc.)
-- [ImageProps](./landing-page-blocks/property-presets/ImageProps.md) - Standard image object structure (src, alt, class)
+- [ButtonProps](./landing-page-blocks/property-presets/ButtonProps.md) - Configuration for buttons and links.
+- [ImageProps](./landing-page-blocks/property-presets/ImageProps.md) - Standard image object structure.
