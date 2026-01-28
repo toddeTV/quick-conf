@@ -89,8 +89,16 @@ export function createImageSchema() {
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Alternative text for accessibility. Set this for screen readers.',
     }),
-    loading: z.enum(['lazy', 'eager']).optional(),
-    srcset: z.string().optional(),
+    loading: property(z.enum(['lazy', 'eager']).optional()).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'Image loading strategy. "lazy" loads the image when it enters the viewport (default), "eager" '
+        + 'loads it immediately (useful for above-the-fold images).',
+    }),
+    srcset: property(z.string().optional()).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'Responsive image sources (srcset attribute) to serve different image sizes based on device '
+        + 'screen size.',
+    }),
   })
 }
 
