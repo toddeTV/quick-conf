@@ -57,42 +57,16 @@ const availableDays = computed(() => {
   return Array.from(days).sort()
 })
 
-const allTalkTypes = [
-  {
-    value: 'keynote',
-    label: 'Keynote',
-    color: 'bg-fuchsia-100 dark:bg-fuchsia-900 ring-fuchsia-200 dark:ring-fuchsia-800',
-  },
-  {
-    value: 'talk',
-    label: 'Talk',
-    color: 'bg-primary-100 dark:bg-primary-900 ring-primary-200 dark:ring-primary-800',
-  },
-  {
-    value: 'lightning-talk',
-    label: 'Lightning Talk',
-    color: 'bg-amber-100 dark:bg-amber-900 ring-amber-200 dark:ring-amber-800',
-  },
-  {
-    value: 'panel',
-    label: 'Panel',
-    color: 'bg-indigo-100 dark:bg-indigo-900 ring-indigo-200 dark:ring-indigo-800',
-  },
-  {
-    value: 'workshop',
-    label: 'Workshop',
-    color: 'bg-teal-100 dark:bg-teal-900 ring-teal-200 dark:ring-teal-800',
-  },
-  {
-    value: 'other',
-    label: 'Other',
-    color: 'bg-gray-100 dark:bg-gray-800 ring-gray-200 dark:ring-gray-700',
-  },
-]
-
 const availableTalkTypes = computed(() => {
-  const presentTypes = new Set<string>(processedTalks.value.map(t => t.type))
-  return allTalkTypes.filter(t => presentTypes.has(t.value))
+  const presentTypes = Array.from(new Set<string>(processedTalks.value.map(t => t.type)))
+  return presentTypes.map((type) => {
+    const style = getTalkTypeStyle(type)
+    return {
+      value: type,
+      label: style.label,
+      color: style.legend,
+    }
+  })
 })
 
 // --- State ---
