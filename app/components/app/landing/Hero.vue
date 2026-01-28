@@ -11,6 +11,7 @@ defineProps<{
 
 <template>
   <UPageHero
+    class="overflow-clip"
     :description="description"
     :headline="headline"
     :links="links"
