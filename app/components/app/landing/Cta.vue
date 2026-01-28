@@ -4,7 +4,8 @@ import type { ButtonProps } from '@nuxt/ui'
 defineProps<{
   title?: string
   description?: string
-  headline?: string // TODO not used
+  // headline?: string // TODO not used
+  // class?: string
   links?: ButtonProps[]
 }>()
 </script>

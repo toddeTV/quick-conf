@@ -5,10 +5,13 @@ defineProps<{
   title?: string
   description?: string
   headline?: string
+  // class?: string
   links?: ButtonProps[]
   image?: {
     src: string
     alt?: string
+    loading?: 'eager' | 'lazy'
+    srcset?: string
   }
   video?: {
     src: string
@@ -36,11 +39,13 @@ defineProps<{
         v-else-if="image"
         :alt="image.alt"
         class="w-full h-full object-cover"
+        :loading="image.loading"
         :src="image.src"
+        :srcset="image.srcset"
       />
 
       <!-- Overlay for better text readability -->
-      <div class="absolute inset-0 bg-black" :style="{ opacity: overlayOpacity ?? 0.5 }" />
+      <div class="absolute inset-0 bg-black" :style="{ opacity: overlayOpacity }" />
     </div>
 
     <!-- Content -->

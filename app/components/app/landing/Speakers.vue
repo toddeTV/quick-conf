@@ -3,6 +3,7 @@ defineProps<{
   title?: string
   description?: string
   headline?: string
+  // class?: string
 }>()
 
 const { data: speakers } = await useAsyncData('speakers-featured-all', () =>

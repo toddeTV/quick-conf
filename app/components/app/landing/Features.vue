@@ -3,6 +3,7 @@ defineProps<{
   title?: string
   description?: string
   headline?: string
+  // class?: string
   items: {
     title?: string
     description?: string

@@ -1,11 +1,14 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
-  title?: string // TODO not used
-  description?: string // TODO not used
-  headline?: string // TODO not used
+  // title?: string // TODO not used
+  // description?: string // TODO not used
+  // headline?: string // TODO not used
+  // class?: string
   images: {
     src: string
     alt?: string
+    loading?: 'eager' | 'lazy'
+    srcset?: string
   }[]
   direction?: 'left' | 'right'
   speed?: number // duration in seconds
@@ -33,7 +36,9 @@ const style = computed(() => ({
         :key="index"
         :alt="image.alt"
         class="max-w-none h-32 object-contain"
+        :loading="image.loading"
         :src="image.src"
+        :srcset="image.srcset"
       />
     </div>
     <div
@@ -47,7 +52,9 @@ const style = computed(() => ({
         :key="`clone-${index}`"
         :alt="image.alt"
         class="max-w-none h-32 object-contain"
+        :loading="image.loading"
         :src="image.src"
+        :srcset="image.srcset"
       />
     </div>
   </div>

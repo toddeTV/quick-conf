@@ -3,6 +3,8 @@ defineProps<{
   title?: string
   description?: string
   headline?: string
+  // class?: string
+  height?: 'normal' | 'small'
   items: {
     icon: string
     text: string
@@ -13,6 +15,7 @@ defineProps<{
 
 <template>
   <UPageSection
+    :class="[height === 'small' ? 'md:-my-[70px] relative z-10' : '']"
     :description="description"
     :headline="headline"
     :title="title"

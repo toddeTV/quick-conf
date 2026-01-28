@@ -3,9 +3,12 @@ defineProps<{
   title?: string
   description?: string
   headline?: string
+  // class?: string
   images: {
     src: string
     alt?: string
+    loading?: 'eager' | 'lazy'
+    srcset?: string
   }[]
 }>()
 </script>
@@ -25,8 +28,9 @@ defineProps<{
         <NuxtImg
           :alt="image.alt"
           class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-          loading="lazy"
+          :loading="image.loading"
           :src="image.src"
+          :srcset="image.srcset"
         />
       </div>
     </div>

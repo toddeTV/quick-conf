@@ -3,6 +3,7 @@ defineProps<{
   title?: string
   description?: string
   headline?: string
+  // class?: string
   orientation?: 'vertical' | 'horizontal'
   reverse?: boolean
   features?: {
@@ -13,6 +14,8 @@ defineProps<{
   image?: {
     src: string
     alt?: string
+    loading?: 'eager' | 'lazy'
+    srcset?: string
   }
 }>()
 </script>
@@ -30,7 +33,9 @@ defineProps<{
       v-if="image"
       :alt="image.alt"
       class="w-full rounded-lg h-full object-cover"
+      :loading="image.loading"
       :src="image.src"
+      :srcset="image.srcset"
     />
   </UPageSection>
 </template>

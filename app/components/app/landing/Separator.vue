@@ -1,13 +1,16 @@
 <script setup lang="ts">
 defineProps<{
-  title?: string // TODO not used
-  description?: string // TODO not used
-  headline?: string // TODO not used
+  // title?: string // TODO not used
+  // description?: string // TODO not used
+  // headline?: string // TODO not used
+  // class?: string
   label?: string
   icon?: string
   avatar?: {
     src: string
     alt?: string
+    loading?: 'eager' | 'lazy'
+    srcset?: string
   }
 }>()
 </script>

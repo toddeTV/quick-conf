@@ -3,6 +3,7 @@ defineProps<{
   title?: string
   description?: string
   headline?: string
+  // class?: string
   items: {
     quote: string
     user: {
@@ -13,6 +14,8 @@ defineProps<{
       avatar: {
         src: string
         alt?: string
+        loading?: 'eager' | 'lazy'
+        srcset?: string
       }
     }
   }[]

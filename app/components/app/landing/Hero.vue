@@ -5,13 +5,14 @@ defineProps<{
   title?: string
   description?: string
   headline?: string
+  // class?: string
   links?: ButtonProps[]
 }>()
 </script>
 
 <template>
   <UPageHero
-    class="overflow-clip"
+    class="overflow-hidden"
     :description="description"
     :headline="headline"
     :links="links"
