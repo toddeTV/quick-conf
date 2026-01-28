@@ -89,7 +89,7 @@ export function createImageSchema() {
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Alternative text for accessibility. Set this for screen readers.',
     }),
-    loading: property(z.enum(['lazy', 'eager']).optional()).editor({
+    loading: property(z.enum(['lazy', 'eager']).optional().default('lazy')).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Image loading strategy. "lazy" loads the image when it enters the viewport (default), "eager" '
         + 'loads it immediately (useful for above-the-fold images).',
