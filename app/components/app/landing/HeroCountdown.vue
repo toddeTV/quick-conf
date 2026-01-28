@@ -5,7 +5,7 @@ const props = defineProps<{
   title?: string
   description?: string
   headline?: string
-  // class?: string
+  // class?: string // TODO works without using it
   targetDate: string // ISO string or UTC date string
   links?: ButtonProps[]
 }>()

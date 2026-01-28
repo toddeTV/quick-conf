@@ -3,7 +3,7 @@ defineProps<{
   title?: string
   description?: string
   headline?: string
-  // class?: string
+  // class?: string // TODO works without using it
 }>()
 
 const { data: speakers } = await useAsyncData('speakers-featured-all', () =>

@@ -3,7 +3,7 @@ withDefaults(defineProps<{
   title?: string
   description?: string
   headline?: string
-  // class?: string
+  // class?: string // TODO works without using it
   showViewAll?: boolean
   viewAllLink?: string
 }>(), {

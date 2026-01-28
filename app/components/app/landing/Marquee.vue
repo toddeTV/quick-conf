@@ -3,7 +3,7 @@ const props = withDefaults(defineProps<{
   // title?: string // TODO not used
   // description?: string // TODO not used
   // headline?: string // TODO not used
-  // class?: string
+  // class?: string // TODO works without using it
   images: {
     src: string
     alt?: string
