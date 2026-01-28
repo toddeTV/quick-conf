@@ -3,7 +3,7 @@ defineProps<{
   title?: string
   description?: string
   headline?: string
-  // class?: string // TODO works without using it
+  // class?: string // works without using it due to Vue3's attribute fallthrough
   orientation?: 'vertical' | 'horizontal'
   reverse?: boolean
   features?: {
