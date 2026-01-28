@@ -6,9 +6,7 @@ const props = defineProps<{
 }>()
 
 const timeInfo = computed(() => {
-  const h = props.talk.start.toFormat('HH')
-  const m = props.talk.start.toFormat('mm')
-  return `${h}:${m} • ${props.talk.duration} min`
+  return `${props.talk.start.toFormat('HH:mm')} • ${props.talk.duration} min`
 })
 
 const typeFormatted = computed(() => {
