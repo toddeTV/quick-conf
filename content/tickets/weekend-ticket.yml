@@ -12,4 +12,5 @@ features:
   - Networking opportunities
 button:
   label: Buy Now
-  to: https://example.com/shop/weekend-ticket
+  to: https://todde.tv/
+  target: _blank
