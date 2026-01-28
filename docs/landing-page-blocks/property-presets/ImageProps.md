@@ -8,8 +8,10 @@ image:
   alt: Conference Hall
 ```
 
-| Prop Name | Required | Type     | Description                                            |
-| :-------- | :------- | :------- | :----------------------------------------------------- |
-| `src`     | Yes      | `string` | The source URL of the image.                           |
-| `alt`     | No       | `string` | Alternative text for the image (for accessibility).    |
-| `class`   | No       | `string` | Tailwind classes for custom styling (e.g., `rounded`). |
+| Prop Name | Required | Type              | Description                                            |
+| :-------- | :------- | :---------------- | :----------------------------------------------------- |
+| `class`   | No       | `string`          | Tailwind classes for custom styling (e.g., `rounded`). |
+| `src`     | Yes      | `string`          | The source URL of the image.                           |
+| `alt`     | No       | `string`          | Alternative text for the image (for accessibility).    |
+| `loading` | No       | `eager` or `lazy` | Image loading strategy. Default is `lazy`.             |
+| `srcset`  | No       | `string`          | A set of source sizes for responsive images.           |
