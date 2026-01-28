@@ -1,5 +1,5 @@
 ---
-slug: new-talk
+slug: talk-new-talk
 type: workshop
 title: Building Interactive UIs with Nuxt UI
 speakers:
