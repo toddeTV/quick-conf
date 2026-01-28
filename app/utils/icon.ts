@@ -26,6 +26,7 @@ export function getIconForUrl(url: string): string {
       ['bsky.app', 'i-simple-icons-bluesky'],
       ['linkedin.com', 'i-simple-icons-linkedin'],
       ['youtube.com', 'i-simple-icons-youtube'],
+      ['youtu.be', 'i-simple-icons-youtube'],
       ['facebook.com', 'i-simple-icons-facebook'],
       ['instagram.com', 'i-simple-icons-instagram'],
       ['mastodon.social', 'i-simple-icons-mastodon'],
