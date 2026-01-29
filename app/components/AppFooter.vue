@@ -102,24 +102,11 @@ if (hasSocials) {
   })
 }
 
-const { provider, owner, repo } = appConfig.studio.repository
-let repositoryUrl = '#'
-let repositoryIcon = ''
-let repositoryLabel = ''
-
-if (provider === 'github') {
-  repositoryUrl = `https://github.com/${owner}/${repo}`
-  repositoryIcon = 'i-simple-icons-github'
-  repositoryLabel = 'GitHub'
-}
-else if (provider === 'gitlab') {
-  repositoryUrl = `https://gitlab.com/${owner}/${repo}`
-  repositoryIcon = 'i-simple-icons-gitlab'
-  repositoryLabel = 'GitLab'
-}
-else {
-  console.warn(`[AppFooter] Unsupported provider: ${provider} for repository ${owner}/${repo}`)
-}
+const {
+  url: repositoryUrl,
+  icon: repositoryIcon,
+  label: repositoryLabel,
+} = getRepositoryDetails(appConfig.studio.repository)
 </script>
 
 <template>
