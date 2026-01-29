@@ -12,7 +12,7 @@ const isDemoMode = computed(() => {
     class="h-16 w-full"
   >
     <div
-      class="fixed bottom-0 left-0 right-0 z-100 flex flex-col items-center justify-center
+      class="fixed bottom-0 left-0 right-0 z-50 flex flex-col items-center justify-center
       gap-2 bg-red-600 p-3 text-center text-xs text-white shadow-lg md:flex-row lg:text-sm"
     >
       <span>
