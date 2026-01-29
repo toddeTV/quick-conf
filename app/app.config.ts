@@ -17,8 +17,7 @@ const customConfig = (parseResult.success ? parseResult.data : _customConfig) as
  */
 export default defineAppConfig({
   general: customConfig.general,
-  socials: customConfig.socials,
-  customFooterColumn: customConfig.customFooterColumn,
+  footer: customConfig.footer,
   ui: {
     ...customConfig.nuxtUI,
     pageHeader: {
