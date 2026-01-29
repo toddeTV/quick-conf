@@ -101,8 +101,8 @@ For easily managing the template, we provide a CLI tool to streamline the proces
 4. After your website is hosted and deployed, you have to log in to access the CMS for administrative functionality by doing the following:
    1. Open the deployed website in your browser.
    2. Then you can go on by one of the following methods:
-      1. Method 1 (only works when you have `footer -> bottomIcons -> showAdminLink` enabled in your custom configuration (this is enabled by default, so this will work as long as you have not disabled it).
-      2. Method 2 (works always): Manually add the suffix `/_admin` (e.g. `https://<YOUR-URL>/_admin`) to the URL in your browser.
+      1. Method 1: When `footer -> bottomIcons -> showAdminLink` is enabled, you can access the NuxtStudio CMS UI by clicking the Admin-Icon link in the footer (this is enabled by default unless you disabled showAdminLink).
+      2. Method 2 (always works): Manually add the suffix `/_admin` (e.g. `https://<YOUR-URL>/_admin`) to the URL in your browser.
    3. Then authorize your Application in your GIT provider. After that you'll be redirected back to your website - now, ready to edit your content.
 5. Enjoy :)
 
