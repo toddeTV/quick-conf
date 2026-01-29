@@ -77,7 +77,7 @@ export const customConfigSchema = z.object({
         description: 'Column 2 [optional, leave empty to hide]: For your free use as you wish.',
       }),
       column3: property(z.object({
-      }).readonly()).editor({
+      }).readonly().optional()).editor({
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'Column 3 [required]: Legal information. Always "Contact", "Privacy Policy" and "Legal Notice".',
       }),

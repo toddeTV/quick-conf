@@ -44,7 +44,7 @@ export const customConfigSchema = z.object({
     footerColumns: z.object({
       column1: createFooterColumnSchema(),
       column2: createFooterColumnSchema(),
-      column3: z.object({}).readonly(),
+      column3: z.object({}).readonly().optional(),
       column4: z.object({
         socials: z.array(createSimpleLinkSchema()).default([]),
       }).optional(),
