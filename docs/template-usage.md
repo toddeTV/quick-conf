@@ -96,7 +96,12 @@ For easily managing the template, we provide a CLI tool to streamline the proces
 
 2. Now you have a repository with the base code of the template online in a Git repository.
 3. Now, host your website and add a Git workflow so that your Git provider or hoster will build a new application every time your main branch has a new version (this is important for the Git-based CMS the project uses).
-4. After your website is hosted and deployed, open the deployed website with suffix `_studio` (e.g. `https://<YOUR-URL>/_studio`) and authorize your Application in your GIT provider. After that you'll be redirected back to Studio ready to edit your content.
+4. After your website is hosted and deployed, you have to log in to access the CMS for administrative functionality by doing the following:
+   1. Open the deployed website in your browser.
+   2. Then you can go on by one of the following methods:
+      1. Method 1 (only works when you have `footer -> bottomIcons -> showAdminLink` enabled in your custom configuration (this is enabled by default, so this will work as long as you have not disabled it).
+      2. Method 2 (works always): Manually add the suffix `/_admin` (e.g. `https://<YOUR-URL>/_admin`) to the URL in your browser.
+   3. Then authorize your Application in your GIT provider. After that you'll be redirected back to your website - now, ready to edit your content.
 5. Enjoy :)
 
 ### License Compliance
