@@ -23,7 +23,7 @@ export const customConfigSchema = z.object({
       description: 'The time zone where the conference takes place, e.g. `Europe/Berlin`. '
         + 'This is used to display the schedule in the correct local time.',
     }),
-    siteUrl: property(z.url()).editor({
+    siteUrl: property(z.url().min(1)).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'The public URL of the website (e.g. `https://my-conference.com`).',
     }),
