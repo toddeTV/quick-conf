@@ -1,12 +1,22 @@
-import type { CustomConfig } from '~/schemas/customConfigPlain'
+import { z } from 'zod/v4'
 import _customConfig from '~~/content/0.custom-config.json'
 import pkg from '~~/package.json'
+import { customConfigSchema } from '~/schemas/customConfigPlain'
 
-const customConfig = _customConfig as unknown as CustomConfig
+const parseResult = customConfigSchema.safeParse(_customConfig)
+if (!parseResult.success) {
+  // We only warn here and do not throw an error to allow the app to start even if the config is invalid.
+  // This is intentional to prevent the app from crashing if non-technical users make a mistake in the CMS.
+  console.warn('⚠️ Invalid custom config:', z.treeifyError(parseResult.error))
+}
+
+const customConfig = (parseResult.success ? parseResult.data : _customConfig) as any
 
 export default defineEventHandler((event) => {
-  const { conferenceName, siteUrl } = customConfig.general
-  const { url: repositoryUrl } = getRepositoryDetails(customConfig.nuxtStudio.repository)
+  const conferenceName = customConfig?.general?.conferenceName ?? '(unknown)'
+  const siteUrl = customConfig?.general?.siteUrl ?? '(unknown)'
+  const repoConfig = customConfig?.nuxtStudio?.repository
+  const repositoryUrl = repoConfig ? getRepositoryDetails(repoConfig).url : '(unknown)'
 
   // Clean up URL to ensure no trailing slash for appending paths
   const baseUrl = siteUrl.endsWith('/') ? siteUrl.slice(0, -1) : siteUrl
