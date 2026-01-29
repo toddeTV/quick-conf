@@ -194,6 +194,18 @@ const repositoryLabel = computed(() => {
     </template>
 
     <template #right>
+      <!-- icon="i-lucide-key-round" -->
+      <!-- icon="i-lucide-key" -->
+      <!-- icon="i-lucide-log-in" -->
+      <UButton
+        v-if="bottomIcons?.showAdminLink"
+        aria-label="Admin Area"
+        color="neutral"
+        icon="i-lucide-log-in"
+        to="/_admin"
+        variant="ghost"
+      />
+
       <UButton
         v-if="bottomIcons?.showRepositoryLink"
         :aria-label="repositoryLabel"
@@ -201,16 +213,6 @@ const repositoryLabel = computed(() => {
         :icon="repositoryIcon"
         target="_blank"
         :to="repositoryUrl"
-        variant="ghost"
-      />
-
-      <UButton
-        v-if="bottomIcons?.showAdminLink"
-        aria-label="Admin Area"
-        color="neutral"
-        icon="i-lucide-layout-dashboard"
-        target="_blank"
-        to="/_admin"
         variant="ghost"
       />
 
