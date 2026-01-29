@@ -13,6 +13,8 @@ This project serves as a comprehensive and **completely free** template for crea
 
 - You need a local workspace with Node.js and a package manager of your choice (pnpm, npm, bun, or yarn). Pnpm is highly recommended as the template is developed and tested with it, but others will work as well.
 - You need a Git provider to host the code. We recommend GitHub, but other Git providers will work as well.
+  > [!TIP]
+  > We highly recommend using a **public** repository. While Nuxt Studio supports private repositories, setup is more complex and prone to errors. Using a public repository aligns with the Open Source spirit and enables community contributions (issues, PRs, etc.).
 - You need a hoster to host your website for your audience. We recommend Vercel or Netlify, but others will work as well. If you aim for Docker, you need to configure this yourself, as there is no Docker preset yet (you can contribute to the project and provide one <3).
 
 ## First Installation
