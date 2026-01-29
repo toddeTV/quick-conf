@@ -16,6 +16,18 @@ const customConfig = (parseResult.success ? parseResult.data : _customConfig) as
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
+  app: {
+    head: {
+      meta: [
+        { name: 'generator', content: 'quick-conf' },
+        { name: 'application-name', content: 'quick-conf-template' },
+      ],
+      htmlAttrs: {
+        'data-theme-source': 'quick-conf',
+      },
+    },
+  },
+
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
