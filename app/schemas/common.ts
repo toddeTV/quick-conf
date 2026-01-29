@@ -142,3 +142,18 @@ export function createSimpleLinkSchema() {
       }),
   })
 }
+
+export function createFooterColumnSchema() {
+  return z.object({
+    // TODO would be better `.min(1)` instead of `.optional()`, but NuxtStudio does not delete it in the UI
+    title: property(z.string().optional()).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The title of the column.',
+    }),
+    // TODO would be better `.nonempty()` instead of `.default([])`, but NuxtStudio does not delete it in the UI
+    links: property(z.array(createSimpleLinkSchema()).default([])).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'The links to show in the column.',
+    }),
+  }).optional()
+}

@@ -1,13 +1,14 @@
 import { property } from '@nuxt/content'
 import { z } from 'zod/v4'
-import { createSimpleLinkSchema } from './common'
+import { createFooterColumnSchema, createSimpleLinkSchema } from './common'
 
 export const customConfigSchema = z.object({
-  _warning: property(z.string().default('').readonly()).editor({
+  _warning: property(z.object({}).readonly()).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: '⚠️ NOTE: This configuration file is not hot-reloaded. '
       + 'You must restart the development server or rebuild the application to see your changes.',
   }),
+
   general: property(z.object({
     conferenceName: property(z.string().min(1)).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
@@ -60,26 +61,55 @@ export const customConfigSchema = z.object({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'General Customization.',
   }),
-  socials: property(z.array(createSimpleLinkSchema()).default([])).editor({
-    // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-    description: 'Socials Customization.',
-  }),
-  customFooterColumn: property(z.object({
-    // TODO would be better `.min(1)` instead of `.optional()`, but NuxtStudio does not delete it in the UI
-    title: property(z.string().optional()).editor({
+
+  footer: property(z.object({
+    footerColumns: property(z.object({
+      column1: property(
+        createFooterColumnSchema(),
+      ).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'Column 1 [optional, leave empty to hide]: For your free use as you wish.',
+      }),
+      column2: property(
+        createFooterColumnSchema(),
+      ).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'Column 2 [optional, leave empty to hide]: For your free use as you wish.',
+      }),
+      column3: property(z.object({
+      }).readonly()).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'Column 3 [required]: Legal information. Always "Contact", "Privacy Policy" and "Legal Notice".',
+      }),
+      column4: property(z.object({
+        socials: z.array(createSimpleLinkSchema()).default([]),
+      }).optional()).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'Column 4 [optional, leave empty to hide]: Socials (external links to social media profiles).',
+      }),
+    }).optional()).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'The title of the custom footer column.',
+      description: 'First row of the footer: Up to 4 columns, each with one headline and multiple links.',
     }),
-    // TODO would be better `.nonempty()` instead of `.default([])`, but NuxtStudio does not delete it in the UI
-    links: property(z.array(createSimpleLinkSchema()).default([])).editor({
+    bottomIcons: property(z.object({
+      showRepositoryLink: property(z.boolean().default(true)).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'Display an icon as link to the GIT repository of your website.',
+      }),
+      showAdminLink: property(z.boolean().default(true)).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'Display an icon as link to the admin area of your website. This is a link for quick access to '
+          + 'the NuxtStudio CMS. It is a shortcut to `/_admin` that you can click instead of typing the URL manually.',
+      }),
+    }).optional()).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'The links to show in the custom footer column.',
+      description: 'Second row of the footer: Some icons on the right that you can configure here.',
     }),
   }).optional()).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-    description: 'Customize the custom footer column. This is the third column in the footer, before the socials.'
-      + ' Leave fields empty to hide the column (at least the \'title\').',
+    description: 'Customize the footer of the website.',
   }),
+
   nuxtUI: property(z.object({
     colors: property(z.object({
       primary: property(z.enum([
@@ -157,6 +187,7 @@ export const customConfigSchema = z.object({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'NuxtUI Customization.',
   }),
+
   nuxtStudio: property(z.object({
     repository: property(z.object({
       provider: property(z.enum(['github', 'gitlab']).default('github')).editor({
@@ -174,10 +205,6 @@ export const customConfigSchema = z.object({
       branch: property(z.string().default('main')).editor({
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'The branch to use.',
-      }),
-      private: property(z.boolean().default(false)).editor({
-        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-        description: 'Whether the repository is private.',
       }),
     })).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
