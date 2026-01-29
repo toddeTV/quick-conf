@@ -10,7 +10,7 @@ if (!parseResult.success) {
   console.warn('⚠️ Invalid custom config:', z.treeifyError(parseResult.error))
 }
 
-const customConfig = (parseResult.success ? parseResult.data : _customConfig) as any
+const customConfig = (parseResult.success ? parseResult.data : _customConfig) as z.infer<typeof customConfigSchema>
 
 export default defineEventHandler((event) => {
   const conferenceName = customConfig?.general?.conferenceName ?? '(unknown)'
