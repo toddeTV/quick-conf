@@ -22,6 +22,11 @@ export function getRepositoryDetails(config: RepositoryConfig): RepositoryDetail
     label: '',
   }
 
+  if (!provider || !owner || !repo) {
+    console.warn(`[getRepositoryDetails] Invalid repository config: provider, owner or repo is missing.`)
+    return result
+  }
+
   if (provider === 'github') {
     result.url = `https://github.com/${owner}/${repo}`
     result.icon = 'i-simple-icons-github'
