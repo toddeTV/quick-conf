@@ -82,7 +82,6 @@ export const customConfigSchema = z.object({
         description: 'Column 3 [required]: Legal information. Always "Contact", "Privacy Policy" and "Legal Notice".',
       }),
       column4: property(z.object({
-        // socials: z.array(createSimpleLinkSchema()).default([]),
         socials: property(z.array(createSimpleLinkSchema()).default([])).editor({
           // @ts-expect-error `description` is custom and patched in `nuxt-studio`
           description: 'Social media links to display in this column.',
