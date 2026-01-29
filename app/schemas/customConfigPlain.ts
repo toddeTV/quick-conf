@@ -100,6 +100,7 @@ export const customConfigSchema = z.object({
       owner: z.string().min(1),
       repo: z.string().min(1),
       branch: z.string().default('main'),
+      private: z.boolean().default(false),
     }),
     i18n: z.object({
       defaultLocale: z.string().default('en'),

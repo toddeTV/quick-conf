@@ -206,6 +206,10 @@ export const customConfigSchema = z.object({
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'The branch to use.',
       }),
+      private: property(z.boolean().default(false)).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'Whether the repository is private.',
+      }),
     })).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Repository configuration.',
