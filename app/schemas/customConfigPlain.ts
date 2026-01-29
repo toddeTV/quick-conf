@@ -107,3 +107,6 @@ export const customConfigSchema = z.object({
     }),
   }),
 })
+
+export type CustomConfig = z.infer<typeof customConfigSchema>
+export type RepositoryConfig = CustomConfig['nuxtStudio']['repository']
