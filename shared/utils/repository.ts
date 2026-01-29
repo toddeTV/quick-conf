@@ -1,6 +1,6 @@
 import type { RepositoryConfig } from '~/schemas/customConfigPlain'
 
-interface getRepositoryDetailsType {
+interface RepositoryDetailsType {
   url: string
   icon: string
   label: string
@@ -13,10 +13,10 @@ interface getRepositoryDetailsType {
  * @param config Repository configuration object
  * @returns An object containing url, icon, and label
  */
-export function getRepositoryDetails(config: RepositoryConfig): getRepositoryDetailsType {
+export function getRepositoryDetails(config: RepositoryConfig): RepositoryDetailsType {
   const { provider, owner, repo } = config
 
-  const result: getRepositoryDetailsType = {
+  const result: RepositoryDetailsType = {
     url: '#',
     icon: '',
     label: '',
