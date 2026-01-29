@@ -1,22 +1,71 @@
 {
-  "customFooterColumn": {
-    "links": [
-      {
-        "name": "some link without icon",
-        "url": "/"
+  "footer": {
+    "bottomIcons": {
+      "showAdminLink": true,
+      "showRepositoryLink": true
+    },
+    "footerColumns": {
+      "column1": {
+        "links": [
+          {
+            "name": "Apply as Speaker",
+            "url": "/faq/cfp"
+          },
+          {
+            "name": "Become a Sponsor",
+            "url": "/faq/sponsoring"
+          },
+          {
+            "name": "Code of Conduct",
+            "url": "/faq/code-of-conduct"
+          },
+          {
+            "name": "Location",
+            "url": "/faq/location"
+          }
+        ],
+        "title": "Community"
       },
-      {
-        "icon": "i-lucide-house",
-        "name": "some link with icon",
-        "url": "/"
+      "column2": {
+        "links": [
+          {
+            "name": "some link without icon",
+            "url": "/"
+          },
+          {
+            "icon": "i-lucide-house",
+            "name": "some link with icon",
+            "url": "/"
+          },
+          {
+            "icon": "i-simple-icons-x",
+            "name": "external links also work",
+            "url": "https://x.com/toddeTV"
+          }
+        ],
+        "title": "About This Conference"
       },
-      {
-        "icon": "i-simple-icons-x",
-        "name": "external links also work",
-        "url": "https://x.com/toddeTV"
+      "column4": {
+        "socials": [
+          {
+            "name": "toddeTV",
+            "url": "https://x.com/toddeTV"
+          },
+          {
+            "name": "toddeTV",
+            "url": "https://bsky.app/profile/todde.tv"
+          },
+          {
+            "name": "toddeTV",
+            "url": "https://www.linkedin.com/in/toddetv/"
+          },
+          {
+            "name": "toddeTV",
+            "url": "https://github.com/toddeTV/"
+          }
+        ]
       }
-    ],
-    "title": "About This Conference"
+    }
   },
   "general": {
     "conferenceFoundingYear": 2025,
@@ -39,7 +88,6 @@
     "repository": {
       "branch": "main",
       "owner": "your-org",
-      "private": false,
       "provider": "github",
       "repo": "your-repo"
     }
@@ -49,23 +97,5 @@
       "neutral": "slate",
       "primary": "green"
     }
-  },
-  "socials": [
-    {
-      "name": "toddeTV",
-      "url": "https://x.com/toddeTV"
-    },
-    {
-      "name": "toddeTV",
-      "url": "https://bsky.app/profile/todde.tv"
-    },
-    {
-      "name": "toddeTV",
-      "url": "https://www.linkedin.com/in/toddetv/"
-    },
-    {
-      "name": "toddeTV",
-      "url": "https://github.com/toddeTV/"
-    }
-  ]
+  }
 }
