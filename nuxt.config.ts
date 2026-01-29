@@ -74,6 +74,7 @@ export default defineNuxtConfig({
   },
 
   studio: {
+    route: '/_admin', // default: `/_studio`
     repository: {
       provider: customConfig.nuxtStudio.repository.provider,
       owner: customConfig.nuxtStudio.repository.owner,
