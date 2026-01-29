@@ -166,7 +166,13 @@ const repositoryLabel = computed(() => {
 
     <template #default>
       <p class="text-muted text-sm">
-        Created with template
+        Created with
+        <UIcon
+          aria-hidden="true"
+          class="inline-block w-3.5 h-3.5 mx-0.5"
+          name="i-lucide-heart"
+        />
+        via
         <ULink
           aria-label="quick-conf GitHub Repository"
           class="text-primary/70"
@@ -175,20 +181,15 @@ const repositoryLabel = computed(() => {
         >
           quick-conf
         </ULink>
-        <span class="ml-0.5 mr-1">v{{ version }}</span>
-        <!-- @ -->
-        <UIcon
-          aria-hidden="true"
-          class="inline-block w-3.5 h-3.5 mx-0.5"
-          name="i-lucide-heart"
-        />
+        <span class="mx-0.5">v{{ version }}</span>
+        by
         <ULink
-          aria-label="Website of Thorsten Seyschab"
+          aria-label="todde.tv website"
           class="text-primary/70"
           target="_blank"
-          to="https://todde.tv/"
+          to="https://todde.tv"
         >
-          Thorsten Seyschab
+          todde.tv
         </ULink>
       </p>
     </template>
