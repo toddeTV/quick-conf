@@ -225,4 +225,4 @@ blocks:
       - label: Do I need to know Vue/Nuxt?
         content: To customize the code, yes. But to manage content, you can use Nuxt Studio without coding knowledge.
       - label: Can I change the colors?
-        content: Absolutely! The colors are defined in the configuration file and use Tailwinds color palette.
+        content: Absolutely! The colors are defined in the configuration file and use Tailwind's color palette.
