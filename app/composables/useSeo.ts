@@ -1,13 +1,9 @@
-import { isNil } from 'lodash-es'
-
 /**
  * A composable for handling SEO metadata extraction, generation, formatting and setting.
  *
  * @returns An object with SEO utility functions.
  */
 export function useSeo() {
-  const appConfig = useAppConfig()
-
   /**
    * Extracts SEO metadata from a page/content object with fallback logic.
    * Prioritizes SEO-specific fields over general fields.
