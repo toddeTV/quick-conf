@@ -1,41 +1,21 @@
 ---
 title: Tickets
-description: Frequently asked questions about tickets and ticket purchase
-order: 3
+description: Configuring tickets
+order: 2
 ---
 
-# Tickets
+# Configuring Tickets
 
-## What ticket types are available?
+Tickets are defined in `content/tickets/`.
 
-We offer different ticket categories:
+## Structure
 
-| Category | Price | Includes                   |
-| -------- | ----- | -------------------------- |
-| Standard | €149  | Access to all talks        |
-| Premium  | €249  | Standard + workshop access |
-| VIP      | €499  | Premium + speaker dinner   |
+Each ticket is a YAML file defining:
 
-## When does ticket sales start?
+- Price
+- Features (list)
+- Link to purchase
 
-Ticket sales start on **March 1, 2025**. Early-bird tickets are available until March 15.
+## Demo Data
 
-## Can I change my booking?
-
-Yes, changes are free of charge up to 14 days before the event. After that, a processing fee of €25 applies.
-
-## Is there a student discount?
-
-Yes! Students receive a 30% discount on all ticket categories. A valid student ID must be presented at check-in.
-
-## Buy ticket
-
-<div class="flex justify-center">
-
-<UButton icon="i-lucide-ticket" to="/tickets">Buy ticket</UButton>
-
-</div>
-
----
-
-For more information about payment, see [Payment](/faq/payment).
+The tickets you see on the landing page are defined in the content folder. Feel free to modify them.
