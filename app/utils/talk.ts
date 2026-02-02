@@ -8,10 +8,10 @@ export interface TalkTypeStyle {
 export const talkTypeStyles: Record<string, TalkTypeStyle> = {
   'keynote': {
     label: 'Keynote',
-    card: 'border-fuchsia-200 bg-fuchsia-100/90 dark:border-fuchsia-800 dark:bg-fuchsia-900/90 '
-      + 'hover:border-fuchsia-500 dark:hover:border-fuchsia-400',
-    text: 'text-fuchsia-700 dark:text-fuchsia-300',
-    legend: 'bg-fuchsia-100 dark:bg-fuchsia-900 ring-fuchsia-200 dark:ring-fuchsia-800',
+    card: 'border-rose-200 bg-rose-100/90 dark:border-rose-800 dark:bg-rose-900/90 '
+      + 'hover:border-rose-500 dark:hover:border-rose-400',
+    text: 'text-rose-700 dark:text-rose-300',
+    legend: 'bg-rose-100 dark:bg-rose-900 ring-rose-200 dark:ring-rose-800',
   },
   'workshop': {
     label: 'Workshop',
@@ -29,10 +29,10 @@ export const talkTypeStyles: Record<string, TalkTypeStyle> = {
   },
   'panel': {
     label: 'Panel',
-    card: 'border-indigo-200 bg-indigo-100/90 dark:border-indigo-800 dark:bg-indigo-900/90 '
-      + 'hover:border-indigo-500 dark:hover:border-indigo-400',
-    text: 'text-indigo-700 dark:text-indigo-300',
-    legend: 'bg-indigo-100 dark:bg-indigo-900 ring-indigo-200 dark:ring-indigo-800',
+    card: 'border-fuchsia-200 bg-fuchsia-100/90 dark:border-fuchsia-800 dark:bg-fuchsia-900/90 '
+      + 'hover:border-fuchsia-500 dark:hover:border-fuchsia-400',
+    text: 'text-fuchsia-700 dark:text-fuchsia-300',
+    legend: 'bg-fuchsia-100 dark:bg-fuchsia-900 ring-fuchsia-200 dark:ring-fuchsia-800',
   },
   'other': {
     label: 'Other',
