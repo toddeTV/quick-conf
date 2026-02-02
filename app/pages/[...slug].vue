@@ -19,6 +19,12 @@ const seoMetadata = extractSeoMetadata(page.value)
 useSeoMeta({
   ...getSeoMetaBase(seoMetadata),
 })
+
+defineOgImageComponent('DefaultSatori', {
+  headline: 'Page',
+  title: seoMetadata.title,
+  description: seoMetadata.description,
+})
 </script>
 
 <template>

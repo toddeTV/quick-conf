@@ -37,13 +37,6 @@ const { data: surround } = await useAsyncData(
   { watch: [() => route.path] },
 )
 
-const seoMetadata = extractSeoMetadata(page.value)
-// const { title, description } = seoMetadata
-
-useSeoMeta({
-  ...getSeoMetaBase(seoMetadata),
-})
-
 // Build breadcrumb items based on current page
 const breadcrumbItems = computed(() => {
   const items = [
@@ -60,6 +53,19 @@ const breadcrumbItems = computed(() => {
   }
 
   return items
+})
+
+const seoMetadata = extractSeoMetadata(page.value)
+// const { title, description } = seoMetadata
+
+useSeoMeta({
+  ...getSeoMetaBase(seoMetadata),
+})
+
+defineOgImageComponent('DefaultSatori', {
+  headline: 'FAQ',
+  title: page.value.title,
+  description: page.value.description,
 })
 </script>
 

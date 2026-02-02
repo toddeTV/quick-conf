@@ -52,6 +52,13 @@ const socialLinks = computed((): PageAnchor[] => {
     icon: social.icon || getIconForUrl(social.url),
   }))
 })
+
+defineOgImageComponent('DefaultSatori', {
+  headline: 'Speaker',
+  title: speaker.value.name,
+  description: speaker.value.description,
+  image: speaker.value.image,
+})
 </script>
 
 <template>

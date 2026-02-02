@@ -12,6 +12,12 @@ const { title, description } = seoMetadata
 useSeoMeta({
   ...getSeoMetaBase(seoMetadata),
 })
+
+defineOgImageComponent('DefaultSatori', {
+  headline: 'Tickets',
+  title,
+  description,
+})
 </script>
 
 <template>

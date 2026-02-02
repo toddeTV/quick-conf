@@ -63,6 +63,14 @@ function formatDateTime(dateTimeStr?: string): string {
 
   return `${day} at ${time} (${timeZone})`
 }
+
+defineOgImageComponent('DefaultSatori', {
+  headline: 'Talk',
+  title: talk.value.title,
+  description: speakers.value?.length
+    ? `Presented by ${speakers.value.map(s => s.name).join(', ')}`
+    : undefined,
+})
 </script>
 
 <template>
