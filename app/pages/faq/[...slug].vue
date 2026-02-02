@@ -64,8 +64,8 @@ useSeoMeta({
 
 defineOgImageComponent('DefaultSatori', {
   headline: 'FAQ',
-  title: page.value.title,
-  description: page.value.description,
+  title: seoMetadata.title,
+  description: seoMetadata.description,
 })
 </script>
 

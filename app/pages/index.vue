@@ -81,7 +81,7 @@ useSeoMeta({
 })
 
 defineOgImageComponent('DefaultSatori', {
-  // headline: 'Conference',
+  headline: 'Home',
   title: seoMetadata.title,
   description: seoMetadata.description,
 })

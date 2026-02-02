@@ -31,16 +31,6 @@ if (!speaker.value) {
 const { data: talks } = await useAsyncData(`${route.path}-talks`, () =>
   queryCollection('talks').where('speakers', 'LIKE', `%"${slug_speaker}"%`).all())
 
-const seoMetadata = extractSeoMetadata({
-  ...extractSeoMetadata(speaker.value),
-  title: speaker.value.name, // `title` is present, but it is the filename, not the speaker name, so set manually
-})
-// const { title, description } = seoMetadata
-
-useSeoMeta({
-  ...getSeoMetaBase(seoMetadata),
-})
-
 const socialLinks = computed((): PageAnchor[] => {
   if (isNil(speaker.value) || isNil(speaker.value.socialMedia))
     return []
@@ -53,10 +43,20 @@ const socialLinks = computed((): PageAnchor[] => {
   }))
 })
 
+const seoMetadata = extractSeoMetadata({
+  ...extractSeoMetadata(speaker.value),
+  title: speaker.value.name, // `title` is present, but it is the filename, not the speaker name, so set manually
+})
+// const { title, description } = seoMetadata
+
+useSeoMeta({
+  ...getSeoMetaBase(seoMetadata),
+})
+
 defineOgImageComponent('DefaultSatori', {
   headline: 'Speaker',
-  title: speaker.value.name,
-  description: speaker.value.description,
+  title: seoMetadata.title,
+  description: seoMetadata.description,
   image: speaker.value.image,
 })
 </script>

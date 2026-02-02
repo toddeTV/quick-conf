@@ -31,7 +31,7 @@ useSeoMeta({
 defineOgImageComponent('DefaultSatori', {
   headline: 'Schedule',
   title: 'Schedule',
-  description: () => `Conference schedule for ${activeDayISO.value}`,
+  description: `Conference schedule for ${activeDayISO.value}`,
 })
 </script>
 
