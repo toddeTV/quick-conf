@@ -1,32 +1,16 @@
 ---
 title: Privacy Policy
-description: How we handle your personal data
+description: Data protection information
 ---
 
-<UPageHeader title="Privacy Policy" />
+# Privacy Policy
 
-_Last updated: November 2025_
+**This is a demo website.**
 
-## Data Controller
+## Data Collection
 
-QuickConf Organization
-Conference Street 42
-12345 Sampletown, Germany
-
-## Data We Collect
-
-- Name and email (for ticket purchases and newsletters)
-- Payment information (processed by our payment provider)
-- Usage data (anonymized analytics)
-
-## Your Rights
-
-You have the right to access, correct, or delete your personal data. Contact us at [privacy@quickconf.example](mailto:privacy@quickconf.example).
+We do not collect any real user data on this demo instance.
 
 ## Cookies
 
-We use essential cookies only. No tracking cookies are used without your consent.
-
-## Contact
-
-For privacy-related questions: [privacy@quickconf.example](mailto:privacy@quickconf.example)
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
