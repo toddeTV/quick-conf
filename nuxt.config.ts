@@ -86,7 +86,7 @@ export default defineNuxtConfig({
   content: { // for `@nuxt/content`
   },
 
-  studio: {
+  studio: { // for `nuxt-studio`
     route: '/_admin', // default: `/_studio`
     repository: {
       provider: customConfig.nuxtStudio.repository.provider,
@@ -98,5 +98,10 @@ export default defineNuxtConfig({
     i18n: {
       defaultLocale: customConfig.nuxtStudio.i18n.defaultLocale,
     },
+  },
+
+  site: { // for `@nuxtjs/seo`
+    url: customConfig.general.siteUrl,
+    name: customConfig.general.conferenceName,
   },
 })
