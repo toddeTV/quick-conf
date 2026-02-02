@@ -22,6 +22,23 @@ You can find a deployed version of this template to test and view here:
 
 > 🔗 [https://quick-conf.com/](https://quick-conf.com/)
 
+<details>
+<summary>📸 Screenshots</summary>
+
+_The main landing page showcasing the flexible block system:_
+![Landing Page](docs/assets/README/landing-page.png)
+
+_The interactive conference schedule with stages and talks:_
+![Schedule](docs/assets/README/schedule.png)
+
+_A clear overview of available ticket categories and pricing:_
+![Tickets](docs/assets/README/tickets.png)
+
+_The FAQ section for attendee questions:_
+![FAQ](docs/assets/README/faq.png)
+
+</details>
+
 ## Sponsoring
 
 If you like this project and want to support me, I would be very happy to see you as a sponsor on GitHub ❤️<br>
