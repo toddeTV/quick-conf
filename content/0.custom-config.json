@@ -96,7 +96,7 @@
   "nuxtUI": {
     "colors": {
       "neutral": "slate",
-      "primary": "indigo"
+      "primary": "green"
     }
   }
 }
