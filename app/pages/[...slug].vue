@@ -37,7 +37,7 @@ defineOgImageComponent('DefaultSatori', {
         ]"
       />
 
-      <ContentRenderer v-if="page.body" :value="page" />
+      <ContentRenderer v-if="page.body" class="mt-8" :value="page" />
     </UContainer>
   </template>
 </template>

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 defineProps<{
-  availableTalkTypes: { value: string, label: string, color: string }[]
+  availableTalkTypes: {
+    value: string
+    label: string
+    color: string
+  }[]
 }>()
 </script>
 
