@@ -36,8 +36,8 @@ blocks:
         text: 10k+ Watchers
         label: Capacity
       - icon: i-lucide-mic-2
-        text: 30+ Speaker
-        label: Speaker
+        text: 30+ Speakers
+        label: Speakers
   - component: AppLandingSeparator
   - component: AppLandingSpeakers
     title: Our Esteemed Speakers
@@ -89,7 +89,7 @@ blocks:
       alt: Coding on laptop
   - component: AppLandingSection
     title: Designed for Organizers
-    description: You dont need to be a developer to manage your conference website. We have optimized everything for ease of use.
+    description: You don't need to be a developer to manage your conference website. We have optimized everything for ease of use.
     headline: Benefits
     orientation: horizontal
     reverse: true
@@ -134,7 +134,7 @@ blocks:
     description: See what other fictional and non-existing people could say about the Quick Conf template.
     headline: Testimonials
     items:
-      - quote: Finally a conference template that doesnt look like it was built in 2010.
+      - quote: Finally a conference template that doesn't look like it was built in 2010.
         user:
           name: Jessica Design
           description: UX Lead

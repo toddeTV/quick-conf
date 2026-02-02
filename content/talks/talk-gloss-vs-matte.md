@@ -13,13 +13,13 @@ resources:
     icon: i-lucide-file-text
   - url: "#"
     description: Slides
-    icon: i-lucide-github
+    icon: i-lucide-presentation
   - url: "#"
     description: Source Code
     icon: i-lucide-github
   - url: "#"
     description: PDF
-    icon: i-lucide-presentation
+    icon: i-mdi-file-pdf-box
 ---
 
-A heated discussion about light reflectivity. Is high gloss too loud? Is matte too dull? Satin Sally moderates the friction between these opposing worldviews.
+A heated discussion about light reflectivity. Is high gloss too loud? Is matte too dull? Matt Finish moderates the friction between these opposing worldviews.

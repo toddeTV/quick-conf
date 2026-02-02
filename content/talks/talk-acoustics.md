@@ -22,4 +22,4 @@ resources:
     icon: i-lucide-link
 ---
 
-Dr. Moore presents his findings on the microscopic popping sounds of solvents evaporating. Headphones recommended.
+Satin Sally presents her findings on the microscopic popping sounds of solvents evaporating. Headphones recommended.
