@@ -93,6 +93,10 @@ reviews:
           - Components: `PascalCase.vue`
           - Files/Utils: `kebab-case.ts`
           - Composables: `usePascalCase.ts`
+        - **Strict Component Usage:**
+          - Use `<ULink>` (NuxtUI) instead of `<NuxtLink>` or `<a>`.
+          - Use `<NuxtImg>` instead of `<img>`.
+          - `alt` attribute is **MANDATORY** for all images.
         - **Imports:**
           - **Explicit imports** preferred.
           - **Extensions:**
