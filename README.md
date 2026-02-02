@@ -28,6 +28,13 @@ If you like this project and want to support me, I would be very happy to see yo
 You can find the `Sponsor` button on the top right of the [GitHub project page](https://github.com/toddeTV/quick-conf).<br>
 Thanks a lot for the support <3
 
+It also helps me a lot if you follow me on social media and stay up to date with my latest projects! ❤️
+
+- [GitHub](https://github.com/toddeTV/)
+- [X (Twitter)](https://x.com/toddeTV)
+- [Bluesky](https://bsky.app/profile/todde.tv)
+- [LinkedIn](https://www.linkedin.com/in/toddetv/)
+
 ## Documentation
 
 All documentation is in the [docs](/docs) folder.
@@ -53,6 +60,10 @@ Check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
 ### Current Core Team Members
 
 - [Thorsten Seyschab](https://todde.tv) as Project Founder & Lead.
+  - [GitHub](https://github.com/toddeTV/)
+  - [X (Twitter)](https://x.com/toddeTV)
+  - [Bluesky](https://bsky.app/profile/todde.tv)
+  - [LinkedIn](https://www.linkedin.com/in/toddetv/)
 
 ### Acknowledgments
 
