@@ -11,12 +11,10 @@ defineProps<{
 }>()
 
 const appConfig = useAppConfig()
-const { resolveImagePath } = useImgPaths()
 
-const images = resolveImagePath({
-  dark: appConfig.general?.logo?.dark,
-  light: appConfig.general?.logo?.light,
-})
+// TODO would be better to use `resolveImagePath` here, but inside a satori component it seems not to work
+// due to no auto imports and therefore `pnpm run test:types` fails.
+const logoSrc = appConfig.general?.logo?.light
 </script>
 
 <template>
@@ -25,7 +23,7 @@ const images = resolveImagePath({
     <div class="flex flex-col justify-between h-full" :class="[image ? 'w-2/3 pr-12' : 'w-full']">
       <!-- Top Section -->
       <div class="flex flex-col items-start">
-        <NuxtImg class="mb-16 h-16" :src="images.light" />
+        <NuxtImg class="mb-16 h-16" :src="logoSrc" />
 
         <div v-if="headline" class="text-2xl font-bold text-gray-500 uppercase tracking-widest">
           {{ headline }}
