@@ -16,6 +16,12 @@ This is a **completely free** template for quickly setting up a new Conference o
   - ✅ JSON-LD Structured Data
 - **🎨 Customizable**: Theming via Nuxt UI and configuration files.
 
+## 🌐 Live Demo
+
+You can find a deployed version of this template to test and view here:
+
+> 🔗 [https://quick-conf.com/](https://quick-conf.com/)
+
 ## Sponsoring
 
 If you like this project and want to support me, I would be very happy to see you as a sponsor on GitHub ❤️<br>
