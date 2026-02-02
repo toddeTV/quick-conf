@@ -1,6 +1,6 @@
 # SEO Features & Configuration
 
-This template comes with comprehensive SEO capabilities powered by [`@nuxtjs/seo`](https://nuxtseo.com/).
+This template comes with SEO capabilities powered by [`@nuxtjs/seo`](https://nuxtseo.com/).
 
 ## Features Overview
 
