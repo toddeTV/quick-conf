@@ -52,23 +52,6 @@ export function useSeo() {
   }
 
   /**
-   * Generates the website title with the conference branding.
-   * Defaults to the conference name if no title provided or if placeholder '%s' is used.
-   *
-   * @param title - The page-specific title
-   * @returns Formatted title with conference branding
-   */
-  function getWebsiteTitle(title?: string): string {
-    if (!title || title.length === 0 || title === '%s') {
-      return appConfig.general.conferenceName ?? ''
-    }
-    if (isNil(appConfig.general.conferenceName)) {
-      return title
-    }
-    return `${title} | ${appConfig.general.conferenceName}`
-  }
-
-  /**
    * Creates SEO meta configuration for conference pages.
    * Generates consistent meta tags for title, description, and Open Graph properties.
    *
@@ -99,9 +82,8 @@ export function useSeo() {
     ogDescription: string
   } {
     return {
-      title: getWebsiteTitle(page.title),
-      // ogTitle: page.seo.title,
-      ogTitle: getWebsiteTitle(page.seo.title),
+      title: page.title,
+      ogTitle: page.seo.title,
 
       description: page.description,
       ogDescription: page.seo.description,
@@ -114,7 +96,6 @@ export function useSeo() {
 
   return {
     extractSeoMetadata,
-    getWebsiteTitle,
     getSeoMetaBase,
   }
 }
