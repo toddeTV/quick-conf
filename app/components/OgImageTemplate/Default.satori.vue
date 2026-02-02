@@ -23,7 +23,7 @@ const logoSrc = appConfig.general?.logo?.light
     <div class="flex flex-col justify-between h-full" :class="[image ? 'w-2/3 pr-12' : 'w-full']">
       <!-- Top Section -->
       <div class="flex flex-col items-start">
-        <NuxtImg class="mb-16 h-16" :src="logoSrc" />
+        <NuxtImg alt="Logo" class="mb-16 h-16" :src="logoSrc" />
 
         <div v-if="headline" class="text-2xl font-bold text-gray-500 uppercase tracking-widest">
           {{ headline }}
@@ -41,7 +41,7 @@ const logoSrc = appConfig.general?.logo?.light
 
     <!-- Right Image Side (Optional) -->
     <div v-if="image" class="w-1/3 h-full flex items-center justify-center">
-      <NuxtImg class="w-full h-full object-cover rounded-3xl" :src="image" />
+      <NuxtImg alt="Optional Image" class="w-full h-full object-cover rounded-3xl" :src="image" />
     </div>
   </div>
 </template>
