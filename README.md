@@ -71,6 +71,7 @@ _(excluding those listed in `./package.json`)_
 - [Pravatar](https://pravatar.cc/) was used to provide placeholder avatars for development, licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/) (Public Domain).
 - [Unsplash](https://unsplash.com/) was used to provide example images for development, licensed under the [Unsplash License](https://unsplash.com/license) (free for commercial and non-commercial purposes with no attribution needed).
 - [Picsum Photos](https://picsum.photos/) was used for placeholder images during development.
+- [placehold.co](https://placehold.co/) was used for placeholder images and logos that contain custom text during development.
 
 **Assets & Materials Used:**<br>
 _(including images & 3D models; mostly only those requiring attribution)_
