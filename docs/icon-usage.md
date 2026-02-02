@@ -11,3 +11,4 @@ _Tip_: Favorite them and use the search over all item collections at once: https
 | `Lucide`                | `lucide`       | ISC License (commercial use allowed, no attribution required) |                  |
 | `Material Design Icons` | `mdi`          | Apache 2.0 (commercial use allowed, no attribution required)  |                  |
 | `Simple Icons`          | `simple-icons` | CC0 1.0 (public domain, no attribution required)              | Brand logos only |
+| `Noto Emojis`           | `noto`         | Apache 2.0 (commercial use allowed, no attribution required)  | Classic Emojis   |
