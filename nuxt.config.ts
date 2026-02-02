@@ -105,6 +105,29 @@ export default defineNuxtConfig({
     name: customConfig.general.conferenceName,
   },
 
+  robots: { // for `robots` (included in `@nuxtjs/seo`)
+    groups: [
+      {
+        userAgent: [
+          'GPTBot',
+          'CCBot',
+          'Google-Extended',
+          'AnthropicAI',
+          'Claude-Web',
+          'Omgilibot',
+          'FacebookBot',
+        ],
+        disallow: ['/'],
+      },
+      {
+        userAgent: '*',
+        allow: '/',
+        contentUsage: 'bots=y, train-ai=n',
+        contentSignal: 'ai-train=no, search=yes',
+      },
+    ],
+  },
+
   ogImage: { // for `nuxt-og-image` (included in `@nuxtjs/seo`)
     componentDirs: [
       // 'OgImage',
