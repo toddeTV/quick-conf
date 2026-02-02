@@ -104,4 +104,11 @@ export default defineNuxtConfig({
     url: customConfig.general.siteUrl,
     name: customConfig.general.conferenceName,
   },
+
+  ogImage: { // for `nuxt-og-image` (included in `@nuxtjs/seo`)
+    componentDirs: [
+      // 'OgImage',
+      'OgImageTemplate',
+    ],
+  },
 })
