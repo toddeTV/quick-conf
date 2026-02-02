@@ -6,7 +6,7 @@ order: 4
 
 # Location & Venue
 
-The location information displayed on the landing page and footer is configured in `content/0.custom-config.json`.
+The location information displayed on the landing page and footer can be configured visually using **Nuxt Studio** in the `0.custom-config` settings.
 
 ## Best Practice
 

@@ -6,16 +6,4 @@ order: 2
 
 # Configuring Tickets
 
-Tickets are defined in `content/tickets/`.
-
-## Structure
-
-Each ticket is a YAML file defining:
-
-- Price
-- Features (list)
-- Link to purchase
-
-## Demo Data
-
-The tickets you see on the landing page are defined in the content folder. Feel free to modify them.
+Tickets are managed via the **Tickets** collection. We recommend using **Nuxt Studio** to create and edit tickets visually.

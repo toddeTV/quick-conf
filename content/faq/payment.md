@@ -10,8 +10,11 @@ This template front-end can link to any ticket provider.
 
 ## Integration
 
-1. Edit `content/tickets/*.yml`.
-2. Set the `button.to` field to your external ticket provider URL (e.g., Stripe Payment Link, Eventbrite, Tito).
+We recommend managing your tickets visually using **Nuxt Studio**.
+
+1. Open your project in Nuxt Studio.
+2. Navigate to the **Tickets** collection.
+3. Edit your tickets and set the `To` field in the button section to your external ticket provider URL (e.g., Stripe Payment Link, Eventbrite, Tito).
 
 ## Free Events
 
