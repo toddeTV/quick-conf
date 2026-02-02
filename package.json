@@ -80,7 +80,6 @@
     "luxon": "~3.7.2",
     "npm-run-all2": "~8.0.4",
     "nuxi": "~3.32.0",
-    "nuxt-og-image": "6.0.0-beta.9",
     "nuxt-studio": "~1.2.0",
     "renovate": "~42.92.13",
     "rimraf": "~6.1.2",
@@ -105,9 +104,6 @@
     ],
     "patchedDependencies": {
       "nuxt-studio": "patches/nuxt-studio.patch"
-    },
-    "overrides": {
-      "@nuxt/fonts": "~0.13.0"
     }
   }
 }
