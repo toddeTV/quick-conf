@@ -69,6 +69,7 @@
     "@nuxt/eslint": "~1.13.0",
     "@nuxt/image": "~2.0.0",
     "@nuxt/ui": "~4.4.0",
+    "@nuxtjs/seo": "~3.4.0",
     "@types/lodash-es": "~4.17.12",
     "@types/luxon": "~3.7.1",
     "better-sqlite3": "~12.6.2",
