@@ -7,14 +7,14 @@ This is a **completely free** template for quickly setting up a new Conference o
 
 ## 🚀 Key Features
 
+- **🎨 Customizable**: Fully theming via Nuxt UI and configuration files - your colors, your style!
+- **📝 CMS Integration**: Nuxt Studio ready for visual editing - directly in the browser!
 - **⚡ Modern Stack**: Nuxt 4, Vue 3, Tailwind CSS v4, TypeScript.
-- **📝 CMS Integration**: Nuxt Studio ready for visual editing.
 - **🔍 SEO Ready**: Pre-configured with:
   - ✅ Automatic **Sitemap** (`/sitemap.xml`)
   - ✅ Dynamic **OG Images** (Social Cards) for speakers, talks & pages
   - ✅ Smart **Robots.txt** (Blocks AI Bots, permits legitimate crawlers)
   - ✅ JSON-LD Structured Data
-- **🎨 Customizable**: Theming via Nuxt UI and configuration files.
 
 ## 🌐 Live Demo
 
