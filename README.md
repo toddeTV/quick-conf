@@ -5,6 +5,17 @@ This is a **completely free** template for quickly setting up a new Conference o
 > [!NOTE]
 > While the template and tools are free, hosting and deployment costs are not included and depend on your chosen provider.
 
+## 🚀 Key Features
+
+- **⚡ Modern Stack**: Nuxt 4, Vue 3, Tailwind CSS v4, TypeScript.
+- **📝 CMS Integration**: Nuxt Studio ready for visual editing.
+- **🔍 SEO Ready**: Pre-configured with:
+  - ✅ Automatic **Sitemap** (`/sitemap.xml`)
+  - ✅ Dynamic **OG Images** (Social Cards) for speakers, talks & pages
+  - ✅ Smart **Robots.txt** (Blocks AI Bots, permits legitimate crawlers)
+  - ✅ JSON-LD Structured Data
+- **🎨 Customizable**: Theming via Nuxt UI and configuration files.
+
 ## Sponsoring
 
 If you like this project and want to support me, I would be very happy to see you as a sponsor on GitHub ❤️<br>
