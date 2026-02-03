@@ -1,0 +1,10 @@
+title: Home
+description: Welcome
+seo:
+  title: Home
+  description: Welcome
+blocks:
+  - component: AppLandingHero
+    title: Conference Name
+    description: Tagline
+    headline: Headline

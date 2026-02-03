@@ -1,0 +1,37 @@
+@theme static {
+  /* Font */
+  --font-sans: 'Public Sans', sans-serif;
+
+  /* Define custom brand color palette */
+  --color-brand-50: #fff6ed;
+  --color-brand-100: #ffead4;
+  --color-brand-200: #ffd1a8;
+  --color-brand-300: #ffb071;
+  --color-brand-400: #ff914d;
+  --color-brand-500: #fe6211;
+  --color-brand-600: #ef4707;
+  --color-brand-700: #c63208;
+  --color-brand-800: #9d290f;
+  --color-brand-900: #7e2410;
+  --color-brand-950: #440f06;
+}
+
+/* light mode */
+:root {
+  /* Backgrounds */
+  --ui-bg: white;
+  --ui-bg-muted: var(--ui-color-neutral-50);
+  --ui-bg-elevated: var(--ui-color-neutral-100);
+  --ui-bg-accented: var(--ui-color-neutral-200);
+  --ui-bg-inverted: var(--ui-color-neutral-900);
+}
+
+/* dark mode */
+.dark {
+  /* Backgrounds */
+  --ui-bg: var(--ui-color-neutral-900);
+  --ui-bg-muted: var(--ui-color-neutral-800);
+  --ui-bg-elevated: var(--ui-color-neutral-800);
+  --ui-bg-accented: var(--ui-color-neutral-700);
+  --ui-bg-inverted: white;
+}

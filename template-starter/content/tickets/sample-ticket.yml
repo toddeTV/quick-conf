@@ -1,0 +1,13 @@
+slug: sample-ticket
+title: Sample Ticket Title
+description: Some description.
+price: $20
+discount: $10
+features:
+  - Entry
+  - Seat
+button:
+  label: Use Template
+  to: https://github.com/toddeTV/quick-conf
+  target: _blank
+scale: false

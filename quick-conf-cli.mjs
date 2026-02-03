@@ -96,6 +96,7 @@ function cleanupTemplateFiles() {
   const toDelete = [
     // folders
     '.github',
+    'content',
     'docs',
 
     // files
@@ -112,6 +113,20 @@ function cleanupTemplateFiles() {
       fs.rmSync(itemPath, { recursive: true, force: true })
       log(`Deleted ${item}`, 'info')
     }
+  }
+
+  // Move starter content
+  const starterPath = path.join(process.cwd(), 'template-starter')
+  if (fs.existsSync(starterPath)) {
+    log('Setting up starter content...', 'info')
+
+    // Copy starter content to root, overwriting existing files
+    fs.cpSync(starterPath, process.cwd(), { recursive: true, force: true })
+
+    // Remove starter folder
+    fs.rmSync(starterPath, { recursive: true, force: true })
+
+    log('Starter content set up.', 'info')
   }
 }
 
@@ -158,9 +173,9 @@ async function showLicenseWarning() {
   console.log(`\n${'='.repeat(50)}`)
   log('LICENSE COMPLIANCE WARNING', 'warn')
   console.log('='.repeat(50))
-  console.log('The /content and /public folders in this template contain example data,')
+  console.log('The \'/content\' and \'/public\' folders in this template contain example data,')
   console.log('including images and text, which are not covered under the MIT license of the code.')
-  console.log('\nImportant: You must replace all example content in the /content and /public')
+  console.log('\nImportant: You must replace all example content in \'/content\' and \'/public\'')
   console.log('folders with your own assets and information to ensure you are not infringing')
   console.log('on any copyrights or usage rights associated with the placeholder data.')
   console.log('\nNote: The files public/robots.txt and public/custom-styles.css must exist')
