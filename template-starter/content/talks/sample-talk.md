@@ -5,7 +5,7 @@ title: Talk Title
 speakers:
   - sample-speaker
 dateTime: 2042-04-01T09:00:00.000Z
-duration: 30
+duration: 45
 stage: main-stage
 ---
 
