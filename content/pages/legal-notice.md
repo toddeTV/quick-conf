@@ -1,31 +1,21 @@
 ---
 title: Legal Notice
-description: Legal information and disclaimer
+description: Legal Notice
 ---
 
-<UPageHeader title="Legal Notice" />
+# Legal Notice
 
-## Publisher
+**This is a demo website.**
 
-QuickConf Organization
-Conference Street 42
-12345 Sampletown
-Germany
+The content provided here is for demonstration purposes only.
 
-**Email:** [info@quickconf.example](mailto:info@quickconf.example)
+## Responsibility
 
-## Represented by
-
-Jane Doe, Conference Director
-
-## VAT ID
-
-DE123456789
+Provider:<br>
+ToddeTV<br>
+Example Street 123<br>
+12345 Amsterdam
 
 ## Disclaimer
 
-All content on this website is provided for informational purposes only. We make no guarantees regarding accuracy or completeness.
-
-## Copyright
-
-© 2025 QuickConf Organization. All rights reserved.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

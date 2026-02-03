@@ -14,7 +14,7 @@ jobs:
     name: Validate PR Title
     # Only runs this job on pull_request events, no need to run on push events
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       pull-requests: read
     steps:
@@ -25,7 +25,7 @@ jobs:
   # This job runs all tests and checks using a matrix strategy
   run-checks:
     name: ${{ matrix.name }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: validate-pr
     # The matrix strategy allows running different test configurations in parallel to run all, even if one fails
     strategy:
@@ -68,7 +68,7 @@ jobs:
   # This job acts as a single, final status check for branch protection.
   all_checks_passed:
     name: All Validations & Tests Passed
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # We need to run this job regardless of the outcome of the dependent jobs
     # to be able to report a failure.
     if: always()

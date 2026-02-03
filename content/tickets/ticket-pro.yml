@@ -1,0 +1,14 @@
+slug: ticket-pro
+title: Pro Dryer Pass
+description: Complete access to the Quick Conf Template features.
+price: $999
+discount: $0
+features:
+  - Front-row Seating
+  - Access to Nuxt Studio
+  - Full Source Code
+button:
+  label: Use Template
+  to: https://github.com/toddeTV/quick-conf
+  target: _blank
+scale: false

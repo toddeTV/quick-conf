@@ -1,40 +1,21 @@
 ---
-title: Payment
-description: Information about payment methods and invoices
-order: 4
+title: Payment Providers
+description: How to accept payments
+order: 5
 ---
 
-# Payment
+# Ticket Sales & Payments
 
-## Which payment methods are accepted?
+This template front-end can link to any ticket provider.
 
-We accept the following payment methods:
+## Integration
 
-- Credit card (Visa, Mastercard, American Express)
-- PayPal
-- Bank transfer (only for group orders of 5+ tickets)
-- Apple Pay / Google Pay
+We recommend managing your tickets visually using **Nuxt Studio**.
 
-## Will I receive an invoice?
+1. Open your project in Nuxt Studio.
+2. Navigate to the **Tickets** collection.
+3. Edit your tickets and set the `To` field in the button section to your external ticket provider URL (e.g., Stripe Payment Link, Eventbrite, Tito).
 
-Yes, after successful payment you will automatically receive an invoice via email. You can also download it at any time from your customer account.
+## Free Events
 
-## Can my employer receive the invoice?
-
-Yes! During checkout, you can enter a different billing address. Enter your company details there, and the invoice will be issued accordingly.
-
-## What happens if I cancel?
-
-- **Up to 30 days before the event:** Full refund
-- **15-30 days before:** 50% refund
-- **Less than 15 days:** No refund, but rebooking possible
-
-## Are there group discounts?
-
-Yes! When booking 5 or more tickets, we offer the following discounts:
-
-- 5-9 tickets: 10% discount
-- 10-19 tickets: 15% discount
-- 20+ tickets: 20% discount
-
-For group orders, please contact us at [tickets@quickconf.example](mailto:tickets@quickconf.example).
+If your event is free, point the link to a registration form.

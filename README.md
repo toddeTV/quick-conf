@@ -7,20 +7,50 @@ This is a **completely free** template for quickly setting up a new Conference o
 
 ## 🚀 Key Features
 
+- **🎨 Customizable**: Fully theming via Nuxt UI and configuration files - your colors, your style!
+- **📝 CMS Integration**: Nuxt Studio ready for visual editing - directly in the browser!
 - **⚡ Modern Stack**: Nuxt 4, Vue 3, Tailwind CSS v4, TypeScript.
-- **📝 CMS Integration**: Nuxt Studio ready for visual editing.
 - **🔍 SEO Ready**: Pre-configured with:
   - ✅ Automatic **Sitemap** (`/sitemap.xml`)
   - ✅ Dynamic **OG Images** (Social Cards) for speakers, talks & pages
   - ✅ Smart **Robots.txt** (Blocks AI Bots, permits legitimate crawlers)
   - ✅ JSON-LD Structured Data
-- **🎨 Customizable**: Theming via Nuxt UI and configuration files.
+
+## 🌐 Live Demo
+
+You can find a deployed version of this template to test and view here:
+
+> 🔗 [https://quick-conf.com/](https://quick-conf.com/)
+
+<details>
+<summary>📸 Screenshots</summary>
+
+_The main landing page showcasing the flexible block system:_
+![Landing Page](docs/assets/README/landing-page.png)
+
+_The interactive conference schedule with stages and talks:_
+![Schedule](docs/assets/README/schedule.png)
+
+_A clear overview of available ticket categories and pricing:_
+![Tickets](docs/assets/README/tickets.png)
+
+_The FAQ section for attendee questions:_
+![FAQ](docs/assets/README/faq.png)
+
+</details>
 
 ## Sponsoring
 
-If you like this project and want to support me, I would be very happy to see you as a sponsor on GitHub ❤️<br>
+If you like this project and want to support me, I would be thrilled to see you as a sponsor on GitHub ❤️<br>
 You can find the `Sponsor` button on the top right of the [GitHub project page](https://github.com/toddeTV/quick-conf).<br>
-Thanks a lot for the support <3
+Thank you for the support <3
+
+It also helps me a lot if you follow me on social media and stay up to date with my latest projects! ❤️
+
+- [GitHub](https://github.com/toddeTV/)
+- [X (Twitter)](https://x.com/toddeTV)
+- [Bluesky](https://bsky.app/profile/todde.tv)
+- [LinkedIn](https://www.linkedin.com/in/toddetv/)
 
 ## Documentation
 
@@ -47,6 +77,10 @@ Check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
 ### Current Core Team Members
 
 - [Thorsten Seyschab](https://todde.tv) as Project Founder & Lead.
+  - [GitHub](https://github.com/toddeTV/)
+  - [X (Twitter)](https://x.com/toddeTV)
+  - [Bluesky](https://bsky.app/profile/todde.tv)
+  - [LinkedIn](https://www.linkedin.com/in/toddetv/)
 
 ### Acknowledgments
 
@@ -71,6 +105,7 @@ _(excluding those listed in `./package.json`)_
 - [Pravatar](https://pravatar.cc/) was used to provide placeholder avatars for development, licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/) (Public Domain).
 - [Unsplash](https://unsplash.com/) was used to provide example images for development, licensed under the [Unsplash License](https://unsplash.com/license) (free for commercial and non-commercial purposes with no attribution needed).
 - [Picsum Photos](https://picsum.photos/) was used for placeholder images during development.
+- [placehold.co](https://placehold.co/) was used for placeholder images and logos that contain custom text during development.
 
 **Assets & Materials Used:**<br>
 _(including images & 3D models; mostly only those requiring attribution)_

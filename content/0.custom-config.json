@@ -29,21 +29,22 @@
       "column2": {
         "links": [
           {
-            "name": "some link without icon",
-            "url": "/"
+            "icon": "i-lucide-github",
+            "name": "Template Documentation",
+            "url": "https://github.com/toddeTV/quick-conf/tree/main/docs"
           },
           {
-            "icon": "i-lucide-house",
-            "name": "some link with icon",
-            "url": "/"
+            "icon": "i-lucide-github",
+            "name": "GitHub Repository",
+            "url": "https://github.com/toddeTV/quick-conf"
           },
           {
             "icon": "i-simple-icons-x",
-            "name": "external links also work",
+            "name": "Follow the Author",
             "url": "https://x.com/toddeTV"
           }
         ],
-        "title": "About This Conference"
+        "title": "About This Template"
       },
       "column4": {
         "socials": [
@@ -69,7 +70,7 @@
   },
   "general": {
     "conferenceFoundingYear": 2025,
-    "conferenceName": "CONF",
+    "conferenceName": "Quick Conf",
     "favicon": {
       "dark": "/favicon/favicon.svg",
       "light": "/favicon/favicon.svg"
@@ -78,8 +79,8 @@
       "dark": "/logo/dark.svg",
       "light": "/logo/light.svg"
     },
-    "siteUrl": "https://todde.tv",
-    "timeZone": "Europe/Berlin"
+    "siteUrl": "https://quick-conf.com",
+    "timeZone": "Europe/Amsterdam"
   },
   "nuxtStudio": {
     "i18n": {
@@ -87,9 +88,9 @@
     },
     "repository": {
       "branch": "main",
-      "owner": "your-org",
+      "owner": "toddeTV",
       "provider": "github",
-      "repo": "your-repo"
+      "repo": "quick-conf"
     }
   },
   "nuxtUI": {

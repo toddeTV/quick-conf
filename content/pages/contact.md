@@ -1,23 +1,16 @@
 ---
 title: Contact
-description: Get in touch with the QuickConf team
+description: Get in touch
 ---
 
-<UPageHeader title="Contact" description="Have questions? We're here to help!" />
+# Contact
 
-## Email
+This is a demo site for the Quick Conf Template.
 
-- **General inquiries:** [info@quickconf.example](mailto:info@quickconf.example)
-- **Sponsorship:** [sponsors@quickconf.example](mailto:sponsors@quickconf.example)
-- **Speaker support:** [speakers@quickconf.example](mailto:speakers@quickconf.example)
+## Template Inquiries
 
-## Address
+If you have questions about the template, please visit the <NuxtLink to="https://github.com/toddeTV/quick-conf" target="_blank">GitHub Repository</NuxtLink>.
 
-QuickConf Organization
-Conference Street 42
-12345 Sampletown
-Germany
+## Demo Event
 
-## Response Time
-
-We typically respond within 2 business days.
+The International Society for Watching Paint Dry is a fictional organization. Please do not attempt to contact us about drying times.

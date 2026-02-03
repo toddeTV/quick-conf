@@ -9,7 +9,7 @@ on:
 jobs:
   release_please:
     name: Release Please Job
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
       pull-requests: write
@@ -36,7 +36,7 @@ jobs:
   bump_dev_version:
     needs: release_please
     if: ${{ needs.release_please.outputs.release_created }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
       pull-requests: write
