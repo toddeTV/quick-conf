@@ -135,6 +135,7 @@ function cleanupTemplateFiles(projectName) {
     // files
     '.coderabbit.yml',
     '.release-please-manifest.json',
+    'CONTRIBUTING.md',
     'LICENSE.md',
     'README.md',
     'release-please-config.json',
