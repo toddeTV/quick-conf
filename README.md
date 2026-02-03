@@ -41,9 +41,9 @@ _The FAQ section for attendee questions:_
 
 ## Sponsoring
 
-If you like this project and want to support me, I would be very happy to see you as a sponsor on GitHub ❤️<br>
+If you like this project and want to support me, I would be thrilled to see you as a sponsor on GitHub ❤️<br>
 You can find the `Sponsor` button on the top right of the [GitHub project page](https://github.com/toddeTV/quick-conf).<br>
-Thanks a lot for the support <3
+Thank you for the support <3
 
 It also helps me a lot if you follow me on social media and stay up to date with my latest projects! ❤️
 
