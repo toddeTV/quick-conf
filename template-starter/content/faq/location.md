@@ -3,4 +3,6 @@ title: Location
 order: 2
 ---
 
-Location details
+# Location
+
+Details to the location & venue.
