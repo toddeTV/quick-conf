@@ -1,4 +1,4 @@
-# My Conference
+# ConferenceNamePlaceholder
 
 This website is built with the **Quick Conf Template**.
 

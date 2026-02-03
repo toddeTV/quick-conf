@@ -89,9 +89,41 @@ function clearDirectory() {
 }
 
 /**
- * Cleans up template-specific files after installation.
+ * Recursively replaces a string in all files within a directory.
+ * @param {string} dir - The directory to search in.
+ * @param {string} search - The string to search for.
+ * @param {string} replacement - The string to replace with.
  */
-function cleanupTemplateFiles() {
+function replaceStringInDirectory(dir, search, replacement) {
+  if (!fs.existsSync(dir))
+    return
+  const files = fs.readdirSync(dir)
+  for (const file of files) {
+    const filePath = path.join(dir, file)
+    const stat = fs.statSync(filePath)
+    if (stat.isDirectory()) {
+      replaceStringInDirectory(filePath, search, replacement)
+    }
+    else {
+      try {
+        let content = fs.readFileSync(filePath, 'utf-8')
+        if (content.includes(search)) {
+          content = content.replaceAll(search, replacement)
+          fs.writeFileSync(filePath, content, 'utf-8')
+        }
+      }
+      catch {
+        // ignore binary files or errors
+      }
+    }
+  }
+}
+
+/**
+ * Cleans up template-specific files after installation.
+ * @param {string} [projectName] - The project name to replace placeholders with.
+ */
+function cleanupTemplateFiles(projectName) {
   log('Cleaning up template files...', 'info')
   const toDelete = [
     // folders
@@ -121,6 +153,11 @@ function cleanupTemplateFiles() {
   if (fs.existsSync(starterPath)) {
     log('Setting up starter content...', 'info')
 
+    if (projectName) {
+      log(`Replacing placeholders with "${projectName}"...`, 'info')
+      replaceStringInDirectory(starterPath, 'ConferenceNamePlaceholder', projectName)
+    }
+
     // Copy starter content to root, overwriting existing files
     fs.cpSync(starterPath, process.cwd(), { recursive: true, force: true })
 
@@ -133,13 +170,14 @@ function cleanupTemplateFiles() {
 
 /**
  * Configures the project by asking for the name and clearing metadata.
+ * @returns {Promise<string|null>} The user entered project name.
  */
 async function configureProject() {
   log('Configuring project...', 'info')
   const pkgPath = path.join(process.cwd(), 'package.json')
   if (!fs.existsSync(pkgPath)) {
     log('package.json not found, skipping configuration.', 'warn')
-    return
+    return null
   }
 
   let pkg
@@ -148,13 +186,14 @@ async function configureProject() {
   }
   catch (e) {
     log(`Failed to parse package.json: ${e.message}`, 'error')
-    return
+    return null
   }
 
   const projectName = await askQuestion('Enter the name of your project: ')
+  const pkgName = projectName.toLowerCase().replace(/\s+/g, '-')
 
   // Update package.json fields
-  pkg.name = projectName
+  pkg.name = pkgName
   pkg.author = ''
   pkg.contributors = []
   pkg.description = ''
@@ -164,7 +203,9 @@ async function configureProject() {
   delete pkg.isQuickConfTemplate
 
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
-  log(`Updated package.json with name "${projectName}" and cleared metadata.`, 'success')
+  log(`Updated package.json with name "${pkgName}" and cleared metadata.`, 'success')
+
+  return projectName
 }
 
 /**
@@ -553,8 +594,8 @@ async function freshInstall(isTemplateClone = false) {
     log('Installation files downloaded.', 'success')
 
     // Post-install cleanup and config
-    cleanupTemplateFiles()
-    await configureProject()
+    const projectName = await configureProject()
+    cleanupTemplateFiles(projectName)
     await showLicenseWarning()
 
     const installDeps = await askQuestion(`Do you want to run "${PACKAGE_MANAGER} install"? (y/N): `)
