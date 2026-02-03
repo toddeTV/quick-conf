@@ -98,6 +98,7 @@ function cleanupTemplateFiles() {
     '.github',
     'content',
     'docs',
+    'public',
 
     // files
     '.coderabbit.yml',
