@@ -1,57 +1,51 @@
-title: Welcome to Your Next Conference
-description: This is a modern, feature-rich, and easily customizable template for your next conference or meetup. Built with Nuxt 4, it provides everything you need to get started.
+title: The Ultimate Conference Template
+description: A completely free, modern, and feature-rich conference and meetup template. Enjoy a free Git-based CMS with visual editing and live previews directly in your browser - perfect for non-technical organizers. Powered with Nuxt 4, Vue 3, Nuxt Studio, Nuxt UI, Tailwind CSS v4, and more cutting-edge tech.
 seo:
-  title: A Nuxt 4 Conference Template
-  description: A modern, feature-rich conference template powered by Nuxt Studio. Enjoy a Git-based CMS with visual editing and live previews directly in your browser.
+  title: The Ultimate Conference Template
+  description: A completely free, modern, and feature-rich conference and meetup template. Enjoy a free Git-based CMS with visual editing and live previews directly in your browser - perfect for non-technical organizers. Powered with Nuxt 4, Vue 3, Nuxt Studio, Nuxt UI, Tailwind CSS v4, and more cutting-edge tech.
 blocks:
   - component: AppLandingHero
-    title: Welcome to Your Next Conference
-    description: A completely free, modern, and feature-rich conference template powered by Nuxt Studio. Enjoy a free Git-based CMS with visual editing and live previews directly in your browser - perfect for non-technical organizers to manage content seamlessly.
-    headline: Annual Tech Summit
+    title: The Ultimate Conference Template
+    description: A completely free, modern, and feature-rich conference and meetup template. Enjoy a free Git-based CMS with visual editing and live previews directly in your browser - perfect for non-technical organizers.
+    headline: Quick Conf Template
     links:
-      - label: Buy Your Ticket
-        icon: i-lucide-ticket
+      - label: Get the Template
+        icon: i-lucide-github
         trailing: false
-        # color: primary
-        # variant: solid
         size: xl
-        to: /tickets
-        # target: _blank
-      - label: View Schedule
-        icon: i-lucide-calendar
+        to: https://github.com/toddeTV/quick-conf
+        target: _blank
+      - label: Explore Demo Content
+        icon: i-lucide-telescope
         trailing: false
         color: neutral
         variant: subtle
         size: xl
         to: /schedule
-        # target: _blank
   - component: AppLandingSeparator
   - component: AppLandingMetaInfo
-    # title: Event Details
-    # description: Key information about the upcoming conference.
-    # headline: At a Glance
     class: md:-my-[70px] relative z-10
     items:
       - icon: i-lucide-calendar
-        text: October 15-17, 2026
+        text: April 1st, 2042
         label: Date
       - icon: i-lucide-map-pin
         text: Amsterdam, NL
         label: Location
       - icon: i-lucide-users
-        text: 500+ Attendees
+        text: 10k+ Watchers
         label: Capacity
       - icon: i-lucide-mic-2
         text: 30+ Speakers
-        label: Content
+        label: Speakers
   - component: AppLandingSeparator
   - component: AppLandingSpeakers
     title: Our Esteemed Speakers
-    description: We are excited to present a lineup of distinguished speakers who are experts in their fields.
-    headline: Featured Speakers
+    description: These are fictional speakers generated to demonstrate the layout.
+    headline: Featured Drying Experts
   - component: AppLandingHeroMedia
     title: Experience the Vibe
-    description: Immerse yourself in the atmosphere of our previous events.
+    description: This component showcases how you can display event atmosphere.
     headline: Atmosphere
     overlayOpacity: 0.4
     image:
@@ -64,10 +58,10 @@ blocks:
         size: lg
         to: '#'
   - component: AppLandingHeroCountdown
-    title: Countdown to Launch
-    description: The big event is coming soon. Mark your calendars!
+    title: Countdown to Dryness
+    description: The most anticipated non-event of the century.
     headline: Save the Date
-    targetDate: '2026-10-15T10:00:00Z'
+    targetDate: '2042-04-01T10:00:00Z'
     links:
       - label: Add to Calendar
         icon: i-lucide-calendar-plus
@@ -76,153 +70,140 @@ blocks:
         to: '#'
 
   - component: AppLandingSection
-    title: Discover a World of Innovation
-    description: Join us for an unforgettable experience where industry leaders, experts, and enthusiasts come together to share their knowledge and passion. Explore the latest trends and network with peers.
-    headline: Innovation
+    title: Built with Modern Tech
+    description: This template leverages the latest Vue ecosystem tools to provide a top-tier developer experience and blazing fast performance.
+    headline: Tech Stack
     orientation: horizontal
     features:
-      - title: Expert Speakers
-        description: Learn from the best in the industry with a lineup of world-class speakers.
-        icon: i-lucide-users
-      - title: Networking Opportunities
-        description: Connect with fellow attendees, speakers, and sponsors to build valuable relationships.
-        icon: i-lucide-contact
-      - title: Hands-on Workshops
-        description: Participate in interactive workshops to gain practical skills and knowledge.
-        icon: i-lucide-wrench
+      - title: Nuxt 4 & Vue 3
+        description: Built on the cutting-edge Nuxt 4 framework with Composition API and TypeScript.
+        icon: i-simple-icons-nuxtdotjs
+      - title: Tailwind CSS v4
+        description: Styled with the latest Tailwind engine for minimal CSS and maximum flexibility.
+        icon: i-simple-icons-tailwindcss
+      - title: Nuxt Content & Nuxt Studio
+        description: A Git-based headless CMS that lets you write in Markdown and YAML.
+        icon: i-lucide-file-text
     image:
       src: https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=700&auto=format
-      alt: A speaker presenting on a stage at a conference.
+      alt: Coding on laptop
   - component: AppLandingSection
-    title: Why You Should Attend
-    description: Our conference is designed to provide maximum value to attendees. Whether you are a beginner or an expert, you will find something to learn and enjoy.
+    title: Designed for Organizers
+    description: You don't need to be a developer to manage your conference website. We have optimized everything for ease of use.
     headline: Benefits
     orientation: horizontal
     reverse: true
     features:
-      - title: Diverse Topics
-        description: From cutting-edge technologies to best practices, our sessions cover a wide range of topics.
-        icon: i-lucide-book-open
-      - title: Engaging Sessions
-        description: Our talks, panels, and workshops are designed to be interactive and engaging.
-        icon: i-lucide-presentation
-      - title: Community Building
-        description: Be a part of a vibrant community of like-minded individuals.
-        icon: i-lucide-heart
+      - title: Nuxt Studio Ready
+        description: Edit your content visually with a live preview. No code required for content updates.
+        icon: i-lucide-pen-tool
+      - title: 100% Customizable
+        description: Change colors, fonts, and layout easily via the configuration file.
+        icon: i-lucide-palette
+      - title: SEO Optimized
+        description: Built-in SEO best practices including sitemap, OpenGraph, and schema.org data.
+        icon: i-lucide-search
     image:
       src: https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=700&auto=format
-      alt: A photo of an audience at a conference.
+      alt: Audience
   - component: AppLandingFeatures
-    title: What to Expect at Our Conference
-    description: Our event is packed with features designed to provide a comprehensive and enriching experience for all attendees.
-    headline: Highlights
+    title: Everything You Need
+    description: From speaker management to schedules, we have got you covered.
+    headline: Template Features
     items:
-      - title: Keynote Speeches
-        description: Get inspired by visionary leaders who are shaping the future of the industry.
+      - title: Speaker Profiles
+        description: Dedicated pages for speakers with bios, social links, and related talks.
         icon: i-lucide-mic
-      - title: Technical Deep Dives
-        description: Dive deep into complex topics with our in-depth technical sessions.
-        icon: i-lucide-code
-      - title: Panel Discussions
-        description: Hear from a variety of experts as they discuss and debate important industry topics.
-        icon: i-lucide-messages-square
-      - title: Networking Lounges
-        description: Relax and connect with other attendees in our dedicated networking areas.
-        icon: i-lucide-coffee
-      - title: Sponsor Booths
-        description: Discover new products and services from our amazing sponsors.
-        icon: i-lucide-store
-      - title: After Party
-        description: Unwind and socialize with fellow attendees at our official after-party.
-        icon: i-lucide-party-popper
+      - title: Schedule Grid
+        description: A responsive, multi-track schedule view that handles complex agendas.
+        icon: i-lucide-calendar-clock
+      - title: Blog / News
+        description: Keep your attendees updated with a built-in blog section.
+        icon: i-lucide-newspaper
+      - title: FAQ Section
+        description: Answer common questions with an accordion-style FAQ component.
+        icon: i-lucide-help-circle
+      - title: Sponsor Showcase
+        description: Highlight your partners with categorized sponsor tiers.
+        icon: i-lucide-heart-handshake
+      - title: Ticket Pricing
+        description: Clear pricing tables to drive ticket sales.
+        icon: i-lucide-tag
   - component: AppLandingTestimonials
-    title: A Truly Memorable Experience
-    description: Hear from past attendees about their experiences at our conference.
-    headline: What Our Attendees Say
+    title: Loved by Developers
+    description: See what other fictional and non-existing people could say about the Quick Conf template.
+    headline: Testimonials
     items:
-      - quote: The best conference I have attended this year. The speakers were excellent and the networking opportunities were fantastic. I will definitely be back next year!
+      - quote: Finally a conference template that doesn't look like it was built in 2010.
         user:
-          name: Alex Johnson
-          description: Senior Developer at TechCorp
-          to: https://x.com/toddeTV
+          name: Jessica Design
+          description: UX Lead
+          to: https://github.com/toddeTV/quick-conf
           target: _blank
           avatar:
-            src: https://i.pravatar.cc/120?img=1
-            alt: Avatar of Alex Johnson
-      - quote: An incredibly well-organized event with a great atmosphere. I learned a lot and met some amazing people. Highly recommended!
+            src: https://i.pravatar.cc/120?img=9
+            alt: Avatar of Jessica
+      - quote: This template saved me weeks of work. I had my meetup site up and running in an hour!
         user:
-          name: Samantha Lee
-          description: Product Manager at Innovate Ltd.
-          to: https://x.com/toddeTV
+          name: Sarah Dev
+          description: Meetup Organizer
+          to: https://github.com/toddeTV/quick-conf
           target: _blank
           avatar:
-            src: https://i.pravatar.cc/120?img=2
-            alt: Avatar of Samantha Lee
-      - quote: The workshops were very hands-on and practical. I was able to apply what I learned to my work immediately. Great job!
+            src: https://i.pravatar.cc/120?img=5
+            alt: Avatar of Sarah
+      - quote: The Nuxt Studio integration is a game changer. My content team loves the visual editor.
         user:
-          name: David Chen
-          description: UI/UX Designer at Creative Solutions
-          to: https://x.com/toddeTV
+          name: Mike Manager
+          description: DevRel at TechCo
+          to: https://github.com/toddeTV/quick-conf
           target: _blank
           avatar:
-            src: https://i.pravatar.cc/120?img=3
-            alt: Avatar of David Chen
-      - quote: A must-attend event for anyone in the industry. The quality of the talks and the level of organization were top-notch.
-        user:
-          name: Maria Garcia
-          description: Engineering Manager at Future Systems
-          to: https://x.com/toddeTV
-          target: _blank
-          avatar:
-            src: https://i.pravatar.cc/120?img=4
-            alt: Avatar of Maria Garcia
+            src: https://i.pravatar.cc/120?img=8
+            alt: Avatar of Mike
   - component: AppLandingSponsors
-    title: Our Amazing Sponsors
-    description: We are grateful for the support of our sponsors who make this event possible.
-    headline: Meet Our Partners
+    title: Example Sponsor Grid
+    description: This section demonstrates how to display your sponsors.
+    headline: Partners
     showViewAll: false
-    viewAllLink: /faq/sponsors
+    viewAllLink: /faq/sponsoring
   - component: AppLandingCta
-    title: Ready to Join Us?
-    description: Don't miss out on this opportunity to learn, network, and grow. Get your ticket today!
+    title: Start Building Today
+    description: Clone the repository and launch your conference website in minutes.
     links:
-      - label: Get Your Ticket Now
+      - label: Get the Template
         variant: solid
-        to: /tickets
-        icon: i-lucide-ticket
+        to: https://github.com/toddeTV/quick-conf
+        icon: i-lucide-github
         trailing: false
         size: xl
-      - label: Apply as Speaker
+        target: _blank
+      - label: Read Documentation
         variant: subtle
-        to: /faq/cfp
-        icon: i-lucide-megaphone
+        to: https://github.com/toddeTV/quick-conf/tree/main/docs
+        icon: i-lucide-book
         trailing: false
         size: xl
-      - label: Become a Sponsor
-        variant: subtle
-        to: /sponsors
-        icon: i-lucide-heart
-        trailing: false
-        size: xl
+        target: _blank
   - component: AppLandingMarquee
     direction: left
     speed: 40
     gap: 30
     images:
       - src: https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=700&auto=format
-        alt:
+        alt: Conference Hall
       - src: https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=700&auto=format
-        alt:
+        alt: Audience listening to a presentation
       - src: https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&auto=format
-        alt:
+        alt: Conference crowd in a large hall
       - src: https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&auto=format
-        alt:
+        alt: Large conference hall venue
       - src: https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&auto=format
-        alt:
+        alt: Attendees networking at the event
   - component: AppLandingGallery
-    title: Past Event Highlights
-    description: Check out some photos from our previous conferences.
-    headline: Gallery
+    title: Visual Impressions
+    description: A masonry gallery component to show off your event photos.
+    headline: Gallery Component
     images:
       - src: https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&auto=format
         alt: Conference Hall
@@ -232,16 +213,16 @@ blocks:
         alt: Workshop
   - component: AppLandingFaqPreview
     title: Frequently Asked Questions
-    description: Got questions? We have answers.
+    description: Common questions about using this template.
     headline: FAQ
     link:
       label: View All FAQs
       to: /faq
       variant: outline
     items:
-      - label: What is the refund policy?
-        content: You can get a full refund up to 30 days before the event.
-      - label: Is there a code of conduct?
-        content: Yes, we have a strict code of conduct that all attendees must adhere to.
-      - label: Are meals included?
-        content: Yes, breakfast and lunch are provided on all conference days.
+      - label: Is this template free?
+        content: Yes, Quick Conf is 100% open source and free to use for personal and commercial projects.
+      - label: Do I need to know Vue/Nuxt?
+        content: To customize the code, yes. But to manage content, you can use Nuxt Studio without coding knowledge.
+      - label: Can I change the colors?
+        content: Absolutely! The colors are defined in the configuration file and use Tailwind's color palette.

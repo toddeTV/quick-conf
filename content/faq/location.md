@@ -1,43 +1,20 @@
 ---
-title: Location & Directions
-description: Information about the QuickConf venue
-order: 2
+title: Location & Venue
+description: Configuring the location
+order: 4
 ---
 
-# Location & Directions
+# Location & Venue
 
-## Where does QuickConf take place?
+The location information displayed on the landing page and footer can be configured visually using **Nuxt Studio** in the `0.custom-config` settings.
 
-QuickConf takes place at the **Convention Center Sampletown**.
+## Best Practice
 
-**Address:**
-Conference Street 42
-12345 Sampletown
+List the main location itself with the address. Also list the stages and rooms if you have multiple ones. The template itself allows you to set up stages in the data model. This is used to automatically set up multiple tracks in the schedule. The stages are not printed in an overview for themselves - that way you can use stages as stages, but also as rooms, live streams, etc.
 
-## How do I get to the venue?
+## Example
 
-### By car
+This demo is set in **Amsterdam**, mainly because it's a nice place to watch paint dry.
 
-The convention center has a large parking garage with over 500 spaces. Parking fees are €5 per day for conference attendees.
-
-### By public transport
-
-- **Subway:** Line U3, stop "Convention Center"
-- **Bus:** Lines 42 and 43, stop "Sampletown Center"
-- **Commuter rail:** S1 and S2, stop "Sampletown Main Station" (10 minutes walk)
-
-### By train
-
-From Sampletown Main Station, you can reach the convention center in about 10 minutes on foot or by subway (one stop).
-
-## Is there accessible access?
-
-Yes, the entire convention center is fully accessible. All entrances, elevators, and rooms are wheelchair-friendly.
-
-## Are there hotels nearby?
-
-Yes, we have partnerships with several hotels in the area. Use the code **QUICKCONF2025** for discounted rates:
-
-- Hotel Sampletown (5 min. walk)
-- City Inn (10 min. walk)
-- Business Hotel Central (directly opposite)
+- **Venue**: The Old Paint Factory
+- **Coordinates**: 52.3676, 4.9041
