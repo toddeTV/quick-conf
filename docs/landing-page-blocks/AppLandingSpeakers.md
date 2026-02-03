@@ -24,7 +24,7 @@ blocks:
   - [...]
 
   - component: AppLandingSpeakers
-    title: Meet the Experts
-    description: We are excited to present a lineup of distinguished speakers who are experts in their fields.
-    headline: Featured Speakers
+    title: Meet Experts
+    description: Lineup of distinguished speakers.
+    headline: Speakers
 ```

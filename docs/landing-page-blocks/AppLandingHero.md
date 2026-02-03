@@ -25,11 +25,11 @@ blocks:
   - [...]
 
   - component: AppLandingHero
-    title: Welcome to Your Next Conference
-    description: A completely free, modern, and feature-rich conference template powered by Nuxt Studio. Enjoy a free Git-based CMS with visual editing and live previews directly in your browser - perfect for non-technical organizers to manage content seamlessly.
-    headline: Annual Tech Summit
+    title: Welcome to Conference
+    description: Modern conference template with CMS.
+    headline: Tech Summit
     links:
-      - label: Buy Your Ticket
+      - label: Buy Ticket
         icon: i-lucide-ticket
         trailing: false
         color: primary

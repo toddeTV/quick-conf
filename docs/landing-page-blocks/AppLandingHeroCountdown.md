@@ -36,12 +36,12 @@ blocks:
   - [...]
 
   - component: AppLandingHeroCountdown
-    title: Countdown to Launch
-    description: The big event is coming soon. Mark your calendars!
-    headline: Save the Date
+    title: Launch Countdown
+    description: Event coming soon.
+    headline: Save Date
     targetDate: '2026-10-15T10:00:00Z'
     links:
-      - label: Register Now
+      - label: Register
         icon: i-lucide-ticket
         variant: outline
         size: lg

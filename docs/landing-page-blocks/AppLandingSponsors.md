@@ -26,9 +26,9 @@ blocks:
   - [...]
 
   - component: AppLandingSponsors
-    title: Our Partners
-    description: Thank you to our amazing sponsors.
-    headline: Meet Our Sponsors
+    title: Partners
+    description: Thanks to our sponsors.
+    headline: Sponsors
     showViewAll: true
     viewAllLink: /faq/sponsors
 ```

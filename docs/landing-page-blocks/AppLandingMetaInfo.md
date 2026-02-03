@@ -26,18 +26,18 @@ blocks:
   - [...]
 
   - component: AppLandingMetaInfo
-    title: Event Details
-    description: Key information about the upcoming conference.
-    headline: At a Glance
+    title: Details
+    description: Key info.
+    headline: Overview
     items:
       - icon: i-lucide-calendar
-        text: October 15-17, 2026
+        text: Oct 15-17
         label: Date
       - icon: i-lucide-map-pin
-        text: Amsterdam, NL
+        text: Amsterdam
         label: Location
       - icon: i-lucide-users
-        text: 500+ Attendees
+        text: 500+
         label: Capacity
       - icon: i-lucide-mic-2
         text: 30+ Speakers

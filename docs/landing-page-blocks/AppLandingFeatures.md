@@ -25,26 +25,26 @@ blocks:
   - [...]
 
   - component: AppLandingFeatures
-    title: What to Expect at Our Conference
-    description: Our event is packed with features designed to provide a comprehensive and enriching experience for all attendees.
+    title: What to Expect
+    description: Comprehensive experience for all.
     headline: Highlights
     items:
-      - title: Keynote Speeches
-        description: Get inspired by visionary leaders who are shaping the future of the industry.
+      - title: Keynotes
+        description: Visionary leaders shaping the future.
         icon: i-lucide-mic
-      - title: Technical Deep Dives
-        description: Dive deep into complex topics with our in-depth technical sessions.
+      - title: Tech Deep Dives
+        description: In-depth technical sessions.
         icon: i-lucide-code
-      - title: Panel Discussions
-        description: Hear from a variety of experts as they discuss and debate important industry topics.
+      - title: Panels
+        description: Experts debating industry topics.
         icon: i-lucide-messages-square
-      - title: Networking Lounges
-        description: Relax and connect with other attendees in our dedicated networking areas.
+      - title: Networking
+        description: Connect with other attendees.
         icon: i-lucide-coffee
-      - title: Sponsor Booths
-        description: Discover new products and services from our amazing sponsors.
+      - title: Sponsors
+        description: Discover new products.
         icon: i-lucide-store
       - title: After Party
-        description: Unwind and socialize with fellow attendees at our official after-party.
+        description: Socialize with attendees.
         icon: i-lucide-party-popper
 ```

@@ -29,14 +29,14 @@ blocks:
     speed: 40
     gap: 30
     images:
-      - src: https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=700&auto=format
-        alt: Speaker presenting on the main stage
-      - src: https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=700&auto=format
-        alt: Large audience attending a keynote session
-      - src: https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&auto=format
-        alt: Wide view of the conference hall crowd
-      - src: https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&auto=format
-        alt: Attendees networking during the coffee break
-      - src: https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&auto=format
-        alt: Focused view of a speaker during a workshop session
+      - src: https://images.unsplash.com/photo-1587825...
+        alt: Speaker
+      - src: https://images.unsplash.com/photo-1529070...
+        alt: Audience
+      - src: https://images.unsplash.com/photo-1540575...
+        alt: Hall
+      - src: https://images.unsplash.com/photo-1515187...
+        alt: Networking
+      - src: https://images.unsplash.com/photo-1591115...
+        alt: Workshop
 ```

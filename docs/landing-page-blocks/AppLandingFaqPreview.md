@@ -26,19 +26,19 @@ blocks:
   - [...]
 
   - component: AppLandingFaqPreview
-    title: Frequently Asked Questions
-    description: Answers to common questions.
-    headline: Need Help?
+    title: FAQ
+    description: Common questions.
+    headline: Help
     link:
-      label: View All FAQs
+      label: All FAQs
       to: /faq
       color: neutral
       variant: outline
     items:
-      - label: What is the refund policy?
-        content: You can get a full refund up to 30 days before the event.
-      - label: Is there a code of conduct?
-        content: Yes, we have a strict code of conduct that all attendees must adhere to.
-      - label: Are meals included?
-        content: Yes, breakfast and lunch are provided on all conference days.
+      - label: Refund policy?
+        content: Full refund up to 30 days before.
+      - label: Code of conduct?
+        content: Yes, strict code of conduct.
+      - label: Meals included?
+        content: Breakfast and lunch included.
 ```

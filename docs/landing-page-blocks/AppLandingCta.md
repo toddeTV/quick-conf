@@ -24,10 +24,10 @@ blocks:
   - [...]
 
   - component: AppLandingCta
-    title: Ready to Join Us?
-    description: Don't miss out on this opportunity to learn, network, and grow. Get your ticket today!
+    title: Join Us
+    description: Get your ticket today!
     links:
-      - label: Get Your Ticket Now
+      - label: Get Ticket
         variant: solid
         to: /tickets
         icon: i-lucide-ticket
@@ -39,7 +39,7 @@ blocks:
         icon: i-lucide-megaphone
         trailing: false
         size: xl
-      - label: Become a Sponsor
+      - label: Sponsor Us
         variant: subtle
         to: /sponsors
         icon: i-lucide-heart

@@ -25,8 +25,8 @@ blocks:
   - [...]
 
   - component: AppLandingGallery
-    title: Past Event Highlights
-    description: Check out some photos from our previous conferences.
+    title: Highlights
+    description: Photos from past events.
     headline: Gallery
     images:
       - src: https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&auto=format

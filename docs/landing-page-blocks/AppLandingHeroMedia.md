@@ -28,17 +28,17 @@ blocks:
   - [...]
 
   - component: AppLandingHeroMedia
-    title: Experience the Vibe
-    description: Immerse yourself in the atmosphere of our previous events.
+    title: Experience
+    description: Immerse yourself.
     headline: Atmosphere
     overlayOpacity: 0.4
     image:
-      src: https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3
+      src: https://images.unsplash.com/photo-1540575467063-178a50c2df87
       alt: Event Crowd
     links:
-      - label: Watch Highlights
+      - label: Highlights
         icon: i-lucide-play
         variant: solid
         size: lg
-        to: https://youtube.com/...
+        to: https://youtube.com
 ```

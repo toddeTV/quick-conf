@@ -25,17 +25,15 @@ blocks:
   - [...]
 
   - component: AppLandingTestimonials
-    title: What People Say
-    description: Hear from past attendees about their experiences at our conference.
+    title: Feedback
+    description: Messages from attendees.
     headline: Testimonials
     items:
-      - quote: Best conference I have ever attended!
+      - quote: Best conference ever!
         user:
           name: John Smith
           description: Freelancer
-          to: https://x.com/toddeTV
-          target: _blank
           avatar:
             src: https://i.pravatar.cc/120?img=1
-            alt: Avatar of John Smith
+            alt: Avatar
 ```
