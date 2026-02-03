@@ -33,6 +33,8 @@ blocks:
         user:
           name: John Smith
           description: Freelancer
+          to: https://x.com/...
+          target: _blank
           avatar:
             src: https://i.pravatar.cc/120?img=1
             alt: Avatar

@@ -1,5 +1,5 @@
 ---
-title: FAQ
+title: CFP
 order: 3
 ---
 
