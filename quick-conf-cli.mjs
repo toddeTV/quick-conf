@@ -317,8 +317,7 @@ async function showLicenseWarning() {
   console.log('\nImportant: You must replace all example content in \'/content\' and \'/public\'')
   console.log('folders with your own assets and information to ensure you are not infringing')
   console.log('on any copyrights or usage rights associated with the placeholder data.')
-  console.log('\nNote: The file \'public/custom-styles.css\' must exist')
-  console.log('for the project to function, but you must replace their placeholder content.')
+  console.log('\nNote: The file \'public/custom-styles.css\' must exist.')
   console.log(`${'='.repeat(50)}\n`)
 
   await askQuestion('Press Enter to confirm you have read and understood this warning...')
