@@ -138,10 +138,11 @@ export async function useSchedule() {
   })
 
   // --- Live Time Line ---
-  const now = ref(DateTime.now().setZone(timeZone))
+  const now = ref<DateTime | null>(null)
   let timer: ReturnType<typeof setInterval>
 
   onMounted(() => {
+    now.value = DateTime.now().setZone(timeZone)
     timer = setInterval(() => {
       now.value = DateTime.now().setZone(timeZone)
     }, 60000) // Update every minute
@@ -154,6 +155,10 @@ export async function useSchedule() {
   })
 
   const currentTimeLineStyle = computed(() => {
+    if (!now.value) {
+      return { display: 'none' }
+    }
+
     const currentISO = now.value.toISODate()
     if (currentISO !== activeDayISO.value) {
       return { display: 'none' }
