@@ -195,6 +195,51 @@ function applyTemplateStarter(projectName) {
 }
 
 /**
+ * Deletes package manager lock files to ensure a fresh dependency resolution.
+ */
+function deleteLockFiles() {
+  const lockFiles = ['package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lockb']
+  for (const file of lockFiles) {
+    const filePath = path.join(process.cwd(), file)
+    if (fs.existsSync(filePath)) {
+      try {
+        fs.unlinkSync(filePath)
+      }
+      catch {
+        // ignore
+      }
+    }
+  }
+  log('Deleted existing lock files to ensure fresh installation.', 'info')
+}
+
+/**
+ * Prompts the user to install dependencies.
+ * @returns {Promise<void>}
+ */
+async function promptInstallDependencies() {
+  const installDeps = await askQuestion(`Do you want to run "${PACKAGE_MANAGER} install"? (y/N): `)
+  if (installDeps.toLowerCase() === 'y') {
+    log(`Running ${PACKAGE_MANAGER} install...`)
+    let cmd = `${PACKAGE_MANAGER} install`
+    if (PACKAGE_MANAGER === 'pnpm') {
+      cmd += ' --prefer-offline'
+    }
+    try {
+      execSync(cmd, { stdio: 'inherit' })
+    }
+    catch (e) {
+      log(`Failed to run install: ${e.message}`, 'error')
+    }
+  }
+  else {
+    log('Warning: Dependencies not installed.', 'warn')
+    log('A lock file is required for stable builds and dependencies are needed to run the app.', 'warn')
+    log(`Please run "${PACKAGE_MANAGER} install" manually to generate a lock file.`, 'warn')
+  }
+}
+
+/**
  * Configures the project by asking for the name and clearing metadata.
  * @returns {Promise<string|null>} The user entered project name.
  */
@@ -629,15 +674,8 @@ async function freshInstall(isTemplateClone = false) {
 
     await showLicenseWarning()
 
-    const installDeps = await askQuestion(`Do you want to run "${PACKAGE_MANAGER} install"? (y/N): `)
-    if (installDeps.toLowerCase() === 'y') {
-      log(`Running ${PACKAGE_MANAGER} install...`)
-      let cmd = `${PACKAGE_MANAGER} install`
-      if (PACKAGE_MANAGER === 'pnpm') {
-        cmd += ' --frozen-lockfile --prefer-offline'
-      }
-      execSync(cmd, { stdio: 'inherit' })
-    }
+    deleteLockFiles()
+    await promptInstallDependencies()
 
     log('Fresh installation complete!', 'success')
   }
@@ -782,6 +820,9 @@ async function updateTemplate() {
 
     // Step 8: Delete .update_temp
     fs.rmSync(updateTemp, { recursive: true, force: true })
+
+    deleteLockFiles()
+    await promptInstallDependencies()
 
     log('Update complete!', 'success')
   }
