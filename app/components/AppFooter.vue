@@ -107,6 +107,10 @@ const {
   icon: repositoryIcon,
   label: repositoryLabel,
 } = getRepositoryDetails(appConfig.studio.repository)
+
+function navigateToAdmin() {
+  window.location.href = '/_admin'
+}
 </script>
 
 <template>
@@ -173,8 +177,8 @@ const {
         aria-label="Admin Area"
         color="neutral"
         icon="i-lucide-log-in"
-        to="/_admin"
         variant="ghost"
+        @click="navigateToAdmin"
       />
 
       <UButton
