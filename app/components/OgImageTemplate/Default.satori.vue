@@ -20,14 +20,10 @@
  *    Complex Nuxt plugins or stores (Pinia) are usually not accessible or initialized
  *    in this isolated render process.
  *
- * 4. Tailwind & CSS Variables:
- *    Satori does NOT load global CSS or Nuxt UI's runtime-generated Tailwind config.
- *    Classes like `text-primary-500` or variables like `--ui-bg` (from `custom-styles.css`)
- *    will not work automatically. We must manually resolve these from `app.config` and
- *    `custom-styles.css` and inject them into a local `<style>` block.
+ * 4. CSS Variables:
+ *    We read the configured OG Image colors directly from `appConfig.ogImage`.
+ *    This avoids complex parsing of CSS files and ensures data consistency with Nuxt Studio.
  */
-
-import customStylesRaw from '../../../public/custom-styles.css?raw'
 
 defineOptions({
   inheritAttrs: false, // inherited attrs can mess up satori parser
@@ -41,71 +37,57 @@ defineProps<{
 }>()
 
 const appConfig = useAppConfig()
-
-// We extract the `.satori-root` CSS block from ``custom-styles.css` to get the variables for Satori.
-let ogStyles = ''
-const match = customStylesRaw.match(/\.satori-root\s*\{[\s\S]*?\}/)
-if (match) {
-  ogStyles = match[0]
-}
 </script>
 
 <template>
   <!--
-    We use a wrapper that defines the CSS variables.
-    Satori supports nested style tags or style attributes.
-    We'll direct-bind the background to the variable.
+    We inject the resolved HEX values directly into classes/styles.
+    This bypasses CSS variable resolution issues in Satori.
   -->
-  <div
-    class="w-full h-full flex flex-row p-12 root-container satori-root"
-  >
+  <div class="w-full h-full flex flex-col">
     <style>
-      {{ ogStyles }}
-
       .root-container {
-      /* Bind to the variables defined in .satori-root (from custom-styles.css) */
-      background-color: var(--og-bg-light);
-      color: var(--og-text-light);
+      background-color: {{ appConfig.ogImage.bgLight }};
+      color: {{ appConfig.ogImage.textLight }};
       }
 
       /* Dark mode overrides */
       .dark .root-container {
-      background-color: var(--og-bg-dark);
-      color: var(--og-text-dark);
+      background-color: {{ appConfig.ogImage.bgDark }};
+      color: {{ appConfig.ogImage.textDark }};
       }
 
       .text-primary-resolved {
-      color: var(--og-primary);
+      color: {{ appConfig.ogImage.primary }};
       }
     </style>
 
-    <!-- Left Content Side -->
-    <div class="flex flex-col justify-between h-full" :class="[image ? 'w-2/3 pr-12' : 'w-full']">
-      <!-- Top Section -->
-      <div class="flex flex-col items-start">
-        <img alt="Logo" class="mb-16 h-16 block dark:hidden" :src="appConfig.general?.logo?.dark || ''">
-        <img alt="Logo" class="mb-16 h-16 hidden dark:block" :src="appConfig.general?.logo?.light || ''">
+    <!-- Main Content Container -->
+    <div class="root-container w-full h-full flex flex-row p-12" :class="[image ? 'w-2/3 pr-12' : 'w-full']">
+      <!-- Left Content Side -->
+      <div class="flex flex-col justify-between h-full w-full">
+        <div class="flex flex-col items-start">
+          <img alt="Logo" class="mb-16 h-16 block dark:hidden" :src="appConfig.general?.logo?.dark || ''">
+          <img alt="Logo" class="mb-16 h-16 hidden dark:block" :src="appConfig.general?.logo?.light || ''">
 
-        <pre>empty</pre>
-        <pre>{{ ogStyles }}</pre>
+          <div v-if="headline" class="text-2xl font-bold uppercase tracking-widest text-primary-resolved">
+            {{ headline }}
+          </div>
 
-        <div v-if="headline" class="text-2xl font-bold uppercase tracking-widest text-primary-resolved">
-          {{ headline }}
+          <h1 class="text-6xl font-bold leading-tight mb-6 -mt-1 text-primary-resolved">
+            {{ title }}
+          </h1>
+
+          <p v-if="description" class="text-2xl font-medium leading-normal line-clamp-4">
+            {{ description }}
+          </p>
         </div>
-
-        <h1 class="text-6xl font-bold leading-tight mb-6 -mt-1 text-primary-resolved">
-          {{ title }}
-        </h1>
-
-        <p v-if="description" class="text-2xl font-medium leading-normal line-clamp-4">
-          {{ description }}
-        </p>
       </div>
-    </div>
 
-    <!-- Right Image Side (Optional) -->
-    <div v-if="image" class="w-1/3 h-full flex items-center justify-center">
-      <img alt="Optional Image" class="w-full h-full object-cover rounded-3xl" :src="image">
+      <!-- Right Image Side (Optional) -->
+      <div v-if="image" class="w-1/3 h-full flex items-center justify-center">
+        <img alt="Optional Image" class="w-full h-full object-cover rounded-3xl" :src="image">
+      </div>
     </div>
   </div>
 </template>
