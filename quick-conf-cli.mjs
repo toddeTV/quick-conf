@@ -739,19 +739,16 @@ async function updateTemplate() {
   }
 
   // Preserve user content based on "Preserve Map" strategy
-  const preservedMap = {}
-  if (moveIfExists('.github', '.github'))
-    preservedMap['.github'] = true
-  if (moveIfExists('content', 'content'))
-    preservedMap.content = true
-  if (moveIfExists('public', 'public'))
-    preservedMap.public = true
-  if (moveIfExists('.env', '.env'))
-    preservedMap['.env'] = true
-  if (moveIfExists('LICENSE.md', 'LICENSE.md'))
-    preservedMap['LICENSE.md'] = true
-  if (moveIfExists('README.md', 'README.md'))
-    preservedMap['README.md'] = true
+  moveIfExists('.github', '.github')
+  moveIfExists('content', 'content')
+  moveIfExists('public', 'public')
+  moveIfExists('.env', '.env')
+  moveIfExists('LICENSE.md', 'LICENSE.md')
+  moveIfExists('README.md', 'README.md')
+  // Preserve configuration files
+  moveIfExists('.gitignore', '.gitignore')
+  moveIfExists('.npmrc', '.npmrc')
+  moveIfExists('.vscode/settings.json', '.vscode/settings.json')
 
   // Handle package.json metadata separately later, but we need to read it now
   let oldPkg = null
@@ -776,11 +773,12 @@ async function updateTemplate() {
     const tarballUrl = latestRelease.tarball_url
 
     const tempTar = path.join(updateTemp, 'temp_update.tar.gz')
+    log(`Downloading release ${latestRelease.tag_name}...`)
     await downloadFile(tarballUrl, tempTar)
 
     const extractDir = path.join(updateTemp, 'extracted')
     fs.mkdirSync(extractDir)
-    log(`Downloading release ${latestRelease.tag_name}...`)
+    log(`Extracting release ${latestRelease.tag_name}...`)
     extractTarball(tempTar, extractDir)
     fs.unlinkSync(tempTar)
 
