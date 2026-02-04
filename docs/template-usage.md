@@ -186,7 +186,7 @@ For easily managing the template, we provide a CLI tool to streamline the proces
 8. Enjoy :)
 
 > [!NOTE]
-> Changes made in the CMS are only visible for you, nobody except you can see your changes - unless you save it inside the CMS sidebar on the top right. So don't forget to save your changes, so that others will see them. After saving, you need to wait around 2-10 minutes depending on your hoster until your changes are live and online, as the website needs to rebuild automatically in the background. Do not save too often, as each save will trigger a new build and that could cost build-time and you maybe pay per build time depending on your hoster.
+> Changes made in the CMS are only visible to you until saved in the sidebar. Save your updates to make them public. After saving, it takes about 2–10 minutes for changes to go live while the website rebuilds. Avoid saving too frequently; each save triggers a new build, and you may be charged per build depending on your hosting provider.
 
 ### License Compliance
 
