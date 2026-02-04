@@ -233,29 +233,24 @@ export const customConfigSchema = z.object({
 
   ogImage: property(z.object({
     bgLight: property(z.string().default('#ffffff')).editor({
-      input: 'color',
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'Background for Light Mode (e.g. `white`)',
+      description: 'Background Color for Light Mode (e.g. `#ffffff` for `white`)',
     }),
     bgDark: property(z.string().default('#0f172a')).editor({
-      input: 'color',
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'Background for Dark Mode (e.g. `slate-900`)',
+      description: 'Background Color for Dark Mode (e.g. `#0f172a` for `slate-900`)',
     }),
     textLight: property(z.string().default('#64748b')).editor({
-      input: 'color',
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'Body Text for Light Mode (e.g. `slate-500`)',
+      description: 'Body Text Color for Light Mode (e.g. `#64748b` for `slate-500`)',
     }),
     textDark: property(z.string().default('#94a3b8')).editor({
-      input: 'color',
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'Body Text for Dark Mode (e.g. `slate-400`)',
+      description: 'Body Text Color for Dark Mode (e.g. `#94a3b8` for `slate-400`)',
     }),
     primary: property(z.string().default('#22c55e')).editor({
-      input: 'color',
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'Primary Color (e.g. `green-500` or brand hex)',
+      description: 'Primary Color (e.g. `#22c55e` for `green-500` or custom hex code for brand hex)',
     }),
   }).optional()).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
