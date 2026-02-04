@@ -174,8 +174,10 @@ function removeRepoFiles() {
  */
 function applyTemplateStarter(projectName) {
   const starterPath = path.join(process.cwd(), 'template-starter')
-  if (!fs.existsSync(starterPath))
+  if (!fs.existsSync(starterPath)) {
+    log('No template-starter found; skipping starter setup', 'info')
     return
+  }
 
   log('Setting up starter content...', 'info')
 
