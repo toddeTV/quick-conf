@@ -1,6 +1,6 @@
 ---
 title: Location & Venue
-description: Configuring the location
+description: Where it will take place
 order: 4
 ---
 
