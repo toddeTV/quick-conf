@@ -13,13 +13,13 @@ defineProps<{
 const appConfig = useAppConfig()
 
 // Fallback values in case config is missing/failed to load
-const og = computed(() => appConfig.ogImage || {
-  primary: '#22c55e',
-  bgLight: '#ffffff',
-  bgDark: '#0f172a',
-  textLight: '#64748b',
-  textDark: '#94a3b8',
-})
+const og = {
+  primary: appConfig.ogImage?.primary || '#22c55e',
+  bgLight: appConfig.ogImage?.bgLight || '#ffffff',
+  bgDark: appConfig.ogImage?.bgDark || '#0f172a',
+  textLight: appConfig.ogImage?.textLight || '#64748b',
+  textDark: appConfig.ogImage?.textDark || '#94a3b8',
+}
 </script>
 
 <template>
