@@ -12,6 +12,9 @@ import { fileURLToPath } from 'node:url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+// Ensure we are working in the script's directory
+process.chdir(__dirname)
+
 const CLI_VERSION = '1.0.0'
 const REPO_OWNER = 'toddeTV'
 const REPO_NAME = 'quick-conf'
@@ -712,7 +715,8 @@ async function updateTemplate() {
   log('Starting update process...')
 
   // Step 1: Backup to .update_temp
-  const updateTemp = path.join(process.cwd(), '.update_temp')
+  const updateTemp = path.join(__dirname, '.update_temp')
+
   if (fs.existsSync(updateTemp))
     fs.rmSync(updateTemp, { recursive: true, force: true })
   fs.mkdirSync(updateTemp)
@@ -771,7 +775,7 @@ async function updateTemplate() {
     const latestRelease = await fetchJson(`${GITHUB_API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/releases/latest`)
     const tarballUrl = latestRelease.tarball_url
 
-    const tempTar = path.join(__dirname, 'temp_update.tar.gz')
+    const tempTar = path.join(updateTemp, 'temp_update.tar.gz')
     await downloadFile(tarballUrl, tempTar)
 
     const extractDir = path.join(updateTemp, 'extracted')
