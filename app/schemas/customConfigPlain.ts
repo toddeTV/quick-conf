@@ -40,6 +40,7 @@ export const customConfigSchema = z.object({
       dark: z.string().min(1),
     }),
   }),
+
   footer: z.object({
     footerColumns: z.object({
       column1: createFooterColumnSchema(),
@@ -54,6 +55,20 @@ export const customConfigSchema = z.object({
       showAdminLink: z.boolean().default(true),
     }).optional(),
   }).optional(),
+
+  nuxtStudio: z.object({
+    repository: z.object({
+      provider: z.enum(['github', 'gitlab']).default('github'),
+      owner: z.string().min(1),
+      repo: z.string().min(1),
+      branch: z.string().default('main'),
+      private: z.boolean().default(false),
+    }),
+    i18n: z.object({
+      defaultLocale: z.string().default('en'),
+    }),
+  }),
+
   nuxtUI: z.object({
     colors: z.object({
       primary: z.enum([
@@ -94,18 +109,14 @@ export const customConfigSchema = z.object({
       hash: 'i-lucide-hash',
     }),
   }),
-  nuxtStudio: z.object({
-    repository: z.object({
-      provider: z.enum(['github', 'gitlab']).default('github'),
-      owner: z.string().min(1),
-      repo: z.string().min(1),
-      branch: z.string().default('main'),
-      private: z.boolean().default(false),
-    }),
-    i18n: z.object({
-      defaultLocale: z.string().default('en'),
-    }),
-  }),
+
+  ogImage: z.object({
+    bgLight: z.string().default('#ffffff'),
+    bgDark: z.string().default('#0f172a'),
+    textLight: z.string().default('#64748b'),
+    textDark: z.string().default('#94a3b8'),
+    primary: z.string().default('#22c55e'),
+  }).optional(),
 })
 
 export type CustomConfig = z.infer<typeof customConfigSchema>

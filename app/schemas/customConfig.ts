@@ -113,6 +113,46 @@ export const customConfigSchema = z.object({
     description: 'Customize the footer of the website.',
   }),
 
+  nuxtStudio: property(z.object({
+    repository: property(z.object({
+      provider: property(z.enum(['github', 'gitlab']).default('github')).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'The git provider.',
+      }),
+      owner: property(z.string().min(1)).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'The owner of the repository.',
+      }),
+      repo: property(z.string().min(1)).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'The name of the repository.',
+      }),
+      branch: property(z.string().default('main')).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'The branch to use.',
+      }),
+      private: property(z.boolean().default(false)).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'Whether the repository is private.',
+      }),
+    })).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'Repository configuration.',
+    }),
+    i18n: property(z.object({
+      defaultLocale: property(z.string().default('en')).editor({
+        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+        description: 'The default locale of the content.',
+      }),
+    })).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'Internationalization configuration.',
+    }),
+  })).editor({
+    // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+    description: 'Nuxt Studio configuration.',
+  }),
+
   nuxtUI: property(z.object({
     colors: property(z.object({
       primary: property(z.enum([
@@ -191,43 +231,34 @@ export const customConfigSchema = z.object({
     description: 'NuxtUI Customization.',
   }),
 
-  nuxtStudio: property(z.object({
-    repository: property(z.object({
-      provider: property(z.enum(['github', 'gitlab']).default('github')).editor({
-        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-        description: 'The git provider.',
-      }),
-      owner: property(z.string().min(1)).editor({
-        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-        description: 'The owner of the repository.',
-      }),
-      repo: property(z.string().min(1)).editor({
-        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-        description: 'The name of the repository.',
-      }),
-      branch: property(z.string().default('main')).editor({
-        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-        description: 'The branch to use.',
-      }),
-      private: property(z.boolean().default(false)).editor({
-        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-        description: 'Whether the repository is private.',
-      }),
-    })).editor({
+  ogImage: property(z.object({
+    bgLight: property(z.string().default('#ffffff')).editor({
+      input: 'color',
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'Repository configuration.',
+      description: 'Background for Light Mode (e.g. `white`)',
     }),
-    i18n: property(z.object({
-      defaultLocale: property(z.string().default('en')).editor({
-        // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-        description: 'The default locale of the content.',
-      }),
-    })).editor({
+    bgDark: property(z.string().default('#0f172a')).editor({
+      input: 'color',
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-      description: 'Internationalization configuration.',
+      description: 'Background for Dark Mode (e.g. `slate-900`)',
     }),
-  })).editor({
+    textLight: property(z.string().default('#64748b')).editor({
+      input: 'color',
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'Body Text for Light Mode (e.g. `slate-500`)',
+    }),
+    textDark: property(z.string().default('#94a3b8')).editor({
+      input: 'color',
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'Body Text for Dark Mode (e.g. `slate-400`)',
+    }),
+    primary: property(z.string().default('#22c55e')).editor({
+      input: 'color',
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'Primary Color (e.g. `green-500` or brand hex)',
+    }),
+  }).optional()).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-    description: 'Nuxt Studio configuration.',
+    description: 'Open Graph Image Customization (Social Media Previews).',
   }),
 })

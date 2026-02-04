@@ -18,6 +18,7 @@ const customConfig = (parseResult.success ? parseResult.data : _customConfig) as
 export default defineAppConfig({
   general: customConfig.general,
   footer: customConfig.footer,
+  studio: customConfig.nuxtStudio,
   ui: {
     ...customConfig.nuxtUI,
     pageHeader: {
@@ -26,5 +27,5 @@ export default defineAppConfig({
       },
     },
   },
-  studio: customConfig.nuxtStudio,
+  ogImage: customConfig.ogImage,
 })
