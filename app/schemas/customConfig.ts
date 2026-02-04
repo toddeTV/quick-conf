@@ -232,23 +232,33 @@ export const customConfigSchema = z.object({
   }),
 
   ogImage: property(z.object({
-    bgLight: property(z.string().default('#ffffff')).editor({
+    bgLight: property(
+      z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#ffffff'),
+    ).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Background Color for Light Mode (e.g. `#ffffff` for `white`)',
     }),
-    bgDark: property(z.string().default('#0f172a')).editor({
+    bgDark: property(
+      z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#0f172a'),
+    ).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Background Color for Dark Mode (e.g. `#0f172a` for `slate-900`)',
     }),
-    textLight: property(z.string().default('#64748b')).editor({
+    textLight: property(
+      z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#64748b'),
+    ).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Body Text Color for Light Mode (e.g. `#64748b` for `slate-500`)',
     }),
-    textDark: property(z.string().default('#94a3b8')).editor({
+    textDark: property(
+      z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#94a3b8'),
+    ).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Body Text Color for Dark Mode (e.g. `#94a3b8` for `slate-400`)',
     }),
-    primary: property(z.string().default('#22c55e')).editor({
+    primary: property(
+      z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#22c55e'),
+    ).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Primary Color (e.g. `#22c55e` for `green-500` or custom hex code for brand hex)',
     }),

@@ -111,11 +111,11 @@ export const customConfigSchema = z.object({
   }),
 
   ogImage: z.object({
-    bgLight: z.string().default('#ffffff'),
-    bgDark: z.string().default('#0f172a'),
-    textLight: z.string().default('#64748b'),
-    textDark: z.string().default('#94a3b8'),
-    primary: z.string().default('#22c55e'),
+    bgLight: z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#ffffff'),
+    bgDark: z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#0f172a'),
+    textLight: z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#64748b'),
+    textDark: z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#94a3b8'),
+    primary: z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#22c55e'),
   }).optional(),
 })
 
