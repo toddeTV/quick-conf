@@ -22,7 +22,9 @@
  *
  * 4. CSS Variables:
  *    We read the configured OG Image colors directly from `appConfig.ogImage`.
- *    This avoids complex parsing of CSS files and ensures data consistency with Nuxt Studio.
+ *    We inject them as Tailwind arbitrary values (e.g. `bg-[#abcdef]`) because Satori has limited
+ *    support for complex `<style>` blocks or CSS variables from external files.
+ *    (So no `<style>' block and no `var(...)` inside CSS is possible.)
  */
 
 defineOptions({
@@ -37,44 +39,41 @@ defineProps<{
 }>()
 
 const appConfig = useAppConfig()
+
+// Fallback values in case config is missing/failed to load
+const og = computed(() => appConfig.ogImage || {
+  primary: '#22c55e',
+  bgLight: '#ffffff',
+  bgDark: '#0f172a',
+  textLight: '#64748b',
+  textDark: '#94a3b8',
+})
 </script>
 
 <template>
-  <!--
-    We inject the resolved HEX values directly into classes/styles.
-    This bypasses CSS variable resolution issues in Satori.
-  -->
   <div class="w-full h-full flex flex-col">
-    <style>
-      .root-container {
-      background-color: {{ appConfig.ogImage.bgLight }};
-      color: {{ appConfig.ogImage.textLight }};
-      }
-
-      /* Dark mode overrides */
-      .dark .root-container {
-      background-color: {{ appConfig.ogImage.bgDark }};
-      color: {{ appConfig.ogImage.textDark }};
-      }
-
-      .text-primary-resolved {
-      color: {{ appConfig.ogImage.primary }};
-      }
-    </style>
-
-    <!-- Main Content Container -->
-    <div class="root-container w-full h-full flex flex-row p-12" :class="[image ? 'w-2/3 pr-12' : 'w-full']">
+    <div
+      class="w-full h-full flex flex-row p-12"
+      :class="[
+        image ? 'w-2/3 pr-12' : 'w-full',
+        `bg-[${og.bgLight}] dark:bg-[${og.bgDark}]`,
+        `text-[${og.textLight}] dark:text-[${og.textDark}]`,
+      ]"
+    >
       <!-- Left Content Side -->
       <div class="flex flex-col justify-between h-full w-full">
         <div class="flex flex-col items-start">
-          <img alt="Logo" class="mb-16 h-16 block dark:hidden" :src="appConfig.general?.logo?.dark || ''">
-          <img alt="Logo" class="mb-16 h-16 hidden dark:block" :src="appConfig.general?.logo?.light || ''">
+          <img alt="Logo" class="mb-16 h-16 block dark:hidden" :src="appConfig.general?.logo?.light || ''">
+          <img alt="Logo" class="mb-16 h-16 hidden dark:block" :src="appConfig.general?.logo?.dark || ''">
 
-          <div v-if="headline" class="text-2xl font-bold uppercase tracking-widest text-primary-resolved">
+          <div v-if="headline" :class="`text-2xl font-bold uppercase tracking-widest text-[${og.primary}]`">
             {{ headline }}
           </div>
 
-          <h1 class="text-6xl font-bold leading-tight mb-6 -mt-1 text-primary-resolved">
+          <h1
+            class="text-6xl font-bold leading-tight mb-6 -mt-1"
+            :class="`text-[${og.primary}]`"
+          >
             {{ title }}
           </h1>
 
