@@ -151,7 +151,7 @@ For easily managing the template, we provide a CLI tool to streamline the proces
 
 2. Open the file `content/0.custom-config.json` locally. Search and set the following variables with your real data:
 
-   ```json
+   ```jsonc
    {
      // [...]
      "nuxtStudio": {
@@ -211,8 +211,8 @@ If you have already set up your conference website and want to pull in the lates
    - The `/.env` file (your environment configuration)
    - The `/LICENSE.md` file
    - The `/README.md` file
-   - It will also not touch your `.git` folder.
-   - And it will also preserve parts of your `package.json` file: The fields `name`, `author`, `contributors`, `description`, `repository`, `bugs` and `keywords`
+   - The `.git` folder (your version control history)
+   - Specific fields in `/package.json`: `name`, `author`, `contributors`, `description`, `repository`, `bugs`, and `keywords`
 
    Additionally, the process automatically removes template-specific files and folders (like `docs`, `renovate.json`, and release configuration files) that are not needed in your end-project. You should create your own infrastructure files for your custom needs.
 
