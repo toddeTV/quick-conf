@@ -101,7 +101,10 @@ function replaceStringInDirectory(dir, search, replacement) {
   const files = fs.readdirSync(dir)
   for (const file of files) {
     const filePath = path.join(dir, file)
-    const stat = fs.statSync(filePath)
+    const stat = fs.lstatSync(filePath)
+    if (stat.isSymbolicLink()) {
+      continue
+    }
     if (stat.isDirectory()) {
       replaceStringInDirectory(filePath, search, replacement)
     }
