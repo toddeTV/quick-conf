@@ -8,7 +8,7 @@ export function formatDateReadable(iso: string) {
   if (!dt.isValid) {
     return ''
   }
-  return dt.toLocaleString({ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+  return dt.setLocale('en-US').toLocaleString({ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 }
 
 export function formatHour(h: number) {
