@@ -171,7 +171,7 @@ For easily managing the template, we provide a CLI tool to streamline the proces
 
 3. Test locally if the project runs and that there are no errors.
 4. **IMPORTANT:** The folders `/content` and `/public` contain example data not covered under the MIT license. Replace all example content in these folders with your own data before pushing, as you most likely do not have permission to redistribute the example content.<br>
-   **IMPORTANT:** Ensure that the file `public/custom-styles.css` exists but contain your own content, as they are needed!
+   **IMPORTANT:** Ensure that the file `public/custom-styles.css` exists and contains your own content, as it is needed!
 5. Push the files that the CLI made onto the main branch of your repository.<br>
    Now you have a repository with the base code of the template online in a Git repository.
 6. Now, host your website and add a Git workflow so that your Git provider or hoster will build a new application every time your main branch has a new version (this is important for the Git-based CMS the project uses).
