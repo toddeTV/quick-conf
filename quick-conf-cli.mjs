@@ -223,11 +223,8 @@ function deleteLockFiles() {
 async function promptInstallDependencies() {
   const installDeps = await askQuestion(`Do you want to run "${PACKAGE_MANAGER} install"? (y/N): `)
   if (installDeps.toLowerCase() === 'y') {
-    log(`Running ${PACKAGE_MANAGER} install...`)
-    let cmd = `${PACKAGE_MANAGER} install`
-    if (PACKAGE_MANAGER === 'pnpm') {
-      cmd += ' --prefer-offline'
-    }
+    const cmd = `${PACKAGE_MANAGER} install`
+    log(`Running ${cmd} ...`)
     try {
       execSync(cmd, { stdio: 'inherit' })
     }
@@ -684,6 +681,9 @@ async function freshInstall(isTemplateClone = false) {
     log('Installation files downloaded.', 'success')
 
     const projectName = await configureProject()
+
+    if (!projectName)
+      throw new Error('Project configuration failed.')
 
     // Step 3 & 4: Remove Repo Files
     removeRepoFiles()
