@@ -5,6 +5,6 @@ seo:
   description: Welcome
 blocks:
   - component: AppLandingHero
-    title: Conference Name
+    title: ConferenceNamePlaceholder
     description: Tagline
     headline: Headline
