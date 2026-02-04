@@ -35,18 +35,3 @@
   --ui-bg-accented: var(--ui-color-neutral-700);
   --ui-bg-inverted: white;
 }
-
-/*
-  --- OG IMAGE CONFIGURATION ---
-  These variables are used specifically for generating Open Graph images (Satori).
-  Change these values to customize the look of your social media preview cards.
-  NOTE: Satori does not support CSS variables from other scopes or complex functions.
-  Please use HEX codes.
-*/
-.satori-root {
-  --og-bg-light: #ffffff;      /* Background for Light Mode (e.g. `white`) */
-  --og-bg-dark: #0f172a;       /* Background for Dark Mode (e.g. `slate-900`) */
-  --og-text-light: #64748b;    /* Body Text for Light Mode (e.g. `slate-500`) */
-  --og-text-dark: #94a3b8;     /* Body Text for Dark Mode (e.g. `slate-400`) */
-  --og-primary: #22c55e;       /* Primary Color (e.g. `green-500` or brand hex) */
-}
