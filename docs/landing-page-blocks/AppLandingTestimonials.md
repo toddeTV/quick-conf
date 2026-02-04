@@ -33,7 +33,7 @@ blocks:
         user:
           name: John Smith
           description: Freelancer
-          to: https://x.com/...
+          to: https://x.com/user-example-42
           target: _blank
           avatar:
             src: https://i.pravatar.cc/120?img=1
