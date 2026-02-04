@@ -806,6 +806,7 @@ async function updateTemplate() {
           const newPkg = JSON.parse(fs.readFileSync(newPkgPath, 'utf-8'))
           newPkg.name = oldPkg.name
           newPkg.author = oldPkg.author
+          newPkg.contributors = oldPkg.contributors
           newPkg.description = oldPkg.description
           newPkg.keywords = oldPkg.keywords
           newPkg.bugs = oldPkg.bugs
