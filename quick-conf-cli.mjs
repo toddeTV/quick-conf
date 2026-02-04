@@ -157,7 +157,12 @@ function removeRepoFiles() {
   for (const file of files) {
     const itemPath = path.join(process.cwd(), file)
     if (fs.existsSync(itemPath)) {
-      fs.unlinkSync(itemPath)
+      try {
+        fs.unlinkSync(itemPath)
+      }
+      catch (e) {
+        log(`Failed to delete ${file}: ${e.message}`, 'warn')
+      }
     }
   }
 }
