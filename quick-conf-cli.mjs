@@ -221,7 +221,7 @@ async function showLicenseWarning() {
   console.log('\nImportant: You must replace all example content in \'/content\' and \'/public\'')
   console.log('folders with your own assets and information to ensure you are not infringing')
   console.log('on any copyrights or usage rights associated with the placeholder data.')
-  console.log('\nNote: The files public/robots.txt and public/custom-styles.css must exist')
+  console.log('\nNote: The file \'public/custom-styles.css\' must exist')
   console.log('for the project to function, but you must replace their placeholder content.')
   console.log(`${'='.repeat(50)}\n`)
 
@@ -702,31 +702,35 @@ async function updateTemplate() {
 
     // Specific preservations
     const preservedMap = {}
+    // folders
+    // `.git` is handled by not deleting it in step 4
+    if (moveIfExists('.github', '.github'))
+      preservedMap['.github'] = true
     if (moveIfExists('content', 'content'))
       preservedMap.content = true
     if (moveIfExists('public', 'public'))
       preservedMap.public = true
+    // files
     if (moveIfExists('.env', '.env'))
       preservedMap['.env'] = true
-    if (moveIfExists('.github', '.github'))
-      preservedMap['.github'] = true
-    if (moveIfExists('README.md', 'README.md'))
-      preservedMap['README.md'] = true
     if (moveIfExists('LICENSE.md', 'LICENSE.md'))
       preservedMap['LICENSE.md'] = true
-    // .git is handled by not deleting it in step 4
+    if (moveIfExists('README.md', 'README.md'))
+      preservedMap['README.md'] = true
 
     // 4. Delete Root (except preserved and script itself)
     log('Cleaning up old files...')
     const files = fs.readdirSync(__dirname)
     for (const file of files) {
-      if (file === 'quick-conf-cli.mjs')
-        continue
+      // folders
       if (file === '.git')
         continue
+      if (file === '.update_temp')
+        continue
+      // files
       if (file === '.gitignore')
         continue // Keep gitignore just in case
-      if (file === '.update_temp')
+      if (file === 'quick-conf-cli.mjs')
         continue
 
       // If we already moved it to backup, it's gone from root, so no need to delete.
