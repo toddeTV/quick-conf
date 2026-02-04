@@ -10,12 +10,13 @@ const props = defineProps<{
   links?: ButtonProps[]
 }>()
 
-const now = ref(new Date())
+const now = useState(() => new Date())
 const target = computed(() => new Date(props.targetDate).getTime())
 
 let timer: ReturnType<typeof setInterval>
 
 onMounted(() => {
+  now.value = new Date()
   timer = setInterval(() => {
     now.value = new Date()
   }, 1000)
