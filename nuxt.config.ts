@@ -21,6 +21,11 @@ export default defineNuxtConfig({
       meta: [
         { name: 'generator', content: 'quick-conf' },
         { name: 'application-name', content: 'quick-conf-template' },
+
+        // Although not a standard OG tag, some tools check for it.
+        // Standard OG images are handled by `nuxt-og-image` module.
+        // Standard Schema.org logos are handled by `nuxt-schema-org` module.
+        { property: 'og:logo', content: customConfig.general.logo.light },
       ],
       htmlAttrs: {
         'data-theme-source': 'quick-conf',
@@ -139,5 +144,14 @@ export default defineNuxtConfig({
       // 'OgImage',
       'OgImageTemplate',
     ],
+  },
+
+  schemaOrg: { // for `nuxt-schema-org` (included in `@nuxtjs/seo`)
+    identity: {
+      type: 'Organization',
+      name: customConfig.general.conferenceName,
+      url: customConfig.general.siteUrl,
+      logo: customConfig.general.logo.light,
+    },
   },
 })
