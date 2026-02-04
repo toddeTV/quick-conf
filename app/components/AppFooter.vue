@@ -3,7 +3,7 @@ import type { FooterColumn } from '@nuxt/ui'
 import { version } from '~~/package.json'
 
 /**
- * NOTE: Configuration values from appConfig (derived from custom-config.json) are treated as static.
+ * NOTE: Configuration values from appConfig (derived from `0.custom-config.json`) are treated as static.
  * Reactivity is intentionally removed to improve performance, as these values do not support hot-reload
  * via Nuxt Studio in this context and rarely change during a session.
  */

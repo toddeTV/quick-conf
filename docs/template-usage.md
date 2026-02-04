@@ -12,10 +12,71 @@ This project serves as a comprehensive and **completely free** template for crea
 ## Requirements
 
 - You need a local workspace with Node.js and a package manager of your choice (pnpm, npm, bun, or yarn). Pnpm is highly recommended as the template is developed and tested with it, but others will work as well.
-- You need a Git provider to host the code. We recommend GitHub, but other Git providers will work as well.
+- You need a Git provider to host the code. We recommend GitHub, but you can also use GitLab if you like.
+
   > [!TIP]
   > We highly recommend using a **public** repository. While Nuxt Studio supports private repositories, setup is more complex and prone to errors. Using a public repository aligns with the Open-Source spirit and enables community contributions (issues, PRs, etc.).
-- You need a hoster to host your website for your audience. We recommend Vercel or Netlify, but others will work as well. If you aim for Docker, you need to configure this yourself, as there is no Docker preset yet (you can contribute to the project and provide one <3).
+
+- You need a hoster to host your website for your audience. We recommend Vercel or Netlify, but others will work as well. If you aim for Docker, you need to configure this yourself, as there is no Docker preset present yet (you can contribute to the project and provide one <3).
+- Within your Git provider, you need an OAuth App. This OAuth App must be linked via environment variables to your hoster. With this you will later be able to change content in the visual editor on your website directly in the browser while the OAuth App will push changes into the Git repository in the background.<br>
+  (See more on [NuxtStudio Documentation for Auth Providers](https://nuxt.studio/auth-providers).)<br>
+  Choose the Git provider you are using and follow the instructions:
+
+  <details>
+  <summary>1. on GitHub</summary>
+
+  > Setup and link an OAuth App on GitHub:
+  1. Open the Settings of either your account (if the OAuth App should live within your own account) or of an organization (if the OAuth App should live within an organization). Go to "Developer settings", click on "OAuth Apps" and click the button "New OAuth App".
+  2. Fill out all fields like the following:
+
+     | Field                      | Value                                                                   |
+     | -------------------------- | ----------------------------------------------------------------------- |
+     | Application name           | What you like, best practice is to set the name of the conference       |
+     | Homepage URL               | `https://example.com` (use your real domain!)                           |
+     | Authorization callback URL | `https://example.com/__nuxt_studio/auth/github` (use your real domain!) |
+     | Enable Device Flow         | FALSE                                                                   |
+
+  3. On the detail page of your new GitHub OAuth App, generate a Client Secret.
+  4. Copy the following:
+     - **Client ID** (the GitHub OAuth Client App ID, always visible)
+     - **Client Secret** (One Secret inside your GitHub OAuth App, only visible _once_ after creating.)
+  5. Copy the two variables inside the following environment variables on your hoster:
+
+     ```env
+     STUDIO_GITHUB_CLIENT_ID=<your_client_id>
+     STUDIO_GITHUB_CLIENT_SECRET=<your_client_secret>
+     # Optional: Restrict access to specific users
+     # STUDIO_GITHUB_MODERATORS=admin@example.com,editor@example.com
+     ```
+
+  </details>
+
+  <details>
+  <summary>2. on GitLab</summary>
+
+  > Setup and link an OAuth App on GitLab:
+  1. Go to [User Settings → Applications](https://gitlab.com/-/user_settings/applications) (or your group/organization settings) and create a "New Application".
+  2. Fill out all fields like the following:
+
+     | Field            | Value                                                                   |
+     | ---------------- | ----------------------------------------------------------------------- |
+     | Application name | What you like, best practice is to set the name of the conference       |
+     | Redirect URI     | `https://example.com/__nuxt_studio/auth/gitlab` (use your real domain!) |
+     | Scopes           | Select `api` (required)                                                 |
+
+  3. On the detail page of your new GitLab OAuth App, copy the following:
+     - **Application ID** (visible immediately)
+     - **Secret** (visible immediately)
+  4. Copy the two variables inside the following environment variables on your hoster:
+
+     ```env
+     STUDIO_GITLAB_APPLICATION_ID=<your_client_id>
+     STUDIO_GITLAB_CLIENT_SECRET=<your_client_secret>
+     # Optional: Restrict access to specific users
+     # STUDIO_GITLAB_MODERATORS=admin@example.com,editor@example.com
+     ```
+
+  </details>
 
 ## First Installation
 
@@ -42,10 +103,6 @@ For easily managing the template, we provide a CLI tool to streamline the proces
 
    8. Read and confirm the first few prompts until you are in the **Main Menu**.
    9. Here, choose **Fresh Installation after using the Template on GitHub**. Answer the questions and go through the wizard. This will ensure the correct name is set for your project and more. Be aware that everything should run smoothly without any errors. If some occur, fix them.
-   10. Test locally if the project runs and that there are no errors.
-   11. **IMPORTANT:** The folders `/content` and `/public` contain example data not covered under the MIT license. Replace all example content in these folders with your own data before pushing, as you most likely do not have permission to redistribute the example content.<br>
-       **IMPORTANT:** Ensure that the files `public/robots.txt` and `public/custom-styles.css` exist but contain your own content, as they are needed!
-   12. Push the changes that the CLI made onto the main branch of your repository.
 
    </details>
 
@@ -89,22 +146,42 @@ For easily managing the template, we provide a CLI tool to streamline the proces
 
    4. Read and confirm the first few prompts until you are in the **Main Menu**.
    5. Here, choose **Fresh Installation in an empty folder**. Answer the questions and go through the wizard. This will ensure the correct name is set for your project and more. Be aware that everything should run smoothly without any errors. If some occur, fix them.
-   6. Test locally if the project runs and that there are no errors.
-   7. **IMPORTANT:** The folders `/content` and `/public` contain example data not covered under the MIT license. Start and test the template locally, then replace all example content in these folders with your own data before pushing, as you most likely do not have permission to redistribute the example content.<br>
-      **IMPORTANT:** Ensure that the files `public/robots.txt` and `public/custom-styles.css` exist but contain your own content, as they are needed!
-   8. Push the files that the CLI made onto the main branch of your repository.
 
    </details>
 
-2. Now you have a repository with the base code of the template online in a Git repository.
-3. Now, host your website and add a Git workflow so that your Git provider or hoster will build a new application every time your main branch has a new version (this is important for the Git-based CMS the project uses).
-4. After your website is hosted and deployed, you have to log in to access the CMS for administrative functionality by doing the following:
+2. Open the file `content/0.custom-config.json` locally. Search and set the following variables with your real data:
+
+   ```jsonc
+   {
+     // [...]
+     "nuxtStudio": {
+       "i18n": {
+         "defaultLocale": "en"
+       },
+       "repository": {
+         "branch": "...", // Most of the time `main` or `master`
+         "owner": "...", // The owner of the Git repository
+         "provider": "...", // The git provider, only `github` or `gitlab` is allowed
+         "repo": "..." // The name of the Git repository
+       }
+     }
+     // [...]
+   }
+   ```
+
+3. Test locally if the project runs and that there are no errors.
+4. **IMPORTANT:** The folders `/content` and `/public` contain example data not covered under the MIT license. Replace all example content in these folders with your own data before pushing, as you most likely do not have permission to redistribute the example content.<br>
+   **IMPORTANT:** Ensure that the file `public/custom-styles.css` exists and contains your own content, as it is needed!
+5. Push the files that the CLI made onto the main branch of your repository.<br>
+   Now you have a repository with the base code of the template online in a Git repository.
+6. Now, host your website and add a Git workflow so that your Git provider or hoster will build a new application every time your main branch has a new version (this is important for the Git-based CMS the project uses).
+7. After your website is hosted and deployed, you have to log in to access the CMS for administrative functionality by doing the following:
    1. Open the deployed website in your browser.
    2. Then you can go on by one of the following methods:
       1. Method 1: When `footer -> bottomIcons -> showAdminLink` is enabled, you can access the NuxtStudio CMS UI by clicking the Admin-Icon link in the footer (this is enabled by default unless you disabled showAdminLink).
       2. Method 2 (always works): Manually add the suffix `/_admin` (e.g. `https://<YOUR-URL>/_admin`) to the URL in your browser.
    3. Then authorize your Application in your GIT provider. After that you'll be redirected back to your website - now, ready to edit your content.
-5. Enjoy :)
+8. Enjoy :)
 
 ### License Compliance
 
@@ -112,7 +189,7 @@ Please be aware that the `/content` and `/public` folders in this template conta
 
 **Important:** You must replace all example content in the `/content` and `/public` folders with your own assets and information to ensure you are not infringing on any copyrights or usage rights associated with the placeholder data.
 
-**Essential Files**: The files `public/robots.txt` and `public/custom-styles.css` are required for the project to function correctly. While you must not use the provided example content directly, these files must remain in place. You should update their contents according to your project's needs (e.g., updating any variables or site-specific rules).
+**Essential Files**: The file `public/custom-styles.css` is required for the project to function correctly. While you must not use the provided example content directly, these files must remain in place. You should update their contents according to your project's needs (e.g., updating any variables or site-specific rules).
 
 ## Updating the Template
 
@@ -134,6 +211,8 @@ If you have already set up your conference website and want to pull in the lates
    - The `/.env` file (your environment configuration)
    - The `/LICENSE.md` file
    - The `/README.md` file
+   - The `.git` folder (your version control history)
+   - Specific fields in `/package.json`: `name`, `author`, `contributors`, `description`, `repository`, `bugs`, and `keywords`
 
    Additionally, the process automatically removes template-specific files and folders (like `docs`, `renovate.json`, and release configuration files) that are not needed in your end-project. You should create your own infrastructure files for your custom needs.
 
