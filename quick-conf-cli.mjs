@@ -260,8 +260,24 @@ async function configureProject() {
     return null
   }
 
-  const projectName = await askQuestion('Enter the name of your project: ')
-  const pkgName = projectName.toLowerCase().replace(/\s+/g, '-')
+  const rawInput = await askQuestion('Enter the name of your project: ')
+  const cleanedProjectName = rawInput.trim().replace(/\s+/g, ' ')
+
+  if (!cleanedProjectName) {
+    log('Project name cannot be empty.', 'error')
+    return null
+  }
+
+  const pkgName = cleanedProjectName
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+
+  if (!pkgName) {
+    log('Project name yields an invalid package.json name.', 'error')
+    return null
+  }
 
   // Update package.json fields
   pkg.name = pkgName
@@ -276,7 +292,7 @@ async function configureProject() {
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
   log(`Updated package.json with name "${pkgName}" and cleared metadata.`, 'success')
 
-  return projectName
+  return cleanedProjectName
 }
 
 /**
