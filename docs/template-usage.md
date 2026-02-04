@@ -180,8 +180,13 @@ For easily managing the template, we provide a CLI tool to streamline the proces
    2. Then you can go on by one of the following methods:
       1. Method 1: When `footer -> bottomIcons -> showAdminLink` is enabled, you can access the NuxtStudio CMS UI by clicking the Admin-Icon link in the footer (this is enabled by default unless you disabled showAdminLink).
       2. Method 2 (always works): Manually add the suffix `/_admin` (e.g. `https://<YOUR-URL>/_admin`) to the URL in your browser.
-   3. Then authorize your Application in your GIT provider. After that you'll be redirected back to your website - now, ready to edit your content.
+   3. Then authorize your Application in your Git provider. After that you'll be redirected back to your website.
+   4. You are now back on your website, now wait a moment. After a little wait, you will see an icon in the bottom left corner. That is the Toggle to open the CMS sidebar and in this sidebar you can visually edit your pages. Do that and edit whatever you want - pages, content and configs.
+   5. **Note**: You should edit `Custom Config` (`0.custom-config.json`) in the CMS (under `Content`) as soon as possible after your first installation as there are important things that apply to the full website. So carefully go through all settings there, set them and then save and persist your changes to rebuild the website on your hoster.
 8. Enjoy :)
+
+> [!NOTE]
+> Changes made in the CMS are only visible to you until saved in the sidebar. Save your updates to make them public. After saving, it takes about 2–10 minutes for changes to go live while the website rebuilds. Avoid saving too frequently; each save triggers a new build, and you may be charged per build depending on your hosting provider.
 
 ### License Compliance
 
