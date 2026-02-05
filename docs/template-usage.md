@@ -217,6 +217,7 @@ If you have already set up your conference website and want to pull in the lates
    - The `/LICENSE.md` file
    - The `/README.md` file
    - The `.git` folder (your version control history)
+   - IDE configuration folders (e.g. `.vscode/`, `.idea/`)
    - Specific fields in `/package.json`: `name`, `author`, `contributors`, `description`, `repository`, `bugs`, and `keywords`
 
    Additionally, the process automatically removes template-specific files and folders (like `docs`, `renovate.json`, and release configuration files) that are not needed in your end-project. You should create your own infrastructure files for your custom needs.

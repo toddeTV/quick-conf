@@ -753,9 +753,10 @@ async function updateTemplate() {
   moveIfExists('.env', '.env')
   moveIfExists('LICENSE.md', 'LICENSE.md')
   moveIfExists('README.md', 'README.md')
-  // Preserve configuration files
-  moveIfExists('.gitignore', '.gitignore')
-  moveIfExists('.npmrc', '.npmrc')
+
+  // Preserve IDE settings
+  moveIfExists('.vscode', '.vscode')
+  moveIfExists('.idea', '.idea')
 
   // Handle package.json metadata separately later, but we need to read it now
   let oldPkg = null
