@@ -15,6 +15,7 @@
         { "hidden": false, "section": "Continuous Integration", "type": "ci" }
       ],
       "include-v-in-tag": true,
+      "pull-request-title-pattern": "chore: release ${version}",
       "release-type": "node"
     }
   }
