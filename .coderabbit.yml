@@ -149,6 +149,7 @@ reviews:
     # We want automatic reviews.
     enabled: true
     auto_incremental_review: true
+    # Only run review on PRs with the following labels (or exclude by negative matching)
     labels:
       - '!release-candidate'
     drafts: false
