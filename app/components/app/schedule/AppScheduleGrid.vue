@@ -11,6 +11,8 @@ defineProps<{
   getTalkStyle: (talk: ProcessedTalkType) => { top: string, height: string }
   getTalksForStage: (stageSlug: string) => ProcessedTalkType[]
 }>()
+
+const { public: { demoMode } } = useRuntimeConfig()
 </script>
 
 <template>
@@ -21,7 +23,7 @@ defineProps<{
   >
     <!-- Time Axis (Sticky Left) -->
     <div
-      class="sticky left-0 z-30 min-w-[3.75rem] flex-none border-r border-gray-200 bg-gray-50
+      class="sticky left-0 z-30 min-w-15 flex-none border-r border-gray-200 bg-gray-50
       dark:border-gray-800 dark:bg-gray-800/95 backdrop-blur"
     >
       <!-- Header Spacer -->
@@ -36,6 +38,15 @@ defineProps<{
         class="pointer-events-none absolute right-0 z-50 -mt-3 pr-0 text-right"
         :style="currentTimeLineStyle"
       >
+        <div
+          v-if="demoMode"
+          class="absolute left-full top-1/2 ml-3 flex -translate-y-1/2 items-center gap-1.5 whitespace-nowrap
+            rounded-full border border-red-200 bg-red-50/90 px-3 py-1 text-xs font-semibold
+            text-red-600 shadow-sm backdrop-blur dark:border-red-900/50 dark:bg-red-950/80 dark:text-red-400"
+        >
+          <UIcon class="size-3.5" name="i-lucide-flask-conical" />
+          <span>Demo Time</span>
+        </div>
         <span class="rounded bg-red-500 px-1.5 py-0.5 text-xs font-bold leading-none text-white">
           now
         </span>
