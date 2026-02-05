@@ -25,16 +25,19 @@ You can find a deployed version of this template to test and view here:
 <details>
 <summary>📸 Screenshots</summary>
 
-_The main landing page showcasing the flexible block system:_
+**Visual CMS Interface**: Edit content directly within the browser using the Nuxt Studio sidebar and live preview.
+![CMS](docs/assets/README/cms.png)
+
+**Modular Landing Page**: Construct flexible sections using the built-in block system for rapid assembly.
 ![Landing Page](docs/assets/README/landing-page.png)
 
-_The interactive conference schedule with stages and talks:_
+**Dynamic Event Schedule**: An automated overview showing stages, talks, and speaker associations.
 ![Schedule](docs/assets/README/schedule.png)
 
-_A clear overview of available ticket categories and pricing:_
+**Structured Pricing**: Clear presentation of ticket tiers and benefits managed via data collections.
 ![Tickets](docs/assets/README/tickets.png)
 
-_The FAQ section for attendee questions:_
+**Knowledge Base**: Centralized FAQ management to provide essential event information to attendees.
 ![FAQ](docs/assets/README/faq.png)
 
 </details>
