@@ -151,7 +151,8 @@ reviews:
     auto_incremental_review: true
     # Only run review on PRs with the following labels (or exclude by negative matching)
     labels:
-      - '!release-candidate'
+      - '!release-candidate' # Exclude release candidate PRs that are waiting for release.
+      - '!autorelease: pending' # Exclude release-please bot PRs that are waiting for release.
     drafts: false
 
   finishing_touches:
