@@ -1,11 +1,11 @@
+# Documentation
+
 > [!IMPORTANT]
 > This documentation applies to **quick-conf v1.1.0-rc.0**.
 
 > [!TIP]
 > **Looking for the documentation for your version?** You can always find the documentation matching your installed version by clicking the **version number** in the footer of your own website instance.<br>
 > This will take you directly to the correct documentation index on GitHub for your specific version.
-
-# Documentation
 
 Welcome to the **quick-conf** documentation. This index guides you through the available resources, categorized by your role.
 
