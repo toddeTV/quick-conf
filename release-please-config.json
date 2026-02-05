@@ -14,6 +14,9 @@
         { "hidden": false, "section": "Build System", "type": "build" },
         { "hidden": false, "section": "Continuous Integration", "type": "ci" }
       ],
+      "extra-files": [
+        "docs/README.md"
+      ],
       "include-component-in-tag": false,
       "include-v-in-tag": true,
       "pull-request-title-pattern": "chore: release v${version}",
