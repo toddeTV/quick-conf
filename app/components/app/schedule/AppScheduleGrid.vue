@@ -39,15 +39,6 @@ const { public: { demoMode } } = useRuntimeConfig()
         class="pointer-events-none absolute right-0 z-50 -mt-3 pr-0 text-right"
         :style="currentTimeLineStyle"
       >
-        <div
-          v-if="demoMode"
-          class="absolute left-full top-1/2 ml-3 flex -translate-y-1/2 items-center gap-1.5 whitespace-nowrap
-            rounded-full border border-red-200 bg-red-50/90 px-3 py-1 text-xs font-semibold
-            text-red-600 shadow-sm backdrop-blur dark:border-red-900/50 dark:bg-red-950/80 dark:text-red-400"
-        >
-          <UIcon class="size-3.5" name="i-lucide-flask-conical" />
-          <span>Demo Time</span>
-        </div>
         <span class="rounded bg-red-500 px-1.5 py-0.5 text-xs font-bold leading-none text-white">
           now
         </span>
@@ -73,7 +64,17 @@ const { public: { demoMode } } = useRuntimeConfig()
         v-if="currentTimeLineStyle.display !== 'none'"
         class="pointer-events-none absolute inset-x-0 z-50 border-t-2 border-red-500 shadow-sm"
         :style="currentTimeLineStyle"
-      />
+      >
+        <div
+          v-if="demoMode"
+          class="absolute right-3 top-0 z-10 flex -translate-y-1/2 items-center gap-1.5 whitespace-nowrap
+            rounded-full border border-red-200 bg-red-50/90 px-3 py-1 text-xs font-semibold
+            text-red-600 shadow-sm backdrop-blur dark:border-red-900/50 dark:bg-red-950/80 dark:text-red-400"
+        >
+          <UIcon class="size-3.5" name="i-lucide-flask-conical" />
+          <span>Demo Time</span>
+        </div>
+      </div>
 
       <div
         v-for="stage in stages"
