@@ -160,7 +160,13 @@ function navigateToAdmin() {
         >
           quick-conf
         </ULink>
-        <span class="mx-0.5">v{{ version }}</span>
+        <ULink
+          class="mx-0.5"
+          target="_blank"
+          :to="`https://github.com/toddeTV/quick-conf/blob/v${version}/docs/README.md`"
+        >
+          v{{ version }}
+        </ULink>
         by
         <ULink
           aria-label="todde.tv website"
