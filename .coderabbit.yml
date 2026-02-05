@@ -149,8 +149,8 @@ reviews:
     # We want automatic reviews.
     enabled: true
     auto_incremental_review: true
-    ignore_labels:
-      - release-candidate
+    labels:
+      - '!release-candidate'
     drafts: false
 
   finishing_touches:
