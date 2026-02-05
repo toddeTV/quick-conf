@@ -8,6 +8,7 @@ export async function useSchedule() {
   const route = useRoute()
   const router = useRouter()
   const appConfig = useAppConfig()
+  const runtimeConfig = useRuntimeConfig()
   const timeZone = appConfig.general.timeZone || 'UTC'
 
   // --- Data Fetching ---
@@ -142,9 +143,20 @@ export async function useSchedule() {
   let timer: ReturnType<typeof setInterval>
 
   onMounted(() => {
-    now.value = DateTime.now().setZone(timeZone)
-    timer = setInterval(() => {
+    if (runtimeConfig.public.demoMode) {
+      now.value = DateTime.fromISO(`${activeDayISO.value}T13:20:00`, { zone: timeZone })
+    }
+    else {
       now.value = DateTime.now().setZone(timeZone)
+    }
+
+    timer = setInterval(() => {
+      if (runtimeConfig.public.demoMode && now.value) {
+        now.value = now.value.plus({ minutes: 1 })
+      }
+      else {
+        now.value = DateTime.now().setZone(timeZone)
+      }
     }, 60000) // Update every minute
   })
 
