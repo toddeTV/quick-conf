@@ -1,7 +1,7 @@
 ---
 slug: talk-lunch
 type: other
-title: "Lunch Break (Wait 60 mins before recoating)"
+title: "Lunch Break"
 speakers: []
 dateTime: 2042-04-01T12:30:00.000Z
 duration: 60
