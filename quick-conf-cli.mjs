@@ -134,6 +134,7 @@ function removeRepoFiles() {
   log('Removing repository files (docs, content, public, etc.)...', 'info')
   const folders = [
     '.github',
+    '.vscode',
     'content',
     'docs',
     'public',
@@ -141,6 +142,7 @@ function removeRepoFiles() {
   const files = [
     '.coderabbit.yml',
     '.release-please-manifest.json',
+    'CHANGELOG.md',
     'CONTRIBUTING.md',
     'LICENSE.md',
     'README.md',
@@ -754,7 +756,6 @@ async function updateTemplate() {
   // Preserve configuration files
   moveIfExists('.gitignore', '.gitignore')
   moveIfExists('.npmrc', '.npmrc')
-  moveIfExists('.vscode/settings.json', '.vscode/settings.json')
 
   // Handle package.json metadata separately later, but we need to read it now
   let oldPkg = null
