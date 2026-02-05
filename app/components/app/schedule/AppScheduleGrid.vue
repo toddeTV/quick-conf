@@ -32,7 +32,7 @@ const { public: { demoMode } } = useRuntimeConfig()
         :style="{ height: `${HEADER_HEIGHT}px` }"
       />
 
-      <!-- Current Time Label -->
+      <!-- Current Time Label (red "now" line) -->
       <div
         v-if="currentTimeLineStyle.display !== 'none'"
         class="pointer-events-none absolute right-0 z-50 -mt-3 pr-0 text-right"
