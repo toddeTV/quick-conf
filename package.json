@@ -45,7 +45,7 @@
     "dev": "nuxt dev",
     "dev:preset": "nuxt dev --port 3000 --public",
     "fix:lint": "run-s \"test:lint --fix\"",
-    "generate": "nuxt generate",
+    "generate": "cross-env NODE_OPTIONS=--max-old-space-size=8192 nuxt generate",
     "nuxi": "nuxi",
     "nuxt": "nuxt",
     "postinstall": "nuxt prepare",
