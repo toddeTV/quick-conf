@@ -44,6 +44,21 @@ export const landingSchema = createBaseWithSeoSchema().extend({
       }),
 
       createLandingBlockBaseSchema().extend({
+        component: z.literal('AppLandingHeroSplit'),
+        links: z.array(createLinkSchema()).optional(),
+        image: createImageSchema().optional(),
+        videoUrl: property(z.string().optional()).editor({
+          // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+          description: 'The YouTube Video URL. If provided, it overrides the image.',
+        }),
+        features: z.array(z.object({
+          title: z.string().min(1),
+          description: z.string().optional(),
+          icon: z.string().optional(),
+        })).optional().default([]),
+      }),
+
+      createLandingBlockBaseSchema().extend({
         component: z.literal('AppLandingHeroCountdown'),
         links: z.array(createLinkSchema()).optional(),
         targetDate: property(z.string().datetime()).editor({
