@@ -20,7 +20,9 @@ This is a **completely free** template for quickly setting up a new Conference o
 
 You can find a deployed version of this template to test and view here:
 
-> 🔗 [https://quick-conf.com/](https://quick-conf.com/)
+🔗 Demo: [https://quick-conf.com/](https://quick-conf.com/)
+
+🎥 Video: [Showcase Video](https://youtu.be/uh-Rys6nTKI)
 
 <details>
 <summary>📸 Screenshots</summary>
