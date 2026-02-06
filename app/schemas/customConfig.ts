@@ -180,7 +180,9 @@ export const customConfigSchema = z.object({
       }),
       neutral: property(z.enum(['gray', 'neutral', 'slate', 'stone', 'zinc']).default('slate')).editor({
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
-        description: 'Neutral color of your UI.',
+        description: 'Neutral color of your UI used for backgrounds, borders, and text. '
+          + 'Note: Options like \'slate\' or \'gray\' have a blue tint. '
+          + 'For a pure gray, choose \'neutral\' or \'zinc\'.',
       }),
     })).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
