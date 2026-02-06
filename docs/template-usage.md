@@ -174,6 +174,10 @@ For easily managing the template, we provide a CLI tool to streamline the proces
    **IMPORTANT:** Ensure that the file `public/custom-styles.css` exists and contains your own content, as it is needed!
 5. Push the files that the CLI made onto the main branch of your repository.<br>
    Now you have a repository with the base code of the template online in a Git repository.
+
+   > [!IMPORTANT]
+   > Make sure you also generated and pushed a package manager lockfile into your repository, as your hoster may need it!
+
 6. Now, host your website and add a Git workflow so that your Git provider or hoster will build a new application every time your main branch has a new version (this is important for the Git-based CMS the project uses).
 7. After your website is hosted and deployed, you have to log in to access the CMS for administrative functionality by doing the following:
    1. Open the deployed website in your browser.
@@ -229,3 +233,6 @@ If you have already set up your conference website and want to pull in the lates
    2. By checking the `docs/migrations` folder in the repository.
 7. Test locally if the project runs and that there are no errors.
 8. Push the changes that the CLI made onto the main branch of your repository.
+
+> [!IMPORTANT]
+> Make sure you also generated and pushed a package manager lockfile into your repository, as your hoster may need it!
