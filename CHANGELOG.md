@@ -1,5 +1,48 @@
 # Changelog
 
+## [1.1.0](https://github.com/toddeTV/quick-conf/compare/v1.0.0...v1.1.0) (2026-02-06)
+
+
+### Features
+
+* add `AppLandingHeroSplit` block and refactor landing page ([#128](https://github.com/toddeTV/quick-conf/issues/128)) ([6620f9a](https://github.com/toddeTV/quick-conf/commit/6620f9aff410bd65e4053ca0a814bd494dbfe121))
+* update CLI cleanup list and IDE folder preservation logic ([#120](https://github.com/toddeTV/quick-conf/issues/120)) ([8db5719](https://github.com/toddeTV/quick-conf/commit/8db57196292bb64e67e1a86f190efc8d71061053))
+
+
+### Bug Fixes
+
+* release-please auto tags for release PRs ([#121](https://github.com/toddeTV/quick-conf/issues/121)) ([df92bef](https://github.com/toddeTV/quick-conf/commit/df92beff00757b6ab57ca3893e13eba015514a8c))
+* release-please configuration and add version marker ([#126](https://github.com/toddeTV/quick-conf/issues/126)) ([6598e17](https://github.com/toddeTV/quick-conf/commit/6598e17830d67edfacbb30d2824f92f3b4882eb3))
+
+
+### Performance Improvements
+
+* increase memory limit for nuxt build and nuxt generate ([#124](https://github.com/toddeTV/quick-conf/issues/124)) ([861e62f](https://github.com/toddeTV/quick-conf/commit/861e62f2d5e658660992862ef4e6c582d6886a5a))
+
+
+### Miscellaneous Chores
+
+* add `@nuxt/scripts` for third-party scripts with YouTube ([#127](https://github.com/toddeTV/quick-conf/issues/127)) ([712c2ef](https://github.com/toddeTV/quick-conf/commit/712c2efa24f388f5a3b34ba23f81053d23f70123))
+* add label to release-please PRs & ignore in CodeRabbit ([#119](https://github.com/toddeTV/quick-conf/issues/119)) ([662c2b2](https://github.com/toddeTV/quick-conf/commit/662c2b2cf95b190b15de417d44d7ac3c1ed7252a))
+* bump version to 1.1.0-rc.0 after release ([#115](https://github.com/toddeTV/quick-conf/issues/115)) ([528fd6b](https://github.com/toddeTV/quick-conf/commit/528fd6bb8db9aaf12b37deb918ebedf560fbb0a1))
+* change release please configuration to not include project name ([#117](https://github.com/toddeTV/quick-conf/issues/117)) ([a5aca73](https://github.com/toddeTV/quick-conf/commit/a5aca73220b0e72272228e677c898056885df467))
+
+
+### Documentation
+
+* create documentation index with automated versioning ([#118](https://github.com/toddeTV/quick-conf/issues/118)) ([10fbc13](https://github.com/toddeTV/quick-conf/commit/10fbc1377b63dc607d95605f9214e66b2a08287f))
+* include technology links and lockfile warnings ([#125](https://github.com/toddeTV/quick-conf/issues/125)) ([e56db7c](https://github.com/toddeTV/quick-conf/commit/e56db7c2708f17149005cb7c3ed65534e632a88d))
+
+
+### Styles
+
+* update demo banner to relative positioning and soft red ([#122](https://github.com/toddeTV/quick-conf/issues/122)) ([2a7d9e7](https://github.com/toddeTV/quick-conf/commit/2a7d9e7a9bead27271e5dce866fca505f35ec019))
+
+
+### Code Refactoring
+
+* replace static gray with configured neutral colors ([#123](https://github.com/toddeTV/quick-conf/issues/123)) ([0c18251](https://github.com/toddeTV/quick-conf/commit/0c182515c7079db573a3c23375490faa00e8d2a4))
+
 ## 1.0.0 (2026-02-05)
 
 
