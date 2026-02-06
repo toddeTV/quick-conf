@@ -4,10 +4,11 @@ seo:
   title: The Ultimate Conference Template
   description: A completely free, modern, and feature-rich conference and meetup template. Enjoy a free Git-based CMS with visual editing and live previews directly in your browser - perfect for non-technical organizers. Powered with Nuxt 4, Vue 3, Nuxt Studio, Nuxt UI, Tailwind CSS v4, and more cutting-edge tech.
 blocks:
-  - component: AppLandingHero
+  - component: AppLandingHeroSplit
     title: The Ultimate Conference Template
     description: A completely free, modern, and feature-rich conference and meetup template. Enjoy a free Git-based CMS with visual editing and live previews directly in your browser - perfect for non-technical organizers.
     headline: quick-conf
+    videoUrl: https://youtu.be/uh-Rys6nTKI
     links:
       - label: Get the Template
         icon: i-lucide-github
@@ -22,6 +23,19 @@ blocks:
         variant: subtle
         size: xl
         to: /schedule
+    features:
+      - title: 100% Customizable
+        description: Change colors, fonts, logo, icons, and layout easily via the configuration file.
+        icon: i-lucide-palette
+      - title: SEO Optimized
+        description: Built-in SEO best practices including sitemap, OpenGraph, and schema.org data.
+        icon: i-lucide-search
+      - title: Modern Tech Stack
+        description: Powered by Nuxt 4, Vue 3, Tailwind CSS 4 & TypeScript.
+        icon: i-simple-icons-nuxtdotjs
+      - title: CMS with Visual Editing
+        description: Powered by Nuxt Content & Nuxt Studio. Edit content visually with a live preview directly in your browser.
+        icon: i-lucide-pen-tool
 
   - component: AppLandingSeparator
 
@@ -75,44 +89,21 @@ blocks:
         size: lg
         to: '#'
 
-  - component: AppLandingSection
-    title: Built with Modern Tech
-    description: This template leverages the latest Vue ecosystem tools to provide a top-tier developer experience and blazing fast performance.
-    headline: Tech Stack
-    orientation: horizontal
-    features:
-      - title: Nuxt 4 & Vue 3
-        description: Built on the cutting-edge Nuxt 4 framework with Composition API and TypeScript.
-        icon: i-simple-icons-nuxtdotjs
-      - title: Tailwind CSS v4
-        description: Styled with the latest Tailwind engine for minimal CSS and maximum flexibility.
-        icon: i-simple-icons-tailwindcss
-      - title: Nuxt Content & Nuxt Studio
-        description: A Git-based headless CMS that lets you write in Markdown and YAML.
-        icon: i-lucide-file-text
-    image:
-      src: https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=700&auto=format
-      alt: Coding on laptop
-
-  - component: AppLandingSection
-    title: Designed for Organizers
-    description: You don't need to be a developer to manage your conference website. We have optimized everything for ease of use.
-    headline: Benefits
-    orientation: horizontal
-    reverse: true
-    features:
-      - title: Nuxt Studio Ready
-        description: Edit your content visually with a live preview. No code required for content updates.
-        icon: i-lucide-pen-tool
-      - title: 100% Customizable
-        description: Change colors, fonts, and layout easily via the configuration file.
-        icon: i-lucide-palette
-      - title: SEO Optimized
-        description: Built-in SEO best practices including sitemap, OpenGraph, and schema.org data.
-        icon: i-lucide-search
-    image:
-      src: https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=700&auto=format
-      alt: Audience
+  - component: AppLandingMarquee
+    direction: left
+    speed: 40
+    gap: 30
+    images:
+      - src: https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=700&auto=format
+        alt: Conference Hall
+      - src: https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=700&auto=format
+        alt: Audience listening to a presentation
+      - src: https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&auto=format
+        alt: Conference crowd in a large hall
+      - src: https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&auto=format
+        alt: Large conference hall venue
+      - src: https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&auto=format
+        alt: Attendees networking at the event
 
   - component: AppLandingFeatures
     title: Everything You Need
@@ -171,13 +162,6 @@ blocks:
             src: https://i.pravatar.cc/120?img=8
             alt: Avatar of Mike
 
-  - component: AppLandingSponsors
-    title: Example Sponsor Grid
-    description: This section demonstrates how to display your sponsors.
-    headline: Partners
-    showViewAll: false
-    viewAllLink: /faq/sponsoring
-
   - component: AppLandingCta
     title: Start Building Today
     description: Clone the repository and launch your conference website in minutes.
@@ -196,34 +180,6 @@ blocks:
         trailing: false
         size: xl
         target: _blank
-
-  - component: AppLandingMarquee
-    direction: left
-    speed: 40
-    gap: 30
-    images:
-      - src: https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=700&auto=format
-        alt: Conference Hall
-      - src: https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=700&auto=format
-        alt: Audience listening to a presentation
-      - src: https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&auto=format
-        alt: Conference crowd in a large hall
-      - src: https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&auto=format
-        alt: Large conference hall venue
-      - src: https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&auto=format
-        alt: Attendees networking at the event
-
-  - component: AppLandingGallery
-    title: Visual Impressions
-    description: A masonry gallery component to show off your event photos.
-    headline: Gallery Component
-    images:
-      - src: https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&auto=format
-        alt: Conference Hall
-      - src: https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&auto=format
-        alt: Networking
-      - src: https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=700&auto=format
-        alt: Workshop
 
   - component: AppLandingFaqPreview
     title: Frequently Asked Questions
