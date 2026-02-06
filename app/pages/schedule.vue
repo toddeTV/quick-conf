@@ -71,10 +71,10 @@ defineOgImageComponent('DefaultSatori', {
 
     <div v-else class="flex flex-col items-center justify-center gap-2 py-12 text-center">
       <UIcon
-        class="text-3xl text-gray-300 dark:text-gray-700"
+        class="text-3xl text-neutral-300 dark:text-neutral-700"
         name="i-lucide-calendar-x-2"
       />
-      <div class="text-lg font-medium text-gray-900 dark:text-white">
+      <div class="text-lg font-medium text-neutral-900 dark:text-white">
         <span v-if="!stages || stages.length === 0">
           No stages configured yet.
         </span>
@@ -82,7 +82,7 @@ defineOgImageComponent('DefaultSatori', {
           No talks scheduled yet.
         </span>
       </div>
-      <div class="text-gray-500">
+      <div class="text-neutral-500">
         Check back later for updates to the schedule.
       </div>
     </div>

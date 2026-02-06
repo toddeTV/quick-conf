@@ -17,18 +17,18 @@ const { public: { demoMode } } = useRuntimeConfig()
 
 <template>
   <div
-    class="relative flex rounded-xl border border-gray-200
-      bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900"
+    class="relative flex rounded-xl border border-neutral-200
+      bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
     :class="stages.length === 1 ? 'max-w-3xl mx-auto' : ''"
   >
     <!-- Time Axis (Sticky Left) -->
     <div
-      class="sticky left-0 z-30 min-w-15 flex-none border-r border-gray-200 bg-gray-50
-      dark:border-gray-800 dark:bg-gray-800/95 backdrop-blur rounded-l-xl"
+      class="sticky left-0 z-30 min-w-15 flex-none border-r border-neutral-200 bg-neutral-50
+      dark:border-neutral-800 dark:bg-neutral-800/95 backdrop-blur rounded-l-xl"
     >
       <!-- Header Spacer -->
       <div
-        class="sticky top-0 z-40 border-b border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-800
+        class="sticky top-0 z-40 border-b border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-800
           rounded-tl-xl"
         :style="{ height: `${HEADER_HEIGHT}px` }"
       />
@@ -48,10 +48,10 @@ const { public: { demoMode } } = useRuntimeConfig()
       <div
         v-for="h in timeSlots"
         :key="h"
-        class="relative border-b border-gray-200 dark:border-gray-800 last:rounded-bl-xl first:rounded-tl-xl"
+        class="relative border-b border-neutral-200 dark:border-neutral-800 last:rounded-bl-xl first:rounded-tl-xl"
         :style="{ height: `${HOUR_HEIGHT}px` }"
       >
-        <span class="absolute right-2 -top-3 text-xs font-mono text-gray-500 dark:text-gray-400">
+        <span class="absolute right-2 -top-3 text-xs font-mono text-neutral-500 dark:text-neutral-400">
           {{ formatHour(h) }}
         </span>
       </div>
@@ -79,16 +79,16 @@ const { public: { demoMode } } = useRuntimeConfig()
       <div
         v-for="stage in stages"
         :key="stage.slug"
-        class="relative shrink-0 border-r border-gray-200 last:border-r-0 dark:border-gray-800 max-w-2xl"
+        class="relative shrink-0 border-r border-neutral-200 last:border-r-0 dark:border-neutral-800 max-w-2xl"
         :class="stages.length > 1
           ? 'w-[60vw] flex-none md:w-auto md:flex-1 md:min-w-60'
           : 'w-full flex-none md:w-auto md:flex-1'"
       >
         <!-- Stage Header (Sticky Top) -->
         <div
-          class="sticky top-0 z-20 flex items-center justify-center border-b border-gray-200 bg-white/95 px-2
-            text-center font-bold text-gray-900 backdrop-blur dark:border-gray-800
-            dark:bg-gray-900/95 dark:text-white"
+          class="sticky top-0 z-20 flex items-center justify-center border-b border-neutral-200 bg-white/95 px-2
+            text-center font-bold text-neutral-900 backdrop-blur dark:border-neutral-800
+            dark:bg-neutral-900/95 dark:text-white"
           :style="{ height: `${HEADER_HEIGHT}px` }"
         >
           {{ stage.name }}
@@ -100,7 +100,7 @@ const { public: { demoMode } } = useRuntimeConfig()
           <div
             v-for="h in timeSlots"
             :key="`grid-${h}`"
-            class="w-full border-b border-gray-100 dark:border-gray-800/50"
+            class="w-full border-b border-neutral-100 dark:border-neutral-800/50"
             :style="{ height: `${HOUR_HEIGHT}px` }"
           />
 

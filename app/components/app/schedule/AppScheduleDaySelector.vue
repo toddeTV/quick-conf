@@ -21,7 +21,7 @@ const activeDayISO = defineModel<string>('modelValue', { required: true })
         @click="activeDayISO = day"
       />
     </template>
-    <div v-else class="text-lg font-medium text-gray-900 dark:text-white">
+    <div v-else class="text-lg font-medium text-neutral-900 dark:text-white">
       {{ formatDateReadable(availableDays[0]!) }}
     </div>
   </div>

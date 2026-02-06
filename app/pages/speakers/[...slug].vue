@@ -84,7 +84,7 @@ defineOgImageComponent('DefaultSatori', {
               <div class="relative aspect-4/3 w-60 -translate-y-8 sm:-translate-y-12 transform">
                 <NuxtImg
                   :alt="`Picture of ${speaker.name}`"
-                  class="h-full w-full rounded-lg object-cover ring-2 ring-white dark:ring-gray-900"
+                  class="h-full w-full rounded-lg object-cover ring-2 ring-white dark:ring-neutral-900"
                   densities="1x 2x"
                   fit="cover"
                   format="webp"

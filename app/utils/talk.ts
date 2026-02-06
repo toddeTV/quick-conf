@@ -36,10 +36,10 @@ export const talkTypeStyles: Record<string, TalkTypeStyle> = {
   },
   'other': {
     label: 'Other',
-    card: 'border-gray-200 bg-gray-100/90 dark:border-gray-700 dark:bg-gray-800/90 '
-      + 'hover:border-gray-400 dark:hover:border-gray-500',
-    text: 'text-gray-700 dark:text-gray-300',
-    legend: 'bg-gray-100 dark:bg-gray-800 ring-gray-200 dark:ring-gray-700',
+    card: 'border-neutral-200 bg-neutral-100/90 dark:border-neutral-700 dark:bg-neutral-800/90 '
+      + 'hover:border-neutral-400 dark:hover:border-neutral-500',
+    text: 'text-neutral-700 dark:text-neutral-300',
+    legend: 'bg-neutral-100 dark:bg-neutral-800 ring-neutral-200 dark:ring-neutral-700',
   },
   'talk': {
     label: 'Talk',
