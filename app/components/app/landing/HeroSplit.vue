@@ -34,6 +34,9 @@ const videoId = computed(() => {
       if (pathSegments[0] === 'embed' && pathSegments[1]) {
         return pathSegments[1]
       }
+      if (url.hostname.includes('youtu.be') && pathSegments[0]?.length === 11) {
+        return pathSegments[0]
+      }
     }
     // Fallback regex
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
