@@ -1,16 +1,16 @@
 # quick-conf
 
-This is a **completely free** template for quickly setting up a new Conference or Meetup website, powered by **Nuxt Studio** under the hood as a Git-based CMS. Everything included - the template itself, all dependencies, and the CMS - is available at no cost. It features **visual editors**, **live previews** directly in your browser, and an intuitive interface, making it effortless to manage content without touching code. Once set up, it is the perfect solution for non-technical users, as all content updates can be handled visually through the browser interface.
+This is a **completely free** template for quickly setting up a new Conference or Meetup website, powered by [**Nuxt Studio**](https://nuxt.studio) under the hood as a Git-based CMS. Everything included - the template itself, all dependencies, and the CMS - is available at no cost. It features **visual editors**, **live previews** directly in your browser, and an intuitive interface, making it effortless to manage content without touching code. Once set up, it is the perfect solution for non-technical users, as all content updates can be handled visually through the browser interface.
 
 > [!NOTE]
 > While the template and tools are free, hosting and deployment costs are not included and depend on your chosen provider.
 
 ## 🚀 Key Features
 
-- **🎨 Customizable**: Fully theming via Nuxt UI and configuration files - your colors, your style!
-- **📝 CMS Integration**: Nuxt Studio ready for visual editing - directly in the browser!
-- **⚡ Modern Stack**: Nuxt 4, Vue 3, Tailwind CSS v4, TypeScript.
-- **🔍 SEO Ready**: Pre-configured with:
+- **🎨 Customizable**: Fully theming via [Nuxt UI](https://ui.nuxt.com) and configuration files - your colors, your style!
+- **📝 CMS Integration**: [Nuxt Studio](https://nuxt.studio) ready for visual editing - directly in the browser!
+- **⚡ Modern Stack**: [Nuxt 4](https://nuxt.com), [Vue 3](https://vuejs.org), [Tailwind CSS 4](https://tailwindcss.com), [TypeScript](https://www.typescriptlang.org).
+- **🔍 SEO Ready**: Pre-configured via [Nuxt SEO](https://nuxtseo.com/) with:
   - ✅ Automatic **Sitemap** (`/sitemap.xml`)
   - ✅ Dynamic **OG Images** (Social Cards) for speakers, talks & pages
   - ✅ Smart **Robots.txt** (Blocks AI Bots, permits legitimate crawlers)
