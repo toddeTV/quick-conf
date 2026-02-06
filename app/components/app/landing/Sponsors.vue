@@ -53,7 +53,7 @@ const { data: sponsors } = await useAsyncData('sponsors-all', () => queryCollect
               class="text-4xl"
               name="i-lucide-handshake"
             />
-            <span class="text-lg font-medium text-gray-900 dark:text-white">
+            <span class="text-lg font-medium text-neutral-900 dark:text-white">
               View All Sponsors
             </span>
           </div>

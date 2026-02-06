@@ -22,7 +22,7 @@ const _props = defineProps<{
       <div class="absolute left-1/2 top-0 z-10 aspect-4/3 w-[70%] -translate-x-1/2 -translate-y-1/4 transform">
         <NuxtImg
           :alt="`Picture of ${speaker.name}`"
-          class="h-full w-full rounded-lg object-cover ring-2 ring-white dark:ring-gray-900"
+          class="h-full w-full rounded-lg object-cover ring-2 ring-white dark:ring-neutral-900"
           densities="1x 2x"
           fit="cover"
           format="webp"
@@ -33,10 +33,10 @@ const _props = defineProps<{
         />
       </div>
       <div class="text-center mt-[45%]">
-        <h3 class="text-md font-medium text-gray-900 dark:text-white">
+        <h3 class="text-md font-medium text-neutral-900 dark:text-white">
           {{ speaker.name }}
         </h3>
-        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+        <p class="mt-1 text-xs text-neutral-500 dark:text-neutral-400">
           {{ speaker.description }}
         </p>
       </div>

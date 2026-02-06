@@ -75,12 +75,12 @@ const countdown = computed(() => {
         <div
           v-for="(value, label) in countdown"
           :key="label"
-          class="flex flex-col items-center p-4 bg-gray-100 dark:bg-gray-800 rounded-xl"
+          class="flex flex-col items-center p-4 bg-neutral-100 dark:bg-neutral-800 rounded-xl"
         >
           <span class="text-4xl font-bold text-primary-600 dark:text-primary-400 font-mono">
             {{ value.toString().padStart(2, '0') }}
           </span>
-          <span class="text-sm text-gray-500 uppercase tracking-wider mt-1">{{ label }}</span>
+          <span class="text-sm text-neutral-500 uppercase tracking-wider mt-1">{{ label }}</span>
         </div>
       </div>
 
@@ -104,7 +104,7 @@ const countdown = computed(() => {
         class="flex flex-col items-center"
       >
         <div
-          class="inline-block px-8 py-4 rounded-xl bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
+          class="inline-block px-8 py-4 rounded-xl bg-neutral-200 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400"
         >
           <span class="text-2xl font-bold">Event Ended</span>
         </div>

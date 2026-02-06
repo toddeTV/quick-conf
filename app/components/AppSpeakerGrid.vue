@@ -26,7 +26,7 @@ const _props = withDefaults(defineProps<{
         >
           <div class="flex flex-col items-center gap-y-2">
             <UIcon class="text-4xl" name="i-lucide-users" />
-            <span class="text-lg font-medium text-gray-900 dark:text-white">
+            <span class="text-lg font-medium text-neutral-900 dark:text-white">
               View All Speakers
             </span>
           </div>

@@ -23,7 +23,7 @@ defineProps<{
       <div
         v-for="(image, index) in images"
         :key="index"
-        class="relative aspect-4/3 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800"
+        class="relative aspect-4/3 overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800"
       >
         <NuxtImg
           :alt="image.alt"

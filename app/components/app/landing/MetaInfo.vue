@@ -35,10 +35,10 @@ defineProps<{
           </div>
         </div>
         <div>
-          <p v-if="item.label" class="text-sm font-medium text-gray-500 dark:text-gray-400">
+          <p v-if="item.label" class="text-sm font-medium text-neutral-500 dark:text-neutral-400">
             {{ item.label }}
           </p>
-          <p class="text-lg font-semibold text-gray-900 dark:text-white">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-white">
             {{ item.text }}
           </p>
         </div>

@@ -23,7 +23,7 @@ const typeConfig = computed(() => getTalkTypeStyle(props.talk.type))
     :class="typeConfig.card"
     :to="`/talks/${talk.slug}`"
   >
-    <div class="mb-0.5 font-medium leading-tight text-gray-900 dark:text-gray-100">
+    <div class="mb-0.5 font-medium leading-tight text-neutral-900 dark:text-neutral-100">
       {{ talk.title }}
     </div>
 
@@ -39,12 +39,12 @@ const typeConfig = computed(() => getTalkTypeStyle(props.talk.type))
       <div v-for="speaker in talk.speakers" :key="speaker.slug" class="flex items-center gap-1.5">
         <NuxtImg
           :alt="speaker.name"
-          class="h-5 w-5 rounded-full object-cover ring-1 ring-white dark:ring-gray-900"
+          class="h-5 w-5 rounded-full object-cover ring-1 ring-white dark:ring-neutral-900"
           height="20"
           :src="speaker.image"
           width="20"
         />
-        <span class="truncate text-[11px] leading-tight text-gray-700 dark:text-gray-300">
+        <span class="truncate text-[11px] leading-tight text-neutral-700 dark:text-neutral-300">
           {{ speaker.name }}
         </span>
       </div>
