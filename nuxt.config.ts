@@ -40,6 +40,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     'nuxt-studio',
     '@nuxtjs/seo',
+    '@nuxt/scripts',
   ],
 
   runtimeConfig: {
