@@ -139,7 +139,7 @@ const videoId = computed(() => {
       </div>
       <NuxtImg
         v-else-if="image"
-        :alt="image.alt"
+        :alt="image.alt || 'Hero image'"
         class="w-full h-auto rounded-xl shadow-xl ring-1 ring-neutral-200 dark:ring-neutral-800"
         :loading="image.loading"
         :sizes="image.sizes"
