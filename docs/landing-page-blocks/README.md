@@ -31,6 +31,11 @@ Click on a block to see its full documentation, including code examples and prop
   <img src="../assets/landing-page-blocks/AppLandingHero.png" width="450" alt="AppLandingHero" />
   </a>
 
+- [**AppLandingHeroSplit**](./AppLandingHeroSplit.md)<br />
+  <a href="./AppLandingHeroSplit.md">
+  <img src="../assets/landing-page-blocks/AppLandingHeroSplit.png" width="450" alt="AppLandingHeroSplit" />
+  </a>
+
 - [**AppLandingHeroCountdown**](./AppLandingHeroCountdown.md)<br />
   <a href="./AppLandingHeroCountdown.md">
   <img src="../assets/landing-page-blocks/AppLandingHeroCountdown.png" width="450" alt="AppLandingHeroCountdown" />
