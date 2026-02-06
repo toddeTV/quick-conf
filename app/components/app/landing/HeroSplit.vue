@@ -30,8 +30,9 @@ const videoId = computed(() => {
       if (url.searchParams.has('v')) {
         return url.searchParams.get('v')
       }
-      if (url.pathname.length > 1) {
-        return url.pathname.substring(1)
+      const pathSegments = url.pathname.substring(1).split('/')
+      if (pathSegments[0] === 'embed' && pathSegments[1]) {
+        return pathSegments[1]
       }
     }
     // Fallback regex
