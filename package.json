@@ -44,7 +44,8 @@
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 nuxt build",
     "dev": "nuxt dev",
     "dev:preset": "nuxt dev --port 3000 --public",
-    "fix:lint": "run-s \"test:lint --fix\"",
+    "fix": "run-s fix:*",
+    "fix:lint-format": "run-s \"test:lint-format --fix\"",
     "generate": "cross-env NODE_OPTIONS=--max-old-space-size=8192 nuxt generate",
     "nuxi": "nuxi",
     "nuxt": "nuxt",
@@ -52,7 +53,7 @@
     "preview": "nuxt preview",
     "reset": "rimraf node_modules .nuxt .output dist .data",
     "test": "run-s test:*",
-    "test:lint": "eslint .",
+    "test:lint-format": "eslint .",
     "test:renovate": "renovate-config-validator",
     "test:types": "nuxt typecheck"
   },
