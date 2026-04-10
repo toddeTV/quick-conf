@@ -23,17 +23,9 @@ logs
 .env.*
 !.env.example
 
-# only specific files in `.vscode`
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
+# no AI files (AI should only be used for reviewing code, not for generating it)
+CLAUDE.md
+.claude
 
-# only specific files in `.github`
-.github/*
-!.github/actions/
-!.github/workflows/
-!.github/dependabot.yml
-!.github/FUNDING.yml
-
-# Ignore `*.psd` files in `/docs/assets`
-/docs/assets/**/*.psd
+# Skilld references (recreated by `skilld install`)
+.skilld
