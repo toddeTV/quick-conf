@@ -82,7 +82,8 @@ reviews:
     - '!node_modules/**'
 
   # Special instructions for certain code paths.
-  # CRITICAL: Since no AI rules are in the project, these rules completely define the project standards.
+  # CRITICAL: `path_instructions` play a primary role in defining project standards alongside documentation-based
+  #           guidance when `knowledge_base.code_guidelines.enabled` is true.
   path_instructions:
     - path: '**/*.{ts,js,vue,mjs}'
       instructions: |
