@@ -3,12 +3,6 @@
   "[vue]": {
     "editor.defaultFormatter": "Vue.volar"
   },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never"
-  },
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.formatOnSave": false,
   "editor.linkedEditing": true,
   "editor.quickSuggestions": {
     "strings": "on"
@@ -58,6 +52,14 @@
     "postcss"
   ],
   "prettier.enable": false,
+  "eslint.enable": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+
+  "editor.formatOnSave": false,
 
   // search
   "search.exclude": {

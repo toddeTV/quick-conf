@@ -3,7 +3,7 @@
   "isQuickConfTemplate": true,
   "type": "module",
   "version": "1.2.0-rc.0",
-  "packageManager": "pnpm@10.8.1+sha512.c50088ba998c67b8ca8c99df8a5e02fd2ae2e2b29aaf238feaa9e124248d3f48f9fb6db2424949ff901cffbb5e0f0cc1ad6aedb602cd29450751d11c35023677",
+  "packageManager": "pnpm@10.33.0",
   "description": "This is a template for quickly setting up a new Conference or Meetup website with various functionalities.",
   "author": "Thorsten Seyschab <business@todde.tv> (https://todde.tv/)",
   "contributors": [
@@ -37,14 +37,15 @@
     "website"
   ],
   "engines": {
-    "node": "22.x",
+    "node": "24.x",
     "pnpm": "10.x"
   },
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 nuxt build",
     "dev": "nuxt dev",
     "dev:preset": "nuxt dev --port 3000 --public",
-    "fix:lint": "run-s \"test:lint --fix\"",
+    "fix": "run-s fix:*",
+    "fix:lint-format": "run-s \"test:lint-format --fix\"",
     "generate": "cross-env NODE_OPTIONS=--max-old-space-size=8192 nuxt generate",
     "nuxi": "nuxi",
     "nuxt": "nuxt",
@@ -52,7 +53,7 @@
     "preview": "nuxt preview",
     "reset": "rimraf node_modules .nuxt .output dist .data",
     "test": "run-s test:*",
-    "test:lint": "eslint .",
+    "test:lint-format": "eslint .",
     "test:renovate": "renovate-config-validator",
     "test:types": "nuxt typecheck"
   },

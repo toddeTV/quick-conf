@@ -6,7 +6,7 @@ enable_free_tier: false
 
 reviews:
   # "assertive" emits a broad range of issues including nitpicks and improvements.
-  # "chill" only reports critical issues.
+  # "chill" provides lighter feedback with fewer non-critical comments.
   profile: assertive
 
   # If true, CodeRabbit will request changes on the PR if there are issues. If false, it will only comment.
@@ -64,14 +64,14 @@ reviews:
   suggested_reviewers: false
   # auto_assign_reviewers: false
 
-  # Disable "fun" content like fortunes and poems to maintain professional tone.
+  # Disable "fun" content like fortunes and poems in the review summary.
   in_progress_fortune: false
   poem: false
 
-  # Include a "Prompt for AI Agents" section in review comments.
+  # Include a "Prompt for AI Agents" section in review comments with instructions for other AI tools to implement the suggestion.
   enable_prompt_for_ai_agents: true
 
-  # Only run on relevant paths.
+  # Only run on these paths. Omit to run on all.
   path_filters:
     - '!pnpm-lock.yaml'
     - '!**/*.min.js'
@@ -82,7 +82,8 @@ reviews:
     - '!node_modules/**'
 
   # Special instructions for certain code paths.
-  # CRITICAL: Since .github/instructions are not in the repo, these rules completely define the project standards.
+  # CRITICAL: `path_instructions` play a primary role in defining project standards alongside documentation-based
+  #           guidance when `knowledge_base.code_guidelines.enabled` is true.
   path_instructions:
     - path: '**/*.{ts,js,vue,mjs}'
       instructions: |
@@ -148,11 +149,22 @@ reviews:
   auto_review:
     # We want automatic reviews.
     enabled: true
+
+    # And also incremental ones.
     auto_incremental_review: true
-    # Only run review on PRs with the following labels (or exclude by negative matching)
+
+    # Review draft PRs.
+    drafts: true
+
+    # More ways to filter when to run automatic reviews.
+    # ignore_title_keywords:
+    #   -
     labels:
       - '!autorelease: pending' # Exclude release-please bot PRs that are waiting for release.
-    drafts: false
+    # base_branches:
+    #   -
+    # ignore_usernames:
+    #   -
 
   finishing_touches:
     # Disable AI generation of docstrings/tests as we prefer manual control or existing suites.
@@ -164,14 +176,21 @@ reviews:
   # Do not download the repo for each review.
   disable_cache: false
 
-# Configure knowledge base features to let the AI learn from your project's documentation.
+# Configure knowledge base features to let the AI learn from your project's documentation and past reviews.
 knowledge_base:
   learnings:
-    # "auto" allows the AI to automatically learn from PR feedback and apply it to future reviews.
-    scope: auto
+    # Scope for storing/reusing learned feedback from PR reviews.
+    # Possible values:
+    # - "local": learnings are scoped to this repository only.
+    # - "global": learnings are shared across the organization/workspace.
+    # - "auto": uses local for public repos, global for private repos.
+    scope: local
 
   code_guidelines:
-    # Enable the AI to read and apply project-specific documentation.
+    # Whether CodeRabbit should apply coding-guideline documents during review.
+    # Possible values:
+    # - true: enable reading and applying guideline files.
+    # - false: disable guideline-based review behavior.
     enabled: true
 
     # Index documentation to understand project conventions.

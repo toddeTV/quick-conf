@@ -33,11 +33,11 @@ jobs:
       matrix:
         include:
           - name: Lint & Format Check
-            command: pnpm test:lint
+            command: pnpm run test:lint-format
           - name: Type Check
-            command: pnpm test:types
+            command: pnpm run test:types
           - name: Renovate Config Check
-            command: pnpm test:renovate
+            command: pnpm run test:renovate
 
     steps:
       # Check out the repository
@@ -52,7 +52,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: pnpm
 
       # Install project dependencies using the custom script.
@@ -81,7 +81,7 @@ jobs:
           # The flexible approach: a job is also considered "passed" if it was intentionally skipped.
           # This is important for conditional jobs that should only run if specific files have changed
           # (e.g., using an `if:` condition). In such cases, 'skipped' is a valid, non-error state.
-          # echo '<DOLLAR_SYMBOL>{{ toJSON(needs) }}' | jq -e 'all(.result == "success" or .result == "skipped")'
+          echo '${{ toJSON(needs) }}' | jq -e 'all(.result == "success" or .result == "skipped")'
 
-          # The strict approach: only 'success' is accepted. This will fail if any job is skipped.
-          echo '${{ toJSON(needs) }}' | jq -e 'all(.result == "success")'
+          # # The strict approach: only 'success' is accepted. This will fail if any job is skipped.
+          # echo '<DOLLAR_SYMBOL>{{ toJSON(needs) }}' | jq -e 'all(.result == "success")'
