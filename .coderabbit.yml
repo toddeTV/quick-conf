@@ -178,11 +178,18 @@ reviews:
 # Configure knowledge base features to let the AI learn from your project's documentation and past reviews.
 knowledge_base:
   learnings:
-    # "auto" allows the AI to automatically learn from PR feedback and apply it to future reviews.
-    scope: auto
+    # Scope for storing/reusing learned feedback from PR reviews.
+    # Possible values:
+    # - "local": learnings are scoped to this repository only.
+    # - "global": learnings are shared across the organization/workspace.
+    # - "auto": uses local for public repos, global for private repos.
+    scope: local
 
   code_guidelines:
-    # Enable the AI to read and apply project-specific documentation.
+    # Whether CodeRabbit should apply coding-guideline documents during review.
+    # Possible values:
+    # - true: enable reading and applying guideline files.
+    # - false: disable guideline-based review behavior.
     enabled: true
 
     # Index documentation to understand project conventions.
