@@ -158,8 +158,8 @@ reviews:
     # More ways to filter when to run automatic reviews.
     # ignore_title_keywords:
     #   -
-    # labels:
-    #   - "!autorelease: pending" # Exclude release-please bot PRs that are waiting for release.
+    labels:
+      - '!autorelease: pending' # Exclude release-please bot PRs that are waiting for release.
     # base_branches:
     #   -
     # ignore_usernames:
