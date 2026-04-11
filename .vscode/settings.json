@@ -68,6 +68,7 @@
     "**/.pnp.*": true,
     "**/dist": true,
     "node_modules": true,
+    "patches": true,
     "pnpm-lock.yaml": true
   },
   "search.useIgnoreFiles": false,
