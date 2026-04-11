@@ -80,6 +80,7 @@ reviews:
     - '!.output/**'
     - '!.nuxt/**'
     - '!node_modules/**'
+    - '!patches/**'
 
   # Special instructions for certain code paths.
   # CRITICAL: `path_instructions` play a primary role in defining project standards alongside documentation-based
