@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
-  nuxt-studio:
+  nuxt-studio@1.6.0:
     hash: 216a27fb6c716f5a7522e6bbcb493481803263827b654b09016295fe9c8ab0d6
     path: patches/nuxt-studio.patch
 
