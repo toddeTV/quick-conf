@@ -90,7 +90,7 @@ importers:
         specifier: ~3.32.0
         version: 3.32.0
       nuxt-studio:
-        specifier: ~1.6.0
+        specifier: 1.6.0
         version: 1.6.0(patch_hash=216a27fb6c716f5a7522e6bbcb493481803263827b654b09016295fe9c8ab0d6)(@netlify/blobs@9.1.1)(db0@0.3.4(better-sqlite3@12.6.2))(ioredis@5.10.1)(magicast@0.5.2)(srvx@0.11.15)(vue@3.5.32(typescript@5.9.3))
       renovate:
         specifier: ~42.92.14
