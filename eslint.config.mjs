@@ -98,6 +98,23 @@ export default antfu(
     },
   },
   {
+    /**
+     * Allow long npm script lines in package.json
+     */
+    files: [
+      'package.json',
+    ],
+    rules: {
+      'style/max-len': [
+        'error',
+        {
+          code: 120,
+          ignorePattern: '^\\s*"[\\w:-]+":\\s*".*"',
+        },
+      ],
+    },
+  },
+  {
     files: [
       'quick-conf-cli.mjs',
     ],
