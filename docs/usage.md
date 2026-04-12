@@ -16,6 +16,9 @@ I appreciate you being a part of this community!
 
 ## Event Showcase
 
-The following conferences and meetups are powered by this template:
+The following conferences and meetups are powered by this quick-conf template:
 
-- _Currently, no events are listed. Be the first to add yours!_
+- **PRINTED Europe**<br>
+  A conference for 3D printing, additive manufacturing, and the maker community.
+  - [printed-europe.com](https://printed-europe.com)
+  - [Repository](https://github.com/PRINTED-events/printed-europe.com)
