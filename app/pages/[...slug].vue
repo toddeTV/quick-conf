@@ -2,25 +2,6 @@
 const route = useRoute()
 const { extractSeoMetadata, getSeoMetaBase } = useSeo()
 
-const staticAssetExtensionPattern = /\.(?:avif|css|gif|ico|jpe?g|js|json|map|png|svg|txt|webp|woff2?)$/i
-const staticAssetPrefixes = [
-  '/_nuxt/',
-  '/__nuxt_icon/',
-  '/_ipx/',
-  '/favicon/',
-  '/logo/',
-  '/image-placeholder/',
-]
-const isKnownAssetPath = staticAssetPrefixes.some(prefix => route.path.startsWith(prefix))
-
-if (isKnownAssetPath && staticAssetExtensionPattern.test(route.path)) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: `Asset "${route.path}" not Found`,
-    fatal: false,
-  })
-}
-
 const { data: page } = await useAsyncData(route.path, () =>
   queryCollection('pages').path(`/pages${route.path}`).first())
 
