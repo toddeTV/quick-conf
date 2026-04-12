@@ -57,7 +57,7 @@
     "test:renovate": "renovate-config-validator",
     "test:types": "nuxt typecheck",
     "vercel:node-check": "node -e \"const major=Number(process.versions.node.split('.')[0]);if(major!==24){console.error('Node 24.x is required for Vercel builds.');console.error('Set your Vercel Project Node.js Version to 24.x and redeploy.');process.exit(1)}\"",
-    "vercel:install": "pnpm run vercel:node-check && pnpm i --frozen-lockfile && pnpm rebuild better-sqlite3",
+    "vercel:install": "pnpm run vercel:node-check && pnpm i --frozen-lockfile --prefer-offline && pnpm rebuild better-sqlite3",
     "vercel:build": "pnpm run vercel:node-check && pnpm run build"
   },
   "dependencies": {
