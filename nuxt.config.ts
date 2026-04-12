@@ -86,6 +86,19 @@ export default defineNuxtConfig({
     fonts: true, // use `@nuxt/fonts`
   },
 
+  fonts: {
+    // Keep font resolution local-only to avoid external provider requests.
+    provider: 'local',
+    providers: {
+      google: false,
+      bunny: false,
+      fontshare: false,
+      fontsource: false,
+      adobe: false,
+      googleicons: false,
+    },
+  },
+
   icon: {
     // Use server provider with local bundles so Nuxt Studio users can pick icons freely
     // from installed collections, without external Iconify API requests.
