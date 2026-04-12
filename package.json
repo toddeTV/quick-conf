@@ -80,7 +80,6 @@
     "@types/luxon": "~3.7.1",
     "@types/youtube": "~0.1.2",
     "@unhead/vue": "~2.0.19",
-    "better-sqlite3": "~12.6.2",
     "cross-env": "~10.1.0",
     "eslint": "~9.39.4",
     "eslint-plugin-format": "~1.3.1",

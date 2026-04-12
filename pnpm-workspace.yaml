@@ -4,7 +4,6 @@ patchedDependencies:
   nuxt-studio@1.6.0: patches/nuxt-studio.patch
 allowBuilds:
   '@parcel/watcher': true
-  better-sqlite3: true
   core-js-pure: false
   dtrace-provider: false
   esbuild: true
