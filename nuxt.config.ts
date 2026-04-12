@@ -108,7 +108,6 @@ export default defineNuxtConfig({
       collections: [
         'lucide',
         'mdi',
-        'noto',
         'simple-icons',
       ],
     },
