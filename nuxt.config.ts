@@ -90,6 +90,9 @@ export default defineNuxtConfig({
   },
 
   content: { // for `@nuxt/content`
+    experimental: {
+      sqliteConnector: 'native',
+    },
   },
 
   studio: { // for `nuxt-studio`
