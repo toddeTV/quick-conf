@@ -1,3 +1,5 @@
+patchedDependencies:
+  nuxt-studio: patches/nuxt-studio.patch
 ignoredBuiltDependencies:
   - sharp
   - core-js-pure
@@ -10,5 +12,3 @@ onlyBuiltDependencies:
   - '@parcel/watcher'
   - better-sqlite3
   - esbuild
-patchedDependencies:
-  nuxt-studio: patches/nuxt-studio.patch
