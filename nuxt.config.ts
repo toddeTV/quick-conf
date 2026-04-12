@@ -87,12 +87,17 @@ export default defineNuxtConfig({
   },
 
   icon: {
-    // Keep icon chunks out of the server bundle on Vercel and prebundle statically-detected icons.
+    // Use server provider with local bundles so Nuxt Studio users can pick icons freely
+    // from installed collections, without external Iconify API requests.
+    provider: 'server',
+    fallbackToApi: false,
     serverBundle: {
-      remote: 'jsdelivr',
-    },
-    clientBundle: {
-      scan: true,
+      collections: [
+        'lucide',
+        'mdi',
+        'noto',
+        'simple-icons',
+      ],
     },
   },
 
