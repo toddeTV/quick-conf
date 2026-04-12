@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm run vercel:build",
+  "env": {
+    "NITRO_PRESET": "vercel",
+    "NPM_CONFIG_BUILD_FROM_SOURCE": "true"
+  },
+  "framework": "nuxtjs",
+  "installCommand": "pnpm run vercel:install",
+  "version": 2
+}

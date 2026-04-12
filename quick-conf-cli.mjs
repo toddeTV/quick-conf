@@ -148,6 +148,7 @@ function removeRepoFiles() {
     'README.md',
     'release-please-config.json',
     'renovate.json',
+    'vercel.json',
   ]
 
   for (const folder of folders) {
