@@ -91,6 +91,14 @@ export default defineNuxtConfig({
 
   content: { // for `@nuxt/content`
     experimental: {
+      // Connector selection order in @nuxt/content v3.11.2 (findBestSqliteAdapter):
+      // 1) bun runtime -> bun-sqlite
+      // 2) sqliteConnector: 'native' + node:sqlite available -> node-sqlite
+      // 3) sqliteConnector: 'sqlite3' -> sqlite3
+      // 4) sqliteConnector: 'better-sqlite3' -> better-sqlite3
+      // 5) webcontainer -> sqlite3
+      // 6) fallback -> better-sqlite3
+      // -> Native sqlite is available from Node.js >= 22.5.0, so that is what we use now.
       sqliteConnector: 'native',
     },
   },
