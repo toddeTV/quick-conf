@@ -106,6 +106,7 @@ export default defineNuxtConfig({
     fallbackToApi: false,
     serverBundle: false,
     clientBundle: {
+      sizeLimitKb: 64,
       scan: {
         globInclude: [
           'app/**/*.{vue,ts,js,mjs,md,mdc,mdx,yml,yaml,json}',
