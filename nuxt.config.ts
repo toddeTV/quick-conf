@@ -100,16 +100,19 @@ export default defineNuxtConfig({
   },
 
   icon: {
-    // Use server provider with local bundles so Nuxt Studio users can pick icons freely
-    // from installed collections, without external Iconify API requests.
-    provider: 'server',
+    // Client-bundle-only icons: scan source and content files at build time,
+    // then ship only discovered icons (no server icon bundle, no external API fallback).
+    provider: 'none',
     fallbackToApi: false,
-    serverBundle: {
-      collections: [
-        'lucide',
-        'mdi',
-        'simple-icons',
-      ],
+    serverBundle: false,
+    clientBundle: {
+      scan: {
+        globInclude: [
+          'app/**/*.{vue,ts,js,mjs,md,mdc,mdx,yml,yaml,json}',
+          'shared/**/*.{ts,js,mjs,md,mdc,mdx,yml,yaml,json}',
+          'content/**/*.{md,mdc,mdx,yml,yaml,json}',
+        ],
+      },
     },
   },
 
