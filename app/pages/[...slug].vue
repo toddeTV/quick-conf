@@ -2,6 +2,16 @@
 const route = useRoute()
 const { extractSeoMetadata, getSeoMetaBase } = useSeo()
 
+const staticAssetPathPattern = /\/[^/]+\.(?:avif|css|gif|ico|jpe?g|js|json|map|png|svg|txt|webp|woff2?)$/i
+
+if (staticAssetPathPattern.test(route.path)) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: `Asset "${route.path}" not Found`,
+    fatal: false,
+  })
+}
+
 const { data: page } = await useAsyncData(route.path, () =>
   queryCollection('pages').path(`/pages${route.path}`).first())
 
