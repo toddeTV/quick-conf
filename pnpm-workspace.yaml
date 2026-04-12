@@ -2,15 +2,14 @@ shellEmulator: true
 trustPolicy: no-downgrade
 patchedDependencies:
   nuxt-studio: patches/nuxt-studio.patch
-ignoredBuiltDependencies:
-  - sharp
-  - core-js-pure
-  - dtrace-provider
-  - protobufjs
-  - re2
-  - unrs-resolver
-  - vue-demi
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - better-sqlite3
-  - esbuild
+allowBuilds:
+  '@parcel/watcher': true
+  better-sqlite3: true
+  core-js-pure: false
+  dtrace-provider: false
+  esbuild: true
+  protobufjs: false
+  re2: false
+  sharp: false
+  unrs-resolver: false
+  vue-demi: false
