@@ -13,7 +13,7 @@ catch (error) {
   throw createError({
     statusCode: 404,
     statusMessage: error instanceof Error ? error.message : 'No Talk Provided',
-    fatal: true,
+    fatal: false,
   })
 }
 
@@ -24,7 +24,7 @@ if (!talk.value) {
   throw createError({
     statusCode: 404,
     statusMessage: `Talk "${slug_talk}" not Found`,
-    fatal: true,
+    fatal: false,
   })
 }
 

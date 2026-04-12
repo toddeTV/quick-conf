@@ -13,7 +13,7 @@ catch (error) {
   throw createError({
     statusCode: 404,
     statusMessage: error instanceof Error ? error.message : 'No Speaker Provided',
-    fatal: true,
+    fatal: false,
   })
 }
 
@@ -24,7 +24,7 @@ if (!speaker.value) {
   throw createError({
     statusCode: 404,
     statusMessage: `Speaker "${slug_speaker}" not Found`,
-    fatal: true,
+    fatal: false,
   })
 }
 

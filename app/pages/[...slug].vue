@@ -19,7 +19,7 @@ if (!page.value) {
   throw createError({
     statusCode: 404,
     statusMessage: `Page "${route.path}" not Found`,
-    fatal: true,
+    fatal: false,
   })
 }
 

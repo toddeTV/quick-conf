@@ -44,7 +44,7 @@ if (isNil(_page.value)) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Landing Page Data not Found',
-    fatal: true,
+    fatal: false,
   })
 }
 

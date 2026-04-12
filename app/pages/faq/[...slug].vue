@@ -22,7 +22,7 @@ if (isNil(_faqPages.value) || isNil(_page.value)) {
   throw createError({
     statusCode: 404,
     statusMessage: 'FAQ page not found',
-    fatal: true,
+    fatal: false,
   })
 }
 
