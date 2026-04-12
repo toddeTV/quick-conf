@@ -86,6 +86,16 @@ export default defineNuxtConfig({
     fonts: true, // use `@nuxt/fonts`
   },
 
+  icon: {
+    // Keep icon chunks out of the server bundle on Vercel and prebundle statically-detected icons.
+    serverBundle: {
+      remote: 'jsdelivr',
+    },
+    clientBundle: {
+      scan: true,
+    },
+  },
+
   image: { // for `@nuxt/image`
   },
 
@@ -120,6 +130,10 @@ export default defineNuxtConfig({
   site: { // for `@nuxtjs/seo`
     url: customConfig.general.siteUrl,
     name: customConfig.general.conferenceName,
+  },
+
+  sitemap: {
+    zeroRuntime: true,
   },
 
   robots: { // for `robots` (included in `@nuxtjs/seo`)
