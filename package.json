@@ -95,23 +95,5 @@
     "vue-router": "~4.6.4",
     "vue-tsc": "~3.2.6",
     "zod": "~4.3.6"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "@tailwindcss/oxide",
-      "better-sqlite3",
-      "core-js-pure",
-      "dtrace-provider",
-      "esbuild",
-      "protobufjs",
-      "re2",
-      "sharp",
-      "unrs-resolver",
-      "vue-demi"
-    ],
-    "patchedDependencies": {
-      "nuxt-studio": "patches/nuxt-studio.patch"
-    }
   }
 }

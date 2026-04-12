@@ -1,0 +1,14 @@
+ignoredBuiltDependencies:
+  - sharp
+  - core-js-pure
+  - dtrace-provider
+  - protobufjs
+  - re2
+  - unrs-resolver
+  - vue-demi
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - better-sqlite3
+  - esbuild
+patchedDependencies:
+  nuxt-studio: patches/nuxt-studio.patch
