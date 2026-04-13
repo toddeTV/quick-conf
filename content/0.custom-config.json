@@ -72,12 +72,12 @@
     "conferenceFoundingYear": 2025,
     "conferenceName": "Quick Conf",
     "favicon": {
-      "dark": "/favicon/favicon.svg",
-      "light": "/favicon/favicon.svg"
+      "dark": "/assets/favicon/favicon.svg",
+      "light": "/assets/favicon/favicon.svg"
     },
     "logo": {
-      "dark": "/logo/dark.svg",
-      "light": "/logo/light.svg"
+      "dark": "/assets/logo/dark.svg",
+      "light": "/assets/logo/light.svg"
     },
     "siteUrl": "https://quick-conf.com",
     "timeZone": "Europe/Amsterdam"

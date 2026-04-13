@@ -9,8 +9,8 @@ export function useImgPaths() {
 
   // Defines the default placeholder images for both dark and light themes.
   const placeholderImages = {
-    dark: '/image-placeholder/dark.svg',
-    light: '/image-placeholder/light.svg',
+    dark: '/assets/image-placeholder/dark.svg',
+    light: '/assets/image-placeholder/light.svg',
   }
 
   /**

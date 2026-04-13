@@ -14,7 +14,7 @@ useHead(() => ({
   link: [
     {
       rel: 'icon',
-      // href: '/favicon.svg',
+      // href: '/assets/favicon.svg',
       href: autoSwitchOnColorMode({
         dark: appConfig.general?.favicon?.dark,
         light: appConfig.general?.favicon?.light,
