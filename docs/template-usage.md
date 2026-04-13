@@ -192,7 +192,7 @@ For easily managing the template, we provide a CLI tool to streamline the proces
 > [!NOTE]
 > Changes made in the CMS are only visible to you until saved in the sidebar. Save your updates to make them public. After saving, it takes about 2–10 minutes for changes to go live while the website rebuilds. Avoid saving too frequently; each save triggers a new build, and you may be charged per build depending on your hosting provider.
 >
-> Icon names are collected at build time from project files in `app/`, `shared/`, and `content/` (for example `.json`, `.md`, `.yml`). If you change an icon name in Nuxt Studio, the new icon appears after the next build. Literal icon names are required for detection.
+> Some icons can stay invisible in live preview until the next rebuild and redeploy, even when the icon name is valid; see [Icons Set in Nuxt Studio CMS](./icon-usage.md#icons-set-in-nuxt-studio-cms).
 
 ### License Compliance
 

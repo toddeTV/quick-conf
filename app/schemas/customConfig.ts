@@ -9,6 +9,13 @@ export const customConfigSchema = z.object({
       + 'You must restart the development server or rebuild the application to see your changes.',
   }),
 
+  _warningIcons: property(z.object({}).readonly()).editor({
+    // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+    description: '⚠️ ICON NOTE: New icon names that are not used anywhere in project files yet can be missing '
+      + 'in Nuxt Studio live preview until the next rebuild and redeploy. A missing preview icon does not '
+      + 'mean the icon will fail after deployment.',
+  }),
+
   general: property(z.object({
     conferenceName: property(z.string().min(1)).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
