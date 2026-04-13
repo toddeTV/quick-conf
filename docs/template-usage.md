@@ -206,11 +206,9 @@ Please be aware that the `/content` and `/public` folders in this template conta
 
 Store user-uploaded images and files in `/public/assets/` and reference them via `/assets/...` URLs.
 
-This ...
-
-- ... keeps one clear namespace for CMS and content media.
-- ... keeps catch-all route checks focused on known static paths.
-- ... makes maintenance easier when static media lives in one folder.
+- Keeps one clear namespace for CMS and content media.
+- Keeps catch-all route checks focused on known static paths.
+- Makes maintenance easier when static media lives in one folder.
 
 Root-level files in `/public/` still work and are served by the app. Keep root files for web-standard entries such as `/favicon.ico`, etc.
 
