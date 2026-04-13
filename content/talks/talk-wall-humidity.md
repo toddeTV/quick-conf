@@ -10,16 +10,16 @@ stage: stage-main
 resources:
   - url: "#"
     description: Handout
-    icon: i-lucide-presentation
+    icon: lucide:presentation
   - url: "#"
     description: Video
-    icon: i-lucide-video
+    icon: lucide:video
   - url: "#"
     description: Demo
-    icon: i-lucide-video
+    icon: lucide:video
   - url: "#"
     description: PDF
-    icon: i-lucide-file-text
+    icon: lucide:file-text
 ---
 
 Sherwin demonstrates his unique sensory technique for evaluating substrate readiness. Do not try this at home.

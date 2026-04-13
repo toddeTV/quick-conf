@@ -17,7 +17,7 @@
       "column2": {
         "links": [
           {
-            "icon": "i-lucide-github",
+            "icon": "lucide:github",
             "name": "quick-conf",
             "url": "https://github.com/toddeTV/quick-conf"
           }

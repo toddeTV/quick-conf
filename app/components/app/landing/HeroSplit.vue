@@ -130,7 +130,7 @@ const videoId = computed(() => {
                 <UIcon
                   class="text-6xl text-red-600 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all
                   duration-300"
-                  name="i-simple-icons-youtube"
+                  name="simple-icons:youtube"
                 />
               </div>
             </template>

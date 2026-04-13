@@ -11,13 +11,13 @@ blocks:
     videoUrl: https://youtu.be/uh-Rys6nTKI
     links:
       - label: Get the Template
-        icon: i-lucide-github
+        icon: lucide:github
         trailing: false
         size: xl
         to: https://github.com/toddeTV/quick-conf
         target: _blank
       - label: Explore Demo Content
-        icon: i-lucide-telescope
+        icon: lucide:telescope
         trailing: false
         color: neutral
         variant: subtle
@@ -26,32 +26,32 @@ blocks:
     features:
       - title: 100% Customizable
         description: Change colors, fonts, logo, icons, and layout easily via the configuration file.
-        icon: i-lucide-palette
+        icon: lucide:palette
       - title: SEO Optimized
         description: Built-in SEO best practices including sitemap, OpenGraph, and schema.org data.
-        icon: i-lucide-search
+        icon: lucide:search
       - title: Modern Tech Stack
         description: Powered by Nuxt 4, Vue 3, Tailwind CSS 4 & TypeScript.
-        icon: i-simple-icons-nuxtdotjs
+        icon: simple-icons:nuxtdotjs
       - title: CMS with Visual Editing
         description: Powered by Nuxt Content & Nuxt Studio. Edit content visually with a live preview directly in your browser.
-        icon: i-lucide-pen-tool
+        icon: lucide:pen-tool
 
   - component: AppLandingSeparator
 
   - component: AppLandingMetaInfo
     class: md:-my-[70px] relative z-10
     items:
-      - icon: i-lucide-calendar
+      - icon: lucide:calendar
         text: April 1st, 2042
         label: Date
-      - icon: i-lucide-map-pin
+      - icon: lucide:map-pin
         text: Amsterdam, NL
         label: Location
-      - icon: i-lucide-users
+      - icon: lucide:users
         text: 10k+ Watchers
         label: Capacity
-      - icon: i-lucide-mic-2
+      - icon: lucide:mic-2
         text: 30+ Speakers
         label: Speakers
 
@@ -72,7 +72,7 @@ blocks:
       alt: Conference crowd
     links:
       - label: Watch Highlights
-        icon: i-lucide-play
+        icon: lucide:play
         variant: solid
         size: lg
         to: '#'
@@ -84,7 +84,7 @@ blocks:
     targetDate: '2042-04-01T10:00:00Z'
     links:
       - label: Add to Calendar
-        icon: i-lucide-calendar-plus
+        icon: lucide:calendar-plus
         variant: outline
         size: lg
         to: '#'
@@ -112,22 +112,22 @@ blocks:
     items:
       - title: Speaker Profiles
         description: Dedicated pages for speakers with bios, social links, and related talks.
-        icon: i-lucide-mic
+        icon: lucide:mic
       - title: Schedule Grid
         description: A responsive, multi-track schedule view that handles complex agendas.
-        icon: i-lucide-calendar-clock
+        icon: lucide:calendar-clock
       - title: Blog / News
         description: Keep your attendees updated with a built-in blog section.
-        icon: i-lucide-newspaper
+        icon: lucide:newspaper
       - title: FAQ Section
         description: Answer common questions with an accordion-style FAQ component.
-        icon: i-lucide-help-circle
+        icon: lucide:help-circle
       - title: Sponsor Showcase
         description: Highlight your partners with categorized sponsor tiers.
-        icon: i-lucide-heart-handshake
+        icon: lucide:heart-handshake
       - title: Ticket Pricing
         description: Clear pricing tables to drive ticket sales.
-        icon: i-lucide-tag
+        icon: lucide:tag
 
   - component: AppLandingTestimonials
     title: Loved by Developers
@@ -169,14 +169,14 @@ blocks:
       - label: Get the Template
         variant: solid
         to: https://github.com/toddeTV/quick-conf
-        icon: i-lucide-github
+        icon: lucide:github
         trailing: false
         size: xl
         target: _blank
       - label: Read Documentation
         variant: subtle
         to: https://github.com/toddeTV/quick-conf/tree/main/docs
-        icon: i-lucide-book
+        icon: lucide:book
         trailing: false
         size: xl
         target: _blank

@@ -51,7 +51,7 @@ const { data: sponsors } = await useAsyncData('sponsors-all', () => queryCollect
           <div class="flex flex-col items-center gap-y-2">
             <UIcon
               class="text-4xl"
-              name="i-lucide-handshake"
+              name="lucide:handshake"
             />
             <span class="text-lg font-medium text-neutral-900 dark:text-white">
               View All Sponsors

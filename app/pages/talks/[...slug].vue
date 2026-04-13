@@ -92,17 +92,17 @@ defineOgImageComponent('DefaultSatori', {
 
         <div class="flex flex-col gap-2 max-w-sm -mt-5">
           <div class="flex items-center text-muted">
-            <UIcon class="mr-2 size-5" name="i-lucide-tag" />
+            <UIcon class="mr-2 size-5" name="lucide:tag" />
             <span>{{ talk.type }}</span>
           </div>
 
           <ULink class="flex items-center" to="/schedule">
-            <UIcon class="mr-2 size-5" name="i-lucide-calendar" />
+            <UIcon class="mr-2 size-5" name="lucide:calendar" />
             <span>{{ formatDateTime(talk.dateTime) }}</span>
           </ULink>
 
           <ULink v-if="stage" class="flex items-center" to="/faq/location">
-            <UIcon class="mr-2 size-5" name="i-lucide-map-pin" />
+            <UIcon class="mr-2 size-5" name="lucide:map-pin" />
             <span>{{ stage.name }}</span>
           </ULink>
         </div>
@@ -149,7 +149,7 @@ defineOgImageComponent('DefaultSatori', {
             <UAlert
               color="neutral"
               description="There are no speakers listed for this talk."
-              icon="i-lucide-info"
+              icon="lucide:info"
               variant="subtle"
             />
           </template>

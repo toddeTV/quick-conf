@@ -201,32 +201,32 @@ export const customConfigSchema = z.object({
         + ' because you can use default CSS syntax here and the file is imported automatically.',
     }),
     icons: property(z.object({
-      search: property(z.string().default('i-lucide-search')).editor({
+      search: property(z.string().default('lucide:search')).editor({
         input: 'icon',
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'Icon to display in the search bar.',
       }),
-      dark: property(z.string().default('i-lucide-moon')).editor({
+      dark: property(z.string().default('lucide:moon')).editor({
         input: 'icon',
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'Icon of color mode button for dark mode.',
       }),
-      light: property(z.string().default('i-lucide-sun')).editor({
+      light: property(z.string().default('lucide:sun')).editor({
         input: 'icon',
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'Icon of color mode button for light mode.',
       }),
-      external: property(z.string().default('i-lucide-external-link')).editor({
+      external: property(z.string().default('lucide:external-link')).editor({
         input: 'icon',
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'Icon for external link.',
       }),
-      chevron: property(z.string().default('i-lucide-chevron-down')).editor({
+      chevron: property(z.string().default('lucide:chevron-down')).editor({
         input: 'icon',
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'Icon for chevron.',
       }),
-      hash: property(z.string().default('i-lucide-hash')).editor({
+      hash: property(z.string().default('lucide:hash')).editor({
         input: 'icon',
         // @ts-expect-error `description` is custom and patched in `nuxt-studio`
         description: 'Icon for hash anchors.',

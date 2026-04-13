@@ -71,7 +71,7 @@ const { public: { demoMode } } = useRuntimeConfig()
             rounded-full border border-red-200 bg-red-50/90 px-3 py-1 text-xs font-semibold
             text-red-600 shadow-sm backdrop-blur dark:border-red-900/50 dark:bg-red-950/80 dark:text-red-400"
         >
-          <UIcon class="size-3.5" name="i-lucide-flask-conical" />
+          <UIcon class="size-3.5" name="lucide:flask-conical" />
           <span>Demo Time</span>
         </div>
       </div>

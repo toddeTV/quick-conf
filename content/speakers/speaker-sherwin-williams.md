@@ -7,13 +7,13 @@ image: https://i.pravatar.cc/300?img=14
 company: The Cover Up
 socialMedia:
   - url: "#"
-    icon: i-simple-icons-tiktok
+    icon: simple-icons:tiktok
   - url: "#"
-    icon: i-simple-icons-instagram
+    icon: simple-icons:instagram
   - url: "#"
-    icon: i-simple-icons-bluesky
+    icon: simple-icons:bluesky
   - url: "#"
-    icon: i-simple-icons-linkedin
+    icon: simple-icons:linkedin
 ---
 
 Sherwin can tell the humidity of a room just by licking the drywall. Do not ask him how he discovered this talent.

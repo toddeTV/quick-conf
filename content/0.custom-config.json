@@ -29,17 +29,17 @@
       "column2": {
         "links": [
           {
-            "icon": "i-lucide-github",
+            "icon": "lucide:github",
             "name": "Template Documentation",
             "url": "https://github.com/toddeTV/quick-conf/tree/main/docs"
           },
           {
-            "icon": "i-lucide-github",
+            "icon": "lucide:github",
             "name": "GitHub Repository",
             "url": "https://github.com/toddeTV/quick-conf"
           },
           {
-            "icon": "i-simple-icons-x",
+            "icon": "simple-icons:x",
             "name": "Follow the Author",
             "url": "https://x.com/toddeTV"
           }

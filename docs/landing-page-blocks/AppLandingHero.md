@@ -30,14 +30,14 @@ blocks:
     headline: Tech Summit
     links:
       - label: Buy Ticket
-        icon: i-lucide-ticket
+        icon: lucide:ticket
         trailing: false
         color: primary
         variant: solid
         size: xl
         to: /tickets
       - label: View Schedule
-        icon: i-lucide-calendar
+        icon: lucide:calendar
         trailing: false
         color: neutral
         variant: subtle

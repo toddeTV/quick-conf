@@ -10,16 +10,16 @@ stage: stage-main
 resources:
   - url: "#"
     description: Demo
-    icon: i-lucide-file-text
+    icon: lucide:file-text
   - url: "#"
     description: Slides
-    icon: i-lucide-presentation
+    icon: lucide:presentation
   - url: "#"
     description: Source Code
-    icon: i-lucide-github
+    icon: lucide:github
   - url: "#"
     description: PDF
-    icon: i-mdi-file-pdf-box
+    icon: mdi:file-pdf-box
 ---
 
 A heated discussion about light reflectivity. Is high gloss too loud? Is matte too dull? Matt Finish moderates the friction between these opposing worldviews.

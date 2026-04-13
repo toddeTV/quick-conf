@@ -35,13 +35,13 @@ blocks:
     features:
       - title: Experts
         description: Learn from best.
-        icon: i-lucide-users
+        icon: lucide:users
       - title: Networking
         description: Connect with peers.
-        icon: i-lucide-contact
+        icon: lucide:contact
       - title: Workshops
         description: Gain practical skills.
-        icon: i-lucide-wrench
+        icon: lucide:wrench
     image:
       src: https://images.unsplash.com/photo-1587825...
       alt: Speaker on stage

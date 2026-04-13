@@ -49,7 +49,7 @@ blocks:
     videoUrl: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     links:
       - label: Buy Ticket
-        icon: i-lucide-ticket
+        icon: lucide:ticket
         size: xl
         to: /tickets
 ```

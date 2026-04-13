@@ -30,19 +30,19 @@ blocks:
       - label: Get Ticket
         variant: solid
         to: /tickets
-        icon: i-lucide-ticket
+        icon: lucide:ticket
         trailing: false
         size: xl
       - label: Apply as Speaker
         variant: subtle
         to: /faq/cfp
-        icon: i-lucide-megaphone
+        icon: lucide:megaphone
         trailing: false
         size: xl
       - label: Sponsor Us
         variant: subtle
         to: /sponsors
-        icon: i-lucide-heart
+        icon: lucide:heart
         trailing: false
         size: xl
 ```

@@ -149,7 +149,7 @@ function navigateToAdmin() {
         <UIcon
           aria-hidden="true"
           class="inline-block w-3.5 h-3.5 mx-0.5"
-          name="i-lucide-heart"
+          name="lucide:heart"
         />
         via
         <ULink
@@ -180,14 +180,14 @@ function navigateToAdmin() {
     </template>
 
     <template #right>
-      <!-- icon="i-lucide-key-round" -->
-      <!-- icon="i-lucide-key" -->
-      <!-- icon="i-lucide-log-in" -->
+      <!-- icon="lucide:key-round" -->
+      <!-- icon="lucide:key" -->
+      <!-- icon="lucide:log-in" -->
       <UButton
         v-if="bottomIcons?.showAdminLink"
         aria-label="Admin Area"
         color="neutral"
-        icon="i-lucide-log-in"
+        icon="lucide:log-in"
         variant="ghost"
         @click="navigateToAdmin"
       />

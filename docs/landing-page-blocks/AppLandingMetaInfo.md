@@ -30,16 +30,16 @@ blocks:
     description: Key info.
     headline: Overview
     items:
-      - icon: i-lucide-calendar
+      - icon: lucide:calendar
         text: Oct 15-17
         label: Date
-      - icon: i-lucide-map-pin
+      - icon: lucide:map-pin
         text: Amsterdam
         label: Location
-      - icon: i-lucide-users
+      - icon: lucide:users
         text: 500+
         label: Capacity
-      - icon: i-lucide-mic-2
+      - icon: lucide:mic-2
         text: 30+ Speakers
         label: Content
 ```

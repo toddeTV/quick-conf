@@ -37,7 +37,7 @@ blocks:
       alt: Event Crowd
     links:
       - label: Highlights
-        icon: i-lucide-play
+        icon: lucide:play
         variant: solid
         size: lg
         to: https://youtube.com

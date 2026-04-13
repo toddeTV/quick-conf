@@ -9,13 +9,13 @@ stage: stage-main
 resources:
   - url: "#"
     description: Slides
-    icon: i-lucide-github
+    icon: lucide:github
   - url: "#"
     description: PDF
-    icon: i-lucide-video
+    icon: lucide:video
   - url: "#"
     description: Source Code
-    icon: i-lucide-link
+    icon: lucide:link
 ---
 
 We officially open the first can of paint to kickoff the event. Please bring your own stir stick.

@@ -31,20 +31,20 @@ blocks:
     items:
       - title: Keynotes
         description: Visionary leaders shaping the future.
-        icon: i-lucide-mic
+        icon: lucide:mic
       - title: Tech Deep Dives
         description: In-depth technical sessions.
-        icon: i-lucide-code
+        icon: lucide:code
       - title: Panels
         description: Experts debating industry topics.
-        icon: i-lucide-messages-square
+        icon: lucide:messages-square
       - title: Networking
         description: Connect with other attendees.
-        icon: i-lucide-coffee
+        icon: lucide:coffee
       - title: Sponsors
         description: Discover new products.
-        icon: i-lucide-store
+        icon: lucide:store
       - title: After Party
         description: Socialize with attendees.
-        icon: i-lucide-party-popper
+        icon: lucide:party-popper
 ```

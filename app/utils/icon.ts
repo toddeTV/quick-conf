@@ -13,39 +13,39 @@
  * @returns The name of the icon to use.
  */
 export function getIconForUrl(url: string): string {
-  const fallbackIcon = 'i-lucide-globe'
+  const fallbackIcon = 'lucide:globe'
 
   try {
     const { hostname } = new URL(url)
     const normalizedHostname = hostname.replace(/^www\./, '').toLowerCase()
 
     const domainMap = new Map<string, string>([
-      ['github.com', 'i-simple-icons-github'],
-      ['twitter.com', 'i-simple-icons-x'],
-      ['x.com', 'i-simple-icons-x'],
-      ['bsky.app', 'i-simple-icons-bluesky'],
-      ['linkedin.com', 'i-simple-icons-linkedin'],
-      ['youtube.com', 'i-simple-icons-youtube'],
-      ['youtu.be', 'i-simple-icons-youtube'],
-      ['facebook.com', 'i-simple-icons-facebook'],
-      ['instagram.com', 'i-simple-icons-instagram'],
-      ['mastodon.social', 'i-simple-icons-mastodon'],
-      ['medium.com', 'i-simple-icons-medium'],
-      ['dev.to', 'i-simple-icons-devdotto'],
-      ['behance.net', 'i-simple-icons-behance'],
-      ['dribbble.com', 'i-simple-icons-dribbble'],
-      ['codepen.io', 'i-simple-icons-codepen'],
-      ['stackoverflow.com', 'i-simple-icons-stackoverflow'],
-      ['thingiverse.com', 'i-simple-icons-thingiverse'],
-      ['printables.com', 'i-simple-icons-printables'],
-      ['artstation.com', 'i-simple-icons-artstation'],
-      ['tiktok.com', 'i-simple-icons-tiktok'],
-      ['twitch.tv', 'i-simple-icons-twitch'],
-      ['discord.gg', 'i-simple-icons-discord'],
-      ['discord.com', 'i-simple-icons-discord'],
-      ['reddit.com', 'i-simple-icons-reddit'],
-      ['pinterest.com', 'i-simple-icons-pinterest'],
-      ['gitlab.com', 'i-simple-icons-gitlab'],
+      ['github.com', 'simple-icons:github'],
+      ['twitter.com', 'simple-icons:x'],
+      ['x.com', 'simple-icons:x'],
+      ['bsky.app', 'simple-icons:bluesky'],
+      ['linkedin.com', 'simple-icons:linkedin'],
+      ['youtube.com', 'simple-icons:youtube'],
+      ['youtu.be', 'simple-icons:youtube'],
+      ['facebook.com', 'simple-icons:facebook'],
+      ['instagram.com', 'simple-icons:instagram'],
+      ['mastodon.social', 'simple-icons:mastodon'],
+      ['medium.com', 'simple-icons:medium'],
+      ['dev.to', 'simple-icons:devdotto'],
+      ['behance.net', 'simple-icons:behance'],
+      ['dribbble.com', 'simple-icons:dribbble'],
+      ['codepen.io', 'simple-icons:codepen'],
+      ['stackoverflow.com', 'simple-icons:stackoverflow'],
+      ['thingiverse.com', 'simple-icons:thingiverse'],
+      ['printables.com', 'simple-icons:printables'],
+      ['artstation.com', 'simple-icons:artstation'],
+      ['tiktok.com', 'simple-icons:tiktok'],
+      ['twitch.tv', 'simple-icons:twitch'],
+      ['discord.gg', 'simple-icons:discord'],
+      ['discord.com', 'simple-icons:discord'],
+      ['reddit.com', 'simple-icons:reddit'],
+      ['pinterest.com', 'simple-icons:pinterest'],
+      ['gitlab.com', 'simple-icons:gitlab'],
     ])
 
     if (domainMap.has(normalizedHostname)) {

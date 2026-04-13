@@ -42,7 +42,7 @@ blocks:
     targetDate: '2026-10-15T10:00:00Z'
     links:
       - label: Register
-        icon: i-lucide-ticket
+        icon: lucide:ticket
         variant: outline
         size: lg
         to: /tickets

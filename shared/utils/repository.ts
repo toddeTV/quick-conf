@@ -29,12 +29,12 @@ export function getRepositoryDetails(config: RepositoryConfig): RepositoryDetail
 
   if (provider === 'github') {
     result.url = `https://github.com/${owner}/${repo}`
-    result.icon = 'i-simple-icons-github'
+    result.icon = 'simple-icons:github'
     result.label = 'GitHub'
   }
   else if (provider === 'gitlab') {
     result.url = `https://gitlab.com/${owner}/${repo}`
-    result.icon = 'i-simple-icons-gitlab'
+    result.icon = 'simple-icons:gitlab'
     result.label = 'GitLab'
   }
   else {

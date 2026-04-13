@@ -50,7 +50,7 @@ const items = computed(() => [
         aria-label="Buy tickets"
         class="lg:hidden"
         color="neutral"
-        icon="i-lucide-ticket"
+        icon="lucide:ticket"
         title="Buy tickets"
         to="/tickets"
         variant="ghost"

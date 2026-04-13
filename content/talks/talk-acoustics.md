@@ -10,16 +10,16 @@ stage: stage-main
 resources:
   - url: "#"
     description: Video
-    icon: i-lucide-file-text
+    icon: lucide:file-text
   - url: "#"
     description: Handout
-    icon: i-lucide-github
+    icon: lucide:github
   - url: "#"
     description: Source Code
-    icon: i-lucide-presentation
+    icon: lucide:presentation
   - url: "#"
     description: Slides
-    icon: i-lucide-link
+    icon: lucide:link
 ---
 
 Satin Sally presents her findings on the microscopic popping sounds of solvents evaporating. Headphones recommended.

@@ -11,7 +11,7 @@ stage: stage-workshop
 resources:
   - url: "#"
     description: Handout
-    icon: i-lucide-presentation
+    icon: lucide:presentation
 ---
 
 A hands-on workshop where attendees effectively prepare varied surfaces. Note: This workshop ends before the actual painting begins.

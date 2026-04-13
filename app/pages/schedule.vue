@@ -72,7 +72,7 @@ defineOgImageComponent('DefaultSatori', {
     <div v-else class="flex flex-col items-center justify-center gap-2 py-12 text-center">
       <UIcon
         class="text-3xl text-neutral-300 dark:text-neutral-700"
-        name="i-lucide-calendar-x-2"
+        name="lucide:calendar-x-2"
       />
       <div class="text-lg font-medium text-neutral-900 dark:text-white">
         <span v-if="!stages || stages.length === 0">

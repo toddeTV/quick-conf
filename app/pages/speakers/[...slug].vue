@@ -146,7 +146,7 @@ defineOgImageComponent('DefaultSatori', {
                 v-for="talk in talks"
                 :key="talk.slug"
                 :description="talk.type"
-                icon="i-lucide-megaphone"
+                icon="lucide:megaphone"
                 spotlight
                 :title="talk.title"
                 :to="`/talks/${talk.slug}`"
@@ -157,7 +157,7 @@ defineOgImageComponent('DefaultSatori', {
             <UAlert
               color="neutral"
               :description="`${speaker.name} currently has no talks or workshops listed.`"
-              icon="i-lucide-info"
+              icon="lucide:info"
               variant="subtle"
             />
           </template>
