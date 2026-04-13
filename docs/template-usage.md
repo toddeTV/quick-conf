@@ -202,6 +202,18 @@ Please be aware that the `/content` and `/public` folders in this template conta
 
 **Essential Files**: The file `public/custom-styles.css` is required for the project to function correctly. While you must not use the provided example content directly, these files must remain in place. You should update their contents according to your project's needs (e.g., updating any variables or site-specific rules).
 
+### Static Asset Upload Path
+
+Store user-uploaded images and files in `/public/assets/` and reference them via `/assets/...` URLs.
+
+This ...
+
+- ... keeps one clear namespace for CMS and content media.
+- ... keeps catch-all route checks focused on known static paths.
+- ... makes maintenance easier when static media lives in one folder.
+
+Root-level files in `/public/` still work and are served by the app. Keep root files for web-standard entries such as `/favicon.ico`, etc.
+
 ## Updating the Template
 
 If you have already set up your conference website and want to pull in the latest features and bug fixes from the `quick-conf` template, you can do the following:
