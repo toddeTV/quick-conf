@@ -2,6 +2,17 @@
 const route = useRoute()
 const { extractSeoMetadata, getSeoMetaBase } = useSeo()
 
+const staticAssetNamespacePattern = /^\/(?:_nuxt|__nuxt_icon|_ipx|assets)\//i
+const staticAssetExtensionPattern = /\.(?:avif|css|gif|ico|jpe?g|js|json|map|png|svg|txt|webp|woff2?|xml|webmanifest)$/i
+
+if (staticAssetNamespacePattern.test(route.path) && staticAssetExtensionPattern.test(route.path)) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: `Asset "${route.path}" not Found`,
+    fatal: false,
+  })
+}
+
 const { data: page } = await useAsyncData(route.path, () =>
   queryCollection('pages').path(`/pages${route.path}`).first())
 
