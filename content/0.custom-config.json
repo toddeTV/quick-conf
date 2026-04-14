@@ -25,24 +25,7 @@
         "title": "Template"
       },
       "column4": {
-        "socials": [
-          {
-            "name": "toddeTV",
-            "url": "https://x.com/toddeTV"
-          },
-          {
-            "name": "toddeTV",
-            "url": "https://bsky.app/profile/todde.tv"
-          },
-          {
-            "name": "toddeTV",
-            "url": "https://www.linkedin.com/in/toddetv/"
-          },
-          {
-            "name": "toddeTV",
-            "url": "https://github.com/toddeTV/"
-          }
-        ]
+        "socials": []
       }
     }
   },
