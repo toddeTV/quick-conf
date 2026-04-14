@@ -30,6 +30,10 @@ export const customConfigSchema = z.object({
       description: 'The time zone where the conference takes place, e.g. `Europe/Berlin`. '
         + 'This is used to display the schedule in the correct local time.',
     }),
+    colorMode: property(z.enum(['both', 'light-only', 'dark-only']).default('both')).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'Color mode behavior for the website: allow switching (`both`) or lock it to one mode.',
+    }),
     siteUrl: property(z.url().min(1)).editor({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'The public URL of the website (e.g. `https://my-conference.com`).',
