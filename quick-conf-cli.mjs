@@ -142,7 +142,7 @@ function getSafeProjectNameReplacement(filePath, projectName) {
   }
 
   if (ext === '.yml' || ext === '.yaml') {
-    return `'${projectName.replaceAll("'", "''")}'`
+    return `'${projectName.replaceAll('\'', '\'\'')}'`
   }
 
   return projectName
