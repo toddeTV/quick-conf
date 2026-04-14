@@ -170,8 +170,7 @@ For easily managing the template, we provide a CLI tool to streamline the proces
    ```
 
 3. Test locally if the project runs and that there are no errors.
-4. **IMPORTANT:** The folders `/content` and `/public` contain example data not covered under the MIT license. Replace all example content in these folders with your own data before pushing, as you most likely do not have permission to redistribute the example content.<br>
-   **IMPORTANT:** Ensure that the file `public/custom-styles.css` exists and contains your own content, as it is needed!
+4. **IMPORTANT:** The file `public/custom-styles.css` must exist, as it is required by the project. A starter-safe default file is included and can be customized.
 5. Push the files that the CLI made onto the main branch of your repository.<br>
    Now you have a repository with the base code of the template online in a Git repository.
 
@@ -196,11 +195,9 @@ For easily managing the template, we provide a CLI tool to streamline the proces
 
 ### License Compliance
 
-Please be aware that the `/content` and `/public` folders in this template contain example data, including images and text, which are not covered under the MIT license of the code.
+Please be aware that this template uses a dual-license model.
 
-**Important:** You must replace all example content in the `/content` and `/public` folders with your own assets and information to ensure you are not infringing on any copyrights or usage rights associated with the placeholder data.
-
-**Essential Files**: The file `public/custom-styles.css` is required for the project to function correctly. While you must not use the provided example content directly, these files must remain in place. You should update their contents according to your project's needs (e.g., updating any variables or site-specific rules).
+Read [LICENSE.md](../LICENSE.md) for the license information.
 
 ### Static Asset Upload Path
 
@@ -236,7 +233,7 @@ If you have already set up your conference website and want to pull in the lates
    - IDE configuration folders (e.g. `.vscode/`, `.idea/`)
    - Specific fields in `/package.json`: `name`, `author`, `contributors`, `description`, `repository`, `bugs`, and `keywords`
 
-   Additionally, the process automatically removes template-specific files and folders (like `docs`, `renovate.json`, and release configuration files) that are not needed in your end-project. You should create your own infrastructure files for your custom needs.
+   The process automatically removes template-specific repository files and folders (for example `renovate.json`, `docs/`, release configuration files, and workflow automation files) that are not needed in your end-project. You should create your own infrastructure files for your custom needs.
 
 6. **Migrations:**<br>
    When updating between versions, there might be breaking changes or required data structure updates. Migration guides are available to help you transition smoothly.<br>
