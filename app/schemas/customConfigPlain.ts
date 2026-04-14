@@ -111,6 +111,10 @@ export const customConfigSchema = z.object({
     }),
   }),
 
+  nuxtContent: z.object({
+    syntaxHighlighting: z.boolean().default(false),
+  }),
+
   ogImage: z.object({
     bgLight: z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#ffffff'),
     bgDark: z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#0f172a'),

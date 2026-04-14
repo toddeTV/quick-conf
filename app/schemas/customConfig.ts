@@ -244,6 +244,16 @@ export const customConfigSchema = z.object({
     description: 'NuxtUI Customization.',
   }),
 
+  nuxtContent: property(z.object({
+    syntaxHighlighting: property(z.boolean().default(false)).editor({
+      // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+      description: 'Enable syntax highlighting for Markdown code blocks. Keep this disabled to reduce bundle size.',
+    }),
+  })).editor({
+    // @ts-expect-error `description` is custom and patched in `nuxt-studio`
+    description: 'Nuxt Content customization.',
+  }),
+
   ogImage: property(z.object({
     bgLight: property(
       z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#ffffff'),
