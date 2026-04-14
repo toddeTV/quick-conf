@@ -604,19 +604,88 @@ async function checkSelfUpdate(remoteCliVer) {
  * @returns {number} 1 if v1 > v2, -1 if v1 < v2, 0 if equal.
  */
 function compareVersions(v1, v2) {
-  const n1 = normalizeSemver(v1) || v1
-  const n2 = normalizeSemver(v2) || v2
-  const p1 = n1.split('.').map(Number)
-  const p2 = n2.split('.').map(Number)
-  for (let i = 0; i < Math.max(p1.length, p2.length); i++) {
-    const s1 = p1[i] || 0
-    const s2 = p2[i] || 0
-    if (s1 > s2)
-      return 1
-    if (s1 < s2)
-      return -1
+  const s1 = parseSemver(v1)
+  const s2 = parseSemver(v2)
+
+  if (!s1 || !s2) {
+    const n1 = normalizeSemver(v1) || String(v1 || '')
+    const n2 = normalizeSemver(v2) || String(v2 || '')
+    if (n1 === n2)
+      return 0
+    return n1 > n2 ? 1 : -1
   }
+
+  if (s1.major !== s2.major)
+    return s1.major > s2.major ? 1 : -1
+
+  if (s1.minor !== s2.minor)
+    return s1.minor > s2.minor ? 1 : -1
+
+  if (s1.patch !== s2.patch)
+    return s1.patch > s2.patch ? 1 : -1
+
+  const p1 = s1.prerelease
+  const p2 = s2.prerelease
+
+  if (!p1.length && !p2.length)
+    return 0
+
+  // Stable releases sort after prereleases with identical major.minor.patch.
+  if (!p1.length)
+    return 1
+  if (!p2.length)
+    return -1
+
+  for (let i = 0; i < Math.max(p1.length, p2.length); i++) {
+    const id1 = p1[i]
+    const id2 = p2[i]
+    if (id1 === undefined)
+      return -1
+    if (id2 === undefined)
+      return 1
+
+    const numeric1 = /^\d+$/.test(id1)
+    const numeric2 = /^\d+$/.test(id2)
+    if (numeric1 && numeric2) {
+      const n1 = Number(id1)
+      const n2 = Number(id2)
+      if (n1 !== n2)
+        return n1 > n2 ? 1 : -1
+      continue
+    }
+
+    if (numeric1 && !numeric2)
+      return -1
+    if (!numeric1 && numeric2)
+      return 1
+
+    if (id1 !== id2)
+      return id1 > id2 ? 1 : -1
+  }
+
   return 0
+}
+
+/**
+ * Parses a semantic version into numeric parts and prerelease identifiers.
+ * @param {string} version - Version string to parse.
+ * @returns {{ major: number, minor: number, patch: number, prerelease: string[] } | null}
+ */
+function parseSemver(version) {
+  const normalized = normalizeSemver(version)
+  if (!normalized)
+    return null
+
+  const match = normalized.match(/^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?$/)
+  if (!match)
+    return null
+
+  return {
+    major: Number(match[1]),
+    minor: Number(match[2]),
+    patch: Number(match[3]),
+    prerelease: match[4] ? match[4].split('.') : [],
+  }
 }
 
 /**
@@ -630,11 +699,12 @@ function normalizeSemver(version) {
     return null
 
   const clean = String(version).trim().replace(/^v/, '')
-  const match = clean.match(/^(\d+)\.(\d+)\.(\d+)/)
+  const match = clean.match(/^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?/) 
   if (!match)
     return null
 
-  return `${Number(match[1])}.${Number(match[2])}.${Number(match[3])}`
+  const prerelease = match[4] ? `-${match[4]}` : ''
+  return `${Number(match[1])}.${Number(match[2])}.${Number(match[3])}${prerelease}`
 }
 
 /**
