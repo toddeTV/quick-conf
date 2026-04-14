@@ -1,17 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import { z } from 'zod/v4'
+import type { CustomConfig } from './app/schemas/customConfigPlain'
 import { customConfigSchema } from './app/schemas/customConfigPlain'
+import { formatCustomConfigValidationErrors } from './app/utils/custom-config-validation'
 import _customConfig from './content/0.custom-config.json'
 
 const parseResult = customConfigSchema.safeParse(_customConfig)
 if (!parseResult.success) {
   // We only warn here and do not throw an error to allow the app to start even if the config is invalid.
   // This is intentional to prevent the app from crashing if non-technical users make a mistake in the CMS.
-  console.warn('⚠️ Invalid custom config:', z.treeifyError(parseResult.error))
+  const details = formatCustomConfigValidationErrors(parseResult.error)
+  console.warn(`⚠️ Invalid custom config (content/0.custom-config.json):\n${details}`)
 }
 
-const customConfig = (parseResult.success ? parseResult.data : _customConfig) as z.infer<typeof customConfigSchema>
+const customConfig = (parseResult.success ? parseResult.data : _customConfig) as CustomConfig
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
