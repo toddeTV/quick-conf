@@ -2,6 +2,7 @@
 
 import type { CustomConfig } from './app/schemas/customConfigPlain'
 import { customConfigSchema } from './app/schemas/customConfigPlain'
+import { getColorModeSetting, resolveColorModePolicy } from './app/utils/color-mode'
 import { formatCustomConfigValidationErrors } from './app/utils/custom-config-validation'
 import _customConfig from './content/0.custom-config.json'
 
@@ -15,22 +16,10 @@ if (!parseResult.success) {
 
 const customConfig = (parseResult.success ? parseResult.data : _customConfig) as CustomConfig
 
-const colorModeSettings = {
-  'both': {
-    preference: 'system',
-    fallback: 'dark',
-  },
-  'light-only': {
-    preference: 'light',
-    fallback: 'light',
-  },
-  'dark-only': {
-    preference: 'dark',
-    fallback: 'dark',
-  },
-} as const
+const configuredColorMode = customConfig?.general?.colorMode as string | undefined
+const resolvedColorModePolicy = resolveColorModePolicy(configuredColorMode)
 
-const selectedColorModeSetting = colorModeSettings[customConfig.general.colorMode]
+const selectedColorModeSetting = getColorModeSetting(resolvedColorModePolicy)
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -106,7 +95,7 @@ export default defineNuxtConfig({
     fallback: selectedColorModeSetting.fallback,
 
     // Keep mode-specific storage keys so old persisted preferences do not override a new forced mode policy.
-    storageKey: `quick-conf-color-mode-${customConfig.general.colorMode}`,
+    storageKey: `quick-conf-color-mode-${resolvedColorModePolicy}`,
   },
 
   ui: { // for `@nuxt/ui`

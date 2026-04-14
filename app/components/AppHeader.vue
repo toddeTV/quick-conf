@@ -2,7 +2,7 @@
 const route = useRoute()
 const appConfig = useAppConfig()
 
-const canSwitchColorMode = computed(() => appConfig.general.colorMode === 'both')
+const canSwitchColorMode = computed(() => isColorSwitchable(appConfig.general.colorMode))
 
 const items = computed(() => [
   {

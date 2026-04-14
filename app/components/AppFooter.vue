@@ -12,7 +12,7 @@ const appConfig = useAppConfig()
 const footerConfig = appConfig.footer
 const columnsConfig = footerConfig?.footerColumns
 const bottomIcons = footerConfig?.bottomIcons
-const canSwitchColorMode = appConfig.general.colorMode === 'both'
+const canSwitchColorMode = isColorSwitchable(appConfig.general.colorMode)
 
 // year span calculation
 const yearCurrent = new Date().getFullYear()
