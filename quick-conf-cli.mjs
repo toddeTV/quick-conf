@@ -134,7 +134,6 @@ function removeRepoFiles() {
   log('Removing repository files (docs, content, public, etc.)...', 'info')
   const folders = [
     '.github',
-    '.vscode',
     'content',
     'docs',
     'public',
