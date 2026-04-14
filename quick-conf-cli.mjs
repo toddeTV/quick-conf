@@ -605,17 +605,138 @@ async function checkSelfUpdate(remoteCliVer) {
  * @returns {number} 1 if v1 > v2, -1 if v1 < v2, 0 if equal.
  */
 function compareVersions(v1, v2) {
-  const p1 = v1.split('.').map(Number)
-  const p2 = v2.split('.').map(Number)
+  const n1 = normalizeSemver(v1) || v1
+  const n2 = normalizeSemver(v2) || v2
+  const p1 = n1.split('.').map(Number)
+  const p2 = n2.split('.').map(Number)
   for (let i = 0; i < Math.max(p1.length, p2.length); i++) {
-    const n1 = p1[i] || 0
-    const n2 = p2[i] || 0
-    if (n1 > n2)
+    const s1 = p1[i] || 0
+    const s2 = p2[i] || 0
+    if (s1 > s2)
       return 1
-    if (n1 < n2)
+    if (s1 < s2)
       return -1
   }
   return 0
+}
+
+/**
+ * Normalizes a version string to x.y.z and removes a leading `v`.
+ * Returns null when no semantic version pattern is found.
+ * @param {string} version - Version string to normalize.
+ * @returns {string|null} Normalized semantic version or null.
+ */
+function normalizeSemver(version) {
+  if (!version)
+    return null
+
+  const clean = String(version).trim().replace(/^v/, '')
+  const match = clean.match(/^(\d+)\.(\d+)\.(\d+)/)
+  if (!match)
+    return null
+
+  return `${Number(match[1])}.${Number(match[2])}.${Number(match[3])}`
+}
+
+/**
+ * Parses YAML-like frontmatter key-value pairs from markdown.
+ * Supports simple scalar values used in migration guides.
+ * @param {string} markdown - Markdown file contents.
+ * @returns {Record<string, string>} Parsed frontmatter key-value map.
+ */
+function parseFrontmatter(markdown) {
+  const match = markdown.match(/^---\n([\s\S]*?)\n---/)
+  if (!match)
+    return {}
+
+  const values = {}
+  for (const line of match[1].split('\n')) {
+    const idx = line.indexOf(':')
+    if (idx <= 0)
+      continue
+
+    const key = line.slice(0, idx).trim()
+    let value = line.slice(idx + 1).trim()
+    value = value.replace(/^['"]|['"]$/g, '')
+    values[key] = value
+  }
+
+  return values
+}
+
+/**
+ * Extracts migration versions from file name format vX.Y.Z-to-vA.B.C.md
+ * @param {string} fileName - Migration guide file name.
+ * @returns {{ fromVersion: string, toVersion: string } | null} Parsed versions or null.
+ */
+function parseMigrationGuideFileName(fileName) {
+  const match = fileName.match(/^v(\d+\.\d+\.\d+)-to-v(\d+\.\d+\.\d+)\.md$/)
+  if (!match)
+    return null
+
+  return {
+    fromVersion: match[1],
+    toVersion: match[2],
+  }
+}
+
+/**
+ * Builds migration path from current version to target version using available guides.
+ * @param {Array<{name: string, fromVersion: string, toVersion: string, manualSteps: boolean}>} guides
+ * @param {string} fromVersion
+ * @param {string} toVersion
+ */
+function buildMigrationPath(guides, fromVersion, toVersion) {
+  const start = normalizeSemver(fromVersion)
+  const target = normalizeSemver(toVersion)
+  if (!start || !target)
+    return { complete: false, pathLabel: '', steps: [], actionableSteps: [] }
+
+  if (compareVersions(start, target) >= 0)
+    return { complete: true, pathLabel: `v${start}`, steps: [], actionableSteps: [] }
+
+  const versionsInPath = [`v${start}`]
+  const steps = []
+  const visited = new Set()
+  let current = start
+
+  while (compareVersions(current, target) < 0) {
+    if (visited.has(current))
+      break
+    visited.add(current)
+
+    const candidates = guides
+      .filter(g => normalizeSemver(g.fromVersion) === current)
+      .sort((a, b) => compareVersions(a.toVersion, b.toVersion))
+
+    if (!candidates.length)
+      break
+
+    let selected = candidates[0]
+    for (const candidate of candidates) {
+      if (compareVersions(candidate.toVersion, target) <= 0) {
+        selected = candidate
+      }
+    }
+
+    const next = normalizeSemver(selected.toVersion)
+    if (!next || compareVersions(next, current) <= 0)
+      break
+
+    steps.push(selected)
+    versionsInPath.push(`v${next}`)
+    current = next
+  }
+
+  const complete = compareVersions(current, target) === 0
+  const actionableSteps = steps.filter(step => step.manualSteps)
+
+  return {
+    complete,
+    pathLabel: versionsInPath.join(' -> '),
+    steps,
+    actionableSteps,
+  }
 }
 
 /**
@@ -886,27 +1007,103 @@ async function viewMigrationNotes() {
       return
     }
 
+    const guides = []
+    for (const file of files) {
+      try {
+        const markdown = await getRemoteFileContent(file.download_url)
+        const frontmatter = parseFrontmatter(markdown)
+        const fileMeta = parseMigrationGuideFileName(file.name) || { fromVersion: '', toVersion: '' }
+        const manualSteps = frontmatter.manualSteps
+          ? frontmatter.manualSteps.toLowerCase() === 'true'
+          : true
+
+        guides.push({
+          ...file,
+          markdown,
+          fromVersion: normalizeSemver(frontmatter.fromVersion || fileMeta.fromVersion) || '',
+          toVersion: normalizeSemver(frontmatter.toVersion || fileMeta.toVersion) || '',
+          manualSteps,
+        })
+      }
+      catch {
+        // Skip entries that cannot be parsed.
+      }
+    }
+
+    if (guides.length === 0) {
+      log('No readable migration documents found.', 'warn')
+      return
+    }
+
+    guides.sort((a, b) => {
+      const fromDiff = compareVersions(a.fromVersion || '0.0.0', b.fromVersion || '0.0.0')
+      if (fromDiff !== 0)
+        return fromDiff
+      return compareVersions(a.toVersion || '0.0.0', b.toVersion || '0.0.0')
+    })
+
+    let remoteVersion = null
+    try {
+      const latestRelease = await fetchJson(`${GITHUB_API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/releases/latest`)
+      remoteVersion = normalizeSemver(latestRelease.tag_name)
+    }
+    catch {
+      // Ignore if release metadata cannot be fetched.
+    }
+
+    const localVersion = normalizeSemver(getLocalProjectVersion())
+    if (localVersion && remoteVersion && compareVersions(localVersion, remoteVersion) < 0) {
+      const migrationPath = buildMigrationPath(guides, localVersion, remoteVersion)
+      if (migrationPath.pathLabel) {
+        console.log('\nSuggested Version Path:')
+        console.log(migrationPath.pathLabel)
+
+        if (migrationPath.actionableSteps.length > 0) {
+          console.log('\nGuides With Manual Steps In This Path:')
+          migrationPath.actionableSteps.forEach((step) => {
+            console.log(`- ${step.name}`)
+          })
+        }
+        else {
+          console.log('\nNo manual migration steps in this path.')
+        }
+
+        if (!migrationPath.complete) {
+          console.log('\nWarning: Could not build a full migration chain to the latest release.')
+        }
+      }
+    }
+
+    console.log('\nMigration Notes Mode:')
+    console.log('1. Show guides with manual steps only (recommended)')
+    console.log('2. Show all guides (maintainers)')
+    const modeChoice = await askQuestion('\nEnter choice (1-2) [1]: ')
+    const showAllGuides = modeChoice.trim() === '2'
+
+    const visibleGuides = showAllGuides
+      ? guides
+      : guides.filter(guide => guide.manualSteps)
+
+    if (visibleGuides.length === 0) {
+      log('No migration documents found for the selected mode.', 'info')
+      return
+    }
+
     console.log('\nAvailable Migration Notes:')
-    files.forEach((f, i) => console.log(`${i + 1}. ${f.name}`))
+    visibleGuides.forEach((guide, i) => {
+      const stepType = guide.manualSteps ? 'manual' : 'empty'
+      console.log(`${i + 1}. ${guide.name} [${stepType}]`)
+    })
 
     const choice = await askQuestion('\nSelect a file number to view (or 0 to go back): ')
     const index = Number.parseInt(choice) - 1
 
-    if (index >= 0 && index < files.length) {
-      const file = files[index]
+    if (index >= 0 && index < visibleGuides.length) {
+      const file = visibleGuides[index]
       log(`Fetching ${file.name}...`)
-      // Fetch content
-      // GitHub API returns content encoded in base64 usually, or we can use download_url
-      const contentRes = await new Promise((resolve, reject) => {
-        https.get(file.download_url, { headers: { 'User-Agent': 'Quick-Conf-CLI' } }, (res) => {
-          let data = ''
-          res.on('data', c => data += c)
-          res.on('end', () => resolve(data))
-        }).on('error', reject)
-      })
 
       console.log(`\n${'='.repeat(50)}`)
-      console.log(contentRes)
+      console.log(file.markdown)
       console.log(`${'='.repeat(50)}\n`)
     }
   }
