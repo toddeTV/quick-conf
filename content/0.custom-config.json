@@ -8,43 +8,21 @@
       "column1": {
         "links": [
           {
-            "name": "Apply as Speaker",
-            "url": "/faq/cfp"
-          },
-          {
-            "name": "Become a Sponsor",
-            "url": "/faq/sponsoring"
-          },
-          {
-            "name": "Code of Conduct",
-            "url": "/faq/code-of-conduct"
-          },
-          {
-            "name": "Location",
-            "url": "/faq/location"
+            "name": "Link 1",
+            "url": "/"
           }
         ],
-        "title": "Community"
+        "title": "Links"
       },
       "column2": {
         "links": [
           {
             "icon": "lucide:github",
-            "name": "Template Documentation",
-            "url": "https://github.com/toddeTV/quick-conf/tree/main/docs"
-          },
-          {
-            "icon": "lucide:github",
-            "name": "GitHub Repository",
+            "name": "quick-conf",
             "url": "https://github.com/toddeTV/quick-conf"
-          },
-          {
-            "icon": "simple-icons:x",
-            "name": "Follow the Author",
-            "url": "https://x.com/toddeTV"
           }
         ],
-        "title": "About This Template"
+        "title": "Template"
       },
       "column4": {
         "socials": [
@@ -70,17 +48,17 @@
   },
   "general": {
     "conferenceFoundingYear": 2025,
-    "conferenceName": "Quick Conf",
+    "conferenceName": "ConferenceNamePlaceholder",
     "favicon": {
-      "dark": "/assets/favicon/favicon.svg",
-      "light": "/assets/favicon/favicon.svg"
+      "dark": "",
+      "light": ""
     },
     "logo": {
-      "dark": "/assets/logo/dark.svg",
-      "light": "/assets/logo/light.svg"
+      "dark": "",
+      "light": ""
     },
-    "siteUrl": "https://quick-conf.com",
-    "timeZone": "Europe/Amsterdam"
+    "siteUrl": "https://example.com",
+    "timeZone": "UTC"
   },
   "nuxtStudio": {
     "i18n": {
@@ -88,9 +66,9 @@
     },
     "repository": {
       "branch": "main",
-      "owner": "toddeTV",
+      "owner": "",
       "provider": "github",
-      "repo": "quick-conf"
+      "repo": ""
     }
   },
   "nuxtUI": {
@@ -98,12 +76,5 @@
       "neutral": "slate",
       "primary": "green"
     }
-  },
-  "ogImage": {
-    "bgDark": "#0f172a",
-    "bgLight": "#ffffff",
-    "primary": "#22c55e",
-    "textDark": "#94a3b8",
-    "textLight": "#64748b"
   }
 }
