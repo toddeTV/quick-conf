@@ -109,11 +109,11 @@ export const customConfigSchema = z.object({
       chevron: 'lucide:chevron-down',
       hash: 'lucide:hash',
     }),
-  }),
+  }).optional(),
 
   nuxtContent: z.object({
     syntaxHighlighting: z.boolean().default(false),
-  }),
+  }).optional(),
 
   ogImage: z.object({
     bgLight: z.string().regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Use a valid hex color').default('#ffffff'),

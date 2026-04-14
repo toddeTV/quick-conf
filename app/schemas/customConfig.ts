@@ -239,7 +239,7 @@ export const customConfigSchema = z.object({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Icons used across the UI.',
     }),
-  })).editor({
+  }).optional()).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'NuxtUI Customization.',
   }),
@@ -249,7 +249,7 @@ export const customConfigSchema = z.object({
       // @ts-expect-error `description` is custom and patched in `nuxt-studio`
       description: 'Enable syntax highlighting for Markdown code blocks. Keep this disabled to reduce bundle size.',
     }),
-  })).editor({
+  }).optional()).editor({
     // @ts-expect-error `description` is custom and patched in `nuxt-studio`
     description: 'Nuxt Content customization.',
   }),
