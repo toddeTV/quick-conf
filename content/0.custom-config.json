@@ -30,6 +30,7 @@
     }
   },
   "general": {
+    "colorMode": "both",
     "conferenceFoundingYear": 2025,
     "conferenceName": "ConferenceNamePlaceholder",
     "favicon": {
