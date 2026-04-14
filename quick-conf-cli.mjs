@@ -96,7 +96,8 @@ function clearDirectory(additionalAllowed = []) {
  * Recursively replaces a string in all files within a directory.
  * @param {string} dir - The directory to search in.
  * @param {string} search - The string to search for.
- * @param {string | ((filePath: string) => string)} replacement - The string to replace with or a file-aware replacement factory.
+ * @param {string | ((filePath: string) => string)} replacement - The string to replace with
+ *   or a file-aware replacement factory.
  */
 function replaceStringInDirectory(dir, search, replacement) {
   if (!fs.existsSync(dir))
