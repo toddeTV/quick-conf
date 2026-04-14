@@ -23,9 +23,9 @@ logs
 .env.*
 !.env.example
 
-# no AI files (AI should only be used for reviewing code, not for generating it)
-CLAUDE.md
+# no IDE and LLM/AI settings
 .claude
-
-# Skilld references (recreated by `skilld install`)
-.skilld
+CLAUDE.md
+.cursor
+.vscode
+.idea
