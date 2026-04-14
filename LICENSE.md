@@ -2,7 +2,7 @@
 
 **Copyright (c) 2025-present, [Thorsten Seyschab](https://todde.tv)**
 
-This project is provided under a dual-license structure. The source code is licensed under the **MIT License**, while specific directories containing creative assets and content are subject to separate, more restrictive terms.
+This project is provided under a dual-license structure. The source code is licensed under the **MIT License**, with a small set of repository-only files under separate restrictive terms.
 
 **Legal Notice & Disclaimer:**
 
@@ -10,7 +10,7 @@ We assume no liability for the use of this project, including all code. You are 
 
 ## MIT License (Source Code)
 
-This license applies to all files within this repository **except** for the contents of the `/content` and `/public` directories.
+This license applies to all files within this repository **except** the restricted files listed in the next section.
 
 ```
 Copyright (c) 2025-present, Thorsten Seyschab
@@ -34,21 +34,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## Content and Asset License (Restricted)
+## Restricted Repository Files (All Rights Reserved)
 
-This license applies to all files located within the following directories (including e.g., Markdown, JSON, YAML data, images, 3D models, videos, media and asset files in general):
+This license applies to all following files and folders:
 
-- `/content`
-- `/public`
+- `/.github/**`
+- `/docs/**`
+- `/template-starter/**`
+- `/.coderabbit.yml`
+- `/.release-please-manifest.json`
+- `/CHANGELOG.md`
+- `/CONTRIBUTING.md`
+- `/LICENSE.md`
+- `/README.md`
+- `/release-please-config.json`
+- `/renovate.json`
 
 **All Rights Reserved.**
 
-The materials in these directories are the intellectual property of their respective creators. They are included in this template for demonstration and illustrative purposes only.
+These files are the intellectual property of their respective creators. These folders and files are part of repository maintenance and publishing workflow.
 
 You are **not** granted any rights to:
 
-- Reuse or redistribute these materials in any form.
-- Create derivative works from these materials.
-- Use these materials outside of this specific project template.
+- Reuse or redistribute these files in any form.
+- Create derivative works from these files.
+- Use these files outside of this specific project template.
 
-Cloning or forking this repository does not grant you a license to use the content and assets in these directories for your own projects. You must obtain explicit permission or a separate license from the original authors to use these materials.
+Cloning or forking this repository does not grant you a license to use the restricted files for your own projects. You must obtain explicit permission or a separate license from the original authors to use these files.

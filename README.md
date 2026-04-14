@@ -121,11 +121,11 @@ _(including images & 3D models; mostly only those requiring attribution)_
 
 **Copyright (c) 2025-present, [Thorsten Seyschab](https://todde.tv)**
 
-This project is a template and is licensed under a dual-license structure. The source code is available under the MIT License, while the content and assets are under a more restrictive license.
+This project is a template and is licensed under a dual-license structure. The source code is available under the MIT License, with a small set of repository-only files under a more restrictive license.
 
 - **Source Code:** The source code in this repository is licensed under the **MIT License**. You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
 
-- **Content & Assets:** The contents of the `/content` and `/public` directories (such as images, 3D models, videos, and data files) are **not** licensed under MIT. These materials are the intellectual property of their respective creators and are provided solely as placeholders for local development. Remove or replace them before distributing your site. Unless a file carries its own license, no rights are granted to reuse these materials. You may not reuse, redistribute, or create derivative works from these materials without explicit permission from the original authors.
+- **Restricted Repository Files:** Some files and folders are **not** licensed under MIT. These files are the intellectual property of their respective creators and are part of repository maintenance and publishing workflow. Unless a file carries its own license, no rights are granted to reuse these files. You may not reuse, redistribute, or create derivative works from these files without explicit permission from the original authors.
 
 Please refer to the [LICENSE.md](/LICENSE.md) file for full details.
 
