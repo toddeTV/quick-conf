@@ -57,6 +57,6 @@ You are **not** granted any rights to:
 
 - Reuse or redistribute these files in any form.
 - Create derivative works from these files.
-- Use these files outside of this specific project template.
+- Use these files outside this specific project template.
 
 Cloning or forking this repository does not grant you a license to use the restricted files for your own projects. You must obtain explicit permission or a separate license from the original authors to use these files.
