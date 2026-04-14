@@ -5,4 +5,4 @@ order: 2
 
 # Location
 
-Details to the location & venue.
+Details about the location and venue.
