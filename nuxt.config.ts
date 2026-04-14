@@ -15,6 +15,23 @@ if (!parseResult.success) {
 
 const customConfig = (parseResult.success ? parseResult.data : _customConfig) as CustomConfig
 
+const colorModeSettings = {
+  'both': {
+    preference: 'system',
+    fallback: 'dark',
+  },
+  'light-only': {
+    preference: 'light',
+    fallback: 'light',
+  },
+  'dark-only': {
+    preference: 'dark',
+    fallback: 'dark',
+  },
+} as const
+
+const selectedColorModeSetting = colorModeSettings[customConfig.general.colorMode]
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
@@ -82,6 +99,12 @@ export default defineNuxtConfig({
         strict: true,
       },
     },
+  },
+
+  colorMode: { // for `@nuxt/color-mode` (included in `@nuxt/ui`)
+    preference: selectedColorModeSetting.preference,
+    fallback: selectedColorModeSetting.fallback,
+    storageKey: `quick-conf-color-mode-${customConfig.general.colorMode}`,
   },
 
   ui: { // for `@nuxt/ui`
