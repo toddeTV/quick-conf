@@ -222,7 +222,7 @@ If you have already set up your conference website and want to pull in the lates
    ```
 
 4. Read and confirm the first few prompts until you are in the **Main Menu**.
-5. Here, choose **Update**. Answer the questions and go through the wizard. This will ensure to set the correct name for your project and more. Be aware that everything runs smoothly without any errors. If some occur, fix them. This process is designed to safely update the core application files while preserving your custom data. Specifically, it will preserve:
+5. Here, choose **Update**. Answer the questions and go through the wizard. This will ensure to set the correct name for your project and more. Be aware that everything runs smoothly without any errors. If some occur, fix them. This process is designed to safely update the core application files while preserving your custom data. It automatically removes template-specific repository files from the downloaded template payload that are not needed in your end-project or not licensed for your use. You should create your own infrastructure files for your custom needs. Also, it will preserve from your project:
    - The `/.github/` directory (your workflows and settings)
    - The `/content/` directory (your talks, speakers, pages, etc.)
    - The `/public/` directory (your static assets)
@@ -232,8 +232,6 @@ If you have already set up your conference website and want to pull in the lates
    - The `.git` folder (your version control history)
    - IDE configuration folders (e.g. `.vscode/`, `.idea/`)
    - Specific fields in `/package.json`: `name`, `author`, `contributors`, `description`, `repository`, `bugs`, and `keywords`
-
-   The process automatically removes template-specific repository files from the downloaded template payload (for example `renovate.json`, `docs/`, release configuration files, and the template repository's workflow automation files) that are not needed in your end-project. Your existing `/.github/` directory is preserved. You should create your own infrastructure files for your custom needs.
 
 6. **Migrations:**<br>
    When updating between versions, there might be breaking changes or required data structure updates. Migration guides are available to help you transition smoothly.<br>
