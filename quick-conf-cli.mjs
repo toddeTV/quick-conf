@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename)
 // Ensure we are working in the script's directory
 process.chdir(__dirname)
 
-const CLI_VERSION = '1.1.0'
+const CLI_VERSION = '1.2.0'
 const REPO_OWNER = 'toddeTV'
 const REPO_NAME = 'quick-conf'
 const GITHUB_API_BASE = 'https://api.github.com'
