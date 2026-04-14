@@ -40,7 +40,6 @@ This license applies to all following files and folders:
 
 - `/.github/**`
 - `/docs/**`
-- `/template-starter/**`
 - `/.coderabbit.yml`
 - `/.release-please-manifest.json`
 - `/CHANGELOG.md`
