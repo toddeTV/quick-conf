@@ -670,13 +670,14 @@ function compareVersions(v1, v2) {
  * Parses a semantic version into numeric parts and prerelease identifiers.
  * @param {string} version - Version string to parse.
  * @returns {{ major: number, minor: number, patch: number, prerelease: string[] } | null}
+ *   Parsed semantic version object or null.
  */
 function parseSemver(version) {
   const normalized = normalizeSemver(version)
   if (!normalized)
     return null
 
-  const match = normalized.match(/^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?$/)
+  const match = normalized.match(/^(\d+)\.(\d+)\.(\d+)(?:-([0-9a-z.-]+))?$/i)
   if (!match)
     return null
 
@@ -699,7 +700,7 @@ function normalizeSemver(version) {
     return null
 
   const clean = String(version).trim().replace(/^v/, '')
-  const match = clean.match(/^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?/)
+  const match = clean.match(/^(\d+)\.(\d+)\.(\d+)(?:-([0-9a-z.-]+))?/i)
   if (!match)
     return null
 
