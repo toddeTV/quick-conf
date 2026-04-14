@@ -96,7 +96,7 @@ function clearDirectory(additionalAllowed = []) {
  * Recursively replaces a string in all files within a directory.
  * @param {string} dir - The directory to search in.
  * @param {string} search - The string to search for.
- * @param {string} replacement - The string to replace with.
+ * @param {string | ((filePath: string) => string)} replacement - The string to replace with or a file-aware replacement factory.
  */
 function replaceStringInDirectory(dir, search, replacement) {
   if (!fs.existsSync(dir))
@@ -115,7 +115,8 @@ function replaceStringInDirectory(dir, search, replacement) {
       try {
         let content = fs.readFileSync(filePath, 'utf-8')
         if (content.includes(search)) {
-          content = content.replaceAll(search, replacement)
+          const replacementValue = typeof replacement === 'function' ? replacement(filePath) : replacement
+          content = content.replaceAll(search, replacementValue)
           fs.writeFileSync(filePath, content, 'utf-8')
         }
       }
@@ -124,6 +125,26 @@ function replaceStringInDirectory(dir, search, replacement) {
       }
     }
   }
+}
+
+/**
+ * Creates a format-safe replacement string for each target file type.
+ * @param {string} filePath - The file currently being processed.
+ * @param {string} projectName - The user-defined project name.
+ * @returns {string} A replacement value safe for the file format.
+ */
+function getSafeProjectNameReplacement(filePath, projectName) {
+  const ext = path.extname(filePath).toLowerCase()
+
+  if (ext === '.json') {
+    return JSON.stringify(projectName).slice(1, -1)
+  }
+
+  if (ext === '.yml' || ext === '.yaml') {
+    return `'${projectName.replaceAll("'", "''")}'`
+  }
+
+  return projectName
 }
 
 /**
@@ -178,7 +199,11 @@ function applyProjectNamePlaceholders(projectName) {
   ]
   for (const target of placeholderTargets) {
     const targetPath = path.join(process.cwd(), target)
-    replaceStringInDirectory(targetPath, 'ConferenceNamePlaceholder', projectName)
+    replaceStringInDirectory(
+      targetPath,
+      'ConferenceNamePlaceholder',
+      filePath => getSafeProjectNameReplacement(filePath, projectName),
+    )
   }
 }
 
