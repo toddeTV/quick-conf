@@ -128,15 +128,13 @@ function replaceStringInDirectory(dir, search, replacement) {
 
 /**
  * Removes repository metadata files and folders that should not be in the final project.
- * (Steps 3 & 4 of the flow)
+ * These files are useful for maintaining the template repository, not for end-user projects.
  */
 function removeRepoFiles() {
-  log('Removing repository files (docs, content, public, etc.)...', 'info')
+  log('Removing repository-only files...', 'info')
   const folders = [
     '.github',
-    'content',
     'docs',
-    'public',
   ]
   const files = [
     '.coderabbit.yml',
@@ -147,7 +145,6 @@ function removeRepoFiles() {
     'README.md',
     'release-please-config.json',
     'renovate.json',
-    'vercel.json',
   ]
 
   for (const folder of folders) {
@@ -170,23 +167,32 @@ function removeRepoFiles() {
 }
 
 /**
- * Applies the template starter content by moving it to the root.
- * (Steps 5, 6, 7 of Fresh Install flow)
- * @param {string} [projectName] - The project name to replace placeholders with.
+ * Replaces starter placeholders in project files.
+ * @param {string} projectName - The project name used for placeholder replacement.
  */
-function applyTemplateStarter(projectName) {
+function applyProjectNamePlaceholders(projectName) {
+  const placeholderTargets = [
+    'content',
+    'public',
+    'template-starter',
+  ]
+  for (const target of placeholderTargets) {
+    const targetPath = path.join(process.cwd(), target)
+    replaceStringInDirectory(targetPath, 'ConferenceNamePlaceholder', projectName)
+  }
+}
+
+/**
+ * Applies template-starter override files by moving them to the root.
+ */
+function applyTemplateStarter() {
   const starterPath = path.join(process.cwd(), 'template-starter')
   if (!fs.existsSync(starterPath)) {
     log('No template-starter found; skipping starter setup', 'info')
     return
   }
 
-  log('Setting up starter content...', 'info')
-
-  if (projectName) {
-    log(`Replacing placeholders with "${projectName}"...`, 'info')
-    replaceStringInDirectory(starterPath, 'ConferenceNamePlaceholder', projectName)
-  }
+  log('Applying template-starter overrides...', 'info')
 
   // Step 5: Check collisions and delete in root
   const items = fs.readdirSync(starterPath)
@@ -206,7 +212,7 @@ function applyTemplateStarter(projectName) {
 
   // Step 7: Delete folder
   fs.rmSync(starterPath, { recursive: true, force: true })
-  log('Starter content set up.', 'info')
+  log('Template-starter overrides applied.', 'info')
 }
 
 /**
@@ -314,11 +320,10 @@ async function showLicenseWarning() {
   console.log(`\n${'='.repeat(50)}`)
   log('LICENSE COMPLIANCE WARNING', 'warn')
   console.log('='.repeat(50))
-  console.log('The \'/content\' and \'/public\' folders in this template contain example data,')
-  console.log('including images and text, which are not covered under the MIT license of the code.')
-  console.log('\nImportant: You must replace all example content in \'/content\' and \'/public\'')
-  console.log('folders with your own assets and information to ensure you are not infringing')
-  console.log('on any copyrights or usage rights associated with the placeholder data.')
+  console.log('This repository contains restricted template-repository-only files and folders')
+  console.log('that are not part of the MIT scope.')
+  console.log('\nThe installer removes these repository-only paths for end-user projects.')
+  console.log('Review LICENSE.md in the template repository for the full restricted path list.')
   console.log('\nNote: The file \'public/custom-styles.css\' must exist.')
   console.log(`${'='.repeat(50)}\n`)
 
@@ -916,11 +921,14 @@ async function freshInstall(isTemplateClone = false) {
     if (!projectName)
       throw new Error('Project configuration failed.')
 
-    // Step 3 & 4: Remove Repo Files
+    log(`Replacing placeholders with "${projectName}"...`, 'info')
+    applyProjectNamePlaceholders(projectName)
+
+    // Remove repository-only files
     removeRepoFiles()
 
-    // Step 5, 6, 7: Apply Template Starter
-    applyTemplateStarter(projectName)
+    // Apply template starter overrides
+    applyTemplateStarter()
 
     await showLicenseWarning()
 
