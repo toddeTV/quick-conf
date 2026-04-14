@@ -187,6 +187,12 @@ export default defineNuxtConfig({
   },
 
   content: { // for `@nuxt/content`
+    build: {
+      markdown: {
+        // Syntax highlighting in runtime content pages with Shiki produces large wasm/highlighter chunks in build.
+        highlight: customConfig?.nuxtContent?.syntaxHighlighting ? {} : false,
+      },
+    },
     experimental: {
       // Connector selection order in @nuxt/content v3.11.2 (findBestSqliteAdapter):
       // 1) bun runtime -> bun-sqlite
