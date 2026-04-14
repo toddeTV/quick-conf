@@ -45,7 +45,6 @@ This license applies to all following files and folders:
 - `/.release-please-manifest.json`
 - `/CHANGELOG.md`
 - `/CONTRIBUTING.md`
-- `/LICENSE.md`
 - `/README.md`
 - `/release-please-config.json`
 - `/renovate.json`
