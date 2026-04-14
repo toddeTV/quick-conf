@@ -12,6 +12,7 @@ const appConfig = useAppConfig()
 const footerConfig = appConfig.footer
 const columnsConfig = footerConfig?.footerColumns
 const bottomIcons = footerConfig?.bottomIcons
+const canSwitchColorMode = appConfig.general.colorMode === 'both'
 
 // year span calculation
 const yearCurrent = new Date().getFullYear()
@@ -202,7 +203,7 @@ function navigateToAdmin() {
         variant="ghost"
       />
 
-      <UColorModeButton />
+      <UColorModeButton v-if="canSwitchColorMode" />
     </template>
   </UFooter>
 </template>

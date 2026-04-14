@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const route = useRoute()
+const appConfig = useAppConfig()
+
+const canSwitchColorMode = computed(() => appConfig.general.colorMode === 'both')
 
 const items = computed(() => [
   {
@@ -44,7 +47,7 @@ const items = computed(() => [
     </template>
 
     <template #right>
-      <UColorModeButton />
+      <UColorModeButton v-if="canSwitchColorMode" />
 
       <UButton
         aria-label="Buy tickets"
