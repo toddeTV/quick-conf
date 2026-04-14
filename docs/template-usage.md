@@ -233,7 +233,7 @@ If you have already set up your conference website and want to pull in the lates
    - IDE configuration folders (e.g. `.vscode/`, `.idea/`)
    - Specific fields in `/package.json`: `name`, `author`, `contributors`, `description`, `repository`, `bugs`, and `keywords`
 
-   The process automatically removes template-specific repository files and folders (for example `renovate.json`, `docs/`, release configuration files, and workflow automation files) that are not needed in your end-project. You should create your own infrastructure files for your custom needs.
+   The process automatically removes template-specific repository files from the downloaded template payload (for example `renovate.json`, `docs/`, release configuration files, and the template repository's workflow automation files) that are not needed in your end-project. Your existing `/.github/` directory is preserved. You should create your own infrastructure files for your custom needs.
 
 6. **Migrations:**<br>
    When updating between versions, there might be breaking changes or required data structure updates. Migration guides are available to help you transition smoothly.<br>
