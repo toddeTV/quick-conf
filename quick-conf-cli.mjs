@@ -699,7 +699,7 @@ function normalizeSemver(version) {
     return null
 
   const clean = String(version).trim().replace(/^v/, '')
-  const match = clean.match(/^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?/) 
+  const match = clean.match(/^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?/)
   if (!match)
     return null
 
@@ -764,37 +764,65 @@ function buildMigrationPath(guides, fromVersion, toVersion) {
   if (compareVersions(start, target) >= 0)
     return { complete: true, pathLabel: `v${start}`, steps: [], actionableSteps: [] }
 
-  const versionsInPath = [`v${start}`]
-  const steps = []
-  const visited = new Set()
-  let current = start
+  const normalizedGuides = guides
+    .map((guide) => {
+      const from = normalizeSemver(guide.fromVersion)
+      const to = normalizeSemver(guide.toVersion)
+      if (!from || !to)
+        return null
 
-  while (compareVersions(current, target) < 0) {
-    if (visited.has(current))
-      break
-    visited.add(current)
-
-    const candidates = guides
-      .filter(g => normalizeSemver(g.fromVersion) === current)
-      .sort((a, b) => compareVersions(a.toVersion, b.toVersion))
-
-    if (!candidates.length)
-      break
-
-    let selected = candidates[0]
-    for (const candidate of candidates) {
-      if (compareVersions(candidate.toVersion, target) <= 0) {
-        selected = candidate
+      return {
+        ...guide,
+        normalizedFrom: from,
+        normalizedTo: to,
       }
+    })
+    .filter(Boolean)
+
+  const guideMap = new Map()
+  for (const guide of normalizedGuides) {
+    const list = guideMap.get(guide.normalizedFrom) || []
+    list.push(guide)
+    guideMap.set(guide.normalizedFrom, list)
+  }
+
+  for (const [from, list] of guideMap) {
+    const ordered = list
+      .filter(guide => compareVersions(guide.normalizedTo, from) > 0)
+      .filter(guide => compareVersions(guide.normalizedTo, target) <= 0)
+      .sort((a, b) => compareVersions(a.normalizedTo, b.normalizedTo))
+    guideMap.set(from, ordered)
+  }
+
+  const visited = new Set([start])
+  const findPath = (currentVersion) => {
+    if (currentVersion === target)
+      return []
+
+    const candidates = guideMap.get(currentVersion) || []
+    for (const candidate of candidates) {
+      if (visited.has(candidate.normalizedTo))
+        continue
+
+      visited.add(candidate.normalizedTo)
+      const rest = findPath(candidate.normalizedTo)
+      if (rest)
+        return [candidate, ...rest]
+      visited.delete(candidate.normalizedTo)
     }
 
-    const next = normalizeSemver(selected.toVersion)
-    if (!next || compareVersions(next, current) <= 0)
-      break
+    return null
+  }
 
-    steps.push(selected)
-    versionsInPath.push(`v${next}`)
-    current = next
+  const selectedPath = findPath(start) || []
+  const versionsInPath = [`v${start}`]
+  const steps = []
+  let current = start
+
+  for (const candidate of selectedPath) {
+    steps.push(candidate)
+    versionsInPath.push(`v${candidate.normalizedTo}`)
+    current = candidate.normalizedTo
   }
 
   const complete = compareVersions(current, target) === 0
