@@ -104,6 +104,8 @@ export default defineNuxtConfig({
   colorMode: { // for `@nuxt/color-mode` (included in `@nuxt/ui`)
     preference: selectedColorModeSetting.preference,
     fallback: selectedColorModeSetting.fallback,
+    
+    // Keep mode-specific storage keys so old persisted preferences do not override a new forced mode policy.
     storageKey: `quick-conf-color-mode-${customConfig.general.colorMode}`,
   },
 
