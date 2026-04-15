@@ -33,7 +33,9 @@ function resolveColumnCount(itemCount: number, fallback: number): number {
   const boundedItems = Math.max(1, itemCount)
 
   if (props.gridColumns > 0) {
-    return Math.min(Math.trunc(props.gridColumns), boundedItems)
+    const forcedColumns = Math.max(1, Math.trunc(props.gridColumns))
+
+    return Math.min(forcedColumns, boundedItems)
   }
 
   return Math.min(fallback, boundedItems)
