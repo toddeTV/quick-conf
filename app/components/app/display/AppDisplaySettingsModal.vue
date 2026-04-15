@@ -126,6 +126,12 @@ async function copyUrl() {
   const didCopy = await copyToClipboard(props.finalUrl)
 
   if (!didCopy) {
+    toast.add({
+      title: 'Copy failed',
+      description: 'Could not copy URL to clipboard.',
+      color: 'error',
+      icon: 'lucide:clipboard-x',
+    })
     return
   }
 
