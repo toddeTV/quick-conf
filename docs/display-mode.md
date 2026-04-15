@@ -7,18 +7,29 @@ The display route is designed for venue screens and signage.
 - Route: `/display`
 - Quick access: footer icon button in the bottom-right action group.
 
-## Core Usage
+## What It Supports
 
-1. Open `/display`.
-1. Click the settings button in the top bar on the right.
-1. Configure mode, info box position, stage/day selection, sponsor behavior, scale, refresh interval, next talks, grid columns, and more.
-1. Copy the generated URL from the settings panel and open it on the target screen.
-
-### Modes
-
-- `all-details` (default): all stages with one main card and configurable upcoming cards.
-- `stage-details`: one stage with one main card and configurable upcoming cards.
-- `timetable`: full schedule grid view (timetable like on the user facing schedule sub-page, but wrapped for venue displaying).
+1. One slide-in settings panel with live preview updates.
+1. Shareable URL query parameters so copied links restore the same setup.
+1. Copy-to-clipboard action for the full generated display URL.
+1. Three display modes:
+   - `timetable`: full schedule grid view.
+     - Typical placement: central info screens, registration area, or lounge overview screens.
+   - `all-details`: all stages with one main card and configurable upcoming cards.
+     - Typical placement: hallways, foyers, and other public circulation areas.
+   - `stage-details`: one stage with one main card and configurable upcoming cards.
+     - Typical placement: room entrances, in-room side screens, and near the stage itself.
+1. Info boxes position control:
+   - `Right side`
+   - `Bottom row`
+1. Stage selection and day mode selection (`auto` or `manual`).
+1. Sponsor controls (`off`, `all`, `rotate`) and sponsor logo column control.
+1. QR block linking to `/schedule` with configurable QR style.
+1. Optional color mode override (`site`, `light`, `dark`).
+1. Configurable data refresh interval (`60`, `120`, `300` seconds).
+1. Configurable next-talk count and next-talk layout (`row` or `column`).
+1. Configurable grid columns (`0` for auto, `999` for one row).
+1. Header with clock above date for fast time visibility.
 
 ## URL Settings
 
