@@ -22,20 +22,23 @@ export async function copyToClipboard(value: string): Promise<boolean> {
   catch {
   }
 
+  let textArea: HTMLTextAreaElement | null = null
   try {
     // Keep a legacy fallback for browsers without navigator.clipboard support.
-    const textArea = document.createElement('textarea')
+    textArea = document.createElement('textarea')
     textArea.value = value
     textArea.style.position = 'fixed'
     textArea.style.opacity = '0'
     document.body.appendChild(textArea)
     textArea.select()
     const isCopied = document.execCommand('copy')
-    document.body.removeChild(textArea)
 
     return isCopied
   }
   catch {
     return false
+  }
+  finally {
+    textArea?.remove()
   }
 }
