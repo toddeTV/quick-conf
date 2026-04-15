@@ -68,6 +68,15 @@ const refreshItems = [
   { label: '300 seconds', value: '300' },
 ]
 
+/**
+ * Parses an integer input and clamps it to a configured range.
+ *
+ * @param {string | number | undefined} value - Raw numeric input.
+ * @param {number} fallback - Value used when parsing fails.
+ * @param {number} minValue - Lower clamp boundary.
+ * @param {number} maxValue - Upper clamp boundary.
+ * @returns {number} Safe integer inside the accepted range.
+ */
 function toSafeInteger(
   value: string | number | undefined,
   fallback: number,
@@ -83,6 +92,12 @@ function toSafeInteger(
   return Math.min(maxValue, Math.max(minValue, parsed))
 }
 
+/**
+ * Parses and clamps scale factor input for display zoom.
+ *
+ * @param {string | number | undefined} value - Raw scale input.
+ * @returns {number} Scale factor inside supported bounds.
+ */
 function toSafeScale(value: string | number | undefined): number {
   const parsed = Number.parseFloat(String(value ?? '1'))
 
@@ -93,10 +108,20 @@ function toSafeScale(value: string | number | undefined): number {
   return Math.min(1.8, Math.max(0.75, parsed))
 }
 
+/**
+ * Closes the settings panel.
+ *
+ * @returns {void}
+ */
 function closePanel() {
   emit('update:open', false)
 }
 
+/**
+ * Copies the final display URL to clipboard and shows success feedback.
+ *
+ * @returns {Promise<void>} Promise resolved after copy attempt.
+ */
 async function copyUrl() {
   const didCopy = await copyToClipboard(props.finalUrl)
 

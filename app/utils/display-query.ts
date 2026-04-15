@@ -45,6 +45,12 @@ export const DISPLAY_DEFAULTS: DisplaySettings = {
   themeMode: 'site',
 }
 
+/**
+ * Returns the first string value from a query entry.
+ *
+ * @param {LocationQueryValue | LocationQueryValue[] | undefined} input - Query value from Vue Router.
+ * @returns {string | undefined} The first usable string value.
+ */
 function firstQueryValue(input?: LocationQueryValue | LocationQueryValue[]): string | undefined {
   if (Array.isArray(input)) {
     return typeof input[0] === 'string' ? input[0] : undefined
@@ -57,10 +63,25 @@ function firstQueryValue(input?: LocationQueryValue | LocationQueryValue[]): str
   return undefined
 }
 
+/**
+ * Checks if a value matches the display day ISO format.
+ *
+ * @param {string | undefined} value - Candidate day string.
+ * @returns {boolean} True when value matches YYYY-MM-DD.
+ */
 function isValidDayISO(value?: string): boolean {
   return Boolean(value && /^\d{4}-\d{2}-\d{2}$/.test(value))
 }
 
+/**
+ * Parses a query value into a validated enum member.
+ *
+ * @template T
+ * @param {string | undefined} value - Raw query value.
+ * @param {readonly T[]} validValues - Allowed values for the enum.
+ * @param {T} fallback - Value used when parsing fails.
+ * @returns {T} The validated enum value.
+ */
 function parseStringEnum<T extends string>(
   value: string | undefined,
   validValues: readonly T[],
@@ -73,6 +94,12 @@ function parseStringEnum<T extends string>(
   return fallback
 }
 
+/**
+ * Parses and clamps the display scale factor.
+ *
+ * @param {string | undefined} value - Raw scale query value.
+ * @returns {number} A value clamped to the supported display scale range.
+ */
 function parseScaleFactor(value: string | undefined): number {
   const parsed = Number.parseFloat(value ?? '')
 
@@ -83,6 +110,12 @@ function parseScaleFactor(value: string | undefined): number {
   return Math.min(1.8, Math.max(0.75, Number.parseFloat(parsed.toFixed(2))))
 }
 
+/**
+ * Parses refresh interval seconds from query input.
+ *
+ * @param {string | undefined} value - Raw refresh interval query value.
+ * @returns {DisplaySettings['refreshSeconds']} A supported refresh interval.
+ */
 function parseRefreshSeconds(value: string | undefined): DisplaySettings['refreshSeconds'] {
   if (value === '60' || value === '120' || value === '300') {
     return Number.parseInt(value, 10) as DisplaySettings['refreshSeconds']
@@ -91,6 +124,12 @@ function parseRefreshSeconds(value: string | undefined): DisplaySettings['refres
   return DISPLAY_DEFAULTS.refreshSeconds
 }
 
+/**
+ * Parses and clamps the forced timetable column count.
+ *
+ * @param {string | undefined} value - Raw column query value.
+ * @returns {number} A non-negative column count capped to project bounds.
+ */
 function parseLayoutColumns(value: string | undefined): number {
   const parsed = Number.parseInt(value ?? '', 10)
 
@@ -101,6 +140,12 @@ function parseLayoutColumns(value: string | undefined): number {
   return Math.min(999, parsed)
 }
 
+/**
+ * Parses and clamps sponsor grid column count.
+ *
+ * @param {string | undefined} value - Raw sponsor column query value.
+ * @returns {number} A non-negative sponsor column count capped to project bounds.
+ */
 function parseSponsorColumns(value: string | undefined): number {
   const parsed = Number.parseInt(value ?? '', 10)
 
@@ -111,6 +156,12 @@ function parseSponsorColumns(value: string | undefined): number {
   return Math.min(6, parsed)
 }
 
+/**
+ * Parses and clamps the number of next talks to display.
+ *
+ * @param {string | undefined} value - Raw next talks count query value.
+ * @returns {number} A next-talk count constrained to supported bounds.
+ */
 function parseNextTalksCount(value: string | undefined): number {
   const parsed = Number.parseInt(value ?? '', 10)
 
@@ -121,6 +172,17 @@ function parseNextTalksCount(value: string | undefined): number {
   return Math.min(12, Math.max(1, parsed))
 }
 
+/**
+ * Parses display settings from a route query object.
+ *
+ * @param {LocationQuery} query - The current route query.
+ * @returns {DisplaySettings} Parsed display settings with defaults applied.
+ *
+ * @example
+ * ```ts
+ * const settings = parseDisplaySettingsFromQuery(route.query)
+ * ```
+ */
 export function parseDisplaySettingsFromQuery(query: LocationQuery): DisplaySettings {
   const dayISO = firstQueryValue(query.day)
   const selectedStageSlug = firstQueryValue(query.stage)
@@ -151,13 +213,36 @@ export function parseDisplaySettingsFromQuery(query: LocationQuery): DisplaySett
   }
 }
 
+/**
+ * Finds query keys that are not part of the supported display settings list.
+ *
+ * @param {LocationQuery} query - The current route query.
+ * @returns {string[]} Unsupported query key names.
+ *
+ * @example
+ * ```ts
+ * const unsupported = getUnsupportedDisplayQueryKeys(route.query)
+ * ```
+ */
 export function getUnsupportedDisplayQueryKeys(query: LocationQuery): string[] {
   const supportedKeys = new Set<string>(SUPPORTED_DISPLAY_QUERY_KEYS)
 
   return Object.keys(query).filter(key => !supportedKeys.has(key))
 }
 
+/**
+ * Serializes display settings into route query parameters.
+ *
+ * @param {DisplaySettings} settings - The display settings model.
+ * @returns {LocationQueryRaw} Query object ready for router updates.
+ *
+ * @example
+ * ```ts
+ * const query = serializeDisplaySettingsToQuery(settings)
+ * ```
+ */
 export function serializeDisplaySettingsToQuery(settings: DisplaySettings): LocationQueryRaw {
+  // Keep fixed decimal precision so URLs stay stable across repeated updates.
   return {
     cols: String(settings.layoutColumns),
     day: settings.dayISO || undefined,
@@ -176,6 +261,18 @@ export function serializeDisplaySettingsToQuery(settings: DisplaySettings): Loca
   }
 }
 
+/**
+ * Compares two display settings objects for semantic equality.
+ *
+ * @param {DisplaySettings} a - First settings object.
+ * @param {DisplaySettings} b - Second settings object.
+ * @returns {boolean} True when all supported settings match.
+ *
+ * @example
+ * ```ts
+ * const same = areDisplaySettingsEqual(currentSettings, nextSettings)
+ * ```
+ */
 export function areDisplaySettingsEqual(a: DisplaySettings, b: DisplaySettings): boolean {
   return (
     a.dayISO === b.dayISO

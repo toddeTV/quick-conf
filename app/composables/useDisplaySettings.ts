@@ -6,6 +6,12 @@ import {
   serializeDisplaySettingsToQuery,
 } from '~/utils/display-query'
 
+/**
+ * Converts a query object into a URL search string.
+ *
+ * @param {ReturnType<typeof serializeDisplaySettingsToQuery>} query - Serialized display query object.
+ * @returns {string} URL-encoded query string.
+ */
 function queryToString(query: ReturnType<typeof serializeDisplaySettingsToQuery>): string {
   const search = new URLSearchParams()
 
@@ -18,6 +24,21 @@ function queryToString(query: ReturnType<typeof serializeDisplaySettingsToQuery>
   return search.toString()
 }
 
+/**
+ * Creates reactive display settings synchronized with the route query string.
+ *
+ * @returns {{
+ *   finalUrl: ComputedRef<string>
+ *   setSettings: (patch: Partial<DisplaySettings>) => void
+ *   settings: Ref<DisplaySettings>
+ * }} Reactive settings state, update helper, and shareable URL.
+ *
+ * @example
+ * ```ts
+ * const { settings, setSettings, finalUrl } = useDisplaySettings()
+ * setSettings({ mode: 'timetable' })
+ * ```
+ */
 export function useDisplaySettings() {
   const route = useRoute()
   const router = useRouter()
@@ -28,6 +49,12 @@ export function useDisplaySettings() {
 
   const settings = ref<DisplaySettings>(parseDisplaySettingsFromQuery(route.query))
 
+  /**
+   * Shows a toast for one unsupported query key.
+   *
+   * @param {string} key - Unsupported query key.
+   * @returns {void}
+   */
   function showUnsupportedParameterToast(key: string) {
     toast.add({
       color: 'error',
@@ -58,6 +85,7 @@ export function useDisplaySettings() {
         }
       }
       else {
+        // Queue toasts until mount to avoid UI side effects during hydration.
         pendingUnsupportedKeys.value = [...new Set([...pendingUnsupportedKeys.value, ...unsupportedKeys])]
       }
     }
@@ -91,6 +119,12 @@ export function useDisplaySettings() {
     deep: true,
   })
 
+  /**
+   * Merges a partial settings patch into the active settings object.
+   *
+   * @param {Partial<DisplaySettings>} patch - Partial settings update.
+   * @returns {void}
+   */
   function setSettings(patch: Partial<DisplaySettings>) {
     settings.value = {
       ...settings.value,

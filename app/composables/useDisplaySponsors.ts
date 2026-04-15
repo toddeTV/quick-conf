@@ -1,6 +1,21 @@
 import type { SponsorsCollectionItem } from '@nuxt/content'
 import type { DisplaySponsorMode } from '~/types/display'
 
+/**
+ * Provides sponsor lists for static and rotating display modes.
+ *
+ * @param {Ref<SponsorsCollectionItem[] | null | undefined>} sponsors - Reactive sponsor list input.
+ * @param {Ref<DisplaySponsorMode>} sponsorMode - Reactive sponsor mode selection.
+ * @returns {{
+ *   allSponsors: ComputedRef<SponsorsCollectionItem[]>
+ *   rotatingSponsor: ComputedRef<SponsorsCollectionItem | undefined>
+ * }} Normalized sponsor lists for rendering.
+ *
+ * @example
+ * ```ts
+ * const { allSponsors, rotatingSponsor } = useDisplaySponsors(sponsorsRef, modeRef)
+ * ```
+ */
 export function useDisplaySponsors(
   sponsors: Ref<SponsorsCollectionItem[] | null | undefined>,
   sponsorMode: Ref<DisplaySponsorMode>,
@@ -15,9 +30,15 @@ export function useDisplaySponsors(
       return undefined
     }
 
+    // Modulo keeps index safe when sponsor length changes between rotations.
     return allSponsors.value[currentIndex.value % allSponsors.value.length]
   })
 
+  /**
+   * Stops the sponsor rotation timer if active.
+   *
+   * @returns {void}
+   */
   function stopRotation() {
     if (!rotationTimer) {
       return
@@ -27,6 +48,11 @@ export function useDisplaySponsors(
     rotationTimer = undefined
   }
 
+  /**
+   * Starts sponsor rotation for rotate mode in the browser runtime.
+   *
+   * @returns {void}
+   */
   function startRotation() {
     if (!import.meta.client) {
       return

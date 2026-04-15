@@ -25,6 +25,11 @@ const nowLineTopPx = computed<number | null>(() => {
   return Number.isFinite(parsedTop) ? parsedTop : null
 })
 
+/**
+ * Scrolls the timetable viewport so the current time line sits near the center.
+ *
+ * @returns {void}
+ */
 function centerNowLine() {
   const viewport = scrollViewportRef.value
   const nowTop = nowLineTopPx.value
@@ -38,6 +43,7 @@ function centerNowLine() {
     return
   }
 
+  // Centering the now line improves readability for continuously running displays.
   const target = nowTop - viewport.clientHeight / 2
   viewport.scrollTop = Math.min(maxScrollTop, Math.max(0, target))
 }
@@ -56,6 +62,11 @@ watch([
   immediate: true,
 })
 
+/**
+ * Handles resize events by recalculating viewport scroll position.
+ *
+ * @returns {void}
+ */
 function onWindowResize() {
   centerNowLine()
 }

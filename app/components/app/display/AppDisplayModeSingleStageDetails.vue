@@ -22,6 +22,13 @@ const upcomingGridStyle = computed(() => {
   }
 })
 
+/**
+ * Builds a relative time label from ISO start/end strings.
+ *
+ * @param {string} startISO - Talk start timestamp in ISO format.
+ * @param {string} endISO - Talk end timestamp in ISO format.
+ * @returns {string} Relative status label, or empty string on invalid input.
+ */
 function relativeLabel(startISO: string, endISO: string): string {
   const start = DateTime.fromISO(startISO)
   const end = DateTime.fromISO(endISO)

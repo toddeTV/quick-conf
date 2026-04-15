@@ -21,6 +21,13 @@ interface UseDisplayScheduleDataResult {
   timeSlots: ComputedRef<number[]>
 }
 
+/**
+ * Maps a processed talk into the display card view model.
+ *
+ * @param {ProcessedTalkType} talk - Source talk from schedule processing.
+ * @param {DateTime} now - Current timestamp for active state detection.
+ * @returns {DisplayTalkView} Display-friendly talk object.
+ */
 function toDisplayTalkView(talk: ProcessedTalkType, now: DateTime): DisplayTalkView {
   const description = typeof talk.description === 'string' && talk.description.trim().length > 0
     ? talk.description.trim()
@@ -45,6 +52,18 @@ function toDisplayTalkView(talk: ProcessedTalkType, now: DateTime): DisplayTalkV
   }
 }
 
+/**
+ * Loads and derives all data required for the display page.
+ *
+ * @param {Ref<DisplaySettings>} settings - Reactive display settings state.
+ * @param {(patch: Partial<DisplaySettings>) => void} setSettings - Settings patch helper.
+ * @returns {Promise<UseDisplayScheduleDataResult>} Derived schedule state and helper functions.
+ *
+ * @example
+ * ```ts
+ * const { allStageGroups, timeSlots } = await useDisplayScheduleData(settings, setSettings)
+ * ```
+ */
 export async function useDisplayScheduleData(
   settings: Ref<DisplaySettings>,
   setSettings: (patch: Partial<DisplaySettings>) => void,
@@ -161,6 +180,12 @@ export async function useDisplayScheduleData(
     }
   })
 
+  /**
+   * Computes grid placement style for a single talk in timetable mode.
+   *
+   * @param {ProcessedTalkType} talk - Talk used for height and vertical offset.
+   * @returns {{ height: string, top: string }} Inline style values for talk placement.
+   */
   function getTalkStyle(talk: ProcessedTalkType): { height: string, top: string } {
     const startOffsetMinutes = (talk.start.hour - timeRange.value.start) * 60 + talk.start.minute
     return {
@@ -169,6 +194,12 @@ export async function useDisplayScheduleData(
     }
   }
 
+  /**
+   * Returns all talks for a stage on the selected display day.
+   *
+   * @param {string} stageSlug - Stage identifier.
+   * @returns {ProcessedTalkType[]} Talks assigned to the given stage.
+   */
   function getTalksForStage(stageSlug: string): ProcessedTalkType[] {
     return talksForActiveDay.value.filter(talk => talk.stage?.slug === stageSlug)
   }
@@ -177,12 +208,20 @@ export async function useDisplayScheduleData(
     return Math.min(12, Math.max(1, Math.trunc(settings.value.nextTalksCount || 3)))
   })
 
+  /**
+   * Builds a stage group with primary and upcoming talks for details views.
+   *
+   * @param {string} stageSlug - Stage identifier.
+   * @param {number} upcomingCount - Maximum number of upcoming talks to include.
+   * @returns {StageDisplayGroup} Display group for one stage.
+   */
   function buildStageGroup(stageSlug: string, upcomingCount: number): StageDisplayGroup {
     const stage = stages.value?.find(item => item.slug === stageSlug)
     const stageTalks = getTalksForStage(stageSlug)
     const currentTalk = stageTalks.find(talk => now.value >= talk.start && now.value < talk.end)
     const upcomingTalks = stageTalks.filter(talk => talk.start > now.value)
 
+    // When no active talk exists, the first upcoming talk becomes the primary card.
     const primaryTalk = currentTalk || upcomingTalks[0]
     const nextTalks = currentTalk
       ? upcomingTalks.slice(0, upcomingCount)
@@ -210,6 +249,11 @@ export async function useDisplayScheduleData(
     return buildStageGroup(selectedStageSlug.value, nextTalksCount.value)
   })
 
+  /**
+   * Refreshes all content collections used by display mode.
+   *
+   * @returns {Promise<void>} Promise resolved when all refresh calls complete.
+   */
   async function refreshData() {
     await Promise.all([
       stagesRequest.refresh(),
@@ -219,6 +263,11 @@ export async function useDisplayScheduleData(
     ])
   }
 
+  /**
+   * Restarts the periodic refresh timer with the current interval setting.
+   *
+   * @returns {void}
+   */
   function restartRefreshTimer() {
     if (refreshTimer) {
       clearInterval(refreshTimer)

@@ -21,6 +21,13 @@ const defaultStageColumns = computed(() => {
   return 2
 })
 
+/**
+ * Resolves the stage column count for the all-stage details layout.
+ *
+ * @param {number} itemCount - Number of stage groups to render.
+ * @param {number} fallback - Default column count when no forced grid is set.
+ * @returns {number} Final bounded column count.
+ */
 function resolveColumnCount(itemCount: number, fallback: number): number {
   const boundedItems = Math.max(1, itemCount)
 
@@ -39,7 +46,14 @@ const rootStyle = computed(() => {
   }
 })
 
+/**
+ * Creates grid style for upcoming talk cards.
+ *
+ * @param {number} itemCount - Number of upcoming talks in the stage group.
+ * @returns {Record<string, string>} Grid style object for template binding.
+ */
 function upcomingGridStyle(itemCount: number): Record<string, string> {
+  // Row mode expands horizontally to keep each upcoming card visible at once.
   const columns = props.nextTalksLayout === 'column'
     ? 1
     : Math.max(1, itemCount)
@@ -49,6 +63,13 @@ function upcomingGridStyle(itemCount: number): Record<string, string> {
   }
 }
 
+/**
+ * Builds a relative time label from ISO start/end strings.
+ *
+ * @param {string} startISO - Talk start timestamp in ISO format.
+ * @param {string} endISO - Talk end timestamp in ISO format.
+ * @returns {string} Relative status label, or empty string on invalid input.
+ */
 function relativeLabel(startISO: string, endISO: string): string {
   const start = DateTime.fromISO(startISO)
   const end = DateTime.fromISO(endISO)

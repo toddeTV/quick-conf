@@ -10,8 +10,14 @@ const props = defineProps<{
 
 const qrImageSrc = ref('')
 
+/**
+ * Generates a QR image data URL for the current schedule URL and style.
+ *
+ * @returns {Promise<void>} Promise resolved after QR source update.
+ */
 async function generateQrImage(): Promise<void> {
   if (!props.scheduleUrl) {
+    // Clear stale image when no schedule URL is available.
     qrImageSrc.value = ''
     return
   }
