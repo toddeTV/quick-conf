@@ -24,12 +24,17 @@ async function generateQrImage(): Promise<void> {
 
   const colors = getDisplayQrCodeColors(props.qrCodeStyle)
 
-  qrImageSrc.value = await generateQrCodeDataUrl(props.scheduleUrl, {
-    darkColor: colors.darkColor,
-    lightColor: colors.lightColor,
-    margin: 1,
-    width: 220,
-  })
+  try {
+    qrImageSrc.value = await generateQrCodeDataUrl(props.scheduleUrl, {
+      darkColor: colors.darkColor,
+      lightColor: colors.lightColor,
+      margin: 1,
+      width: 220,
+    })
+  }
+  catch {
+    qrImageSrc.value = ''
+  }
 }
 
 watch([
