@@ -106,12 +106,14 @@ function talkTypeLabel(type: string): string {
           {{ relativeLabel(group.primaryTalk.startISO, group.primaryTalk.endISO) }}
         </div>
 
-        <UBadge
-          color="neutral"
-          :label="talkTypeLabel(group.primaryTalk.talkType)"
-          size="sm"
-          variant="subtle"
-        />
+        <div
+          class="inline-flex items-center rounded-full border border-neutral-200 bg-neutral-100 px-2 py-1
+            dark:border-neutral-700 dark:bg-neutral-800"
+        >
+          <span class="text-xs font-medium text-neutral-800 dark:text-neutral-100">
+            {{ talkTypeLabel(group.primaryTalk.talkType) }}
+          </span>
+        </div>
 
         <div class="text-xl font-bold text-neutral-900 dark:text-white">
           {{ group.primaryTalk.title }}
@@ -145,12 +147,14 @@ function talkTypeLabel(type: string): string {
               {{ relativeLabel(talk.startISO, talk.endISO) }}
             </div>
 
-            <UBadge
-              color="neutral"
-              :label="talkTypeLabel(talk.talkType)"
-              size="sm"
-              variant="subtle"
-            />
+            <div
+              class="inline-flex items-center rounded-full border border-neutral-200 bg-neutral-100 px-2 py-1
+                dark:border-neutral-700 dark:bg-neutral-800"
+            >
+              <span class="text-xs font-medium text-neutral-800 dark:text-neutral-100">
+                {{ talkTypeLabel(talk.talkType) }}
+              </span>
+            </div>
 
             <div class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
               {{ talk.title }}
