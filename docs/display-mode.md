@@ -26,9 +26,9 @@ The display route is designed for venue screens and signage.
 1. Sponsor controls (`off`, `all`, `rotate`) and sponsor logo column control.
 1. QR block linking to `/schedule` with configurable QR style.
 1. Optional color mode override (`site`, `light`, `dark`).
-1. Configurable data refresh interval (`60`, `120`, `300` seconds).
-1. Configurable next-talk count and next-talk layout (`row` or `column`).
-1. Configurable grid columns (`0` for auto, `999` for one row).
+1. Data refresh interval (`60`, `120`, `300` seconds).
+1. Next-talk count and next-talk layout (`row` or `column`).
+1. Grid columns (`0` for auto, `999` for one row).
 1. Header with clock above date for fast time visibility.
 
 ## URL Settings
