@@ -109,6 +109,26 @@ function toSafeScale(value: string | number | undefined): number {
 }
 
 /**
+ * Maps input to the supported refresh presets.
+ *
+ * @param {string | number | undefined} value - Raw refresh input.
+ * @returns {DisplaySettings['refreshSeconds']} Supported refresh interval.
+ */
+function toRefreshSeconds(value: string | number | undefined): DisplaySettings['refreshSeconds'] {
+  const normalized = String(value ?? '120')
+
+  if (normalized === '60') {
+    return 60
+  }
+
+  if (normalized === '300') {
+    return 300
+  }
+
+  return 120
+}
+
+/**
  * Closes the settings panel.
  *
  * @returns {void}
@@ -317,7 +337,7 @@ async function copyUrl() {
               :items="refreshItems"
               :model-value="String(settings.refreshSeconds)"
               @update:model-value="emit('patchSettings', {
-                refreshSeconds: toSafeInteger($event, 120, 60, 300) as DisplaySettings['refreshSeconds'],
+                refreshSeconds: toRefreshSeconds($event),
               })"
             />
           </UFormField>
