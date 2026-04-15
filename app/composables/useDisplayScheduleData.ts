@@ -91,9 +91,10 @@ export async function useDisplayScheduleData(
         speaker => talk.speakers?.includes(speaker.slug),
       ) ?? []
       const stageHit = stages.value?.find(stage => stage.slug === talk.stage)
-      const source = talk.dateTime instanceof Date
-        ? DateTime.fromJSDate(talk.dateTime, { zone: 'utc' })
-        : DateTime.fromISO(String(talk.dateTime), { zone: 'utc' })
+      const rawDateTime = talk.dateTime as string | Date
+      const source = rawDateTime instanceof Date
+        ? DateTime.fromJSDate(rawDateTime, { zone: 'utc' })
+        : DateTime.fromISO(rawDateTime, { zone: 'utc' })
       const start = source.setZone(timeZone)
 
       return {
