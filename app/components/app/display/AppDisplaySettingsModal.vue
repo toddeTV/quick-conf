@@ -217,7 +217,7 @@ async function copyUrl() {
             />
           </UFormField>
 
-          <UFormField label="Stage (for one stage mode)">
+          <UFormField v-if="settings.mode === 'stage-details'" label="Stage (for one stage mode)">
             <USelect
               class="w-full"
               :items="stageOptions"
