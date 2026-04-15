@@ -1,6 +1,8 @@
 /**
  * Copies a string into the system clipboard.
  *
+ * //TODO refactor once the project has vueuse.
+ *
  * @param {string} value - The text to place in the clipboard.
  * @returns {Promise<boolean>} True when copy succeeded, false on failure.
  *
