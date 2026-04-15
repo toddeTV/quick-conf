@@ -72,14 +72,14 @@ const rootClass = computed(() => {
       View full schedule
     </div>
 
-    <img
+    <NuxtImg
       v-if="qrImageSrc"
       alt="QR code to full schedule"
       class="size-28"
       height="112"
       :src="qrImageSrc"
       width="112"
-    >
+    />
 
     <div class="max-w-44 truncate text-[11px] text-neutral-500 dark:text-neutral-400">
       {{ scheduleUrl }}
