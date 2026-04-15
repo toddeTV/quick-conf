@@ -105,6 +105,8 @@ reviews:
             - `.ts`, `.js`: **NEVER** include extensions.
         - **Utilities:** Reuse before creating. Check `shared/utils` -> `app/utils` -> `server/utils` -> `lodash-es`.
         - **Environment:** NEVER hardcode secrets. Use `runtimeConfig` and `.env`.
+        - **Custom Config Contract:** Treat `customConfig` / app config values as Zod-validated input. Required fields exist; optional fields may be absent.
+        - **Guarding Rule:** Skip redundant runtime guards for required `customConfig` fields in app code.
 
     - path: '**/*.vue'
       instructions: |
