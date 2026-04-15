@@ -1,4 +1,4 @@
-import type { DateTime } from 'luxon'
+import { DateTime } from 'luxon'
 
 /**
  * Formats a DateTime into a 24-hour clock label.
@@ -56,6 +56,25 @@ export function formatRelativeLabel(start: DateTime, end: DateTime, now: DateTim
   }
 
   return 'finished'
+}
+
+/**
+ * Parses ISO timestamps and returns a relative status label.
+ *
+ * @param {string} startISO - Talk start timestamp in ISO format.
+ * @param {string} endISO - Talk end timestamp in ISO format.
+ * @param {DateTime} now - Current timestamp used for the comparison.
+ * @returns {string} A label for upcoming, active, or finished state.
+ */
+export function computeRelativeLabel(startISO: string, endISO: string, now: DateTime): string {
+  const start = DateTime.fromISO(startISO)
+  const end = DateTime.fromISO(endISO)
+
+  if (!start.isValid || !end.isValid || !now.isValid) {
+    return ''
+  }
+
+  return formatRelativeLabel(start, end, now)
 }
 
 /**

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { StageDisplayGroup } from '~/types/display'
 import { DateTime } from 'luxon'
-import { formatRelativeLabel } from '~/utils/display-time'
+import { computeRelativeLabel } from '~/utils/display-time'
 
 const props = defineProps<{
   gridColumns: number
@@ -71,14 +71,7 @@ function upcomingGridStyle(itemCount: number): Record<string, string> {
  * @returns {string} Relative status label, or empty string on invalid input.
  */
 function relativeLabel(startISO: string, endISO: string): string {
-  const start = DateTime.fromISO(startISO)
-  const end = DateTime.fromISO(endISO)
-
-  if (!start.isValid || !end.isValid || !now.value.isValid) {
-    return ''
-  }
-
-  return formatRelativeLabel(start, end, now.value)
+  return computeRelativeLabel(startISO, endISO, now.value)
 }
 </script>
 
