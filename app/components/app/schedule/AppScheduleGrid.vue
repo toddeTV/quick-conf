@@ -4,7 +4,8 @@ import type { ProcessedTalkType } from '~/types/schedule'
 import { HEADER_HEIGHT, HOUR_HEIGHT } from '~/composables/useSchedule'
 import { formatHour } from '~/utils/date'
 
-defineProps<{
+const props = defineProps<{
+  gridColumns?: number
   stages: StagesCollectionItem[]
   timeSlots: number[]
   currentTimeLineStyle: Record<string, string | undefined>
@@ -13,6 +14,36 @@ defineProps<{
 }>()
 
 const { public: { demoMode } } = useRuntimeConfig()
+
+const hasForcedColumns = computed(() => {
+  return Number.isInteger(props.gridColumns) && (props.gridColumns ?? 0) > 0
+})
+
+const forcedColumnCount = computed(() => {
+  if (!hasForcedColumns.value) {
+    return 0
+  }
+
+  return Math.min(Math.trunc(props.gridColumns ?? 1), Math.max(props.stages.length, 1))
+})
+
+const autoStageCellClass = computed(() => {
+  if (props.stages.length > 1) {
+    return 'w-[60vw] flex-none md:w-auto md:flex-1 md:min-w-60 max-w-2xl'
+  }
+
+  return 'w-full flex-none md:w-auto md:flex-1 max-w-2xl'
+})
+
+const forcedStageCellStyle = computed(() => {
+  if (!hasForcedColumns.value) {
+    return undefined
+  }
+
+  return {
+    width: `calc(100% / ${forcedColumnCount.value})`,
+  }
+})
 </script>
 
 <template>
@@ -79,10 +110,9 @@ const { public: { demoMode } } = useRuntimeConfig()
       <div
         v-for="stage in stages"
         :key="stage.slug"
-        class="relative shrink-0 border-r border-neutral-200 last:border-r-0 dark:border-neutral-800 max-w-2xl"
-        :class="stages.length > 1
-          ? 'w-[60vw] flex-none md:w-auto md:flex-1 md:min-w-60'
-          : 'w-full flex-none md:w-auto md:flex-1'"
+        class="relative shrink-0 border-r border-neutral-200 last:border-r-0 dark:border-neutral-800"
+        :class="hasForcedColumns ? 'w-auto min-w-0 flex-none' : autoStageCellClass"
+        :style="forcedStageCellStyle"
       >
         <!-- Stage Header (Sticky Top) -->
         <div
