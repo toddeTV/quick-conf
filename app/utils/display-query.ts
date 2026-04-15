@@ -37,7 +37,7 @@ export const DISPLAY_DEFAULTS: DisplaySettings = {
   nextTalksLayout: 'row',
   qrCodeStyle: 'black-on-white',
   nextTalksCount: 3,
-  refreshSeconds: 120,
+  refreshSeconds: 300,
   scaleFactor: 1,
   screenOrientation: 'horizontal',
   sponsorColumns: 0,

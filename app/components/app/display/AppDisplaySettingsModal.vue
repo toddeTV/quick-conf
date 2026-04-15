@@ -115,7 +115,7 @@ function toSafeScale(value: string | number | undefined): number {
  * @returns {DisplaySettings['refreshSeconds']} Supported refresh interval.
  */
 function toRefreshSeconds(value: string | number | undefined): DisplaySettings['refreshSeconds'] {
-  const normalized = String(value ?? '120')
+  const normalized = String(value ?? '300')
 
   if (normalized === '60') {
     return 60
@@ -125,7 +125,7 @@ function toRefreshSeconds(value: string | number | undefined): DisplaySettings['
     return 300
   }
 
-  return 120
+  return 300
 }
 
 /**
@@ -340,6 +340,10 @@ async function copyUrl() {
                 refreshSeconds: toRefreshSeconds($event),
               })"
             />
+
+            <div class="pt-1 text-xs text-neutral-500 dark:text-neutral-400">
+              Applies to server data refresh only. Clock and red now line stay live.
+            </div>
           </UFormField>
         </div>
 
