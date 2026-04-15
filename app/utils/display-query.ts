@@ -76,9 +76,10 @@ function isValidDayISO(value?: string): boolean {
     return false
   }
 
-  const year = Number.parseInt(isoDayMatch[1], 10)
-  const month = Number.parseInt(isoDayMatch[2], 10)
-  const day = Number.parseInt(isoDayMatch[3], 10)
+  const [, yearText = '', monthText = '', dayText = ''] = isoDayMatch
+  const year = Number.parseInt(yearText, 10)
+  const month = Number.parseInt(monthText, 10)
+  const day = Number.parseInt(dayText, 10)
   const date = new Date(Date.UTC(year, month - 1, day))
 
   return (
