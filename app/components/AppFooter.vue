@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { FooterColumn } from '@nuxt/ui'
-import { version } from '~~/package.json'
 
 /**
  * NOTE: Configuration values from appConfig (derived from `0.custom-config.json`) are treated as static.
@@ -13,13 +12,6 @@ const footerConfig = appConfig.footer
 const columnsConfig = footerConfig?.footerColumns
 const bottomIcons = footerConfig?.bottomIcons
 const canSwitchColorMode = isColorSwitchable(appConfig.general.colorMode)
-
-// year span calculation
-const yearCurrent = new Date().getFullYear()
-const yearStart = appConfig.general.conferenceFoundingYear === 0
-  ? yearCurrent
-  : appConfig.general.conferenceFoundingYear
-const yearSpan = yearStart === yearCurrent ? yearStart : `${yearStart} - ${yearCurrent}`
 
 // --- Column 1 ---
 const col1 = columnsConfig?.column1
@@ -139,45 +131,11 @@ function navigateToAdmin() {
     </template>
 
     <template #left>
-      <p class="text-muted text-sm">
-        Copyright © {{ yearSpan }}. All rights reserved.
-      </p>
+      <AppFooterCopyright />
     </template>
 
     <template #default>
-      <p class="text-muted text-sm">
-        Created with
-        <UIcon
-          aria-hidden="true"
-          class="inline-block w-3.5 h-3.5 mx-0.5"
-          name="lucide:heart"
-        />
-        via
-        <ULink
-          aria-label="quick-conf GitHub Repository"
-          class="text-primary/70"
-          target="_blank"
-          to="https://github.com/toddeTV/quick-conf"
-        >
-          quick-conf
-        </ULink>
-        <ULink
-          class="mx-0.5"
-          target="_blank"
-          :to="`https://github.com/toddeTV/quick-conf/blob/v${version}/docs/README.md`"
-        >
-          v{{ version }}
-        </ULink>
-        by
-        <ULink
-          aria-label="todde.tv website"
-          class="text-primary/70"
-          target="_blank"
-          to="https://todde.tv"
-        >
-          todde.tv
-        </ULink>
-      </p>
+      <AppFooterBuiltWith />
     </template>
 
     <template #right>
@@ -200,6 +158,14 @@ function navigateToAdmin() {
         :icon="repositoryIcon"
         target="_blank"
         :to="repositoryUrl"
+        variant="ghost"
+      />
+
+      <UButton
+        aria-label="Display Mode"
+        color="neutral"
+        icon="lucide:presentation"
+        to="/display"
         variant="ghost"
       />
 
