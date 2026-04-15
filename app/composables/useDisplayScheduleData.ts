@@ -4,7 +4,6 @@ import type { ProcessedTalkType } from '~/types/schedule'
 import { DateTime } from 'luxon'
 import { HEADER_HEIGHT, HOUR_HEIGHT } from '~/composables/useSchedule'
 import { formatClockLabel } from '~/utils/display-time'
-import { extractTalkDescription } from '~/utils/talk-description'
 
 interface UseDisplayScheduleDataResult {
   activeDayISO: ComputedRef<string>
@@ -25,7 +24,7 @@ interface UseDisplayScheduleDataResult {
 function toDisplayTalkView(talk: ProcessedTalkType, now: DateTime): DisplayTalkView {
   const description = typeof talk.description === 'string' && talk.description.trim().length > 0
     ? talk.description.trim()
-    : extractTalkDescription(talk.body)
+    : 'No description available.'
 
   return {
     description,
