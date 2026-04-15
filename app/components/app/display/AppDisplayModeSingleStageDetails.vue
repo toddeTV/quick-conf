@@ -2,6 +2,7 @@
 import type { StageDisplayGroup } from '~/types/display'
 import { DateTime } from 'luxon'
 import { computeRelativeLabel } from '~/utils/display-time'
+import { getTalkTypeStyle } from '~/utils/talk'
 
 const props = defineProps<{
   nextTalksLayout: 'row' | 'column'
@@ -32,6 +33,16 @@ const upcomingGridStyle = computed(() => {
 function relativeLabel(startISO: string, endISO: string): string {
   return computeRelativeLabel(startISO, endISO, now.value)
 }
+
+/**
+ * Resolves display label for a talk type slug.
+ *
+ * @param {string} type - Raw talk type value.
+ * @returns {string} Human-readable talk type label.
+ */
+function talkTypeLabel(type: string): string {
+  return getTalkTypeStyle(type).label
+}
 </script>
 
 <template>
@@ -54,9 +65,12 @@ function relativeLabel(startISO: string, endISO: string): string {
           {{ relativeLabel(stageGroup.primaryTalk.startISO, stageGroup.primaryTalk.endISO) }}
         </div>
 
-        <div class="text-xs font-semibold uppercase tracking-wide text-primary-700/80 dark:text-primary-200/80">
-          {{ stageGroup.primaryTalk.talkType }}
-        </div>
+        <UBadge
+          color="neutral"
+          :label="talkTypeLabel(stageGroup.primaryTalk.talkType)"
+          size="sm"
+          variant="subtle"
+        />
 
         <div class="text-3xl font-bold text-neutral-900 dark:text-white">
           {{ stageGroup.primaryTalk.title }}
@@ -87,9 +101,12 @@ function relativeLabel(startISO: string, endISO: string): string {
             {{ relativeLabel(talk.startISO, talk.endISO) }}
           </div>
 
-          <div class="text-[11px] font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-            {{ talk.talkType }}
-          </div>
+          <UBadge
+            color="neutral"
+            :label="talkTypeLabel(talk.talkType)"
+            size="sm"
+            variant="subtle"
+          />
 
           <div class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
             {{ talk.title }}
