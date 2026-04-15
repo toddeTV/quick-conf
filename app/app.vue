@@ -39,6 +39,7 @@ useSeoMeta({
   <UApp>
     <NuxtLoadingIndicator color="var(--ui-primary)" />
     <NuxtRouteAnnouncer />
+    <UToaster />
 
     <NuxtLayout>
       <NuxtPage />
