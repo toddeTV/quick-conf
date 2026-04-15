@@ -311,7 +311,7 @@ async function copyUrl() {
               :items="refreshItems"
               :model-value="String(settings.refreshSeconds)"
               @update:model-value="emit('patchSettings', {
-                refreshSeconds: Number.parseInt($event || '120', 10) as DisplaySettings['refreshSeconds'],
+                refreshSeconds: toSafeInteger($event, 120, 60, 300) as DisplaySettings['refreshSeconds'],
               })"
             />
           </UFormField>
