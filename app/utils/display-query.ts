@@ -107,7 +107,7 @@ function parseScaleFactor(value: string | undefined): number {
     return DISPLAY_DEFAULTS.scaleFactor
   }
 
-  return Math.min(1.8, Math.max(0.75, Number.parseFloat(parsed.toFixed(2))))
+  return Math.min(1.8, Math.max(0.75, Number(parsed.toFixed(2))))
 }
 
 /**
