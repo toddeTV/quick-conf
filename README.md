@@ -36,7 +36,12 @@ You can find a deployed version of this template to test and view here:
 **Dynamic Event Schedule**: An automated overview showing stages, talks, and speaker associations.
 ![Schedule](docs/assets/README/schedule.png)
 
-**Structured Pricing**: Clear presentation of ticket tiers and benefits managed via data collections.
+**Display Mode (All Stages)**: A venue-ready multi-stage screen with live timing, sponsor tiles, QR access to the full schedule, and URL-based configuration. This example shows a full conference overview for hallways, foyers, and other public areas.<br>
+![Display All Stages](docs/assets/README/display-all-details.png)
+
+**Display Mode (One Stage)**: A focused stage screen for room entrances and in-room displays. Show the active session, upcoming talks, speakers, sponsors, and quick schedule access with the same shareable URL settings.<br>
+![Display Stage Details](docs/assets/README/display-stage-details.png)
+
 ![Tickets](docs/assets/README/tickets.png)
 
 **Knowledge Base**: Centralized FAQ management to provide essential event information to attendees.
