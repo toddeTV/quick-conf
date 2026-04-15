@@ -124,7 +124,7 @@ export async function useDisplayScheduleData(
       return today
     }
 
-    return availableDays.value[0] || today || DateTime.now().setZone(timeZone).toISODate() || ''
+    return availableDays.value[0] || today || ''
   })
 
   const talksForActiveDay = computed(() => {
