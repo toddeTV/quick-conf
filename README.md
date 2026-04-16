@@ -10,6 +10,7 @@ This is a **completely free** template for quickly setting up a new Conference o
 - **🎨 Customizable**: Fully theming via [Nuxt UI](https://ui.nuxt.com) and configuration files - your colors, your style!
 - **📝 CMS Integration**: [Nuxt Studio](https://nuxt.studio) ready for visual editing - directly in the browser!
 - **⚡ Modern Stack**: [Nuxt 4](https://nuxt.com), [Vue 3](https://vuejs.org), [Tailwind CSS 4](https://tailwindcss.com), [TypeScript](https://www.typescriptlang.org).
+- **🖥️ Unified Display Mode**: One `/display` page for stage-focused signage and full timetable mode with shareable URL settings.
 - **🔍 SEO Ready**: Pre-configured via [Nuxt SEO](https://nuxtseo.com/) with:
   - ✅ Automatic **Sitemap** (`/sitemap.xml`)
   - ✅ Dynamic **OG Images** (Social Cards) for speakers, talks & pages
@@ -24,25 +25,28 @@ You can find a deployed version of this template to test and view here:
 
 🎥 Video: [Showcase Video](https://youtu.be/uh-Rys6nTKI)
 
-<details>
-<summary>📸 Screenshots</summary>
+📸 Screenshots
 
-**Visual CMS Interface**: Edit content directly within the browser using the Nuxt Studio sidebar and live preview.
+**Visual CMS Interface**: Edit content directly within the browser using the Nuxt Studio sidebar and live preview.<br>
 ![CMS](docs/assets/README/cms.png)
 
-**Modular Landing Page**: Construct flexible sections using the built-in block system for rapid assembly.
+**Modular Landing Page**: Construct flexible sections using the built-in block system for rapid assembly.<br>
 ![Landing Page](docs/assets/README/landing-page.png)
 
-**Dynamic Event Schedule**: An automated overview showing stages, talks, and speaker associations.
+**Dynamic Event Schedule**: An automated overview showing stages, talks, and speaker associations.<br>
 ![Schedule](docs/assets/README/schedule.png)
 
-**Structured Pricing**: Clear presentation of ticket tiers and benefits managed via data collections.
+**Display Mode (All Stages)**: A venue-ready multi-stage screen with live timing, sponsor tiles, QR access to the full schedule, and URL-based configuration. This example shows a full conference overview for hallways, foyers, and other public areas.<br>
+![Display All Stages](docs/assets/README/display-all-details.png)
+
+**Display Mode (One Stage)**: A focused stage screen for room entrances and in-room displays. Show the active session, upcoming talks, speakers, sponsors, and quick schedule access with the same shareable URL settings.<br>
+![Display Stage Details](docs/assets/README/display-stage-details.png)
+
+**Structured Pricing**: Clear presentation of ticket tiers and benefits managed via data collections.<br>
 ![Tickets](docs/assets/README/tickets.png)
 
-**Knowledge Base**: Centralized FAQ management to provide essential event information to attendees.
+**Knowledge Base**: Centralized FAQ management to provide essential event information to attendees.<br>
 ![FAQ](docs/assets/README/faq.png)
-
-</details>
 
 ## Sponsoring
 

@@ -19,6 +19,8 @@ Guides for setting up, customizing, and managing your conference website.
   - See other conferences using this template.
 - **[Customizing the Landing Page](landing-page-blocks.md)** (`landing-page-blocks.md`)
   - How to use and configure the modular landing page blocks.
+- **[Display Mode Usage](display-mode.md)** (`display-mode.md`)
+  - Quick setup guide for the `/display` signage page and shareable settings URL.
 - **[Using Icons](icon-usage.md)** (`icon-usage.md`)
   - Guide to the available icon sets and how to use them in content.
 - **[SEO Features](seo.md)** (`seo.md`)
