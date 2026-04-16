@@ -8,7 +8,7 @@ This is a **completely free** template for quickly setting up a new Conference o
 ## 🚀 Key Features
 
 - **⚡ Modern Stack**: [Nuxt 4](https://nuxt.com), [Vue 3](https://vuejs.org), [Tailwind CSS 4](https://tailwindcss.com), [TypeScript](https://www.typescriptlang.org).
-- **🎨 Customizable**: Fully theming via [Nuxt UI](https://ui.nuxt.com) and configuration files - your colors, your style!
+- **🎨 Customizable**: Fully themeable via [Nuxt UI](https://ui.nuxt.com) and configuration files - your colors, your style!
 - **📝 Git-Based CMS Editing**: [Nuxt Studio](https://nuxt.studio) ready for visual editing, live preview, and content updates directly in the browser.
 - **🔍 SEO Ready**: Pre-configured via [Nuxt SEO](https://nuxtseo.com/) with:
   - ✅ Automatic **Sitemap** (`/sitemap.xml`)
