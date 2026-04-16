@@ -70,6 +70,7 @@ export async function useDisplayScheduleData(
 ): Promise<UseDisplayScheduleDataResult> {
   const route = useRoute()
   const appConfig = useAppConfig()
+  const toast = useToast()
   const timeZone = appConfig.general.timeZone || 'UTC'
 
   const stagesRequest = useAsyncData(`${route.path}-display-stages`, () => queryCollection('stages').all())
@@ -291,7 +292,21 @@ export async function useDisplayScheduleData(
       setSettings({ dayISO: days[0] })
     }
 
-    if (!settings.value.selectedStageSlug && stageList && stageList.length > 0) {
+    const hasValidSelectedStage = Boolean(
+      settings.value.selectedStageSlug
+      && stageList?.some(stage => stage.slug === settings.value.selectedStageSlug),
+    )
+
+    if (!hasValidSelectedStage && stageList && stageList.length > 0) {
+      if (import.meta.client && settings.value.selectedStageSlug) {
+        toast.add({
+          color: 'error',
+          description: `selectedStageSlug=${settings.value.selectedStageSlug}; availableStages=${stageList.map(stage => stage.slug).join(',')}; dayMode=${settings.value.dayMode}; dayISO=${settings.value.dayISO ?? 'unset'}`,
+          icon: 'lucide:triangle-alert',
+          title: 'Invalid stage in display settings',
+        })
+      }
+
       setSettings({ selectedStageSlug: stageList[0]!.slug })
     }
   }, {
