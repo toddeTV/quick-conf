@@ -53,7 +53,7 @@ export const DISPLAY_DEFAULTS: DisplaySettings = {
  */
 function firstQueryValue(input?: LocationQueryValue | LocationQueryValue[]): string | undefined {
   if (Array.isArray(input)) {
-    return typeof input[0] === 'string' ? input[0] : undefined
+    return input.find((value): value is string => typeof value === 'string')
   }
 
   if (typeof input === 'string') {
