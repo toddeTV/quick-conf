@@ -230,7 +230,7 @@ If you have already set up your conference website and want to pull in the lates
    - The `/LICENSE.md` file
    - The `/README.md` file
    - The `.git` folder (your version control history)
-   - IDE configuration folders (e.g. `.vscode/`, `.idea/`)
+   - IDE and LLM/AI settings (e.g. `.claude/`, `CLAUDE.md`, `.cursor/`, `.vscode/`, `.idea/`)
    - Specific fields in `/package.json`: `name`, `author`, `contributors`, `description`, `repository`, `bugs`, and `keywords`
 
 6. **Migrations:**<br>

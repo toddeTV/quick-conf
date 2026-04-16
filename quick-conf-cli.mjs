@@ -1008,7 +1008,10 @@ async function updateTemplate() {
   moveIfExists('LICENSE.md', 'LICENSE.md')
   moveIfExists('README.md', 'README.md')
 
-  // Preserve IDE settings
+  // Preserve IDE and LLM/AI settings
+  moveIfExists('.claude', '.claude')
+  moveIfExists('CLAUDE.md', 'CLAUDE.md')
+  moveIfExists('.cursor', '.cursor')
   moveIfExists('.vscode', '.vscode')
   moveIfExists('.idea', '.idea')
 
