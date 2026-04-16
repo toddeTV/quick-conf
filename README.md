@@ -28,6 +28,8 @@ You can find a deployed version of this template to test and view here:
 
 🔗 Demo: [https://quick-conf.com/](https://quick-conf.com/)
 
+> The deployed demo runs from the repository [toddeTV/quick-conf-demo](https://github.com/toddeTV/quick-conf-demo). That repository is a practical usage example of this template and shows one real project setup based on `quick-conf`.
+
 🎥 Video: [Showcase Video](https://youtu.be/uh-Rys6nTKI)
 
 📸 Screenshots
