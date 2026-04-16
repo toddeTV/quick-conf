@@ -24,7 +24,7 @@ const defaultColumns = computed(() => {
 const allModeGridStyle = computed(() => {
   const sponsorCount = Math.max(1, allSponsors.value.length)
   const columns = props.sponsorColumns > 0
-    ? Math.min(Math.trunc(props.sponsorColumns), sponsorCount)
+    ? Math.min(Math.max(1, Math.trunc(props.sponsorColumns)), sponsorCount)
     : Math.min(defaultColumns.value, sponsorCount)
 
   return {
