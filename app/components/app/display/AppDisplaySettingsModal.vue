@@ -121,6 +121,10 @@ function toRefreshSeconds(value: string | number | undefined): DisplaySettings['
     return 60
   }
 
+  if (normalized === '120') {
+    return 120
+  }
+
   if (normalized === '300') {
     return 300
   }
