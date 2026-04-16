@@ -153,6 +153,9 @@ reviews:
     # And also incremental ones.
     auto_incremental_review: true
 
+    # Disable commit-threshold auto-pause so reviews continue on every push.
+    auto_pause_after_reviewed_commits: 0
+
     # Review draft PRs.
     drafts: true
 
