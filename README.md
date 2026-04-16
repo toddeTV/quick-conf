@@ -8,9 +8,14 @@ This is a **completely free** template for quickly setting up a new Conference o
 ## 🚀 Key Features
 
 - **🎨 Customizable**: Fully theming via [Nuxt UI](https://ui.nuxt.com) and configuration files - your colors, your style!
-- **📝 CMS Integration**: [Nuxt Studio](https://nuxt.studio) ready for visual editing - directly in the browser!
+- **📝 Git-Based CMS Editing**: [Nuxt Studio](https://nuxt.studio) ready for visual editing, live preview, and content updates directly in the browser.
+- **🖥️ Venue-Ready Display Mode**: One `/display` route with three modes (`timetable`, `all-details`, `stage-details`) for hallways, foyers, and stage-focused room screens.
+- **🔗 Shareable Display Setup**: URL query parameters persist the full display configuration, so copied links reopen the same setup on any screen.
+- **⏱️ Live Display Controls**: Stage/day selection, sponsor modes (`off`, `all`, `rotate`), QR link block to `/schedule`, and refresh presets (`60`, `120`, `300` seconds).
+- **📅 Timezone-Aware Schedule**: Talks are normalized from UTC to the configured event timezone for accurate schedule and display output.
+- **🧩 Modular Landing Blocks**: Build pages from reusable content blocks managed in collections.
+- **✅ Schema-Validated Content**: [Nuxt Content](https://content.nuxt.com) collections are validated with [Zod](https://zod.dev) schemas for talks, speakers, stages, sponsors, tickets, FAQ, and pages.
 - **⚡ Modern Stack**: [Nuxt 4](https://nuxt.com), [Vue 3](https://vuejs.org), [Tailwind CSS 4](https://tailwindcss.com), [TypeScript](https://www.typescriptlang.org).
-- **🖥️ Unified Display Mode**: One `/display` page for stage-focused signage and full timetable mode with shareable URL settings.
 - **🔍 SEO Ready**: Pre-configured via [Nuxt SEO](https://nuxtseo.com/) with:
   - ✅ Automatic **Sitemap** (`/sitemap.xml`)
   - ✅ Dynamic **OG Images** (Social Cards) for speakers, talks & pages
