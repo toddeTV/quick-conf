@@ -9,6 +9,7 @@ const props = defineProps<{
 }>()
 
 const qrImageSrc = ref('')
+let latestQrRequestId = 0
 
 /**
  * Generates a QR image data URL for the current schedule URL and style.
@@ -16,6 +17,8 @@ const qrImageSrc = ref('')
  * @returns {Promise<void>} Promise resolved after QR source update.
  */
 async function generateQrImage(): Promise<void> {
+  const requestId = ++latestQrRequestId
+
   if (!props.scheduleUrl) {
     // Clear stale image when no schedule URL is available.
     qrImageSrc.value = ''
@@ -25,14 +28,24 @@ async function generateQrImage(): Promise<void> {
   const colors = getDisplayQrCodeColors(props.qrCodeStyle)
 
   try {
-    qrImageSrc.value = await generateQrCodeDataUrl(props.scheduleUrl, {
+    const nextQrSrc = await generateQrCodeDataUrl(props.scheduleUrl, {
       darkColor: colors.darkColor,
       lightColor: colors.lightColor,
       margin: 1,
       width: 220,
     })
+
+    if (requestId !== latestQrRequestId) {
+      return
+    }
+
+    qrImageSrc.value = nextQrSrc
   }
   catch {
+    if (requestId !== latestQrRequestId) {
+      return
+    }
+
     qrImageSrc.value = ''
   }
 }
