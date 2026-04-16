@@ -115,6 +115,15 @@ export async function useDisplayScheduleData(
       .sort()
   })
 
+  const nowState = useState<string>(`${route.path}-display-now`, () => {
+    return DateTime.now().setZone(timeZone).startOf('minute').toISO() || ''
+  })
+
+  const hydratedNow = DateTime.fromISO(nowState.value, { setZone: true }).setZone(timeZone).startOf('minute')
+  const now = ref(hydratedNow.isValid ? hydratedNow : DateTime.now().setZone(timeZone).startOf('minute'))
+  let clockTimer: ReturnType<typeof setInterval> | undefined
+  let refreshTimer: ReturnType<typeof setInterval> | undefined
+
   const activeDayISO = computed(() => {
     if (
       settings.value.dayMode === 'manual'
@@ -124,7 +133,7 @@ export async function useDisplayScheduleData(
       return settings.value.dayISO
     }
 
-    const today = DateTime.now().setZone(timeZone).toISODate()
+    const today = now.value.toISODate()
     if (today && availableDays.value.includes(today)) {
       return today
     }
@@ -137,10 +146,6 @@ export async function useDisplayScheduleData(
       .filter(talk => talk.start.toISODate() === activeDayISO.value)
       .sort((a, b) => a.start.toMillis() - b.start.toMillis())
   })
-
-  const now = ref(DateTime.now().setZone(timeZone))
-  let clockTimer: ReturnType<typeof setInterval> | undefined
-  let refreshTimer: ReturnType<typeof setInterval> | undefined
 
   const timeRange = computed(() => {
     if (talksForActiveDay.value.length === 0) {
@@ -321,8 +326,10 @@ export async function useDisplayScheduleData(
   })
 
   onMounted(() => {
+    now.value = DateTime.now().setZone(timeZone).startOf('minute')
+
     clockTimer = setInterval(() => {
-      now.value = DateTime.now().setZone(timeZone)
+      now.value = DateTime.now().setZone(timeZone).startOf('minute')
     }, 30000)
 
     restartRefreshTimer()
