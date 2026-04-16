@@ -129,7 +129,7 @@ function talkTypeLabel(type: string): string {
       </div>
 
       <div
-        v-else
+        v-else-if="group.upcomingTalks.length === 0"
         class="rounded-lg border border-dashed border-neutral-300 p-4 text-sm text-neutral-500
           dark:border-neutral-700 dark:text-neutral-300"
       >
