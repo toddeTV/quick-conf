@@ -1,5 +1,43 @@
 # Changelog
 
+## [1.2.0](https://github.com/toddeTV/quick-conf/compare/v1.1.0...v1.2.0) (2026-04-16)
+
+
+### Features
+
+* add configurable color mode policy in custom config ([#144](https://github.com/toddeTV/quick-conf/issues/144)) ([587b3f9](https://github.com/toddeTV/quick-conf/commit/587b3f975187d9a80a92fb987115d2718bf2d08b))
+* add custom config setting for Nuxt Content syntax highlighting ([#145](https://github.com/toddeTV/quick-conf/issues/145)) ([b6c5276](https://github.com/toddeTV/quick-conf/commit/b6c5276a7d043a8e6f6793c11bf1a9d2d6c0f914))
+* add live display route for venue signage ([#146](https://github.com/toddeTV/quick-conf/issues/146)) ([ba6c267](https://github.com/toddeTV/quick-conf/commit/ba6c267c4ffc6f3d50b15222058a3a3f03ae90e1))
+* add static asset guard in catch-all page route & refactor public assets paths ([#138](https://github.com/toddeTV/quick-conf/issues/138)) ([82bae42](https://github.com/toddeTV/quick-conf/commit/82bae42ce4d137d956e2575111ab10b422646601))
+* add user migration guides & add migration filter to quick-conf CLI ([#140](https://github.com/toddeTV/quick-conf/issues/140)) ([bd29fcc](https://github.com/toddeTV/quick-conf/commit/bd29fccbcdb9d60eaaa875b67bef271f4448c080))
+* improve custom config validation logging ([#143](https://github.com/toddeTV/quick-conf/issues/143)) ([3578a50](https://github.com/toddeTV/quick-conf/commit/3578a50cb9bd1faf4617d1d4505e0a057174e241))
+* preserve IDE and LLM/AI settings during template updates and align CLI dual-license warning ([#147](https://github.com/toddeTV/quick-conf/issues/147)) ([7e7c46d](https://github.com/toddeTV/quick-conf/commit/7e7c46d7f9379808c5fc3375034d9e5550132d22))
+* realign starter content as repository defaults, clean legacy demo data & align LICENSE to it ([#142](https://github.com/toddeTV/quick-conf/issues/142)) ([1d5a6f9](https://github.com/toddeTV/quick-conf/commit/1d5a6f90c09978cda990b47235febc8b54088e77))
+* switch Nuxt Icon to client scan bundle mode & drop noto icon pack ([#137](https://github.com/toddeTV/quick-conf/issues/137)) ([d07f181](https://github.com/toddeTV/quick-conf/commit/d07f1811b6474ee9b59705a7c63a7ef7f4333832))
+
+
+### Bug Fixes
+
+* prevent hydration mismatch on `/display` page clock state ([#149](https://github.com/toddeTV/quick-conf/issues/149)) ([d551e40](https://github.com/toddeTV/quick-conf/commit/d551e400914e1451128713472e51d2197fe6c718))
+* stabilize Nuxt Icon client bundle detection & refactor icon names to prefix syntax ([#139](https://github.com/toddeTV/quick-conf/issues/139)) ([eb44189](https://github.com/toddeTV/quick-conf/commit/eb441892577e7b3c9f3690a0b5df09a352c613ad))
+
+
+### Miscellaneous Chores
+
+* add Vercel deployment config `vercel.json` & build+install scripts with Node version check ([#134](https://github.com/toddeTV/quick-conf/issues/134)) ([0de3f94](https://github.com/toddeTV/quick-conf/commit/0de3f94b6081fb4959e67e955ba4025b37887be3))
+* align CI/tooling with Node 24 & standardize scripts ([#131](https://github.com/toddeTV/quick-conf/issues/131)) ([b0775a0](https://github.com/toddeTV/quick-conf/commit/b0775a0ff958b838baa4f3075228eeec2a2aada2))
+* bump version to 1.2.0-rc.0 after release ([#129](https://github.com/toddeTV/quick-conf/issues/129)) ([b3784cb](https://github.com/toddeTV/quick-conf/commit/b3784cba69415f8941402e5d0d8977fdd4f73802))
+* localize font and icon delivery and bundling ([#136](https://github.com/toddeTV/quick-conf/issues/136)) ([48cd1a6](https://github.com/toddeTV/quick-conf/commit/48cd1a6b3b147ccb514aa09c668e2a99600cfdb8))
+* remove VS Code workspace & stop tracking IDE and LLM/AI settings ([#141](https://github.com/toddeTV/quick-conf/issues/141)) ([dfbe338](https://github.com/toddeTV/quick-conf/commit/dfbe338ef96b17b8b4618562a6dffce297508c60))
+* switch `@nuxt/content` to native sqlite connector ([#135](https://github.com/toddeTV/quick-conf/issues/135)) ([ae213c9](https://github.com/toddeTV/quick-conf/commit/ae213c9d29c961c8030c0791ca809a4a5e4a5b13))
+* update dependencies & refresh Nuxt Studio patch artifacts ([#132](https://github.com/toddeTV/quick-conf/issues/132)) ([e4a4a69](https://github.com/toddeTV/quick-conf/commit/e4a4a69f6a6e3db9731ea41d35803a4fab671725))
+
+
+### Documentation
+
+* expand README key features and demo context ([#148](https://github.com/toddeTV/quick-conf/issues/148)) ([ef8ce3d](https://github.com/toddeTV/quick-conf/commit/ef8ce3d3c0b983c01e37483754d5b76056487ef1))
+* update usage guide with PRINTED Europe showcase entry ([#133](https://github.com/toddeTV/quick-conf/issues/133)) ([affd833](https://github.com/toddeTV/quick-conf/commit/affd83342d4869e3d7d46c9a2329c918df2ba299))
+
 ## [1.1.0](https://github.com/toddeTV/quick-conf/compare/v1.0.0...v1.1.0) (2026-02-06)
 
 
