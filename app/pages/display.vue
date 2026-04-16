@@ -117,6 +117,7 @@ useSeoMeta({
   ogTitle: () => meta.value.ogTitle,
   description: () => meta.value.description,
   ogDescription: () => meta.value.ogDescription,
+  robots: 'noindex, nofollow',
 })
 </script>
 
