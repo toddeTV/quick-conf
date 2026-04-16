@@ -299,9 +299,16 @@ export async function useDisplayScheduleData(
 
     if (!hasValidSelectedStage && stageList && stageList.length > 0) {
       if (import.meta.client && settings.value.selectedStageSlug) {
+        const toastDescriptionParts = [
+          `selectedStageSlug=${settings.value.selectedStageSlug}`,
+          `availableStages=${stageList.map(stage => stage.slug).join(',')}`,
+          `dayMode=${settings.value.dayMode}`,
+          `dayISO=${settings.value.dayISO ?? 'unset'}`,
+        ]
+
         toast.add({
           color: 'error',
-          description: `selectedStageSlug=${settings.value.selectedStageSlug}; availableStages=${stageList.map(stage => stage.slug).join(',')}; dayMode=${settings.value.dayMode}; dayISO=${settings.value.dayISO ?? 'unset'}`,
+          description: toastDescriptionParts.join('; '),
           icon: 'lucide:triangle-alert',
           title: 'Invalid stage in display settings',
         })
