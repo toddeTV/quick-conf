@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/toddeTV/quick-conf/compare/v1.2.1...v1.2.2) (2026-04-17)
+
+
+### Miscellaneous Chores
+
+* bump version to 1.3.0-rc.0 after release ([#153](https://github.com/toddeTV/quick-conf/issues/153)) ([7f1bb9a](https://github.com/toddeTV/quick-conf/commit/7f1bb9a6fe4ae85d9c6342fa99f036bf46ab2ef0))
+
 ## [1.2.1](https://github.com/toddeTV/quick-conf/compare/v1.2.0...v1.2.1) (2026-04-17)
 
 
