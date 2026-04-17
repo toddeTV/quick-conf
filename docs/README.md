@@ -1,7 +1,7 @@
 # Documentation
 
 > [!IMPORTANT]
-> This documentation applies to **quick-conf v1.2.0**. <!-- x-release-please-version -->
+> This documentation applies to **quick-conf v1.3.0-rc.0**. <!-- x-release-please-version -->
 
 > [!TIP]
 > **Looking for the documentation for your version?** You can always find the documentation matching your installed version by clicking the **version number** in the footer of your own website instance.<br>
