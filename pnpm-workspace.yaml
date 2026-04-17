@@ -1,5 +1,6 @@
 shellEmulator: true
 trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 10080
 patchedDependencies:
   nuxt-studio@1.6.0: patches/nuxt-studio.patch
 allowBuilds:
