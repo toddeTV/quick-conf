@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.1](https://github.com/toddeTV/quick-conf/compare/v1.2.0...v1.2.1) (2026-04-17)
+
+
+### Bug Fixes
+
+* add trust policy grace period for fresh installs ([#152](https://github.com/toddeTV/quick-conf/issues/152)) ([ae778f1](https://github.com/toddeTV/quick-conf/commit/ae778f118952153ff844dffafc2b821705e315dc))
+
+
+### Miscellaneous Chores
+
+* bump version to 1.3.0-rc.0 after release ([#150](https://github.com/toddeTV/quick-conf/issues/150)) ([2cdeca2](https://github.com/toddeTV/quick-conf/commit/2cdeca27179a1cd86f96c7b842208f0472b2bb7b))
+
 ## [1.2.0](https://github.com/toddeTV/quick-conf/compare/v1.1.0...v1.2.0) (2026-04-16)
 
 
